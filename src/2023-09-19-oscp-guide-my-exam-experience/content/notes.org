@@ -1,0 +1,100 @@
+#+TITLE: OSCP Guide: My Exam Experience
+#+AUTHOR: Leonardo Tamiano
+
+* Lab Information
+  - *Start Lab time*: [2023-06-01]
+  - *End lab time*: [2023-08-23]
+
+  ------------------------    
+
+  *Challenges*:
+
+  - [X] *Medtech*
+    - start: [2023-06-03 sab]
+    - end: [2023-06-23 ven]
+
+  - [X] *Relia*
+    - start: [2023-07-02 dom]
+    - end: [2023-07-18 mar]
+
+  - [X] *OSCP-A*
+    - start: [2023-07-26 mer]
+    - end: [2023-07-29 sab]
+
+  - [X] *OSCP-B*
+    - start: [2023-07-30 dom]
+    - end: [2023-08-13 dom]
+
+  - [X] *OSCP-C*
+    - start: [2023-08-14 lun]
+    - end: [2023-08-15 mar]
+
+  - [ ] *Skylark*
+    - start: [2023-08-16 mer]
+
+  ------------------------
+
+  *Modules and exercies*:
+
+  Did more than 80% of exercises in each of the 25 modules. 
+  
+* Exam Timeline
+
+  - Start Exam: [2023-08-20 Sun 14:00]
+  - Stop Exam: [2023-08-21 lun 13:45]
+
+  --------------------------------
+
+  - Exam Timeline:
+    - Start AD: [2023-08-20 Sun 14:00]
+    - Finish AD: [2023-08-20 Sun 16:11]
+
+    - Start target 1: [2023-08-20 Sun 16:35]
+    - Finish target 1: [2023-08-20 Sun 17:52]
+      
+      # enough points for pass
+  
+      # no flag
+    - Start target 2: [2023-08-20 Sun 18:39]
+    - Stop target 2: [2023-08-20 Sun 20:12]
+
+    - Start target 3: [2023-08-20 Sun 21:13]
+    - Finish target 3: [2023-08-20 Sun 22:37]    
+
+      # no flag
+    - Continue target 2: [2023-08-20 Sun 23:31]
+    - Stop target 2: [2023-08-21 Sun 04:01]
+
+  --------------------------------
+
+  - Report Timeline:
+    - Start report: [2023-08-21 Sun 04:15]
+    - Stop report: [2023-08-21 Sun 06:50]
+
+    - Continue report: [2023-08-21 lun 13:00]
+    - Stop report: [2023-08-21 lun 16:00]
+
+    - Continue report: [2023-08-21 lun 17:00]
+    - Stop report: [2023-08-21 lun 22:30]
+  
+* Tips
+  - invest a lots, lots and lots of time
+  
+  - pay a lot of attention to course material
+    
+  - practice, practice and practice
+    - Challenges machines
+    - Hack The Box
+    - Try Hack Me
+    - Proving Grounds (also by offsec)
+
+  - prepare your cheatsheet
+  
+  - be methodical, and take note of everything
+
+  - remember every command + every output that let you move forward
+
+  - understand what you're being tested on
+
+  - prepare, prepare, prepare, prepare, prepare
+  

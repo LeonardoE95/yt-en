@@ -12,6 +12,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 26 | Teaching material | Channel | 2024-01-19 | [link](https://youtu.be/jM1l5OXpkXM) | [link](./src/2024-01-19-channel-teaching-material)
 | 25 | From Scratch – Caesar Cipher in Python | From Scratch | 2024-01-11 | [link](https://youtu.be/pDlmmimbgcU) | [link](./src/2024-01-11-from-scratch-caesar-cipher-in-python)
 | 24 | HTB Active 1/2 – Walkthrough | HTB | 2024-01-05 | [link](https://youtu.be/_HEAIN7J080) | [link](./src/2024-01-05-htb-active-walkthrough)
 | 23 | OSCP Guide – Full Free Course | OSCP Guide | 2023-12-30 | [link](https://youtu.be/HUmtfFKKWWc) | [link](./src/2023-12-30-oscp-guide-full)

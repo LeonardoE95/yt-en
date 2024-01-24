@@ -12,9 +12,12 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 27 | HTB Active 2/2 – Report | HTB | 2024-01-24 | [link](https://youtu.be/jewCD2cAqHA) | [link](./src/2024-01-24-htb-active-report)
+| 26 | Teaching material | Channel | 2024-01-19 | [link](https://youtu.be/jM1l5OXpkXM) | [link](./src/2024-01-19-channel-teaching-material)
+| 25 | From Scratch – Caesar Cipher in Python | From Scratch | 2024-01-11 | [link](https://youtu.be/pDlmmimbgcU) | [link](./src/2024-01-11-from-scratch-caesar-cipher-in-python)
 | 24 | HTB Active 1/2 – Walkthrough | HTB | 2024-01-05 | [link](https://youtu.be/_HEAIN7J080) | [link](./src/2024-01-05-htb-active-walkthrough)
 | 23 | OSCP Guide – Full Free Course | OSCP Guide | 2023-12-30 | [link](https://youtu.be/HUmtfFKKWWc) | [link](./src/2023-12-30-oscp-guide-full)
-| 22 | HTB Bashed 2/2 – Report Writing | HTB | 2023-12-26 | [link](https://youtu.be/2OQTfLESniY) | [link](./src/2023-12-26-htb-bashed-report-writing)
+| 22 | HTB Bashed 2/2 – Report | HTB | 2023-12-26 | [link](https://youtu.be/2OQTfLESniY) | [link](./src/2023-12-26-htb-bashed-report)
 | 21 | HTB Bashed 1/2 – Boot2Root Walkthrough | HTB | 2023-12-20 | [link](https://youtu.be/5j67dhw-D1Q) | [link](./src/2023-12-20-htb-bashed-walkthrough)
 | 20 | Conference Review – M0lecon 2023 | Research | 2023-12-17 | [link](https://youtu.be/ftIVhfdu9oQ) | [link](./src/2023-12-17-research-conference-m0leco-2023)
 | 19 | Scientific Review – The Impact of Code Patterns on the Security Testing of Web Applications | Research | 2023-12-13 | [link](https://youtu.be/N65QYGc1Zo4) | [link](./src/2023-12-13-research-paper-testability-tarpits)

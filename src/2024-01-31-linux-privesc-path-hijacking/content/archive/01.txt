@@ -1,0 +1,1 @@
+This is a secret that you can just read, but not write.

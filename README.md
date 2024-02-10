@@ -12,6 +12,9 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 30 | Enigma Machine in C – Part 1/3 – Overview | From Scratch | 2024-02-10 | [link](https://youtu.be/iZt62MDtNFE) | [link](./src/2024-02-10-from-scratch-enigma-machine-overview)
+| 29 | Pseudo-Randomness – Breaking LCG | Pseudo-Randomness | 2024-02-07 | [link](https://youtu.be/EdRK9Ap32Vg) | [link](./src/2024-02-07-pseudo-randomness-breaking-lcg)
+| 28 | Linux Privilege Escalation – PATH Hijacking | Linux privilege escalation | 2024-01-31 | [link](https://youtu.be/IPs5xz5aEzk) | [link](./src/2024-01-31-linux-privesc-path-hijacking)
 | 27 | HTB Active 2/2 – Report | HTB | 2024-01-24 | [link](https://youtu.be/jewCD2cAqHA) | [link](./src/2024-01-24-htb-active-report)
 | 26 | Teaching material | Channel | 2024-01-19 | [link](https://youtu.be/jM1l5OXpkXM) | [link](./src/2024-01-19-channel-teaching-material)
 | 25 | From Scratch – Caesar Cipher in Python | From Scratch | 2024-01-11 | [link](https://youtu.be/pDlmmimbgcU) | [link](./src/2024-01-11-from-scratch-caesar-cipher-in-python)
@@ -28,7 +31,7 @@ Below you can find a table containing useful metadata for my videos.
 | 14 | OSCP Guide: Client-Side Attacks | OSCP Guide | 2023-11-19 | [link](https://youtu.be/qBexs2GXCGw) | [link](./src/2023-11-19-oscp-guide-client-side-attacks)
 | 13 | OSCP Guide: Port Forwarding and Pivoting | OSCP Guide | 2023-11-13 | [link](https://youtu.be/xn2poczX1rg) | [link](./src/2023-11-13-oscp-guide-port-forwarding-and-pivoting)
 | 12 | OSCP Guide: Using Existing Exploits | OSCP Guide | 2023-11-04 | [link](https://youtu.be/RCDpxk3ym80) | [link](./src/2023-11-04-oscp-guide-using-existing-exploits)
-| 11 | Hexdump in C – Programming From Scratch | From Scratch | 2023-11-04 | [link](https://youtu.be/kI55YEU_LvY) | [link](./src/2023-11-04-from-scratch-hexdump-in-C)
+| 11 | From Scratch – Hexdump in C | From Scratch | 2023-11-04 | [link](https://youtu.be/kI55YEU_LvY) | [link](./src/2023-11-04-from-scratch-hexdump-in-C)
 | 10 | Foundations – What is the Meaning of a Bit? | Foundations | 2023-10-30 | [link](https://youtu.be/quvNfOmVKsE) | [link](./src/2023-10-30-foundations-the-meaning-of-bits)
 | 9 | Emacs – A Gentle Introduction | Emacs | 2023-10-24 | [link](https://youtu.be/WHYCQmIlbxM) | [link](./src/2023-10-24-emacs-gentle-introduction)
 | 8 | OSCP Guide: Password Attacks | OSCP Guide | 2023-10-20 | [link](https://youtu.be/qaA2BgmL8VY) | [link](./src/2023-10-20-oscp-guide-password-attacks)

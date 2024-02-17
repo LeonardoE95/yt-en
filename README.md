@@ -37,7 +37,7 @@ Below you can find a table containing useful metadata for my videos.
 | 9 | Emacs – A Gentle Introduction | Emacs | 2023-10-24 | [link](https://youtu.be/WHYCQmIlbxM) | [link](./src/2023-10-24-emacs-gentle-introduction)
 | 8 | OSCP Guide: Password Attacks | OSCP Guide | 2023-10-20 | [link](https://youtu.be/qaA2BgmL8VY) | [link](./src/2023-10-20-oscp-guide-password-attacks)
 | 7 | OSCP Guide: Windows | OSCP Guide | 2023-10-17 | [link](https://youtu.be/7ggBhjHIDsY) | [link](./src/2023-10-17-oscp-guide-windows)
-| 6 | OSCP Guide: Linux | OSCP Guide | 2023-10-12 | [link](https://youtu.be/3nPlARBbKiU) | [link](./src/2023-10-12-oscp-guide-linux)
+| 6 | OSCP Guide: Linux | OSCP Guide | 2023-10-12 | [link](https://youtu.be/4EbRgxHnvu8) | [link](./src/2023-10-12-oscp-guide-linux)
 | 5 | Breaking Pseudo-Randomness – On Linear Congruential Generators | Lecture | 2023-10-11 | [link](https://youtu.be/i6z2Fp0iEbE) | [link](./src/2023-10-11-lecture-breaking-prngs-on-lcg)
 | 4 | OSCP Guide: Web | OSCP Guide | 2023-09-27 | [link](https://youtu.be/3nPlARBbKiU) | [link](./src/2023-09-27-oscp-guide-web)
 | 3 | OSCP Guide: Pre-Requisites | OSCP Guide | 2023-09-27 | [link](https://youtu.be/BZAYVhHOnBk) | [link](./src/2023-09-27-oscp-guide-pre-requisites)

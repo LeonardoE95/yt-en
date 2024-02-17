@@ -9,8 +9,10 @@
 <item>
 <title>Introduction to Web Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#fe5qBuxumRM</guid>
-<pubDate>Wed, 14 Feb 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[Hi, and welcome to this new video!<br>
+<link>https://youtu.be/fe5qBuxumRM</link>
+<pubDate>mer, 14 feb 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
 <br>
 In this video I introduce the most important ideas, topics and tools that are related to Web Exploitation. Specifically, in the video I discuss the main components of the web and how they all come to interact together to form web applications.<br>
 <br>
@@ -39,24 +41,28 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-14-web-exploitation-introduction<br>
-SecureBank: https://github.com/ssrdio/SecureBank     <br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-14-web-exploitation-introduction"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-14-web-exploitation-introduction </a> <br>
+- SecureBank: <a href="https://github.com/ssrdio/SecureBank"> https://github.com/ssrdio/SecureBank </a> <br>
    <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Enigma Machine in C – Part 1/3 – Overview</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#iZt62MDtNFE</guid>
-<pubDate>Sat, 10 Feb 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[Hi, and welcome to this video!<br>
+<link>https://youtu.be/iZt62MDtNFE</link>
+<pubDate>sab, 10 feb 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this video!<br>
 <br>
 This is the first video of a small series of videos in which I will show how to implement the enigma machine using the C programming language.<br>
 <br>
@@ -84,27 +90,31 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-10-from-scratch-enigma-machine-overview<br>
-Code: https://github.com/LeonardoE95/enigma-machine<br>
-Blog post: https://blog.leonardotamiano.xyz/tech/enigma-machine-c/<br>
-Enigma Historical Configuration: https://www.cryptomuseum.com/crypto/enigma/<br>
-Double Step Mechanism: https://www.youtube.com/watch?v=hcVhQeZ5gI4<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-10-from-scratch-enigma-machine-overview"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-10-from-scratch-enigma-machine-overview </a> <br>
+Code: <a href="https://github.com/LeonardoE95/enigma-machine"> https://github.com/LeonardoE95/enigma-machine </a> <br>
+Blog post: <a href="https://blog.leonardotamiano.xyz/tech/enigma-machine-c/"> https://blog.leonardotamiano.xyz/tech/enigma-machine-c/ </a> <br>
+Enigma Historical Configuration: <a href="https://www.cryptomuseum.com/crypto/enigma/"> https://www.cryptomuseum.com/crypto/enigma/ </a> <br>
+Double Step Mechanism: <a href="https://www.youtube.com/watch?v=hcVhQeZ5gI4"> https://www.youtube.com/watch?v=hcVhQeZ5gI4 </a> <br>
      <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Pseudo-Randomness – Breaking LCG</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#EdRK9Ap32Vg</guid>
-<pubDate>Wed, 07 Feb 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[Hi everyone and welcome to this new video!<br>
+<link>https://youtu.be/EdRK9Ap32Vg</link>
+<pubDate>mer, 07 feb 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi everyone and welcome to this new video!<br>
 <br>
 In this video I show how to break the Linear Congruential Generator, which is one one of the simplest form of pseudo-random number generators you can use.<br>
 <br>
@@ -128,25 +138,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-07-pseudo-randomness-breaking-lcg<br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-07-pseudo-randomness-breaking-lcg<br>
-- Original lecture: https://www.youtube.com/watch?v=i6z2Fp0iEbE<br>
-- GLIC code: https://ftp.gnu.org/gnu/libc/glibc-2.36.tar.bz2<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-07-pseudo-randomness-breaking-lcg"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-07-pseudo-randomness-breaking-lcg </a> <br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-07-pseudo-randomness-breaking-lcg"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-07-pseudo-randomness-breaking-lcg </a> <br>
+- Original lecture: <a href="https://www.youtube.com/watch?v=i6z2Fp0iEbE"> https://www.youtube.com/watch?v=i6z2Fp0iEbE </a> <br>
+- GLIC code: <a href="https://ftp.gnu.org/gnu/libc/glibc-2.36.tar.bz2"> https://ftp.gnu.org/gnu/libc/glibc-2.36.tar.bz2 </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Linux Privilege Escalation – PATH Hijacking</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#IPs5xz5aEzk</guid>
-<pubDate>Wed, 31 Jan 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[Hi and welcome to this new video!<br>
+<link>https://youtu.be/IPs5xz5aEzk</link>
+<pubDate>mer, 31 gen 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
 <br>
 In this video I explained the idea behind PATH hijacking, a common technique for doing privilege escalation in linux machines. During the video I discuss the role of the PATH, and how it can be abused against vulnerable programs to perform privilege escalation.<br>
 <br>
@@ -169,23 +183,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-31-linux-privesc-path-hijacking<br>
-https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-31-linux-privesc-path-hijacking<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-31-linux-privesc-path-hijacking"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-31-linux-privesc-path-hijacking </a> <br>
+<a href="https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-31-linux-privesc-path-hijacking"> https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-31-linux-privesc-path-hijacking </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>HTB Active 2/2 – Report</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#jewCD2cAqHA</guid>
-<pubDate>Wed, 24 Jan 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I show how to write a penetration testing report detailing the Active HTB machine. During the report we analyze the various vulnerabilities that allowed us to complete the machine. You can find the final report within the github repository linked in the description. <br>
+<link>https://youtu.be/jewCD2cAqHA</link>
+<pubDate>mer, 24 gen 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I show how to write a penetration testing report detailing the Active HTB machine. During the report we analyze the various vulnerabilities that allowed us to complete the machine. You can find the final report within the github repository linked in the description. <br>
 <br>
 If you are interested in more content like this, please let me know and subscribe to the channel!<br>
 <br>
@@ -203,23 +221,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-24-htb-active-report<br>
-Final report: https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-24-htb-active-report/content/active-report.pdf<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-24-htb-active-report"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-24-htb-active-report </a> <br>
+Final report: <a href="https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-24-htb-active-report/content/active-report.pdf"> https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-24-htb-active-report/content/active-report.pdf </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Teaching material</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#jM1l5OXpkXM</guid>
-<pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[The handling of material is a crucial aspect of teaching.<br>
+<link>https://youtu.be/jM1l5OXpkXM</link>
+<pubDate>ven, 19 gen 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+The handling of material is a crucial aspect of teaching.<br>
 <br>
 In this video I briefly talk about a solution which I'm trying right now on both my youtube channels (italian and english) in order to manage the material I create for the various videos. The final solution is a git repository that is then uploaded to github. The repository contains a table of videos with useful metadata. Then, for each video, we have a specific folder that contains the material for that video.<br>
 <br>
@@ -239,23 +261,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-19-channel-teaching-material<br>
-https://github.com/LeonardoE95/yt-en<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-19-channel-teaching-material"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-19-channel-teaching-material </a> <br>
+<a href="https://github.com/LeonardoE95/yt-en"> https://github.com/LeonardoE95/yt-en </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>From Scratch – Caesar Cipher in Python</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#pDlmmimbgcU</guid>
-<pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I show how to implement a simple caesar cipher utility in python. The Caesar cipher represents one of the first historical cipher used by humans in order to protect their information.<br>
+<link>https://youtu.be/pDlmmimbgcU</link>
+<pubDate>gio, 11 gen 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I show how to implement a simple caesar cipher utility in python. The Caesar cipher represents one of the first historical cipher used by humans in order to protect their information.<br>
 <br>
 If you're interested in more videos of the series please let me know, and if you're interested in the final code, checkout the link in the description.<br>
 <br>
@@ -276,23 +302,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-11-from-scratch-caesar-cipher-in-python<br>
-Code: https://github.com/LeonardoE95/yt-en/blob/main/src/23-from-scratch-caesar-cipher/caesar.py<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-11-from-scratch-caesar-cipher-in-python"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-11-from-scratch-caesar-cipher-in-python </a> <br>
+Code: <a href="https://github.com/LeonardoE95/yt-en/blob/main/src/23-from-scratch-caesar-cipher/caesar.py"> https://github.com/LeonardoE95/yt-en/blob/main/src/23-from-scratch-caesar-cipher/caesar.py </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>HTB Active 1/2 – Walkthrough</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#_HEAIN7J080</guid>
-<pubDate>Fri, 05 Jan 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I showcase a full walkthrough of the Active machine provided by the Hack The Box platform.<br>
+<link>https://youtu.be/_HEAIN7J080</link>
+<pubDate>ven, 05 gen 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I showcase a full walkthrough of the Active machine provided by the Hack The Box platform.<br>
 <br>
 By doing full htb walkthroughs we will be able to put into practice what we discussed in the OSCP guide. <br>
 <br>
@@ -317,26 +347,30 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-05-htb-active-walkthrough<br>
-Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-05-htb-active-walkthrough <br>
-Article on GPP: https://adsecurity.org/?p=2288<br>
-Microsoft AES-key: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-05-htb-active-walkthrough"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-05-htb-active-walkthrough </a> <br>
+Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-05-htb-active-walkthrough "> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-05-htb-active-walkthrough  </a> <br>
+Article on GPP: <a href="https://adsecurity.org/?p=2288"> https://adsecurity.org/?p=2288 </a> <br>
+Microsoft AES-key: <a href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN"> https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN </a> <br>
    <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide – Full Free Course</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#HUmtfFKKWWc</guid>
-<pubDate>Sat, 30 Dec 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[Upload of the full OSCP Guide course.<br>
+<link>https://youtu.be/HUmtfFKKWWc</link>
+<pubDate>sab, 30 dic 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Upload of the full OSCP Guide course.<br>
 Here below you can also find the playlist with the single videos.<br>
 <br>
 -------------------------<br>
@@ -456,26 +490,30 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-30-oscp-guide-full<br>
-- Github repository: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide article: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
-- OSCP Guide playlist: https://youtu.be/9mrf-WyzkpE?si=1sgYae3pebqkaJkp<br>
-- PEN 200 Course: https://www.offsec.com/courses/pen-200/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-30-oscp-guide-full"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-30-oscp-guide-full </a> <br>
+- Github repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide article: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
+- OSCP Guide playlist: <a href="https://youtu.be/9mrf-WyzkpE?si=1sgYae3pebqkaJkp"> https://youtu.be/9mrf-WyzkpE?si=1sgYae3pebqkaJkp </a> <br>
+- PEN 200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>HTB Bashed 2/2 – Report</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#2OQTfLESniY</guid>
-<pubDate>Tue, 26 Dec 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I show how to write a penetration testing report detailing the Bashed HTB machine. During the report we analyze the various vulnerabilities that allowed us to complete the machine.<br>
+<link>https://youtu.be/2OQTfLESniY</link>
+<pubDate>mar, 26 dic 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I show how to write a penetration testing report detailing the Bashed HTB machine. During the report we analyze the various vulnerabilities that allowed us to complete the machine.<br>
 <br>
 You can find the final report, both the source code (org-mode file), as well as the final artifact (pdf file) within the github repository linked in the description. You will also find a link that points to the report utility used throughout the video in order to generate the final artifact.<br>
 <br>
@@ -504,23 +542,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-26-htb-bashed-report<br>
-Final report: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-26-htb-bashed-report-writing<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-26-htb-bashed-report"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-26-htb-bashed-report </a> <br>
+Final report: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-26-htb-bashed-report-writing"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-26-htb-bashed-report-writing </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>HTB Bashed 1/2 – Boot2Root Walkthrough</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#5j67dhw-D1Q</guid>
-<pubDate>Wed, 20 Dec 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I showcase a full walkthrough of the Bashed machine provided by the Hack The Box platform.<br>
+<link>https://youtu.be/5j67dhw-D1Q</link>
+<pubDate>mer, 20 dic 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I showcase a full walkthrough of the Bashed machine provided by the Hack The Box platform.<br>
 <br>
 By doing full htb walkthroughs we will be able to put into practice what we discussed in the OSCP guide. <br>
 <br>
@@ -548,24 +590,28 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-20-htb-bashed-walkthrough<br>
-temporary report: https://github.com/LeonardoE95/htb/blob/main/src/machines/01-bashed/raw-bashed.org<br>
-pspy64: https://github.com/DominicBreuker/pspy<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-20-htb-bashed-walkthrough"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-20-htb-bashed-walkthrough </a> <br>
+temporary report: <a href="https://github.com/LeonardoE95/htb/blob/main/src/machines/01-bashed/raw-bashed.org"> https://github.com/LeonardoE95/htb/blob/main/src/machines/01-bashed/raw-bashed.org </a> <br>
+pspy64: <a href="https://github.com/DominicBreuker/pspy"> https://github.com/DominicBreuker/pspy </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Conference Review – M0lecon 2023</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#ftIVhfdu9oQ</guid>
-<pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I review the experience of joining the m0lecon 2023 conference in Turin, Italy.<br>
+<link>https://youtu.be/ftIVhfdu9oQ</link>
+<pubDate>dom, 17 dic 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I review the experience of joining the m0lecon 2023 conference in Turin, Italy.<br>
 <br>
 The conference was filled with extremely fascinating contributions by various authors. For each talk, I will go over the main idea of the talk and leave some references so that if you are interested in the subject you can explore it yourself. The resouces section for this video is thus sub-divided by the specific talk in order to keep everything organized.<br>
 <br>
@@ -585,56 +631,60 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-17-research-conference-m0leco-2023<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-17-research-conference-m0leco-2023"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-17-research-conference-m0leco-2023 </a> <br>
 - Talk 1 – Rowhammer: The Power of Bitflips<br>
-  - https://publications.cispa.saarland/3954/<br>
-  - https://publications.cispa.saarland/4008/<br>
-  - https://www.jonasjuffinger.com/papers/mastersthesis.pdf<br>
+  - <a href="https://publications.cispa.saarland/3954/"> https://publications.cispa.saarland/3954/ </a> <br>
+  - <a href="https://publications.cispa.saarland/4008/"> https://publications.cispa.saarland/4008/ </a> <br>
+  - <a href="https://www.jonasjuffinger.com/papers/mastersthesis.pdf"> https://www.jonasjuffinger.com/papers/mastersthesis.pdf </a> <br>
 <br>
 - Talk 2 – Developments in Isogeny-based Cryptography<br>
-  - https://eprint.iacr.org/2022/975.pdf<br>
-  - https://www.youtube.com/watch?v=Az3qAdX3e40<br>
-  - https://hal.science/hal-04023441/document<br>
-  - https://github.com/Breaking-SIDH/direct-attack<br>
-  - https://eprint.iacr.org/2023/660.pdf<br>
-  - https://research.nccgroup.com/2022/08/08/implementing-the-castryck-decru-sidh-key-recovery-attack-in-sagemath/<br>
-  - https://cryptohack.org/<br>
+  - <a href="https://eprint.iacr.org/2022/975.pdf"> https://eprint.iacr.org/2022/975.pdf </a> <br>
+  - <a href="https://www.youtube.com/watch?v=Az3qAdX3e40"> https://www.youtube.com/watch?v=Az3qAdX3e40 </a> <br>
+  - <a href="https://hal.science/hal-04023441/document"> https://hal.science/hal-04023441/document </a> <br>
+  - <a href="https://github.com/Breaking-SIDH/direct-attack"> https://github.com/Breaking-SIDH/direct-attack </a> <br>
+  - <a href="https://eprint.iacr.org/2023/660.pdf"> https://eprint.iacr.org/2023/660.pdf </a> <br>
+  - <a href="https://research.nccgroup.com/2022/08/08/implementing-the-castryck-decru-sidh-key-recovery-attack-in-sagemath/"> https://research.nccgroup.com/2022/08/08/implementing-the-castryck-decru-sidh-key-recovery-attack-in-sagemath/ </a> <br>
+  - <a href="https://cryptohack.org/"> https://cryptohack.org/ </a> <br>
 <br>
 - Talk 3 – FloatZone: A surprisping application of floating point additions<br>
-  - https://www.vusec.net/projects/floatzone/<br>
-  - https://github.com/vusec/floatzone<br>
-  - https://download.vusec.net/papers/floatzone_sec23.pdf<br>
+  - <a href="https://www.vusec.net/projects/floatzone/"> https://www.vusec.net/projects/floatzone/ </a> <br>
+  - <a href="https://github.com/vusec/floatzone"> https://github.com/vusec/floatzone </a> <br>
+  - <a href="https://download.vusec.net/papers/floatzone_sec23.pdf"> https://download.vusec.net/papers/floatzone_sec23.pdf </a> <br>
 <br>
 - Talk 4 – Web Session Integrity Vulnerabilities<br>
-  - https://www.usenix.org/conference/usenixsecurity23/presentation/squarcina<br>
-  - https://www.usenix.org/system/files/sec23_slides_squarcina-marco.pdf<br>
-  - https://www.tuwien.at/en/tu-wien/news/news-articles/news/internetsicherheit-gefahr-durch-namenlose-cookies<br>
-  - https://www.tuwien.at/en/tu-wien/news/news-articles/news/gefahr-aus-der-subdomain-1<br>
+  - <a href="https://www.usenix.org/conference/usenixsecurity23/presentation/squarcina"> https://www.usenix.org/conference/usenixsecurity23/presentation/squarcina </a> <br>
+  - <a href="https://www.usenix.org/system/files/sec23_slides_squarcina-marco.pdf"> https://www.usenix.org/system/files/sec23_slides_squarcina-marco.pdf </a> <br>
+  - <a href="https://www.tuwien.at/en/tu-wien/news/news-articles/news/internetsicherheit-gefahr-durch-namenlose-cookies"> https://www.tuwien.at/en/tu-wien/news/news-articles/news/internetsicherheit-gefahr-durch-namenlose-cookies </a> <br>
+  - <a href="https://www.tuwien.at/en/tu-wien/news/news-articles/news/gefahr-aus-der-subdomain-1"> https://www.tuwien.at/en/tu-wien/news/news-articles/news/gefahr-aus-der-subdomain-1 </a> <br>
 <br>
 - Talk 5 – Virtualbox N-day vm escape exploit<br>
-  - https://exploiter.dev/blog<br>
-  - https://exploiter.dev/blog/2023/Virtualbox-research.html<br>
-  - https://nvd.nist.gov/vuln/detail/CVE-2019-2722<br>
+  - <a href="https://exploiter.dev/blog"> https://exploiter.dev/blog </a> <br>
+  - <a href="https://exploiter.dev/blog/2023/Virtualbox-research.html"> https://exploiter.dev/blog/2023/Virtualbox-research.html </a> <br>
+  - <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-2722"> https://nvd.nist.gov/vuln/detail/CVE-2019-2722 </a> <br>
 <br>
 - Talk 6 – PyJails in the Wild: Bringing CTF Challenges to the Real World<br>
- - https://blog.splitline.tw/<br>
- - https://github.com/splitline<br>
- - https://github.com/splitline/Pickora<br>
+ - <a href="https://blog.splitline.tw/"> https://blog.splitline.tw/ </a> <br>
+ - <a href="https://github.com/splitline"> https://github.com/splitline </a> <br>
+ - <a href="https://github.com/splitline/Pickora"> https://github.com/splitline/Pickora </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Scientific Review – The Impact of Code Patterns on the Security Testing of Web Applications</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#N65QYGc1Zo4</guid>
-<pubDate>Wed, 13 Dec 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I read a scientific paper that came out last year on the topic of code auditing for web application backend code.<br>
+<link>https://youtu.be/N65QYGc1Zo4</link>
+<pubDate>mer, 13 dic 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I read a scientific paper that came out last year on the topic of code auditing for web application backend code.<br>
 If you are interested in this content, where we analyze in-depth modern scientific research regarding computer security, let me know!<br>
 <br>
 The authors of the paper introduced a novel way of thinking about residual risks when using code analyzers in the context of static application security testing (SAST). In particular, the authors introduced the notion of "testability tarpit" as a specific pattern of code that is known to cause problems for a class of static analysis tools. When these tools analyze a given piece of code, depending on how the code is written, they might find more or less difficulty to follow what is going on in the code in order to detect potential injection vulnerabilities. By analyzing how many such patterns are present in a given codebase, it is possible to gain more awareness on how to interpret the results of the SAST tools used within that same codebase.<br>
@@ -670,25 +720,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-13-research-paper-testability-tarpits<br>
-Paper link: https://www.ndss-symposium.org/ndss-paper/auto-draft-206/<br>
-Github project: https://github.com/enferas/TestabilityTarpits<br>
-Joern: https://joern.io/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-13-research-paper-testability-tarpits"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-13-research-paper-testability-tarpits </a> <br>
+Paper link: <a href="https://www.ndss-symposium.org/ndss-paper/auto-draft-206/"> https://www.ndss-symposium.org/ndss-paper/auto-draft-206/ </a> <br>
+Github project: <a href="https://github.com/enferas/TestabilityTarpits"> https://github.com/enferas/TestabilityTarpits </a> <br>
+Joern: <a href="https://joern.io/"> https://joern.io/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Expectations and Methodologies for Exam</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#6jG22gXdo4I</guid>
-<pubDate>Fri, 08 Dec 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss the final section of my OSCP technical guide, discussing expectations and methodologies useful to know for the final exam.<br>
+<link>https://youtu.be/6jG22gXdo4I</link>
+<pubDate>ven, 08 dic 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss the final section of my OSCP technical guide, discussing expectations and methodologies useful to know for the final exam.<br>
 <br>
 This video belongs to my OSCP guide series, in which I share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -710,24 +764,28 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-08-oscp-guide-expectations-and-methodologies-for-exam<br>
-- OSCP material: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-08-oscp-guide-expectations-and-methodologies-for-exam"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-08-oscp-guide-expectations-and-methodologies-for-exam </a> <br>
+- OSCP material: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Report Writing</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#LaI8HXdf6sM</guid>
-<pubDate>Sat, 02 Dec 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss the report writing section of my OSCP technical guide.<br>
+<link>https://youtu.be/LaI8HXdf6sM</link>
+<pubDate>sab, 02 dic 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss the report writing section of my OSCP technical guide.<br>
 <br>
 This video belongs to my OSCP guide series, in which I share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -751,28 +809,32 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-02-oscp-guide-report-writing<br>
-- OSCP material: https://github.com/LeonardoE95/OSCP<br>
-- Generation script: https://github.com/LeonardoE95/OSCP/blob/main/report/generate.sh<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
-- 0xBro obsidian video: https://0xbro.red/writeups/infosec-education/taking-effective-notes-for-oscp/<br>
-- Karl Voit article on org-mode: https://karl-voit.at/2017/09/23/orgmode-as-markup-only/<br>
-- Noraj markdown template: https://github.com/noraj/OSCP-Exam-Report-Template-Markdown<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-02-oscp-guide-report-writing"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-12-02-oscp-guide-report-writing </a> <br>
+- OSCP material: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- Generation script: <a href="https://github.com/LeonardoE95/OSCP/blob/main/report/generate.sh"> https://github.com/LeonardoE95/OSCP/blob/main/report/generate.sh </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
+- 0xBro obsidian video: <a href="https://0xbro.red/writeups/infosec-education/taking-effective-notes-for-oscp/"> https://0xbro.red/writeups/infosec-education/taking-effective-notes-for-oscp/ </a> <br>
+- Karl Voit article on org-mode: <a href="https://karl-voit.at/2017/09/23/orgmode-as-markup-only/"> https://karl-voit.at/2017/09/23/orgmode-as-markup-only/ </a> <br>
+- Noraj markdown template: <a href="https://github.com/noraj/OSCP-Exam-Report-Template-Markdown"> https://github.com/noraj/OSCP-Exam-Report-Template-Markdown </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Transistors – CS Foundations</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#7SQ3E1UWdWQ</guid>
-<pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this second episode we will explore the idea of the transistor. In particular, I will try to answer some of the following questions<br>
+<link>https://youtu.be/7SQ3E1UWdWQ</link>
+<pubDate>mar, 28 nov 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this second episode we will explore the idea of the transistor. In particular, I will try to answer some of the following questions<br>
 <br>
 - Why do we need transistors?<br>
 - What is a transistor?<br>
@@ -798,34 +860,38 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-28-foundations-transistors<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-28-foundations-transistors"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-28-foundations-transistors </a> <br>
 - Ben Eater, How semiconductors work<br>
-  - https://youtu.be/33vbFFFn04k?si=olQndVYeoa-piDMu<br>
+  - <a href="https://youtu.be/33vbFFFn04k?si=olQndVYeoa-piDMu"> https://youtu.be/33vbFFFn04k?si=olQndVYeoa-piDMu </a> <br>
 - Ben Eater - How transistor works<br>
-  - https://www.youtube.com/watch?v=DXvAlwMAxiA<br>
+  - <a href="https://www.youtube.com/watch?v=DXvAlwMAxiA"> https://www.youtube.com/watch?v=DXvAlwMAxiA </a> <br>
 - Lesics - Transistors, How do they work?<br>
-  - https://www.youtube.com/watch?v=7ukDKVHnac4<br>
+  - <a href="https://www.youtube.com/watch?v=7ukDKVHnac4"> https://www.youtube.com/watch?v=7ukDKVHnac4 </a> <br>
 - The Engineering Mindset - Transistors Explained<br>
-  - https://www.youtube.com/watch?v=J4oO7PT_nzQ<br>
+  - <a href="https://www.youtube.com/watch?v=J4oO7PT_nzQ"> https://www.youtube.com/watch?v=J4oO7PT_nzQ </a> <br>
 - Veritasium - How Does a Transistor work?<br>
-  - https://www.youtube.com/watch?v=IcrBqCFLHIY<br>
+  - <a href="https://www.youtube.com/watch?v=IcrBqCFLHIY"> https://www.youtube.com/watch?v=IcrBqCFLHIY </a> <br>
 - 101 Computing - Logic Gates & Truth Tables<br>
-  - https://www.101computing.net/logic-gates-truth-tables/<br>
+  - <a href="https://www.101computing.net/logic-gates-truth-tables/"> https://www.101computing.net/logic-gates-truth-tables/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Active Directory</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#26M3POQ_51A</guid>
-<pubDate>Thu, 23 Nov 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss the active directory section of my OSCP technical guide. This video belongs to my OSCP guide series, in which I share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/26M3POQ_51A</link>
+<pubDate>gio, 23 nov 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss the active directory section of my OSCP technical guide. This video belongs to my OSCP guide series, in which I share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -844,24 +910,28 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-23-oscp-guide-active-directory<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-23-oscp-guide-active-directory"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-23-oscp-guide-active-directory </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Client-Side Attacks</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#qBexs2GXCGw</guid>
-<pubDate>Sun, 19 Nov 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss the client side attacks technique. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/qBexs2GXCGw</link>
+<pubDate>dom, 19 nov 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss the client side attacks technique. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -878,25 +948,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-19-oscp-guide-client-side-attacks<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-19-oscp-guide-client-side-attacks"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-19-oscp-guide-client-side-attacks </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Port Forwarding and Pivoting</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#xn2poczX1rg</guid>
-<pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss the port forwarding and pivoting technique. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/xn2poczX1rg</link>
+<pubDate>lun, 13 nov 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss the port forwarding and pivoting technique. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -913,25 +987,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-13-oscp-guide-port-forwarding-and-pivoting<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-13-oscp-guide-port-forwarding-and-pivoting"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-13-oscp-guide-port-forwarding-and-pivoting </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Using Existing Exploits</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#RCDpxk3ym80</guid>
-<pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss how to use existing exploits. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/RCDpxk3ym80</link>
+<pubDate>sab, 04 nov 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss how to use existing exploits. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -947,27 +1025,31 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-04-oscp-guide-using-existing-exploits<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
-- Docker image for CVE-2021-41773: https://gist.github.com/christophetd/cf214c3b23b969b6629ad2570d884299<br>
-- Custom exploit for CVE-2021-41773: https://github.com/CalfCrusher/Path-traversal-RCE-Apache-2.4.49-2.4.50-Exploit<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-04-oscp-guide-using-existing-exploits"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-04-oscp-guide-using-existing-exploits </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
+- Docker image for CVE-2021-41773: <a href="https://gist.github.com/christophetd/cf214c3b23b969b6629ad2570d884299"> https://gist.github.com/christophetd/cf214c3b23b969b6629ad2570d884299 </a> <br>
+- Custom exploit for CVE-2021-41773: <a href="https://github.com/CalfCrusher/Path-traversal-RCE-Apache-2.4.49-2.4.50-Exploit"> https://github.com/CalfCrusher/Path-traversal-RCE-Apache-2.4.49-2.4.50-Exploit </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>From Scratch – Hexdump in C</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#kI55YEU_LvY</guid>
-<pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[Hi, everyone, and welcome to this new series called "Programming From Scratch". The objective of this series will be to showcase how to build simple and educational software using bare minimals tools, without any extra libraries or frameworks.<br>
+<link>https://youtu.be/kI55YEU_LvY</link>
+<pubDate>sab, 04 nov 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, everyone, and welcome to this new series called "Programming From Scratch". The objective of this series will be to showcase how to build simple and educational software using bare minimals tools, without any extra libraries or frameworks.<br>
 <br>
 In this first video I show how to implement a simple hexdump-like utility which can be used to dump the bytes of a given file in the hexadecimal format.<br>
 <br>
@@ -989,22 +1071,26 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-04-from-scratch-hexdump-in-C<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-04-from-scratch-hexdump-in-C"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-11-04-from-scratch-hexdump-in-C </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Foundations – What is the Meaning of a Bit?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#quvNfOmVKsE</guid>
-<pubDate>Mon, 30 Oct 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[Hello, and welcome to my new series on the Foundations of Computer Science.<br>
+<link>https://youtu.be/quvNfOmVKsE</link>
+<pubDate>lun, 30 ott 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hello, and welcome to my new series on the Foundations of Computer Science.<br>
 <br>
 In this first episode we will explore the idea of the bit. What is a bit, and why do we need bits to work with computers?<br>
 <br>
@@ -1026,23 +1112,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-30-foundations-the-meaning-of-bits<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-30-foundations-the-meaning-of-bits"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-30-foundations-the-meaning-of-bits </a> <br>
 <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Emacs – A Gentle Introduction</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#WHYCQmIlbxM</guid>
-<pubDate>Tue, 24 Oct 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I present a small introduction to Emacs and the world that orbits around it. <br>
+<link>https://youtu.be/WHYCQmIlbxM</link>
+<pubDate>mar, 24 ott 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I present a small introduction to Emacs and the world that orbits around it. <br>
 I hope you find it useful, and if you have any feedback, please write it in the comments.<br>
 <br>
 -------------------------<br>
@@ -1064,24 +1154,28 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-24-emacs-gentle-introduction<br>
-GNU Emacs: https://www.gnu.org/software/emacs/<br>
-My config (old): https://git.leonardotamiano.xyz/leo/emacs-notes/src/branch/main/configs/2021-10-16/dotemacs.el<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-24-emacs-gentle-introduction"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-24-emacs-gentle-introduction </a> <br>
+GNU Emacs: <a href="https://www.gnu.org/software/emacs/"> https://www.gnu.org/software/emacs/ </a> <br>
+My config (old): <a href="https://git.leonardotamiano.xyz/leo/emacs-notes/src/branch/main/configs/2021-10-16/dotemacs.el"> https://git.leonardotamiano.xyz/leo/emacs-notes/src/branch/main/configs/2021-10-16/dotemacs.el </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Password Attacks</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#qaA2BgmL8VY</guid>
-<pubDate>Fri, 20 Oct 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss password attacks techniques. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/qaA2BgmL8VY</link>
+<pubDate>ven, 20 ott 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss password attacks techniques. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -1098,25 +1192,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-20-oscp-guide-password-attacks<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-20-oscp-guide-password-attacks"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-20-oscp-guide-password-attacks </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Windows</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#7ggBhjHIDsY</guid>
-<pubDate>Tue, 17 Oct 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I discuss windows privilege escalation techniques. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/7ggBhjHIDsY</link>
+<pubDate>mar, 17 ott 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I discuss windows privilege escalation techniques. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -1136,25 +1234,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-17-oscp-guide-windows<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-17-oscp-guide-windows"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-17-oscp-guide-windows </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Linux</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#4EbRgxHnvu8</guid>
-<pubDate>Thu, 12 Oct 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification. In this video the topic will be linux, and in particular the different ways in which you can do privilege escalation within a linux server.<br>
+<link>https://youtu.be/4EbRgxHnvu8</link>
+<pubDate>gio, 12 ott 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification. In this video the topic will be linux, and in particular the different ways in which you can do privilege escalation within a linux server.<br>
 <br>
 -------------------------<br>
 <br>
@@ -1170,25 +1272,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-12-oscp-guide-linux<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-12-oscp-guide-linux"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-12-oscp-guide-linux </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Breaking Pseudo-Randomness – On Linear Congruential Generators</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#i6z2Fp0iEbE</guid>
-<pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[Recording of the lecture I gave at university (Tor Vergata, Rome) for the Computer Network Security (CNS) course. In the lecture I introduce the idea behind pseudo-randomness and pseudo random number generators in the context of network security and applied cryptography.<br>
+<link>https://youtu.be/i6z2Fp0iEbE</link>
+<pubDate>mer, 11 ott 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Recording of the lecture I gave at university (Tor Vergata, Rome) for the Computer Network Security (CNS) course. In the lecture I introduce the idea behind pseudo-randomness and pseudo random number generators in the context of network security and applied cryptography.<br>
 <br>
 -------------------------<br>
 <br>
@@ -1211,23 +1317,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-11-lecture-breaking-prngs-on-lcg<br>
-https://teaching.leonardotamiano.xyz/university/2023-2024/cns/lab-01-breaking-prngs/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-11-lecture-breaking-prngs-on-lcg"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-10-11-lecture-breaking-prngs-on-lcg </a> <br>
+<a href="https://teaching.leonardotamiano.xyz/university/2023-2024/cns/lab-01-breaking-prngs/"> https://teaching.leonardotamiano.xyz/university/2023-2024/cns/lab-01-breaking-prngs/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Web</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#3nPlARBbKiU</guid>
-<pubDate>Wed, 27 Sep 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/3nPlARBbKiU</link>
+<pubDate>mer, 27 set 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -1254,25 +1364,29 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-27-oscp-guide-web<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://github.com/LeonardoE95/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-27-oscp-guide-web"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-27-oscp-guide-web </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: Pre-Requisites</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#BZAYVhHOnBk</guid>
-<pubDate>Wed, 27 Sep 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
+<link>https://youtu.be/BZAYVhHOnBk</link>
+<pubDate>mer, 27 set 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
 -------------------------<br>
 <br>
@@ -1294,28 +1408,32 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-27-oscp-guide-pre-requisites<br>
-- PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
-- Cheatsheet link: https://git.leonardotamiano.xyz/leo/OSCP<br>
-- OSCP Guide blog post: https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/<br>
-- HTB Bashed writeup: https://blog.leonardotamiano.xyz/tech/htb-writeup-bashed/<br>
-- Other HTB writeups: https://blog.leonardotamiano.xyz/tags/htb/<br>
-- Tool to monitor cronjobs: https://github.com/DominicBreuker/pspy<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-27-oscp-guide-pre-requisites"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-27-oscp-guide-pre-requisites </a> <br>
+- PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
+- Cheatsheet link: <a href="https://git.leonardotamiano.xyz/leo/OSCP"> https://git.leonardotamiano.xyz/leo/OSCP </a> <br>
+- OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
+- HTB Bashed writeup: <a href="https://blog.leonardotamiano.xyz/tech/htb-writeup-bashed/"> https://blog.leonardotamiano.xyz/tech/htb-writeup-bashed/ </a> <br>
+- Other HTB writeups: <a href="https://blog.leonardotamiano.xyz/tags/htb/"> https://blog.leonardotamiano.xyz/tags/htb/ </a> <br>
+- Tool to monitor cronjobs: <a href="https://github.com/DominicBreuker/pspy"> https://github.com/DominicBreuker/pspy </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>Introduction to TLS</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#Wx9h5CkMwdU</guid>
-<pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[TLS, acronym for Transport Layer Security, is one of the most important network protocol when it comes to protecting the web of today. Introduced in 1995 under the different name of SSL by the Netscape company, TLS has seen a complex and intricate evolution over the years. It was in 1999 when SSL changed its name to TLS, after a re-branding done by the IETF, the institution responsible for standardizing the protocols that make up the internet.<br>
+<link>https://youtu.be/Wx9h5CkMwdU</link>
+<pubDate>mer, 20 set 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+TLS, acronym for Transport Layer Security, is one of the most important network protocol when it comes to protecting the web of today. Introduced in 1995 under the different name of SSL by the Netscape company, TLS has seen a complex and intricate evolution over the years. It was in 1999 when SSL changed its name to TLS, after a re-branding done by the IETF, the institution responsible for standardizing the protocols that make up the internet.<br>
 <br>
 In this video we introduce the main idea behind TLS. In particular we will talk about the core cryptographic services that TLS provides, the big ideas behind the design of the protocol, and we will see a specific pcap trace captured by going to my website using HTTPs, which is HTTP over a TLS session. In future videos I will go in more depth over various topics related to TLS and I will showcase in detail various attacks that were done to TLS.<br>
 <br>
@@ -1340,23 +1458,27 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-20-tls-introduction-to-tls<br>
-IETF Data Tracker on TLS: https://datatracker.ietf.org/group/tls/about/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-20-tls-introduction-to-tls"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-20-tls-introduction-to-tls </a> <br>
+IETF Data Tracker on TLS: <a href="https://datatracker.ietf.org/group/tls/about/"> https://datatracker.ietf.org/group/tls/about/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 <item>
 <title>OSCP Guide: My Exam Experience</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#9mrf-WyzkpE</guid>
-<pubDate>Tue, 19 Sep 2023 00:00:00 GMT</pubDate>
-<description><![CDATA[The OSCP (Offensive Security Certified Professional) is one of the most sought out certification offered by Offensive Security. In this video I will talk about my exam experience, and in general about the experience that I had while preparing for the certification.<br>
+<link>https://youtu.be/9mrf-WyzkpE</link>
+<pubDate>mar, 19 set 2023 00:00:00 GMT</pubDate>
+<description><![CDATA[
+The OSCP (Offensive Security Certified Professional) is one of the most sought out certification offered by Offensive Security. In this video I will talk about my exam experience, and in general about the experience that I had while preparing for the certification.<br>
 <br>
 During my preparation I have developed a cheatsheet, which I have made available for anyone at the  git repository linked below. I suggest you take a look at it if you're also preparing for the certification.<br>
 <br>
@@ -1375,17 +1497,19 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-19-oscp-guide-my-exam-experience<br>
-Cheatsheet link: https://git.leonardotamiano.xyz/leo/OSCP<br>
-PEN-200 Course: https://www.offsec.com/courses/pen-200/<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-19-oscp-guide-my-exam-experience"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-19-oscp-guide-my-exam-experience </a> <br>
+Cheatsheet link: <a href="https://git.leonardotamiano.xyz/leo/OSCP"> https://git.leonardotamiano.xyz/leo/OSCP </a> <br>
+PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
 <br>
 -------------------------<br>
 <br>
 CONTACTS<br>
 <br>
-- Technical blog: https://blog.leonardotamiano.xyz/<br>
-- Github: https://github.com/LeonardoE95?tab=repositories<br>
-- Support my work: https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ]]></description>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
 </item>
 
 </channel>

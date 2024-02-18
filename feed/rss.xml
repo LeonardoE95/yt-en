@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Getting used to BurpSuite</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#mdYKh4PkMCo</guid>
+<link>https://youtu.be/mdYKh4PkMCo</link>
+<pubDate>dom, 18 feb 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I discuss the BurpSuite community edition tool, one of the most used tools when it comes to Web Exploitation.<br>
+<br>
+If you're interested in more videos of the series please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:20 Initial Setup<br>
+13:25 Installing PortSwigger CA certificate<br>
+17:40 Starting the web application<br>
+18:30 Configuring the scope<br>
+24:50 Proxy interception<br>
+28:55 Repeater<br>
+33:40 Decoder<br>
+36:00 Comparer<br>
+37:00 Analyzing cookie structure<br>
+42:00 Intruder<br>
+45:56 Sequencer<br>
+47:00 Dashboard<br>
+48:50 Extensions<br>
+51:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-18-web-exploitation-burpsuite"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-18-web-exploitation-burpsuite </a> <br>
+- SecureBank: <a href="https://github.com/ssrdio/SecureBank"> https://github.com/ssrdio/SecureBank </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Introduction to Web Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#fe5qBuxumRM</guid>
 <link>https://youtu.be/fe5qBuxumRM</link>

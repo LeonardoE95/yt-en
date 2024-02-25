@@ -7,6 +7,68 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Enigma Machine in C – Part 2/3 – Core Implementation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#zAt7FDPhtgg</guid>
+<link>https://youtu.be/zAt7FDPhtgg</link>
+<pubDate>Sun, 25 Feb 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this video!<br>
+<br>
+This is the second video of a small series of videos in which I will show how to implement the enigma machine using the C programming language.<br>
+<br>
+The Enigma Machine is an electro-mechanical device that implements an extremely complex substitution cipher. That is, it works by using electricity, but it also has parts that move mechanically. This machine was used by the forces of the Axis during the Second World War in order to protect their communications.<br>
+<br>
+Given that the machine has many different parts, I've decided to split this project into three different videos. In the first one I will give an overview of the machine and I will explain in depth the internals of the machine. In the second video we will implement the core library, and in the third and final video we will implement a simple CLI that will allow us to interface with our enigma machine.<br>
+<br>
+I hope you find the video interesting, and if you have some feedback, please leave it in the comments down below!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00:00 Introduction<br>
+00:01:30 Setting up the project<br>
+00:04:45 Includes, defines and typedefs<br>
+00:10:30 Data Structures<br>
+00:17:15 Makefile and Compilation<br>
+00:20:00 More Data Structure<br>
+00:25:00 Public APIs: enigma_encrypt() and enigma_decrypt()<br>
+00:30:12 Main Loop: apply_enigma()<br>
+00:37:00 apply_reflector()<br>
+00:38:10 apply_plugboard()<br>
+00:40:17 apply_rotors()<br>
+00:43:42 apply_rotor()<br>
+00:46:30 move_rotors()<br>
+00:50:25 Initialization API: init_enigma()<br>
+00:56:40 init_plugboard()<br>
+00:58:00 init_reflector()<br>
+01:01:20 init_wiring()<br>
+01:02:45 init_rotors()<br>
+01:08:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-25-from-scratch-enigma-machine-core-implementation"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-02-25-from-scratch-enigma-machine-core-implementation </a> <br>
+Code: <a href="https://github.com/LeonardoE95/enigma-machine"> https://github.com/LeonardoE95/enigma-machine </a> <br>
+Blog post: <a href="https://blog.leonardotamiano.xyz/tech/enigma-machine-c/"> https://blog.leonardotamiano.xyz/tech/enigma-machine-c/ </a> <br>
+Enigma Historical Configuration: <a href="https://www.cryptomuseum.com/crypto/enigma/"> https://www.cryptomuseum.com/crypto/enigma/ </a> <br>
+Double Step Mechanism: <a href="https://www.youtube.com/watch?v=hcVhQeZ5gI4"> https://www.youtube.com/watch?v=hcVhQeZ5gI4 </a> <br>
+          <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Getting used to BurpSuite</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#mdYKh4PkMCo</guid>
 <link>https://youtu.be/mdYKh4PkMCo</link>

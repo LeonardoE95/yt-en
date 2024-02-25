@@ -12,6 +12,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 33 | Enigma Machine in C – Part 2/3 – Core Implementation | From Scratch | 2024-02-25 | [link](https://youtu.be/zAt7FDPhtgg) | [link](./src/2024-02-25-from-scratch-enigma-machine-core-implementation)
 | 32 | Getting used to BurpSuite | Web Exploitation | 2024-02-18 | [link](https://youtu.be/mdYKh4PkMCo) | [link](./src/2024-02-18-web-exploitation-burpsuite)
 | 31 | Introduction to Web Exploitation | Web Exploitation | 2024-02-14 | [link](https://youtu.be/fe5qBuxumRM) | [link](./src/2024-02-14-web-exploitation-introduction)
 | 30 | Enigma Machine in C – Part 1/3 – Overview | From Scratch | 2024-02-10 | [link](https://youtu.be/iZt62MDtNFE) | [link](./src/2024-02-10-from-scratch-enigma-machine-overview)

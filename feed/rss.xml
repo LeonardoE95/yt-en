@@ -7,6 +7,105 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Directory Traversals</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#ZKARJubUFMs</guid>
+<link>https://youtu.be/ZKARJubUFMs</link>
+<pubDate>dom, 03 mar 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I continue my web exploitation series by introducing another important vulnerability known as "Directory Traversal".<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:45 Tomcat Setup<br>
+09:40 Static Web Application<br>
+14:00 Dynamic Web Application with JSP<br>
+15:40 Fuzzing with wfuzz to discover parameter<br>
+19:40 Analyzing the disclosed stacktrace<br>
+22:45 A simple Directory Traversal<br>
+27:55 A more complex Directory Traversal<br>
+32:50 Directory Traversal in SecureBank<br>
+38:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-03-web-exploitation-directory-traversal"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-03-web-exploitation-directory-traversal </a> <br>
+- SecureBank: <a href="https://github.com/ssrdio/SecureBank"> https://github.com/ssrdio/SecureBank </a> <br>
+- DVWA code: <a href="https://github.com/LeonardoE95/DVWA"> https://github.com/LeonardoE95/DVWA </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+      <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
+<title>SQL Injections</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#qUSf3rqN6qo</guid>
+<link>https://youtu.be/qUSf3rqN6qo</link>
+<pubDate>dom, 03 mar 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I introduce one of the most famous vulnerabily in the context of Web Exploitation, namely SQL injections.<br>
+<br>
+In particular we will talk about databases and the SQL language, then we will discuss about programming languages, interpreters, and the main idea behind injections vulnerabilities, and finally we will see two practical examples of SQL injections, one taken from DVWA, and the other from SecureBank, two applications written with the intent to be vulnerable.<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:15 Databases and Structured Query Language (SQL)<br>
+16:40 Simple queries<br>
+22:30 Interpreters<br>
+27:15 Injections<br>
+30:42 Example 1 – PHP Snippet<br>
+38:30 Example 2 – DVWA easy<br>
+50:10 Example 3 – DVWA medium<br>
+53:44 Example 4 – SecureBank<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-03-web-exploitation-sql-injections"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-03-web-exploitation-sql-injections </a> <br>
+- SecureBank: <a href="https://github.com/ssrdio/SecureBank"> https://github.com/ssrdio/SecureBank </a> <br>
+- DVWA code: <a href="https://github.com/LeonardoE95/DVWA"> https://github.com/LeonardoE95/DVWA </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+- Icon for thumbnail: <a href="https://www.flaticon.com/free-icons/vaccine"> https://www.flaticon.com/free-icons/vaccine </a> <br>
+      <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Enigma Machine in C – Part 2/3 – Core Implementation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#zAt7FDPhtgg</guid>
 <link>https://youtu.be/zAt7FDPhtgg</link>

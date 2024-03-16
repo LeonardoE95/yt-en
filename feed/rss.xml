@@ -7,10 +7,54 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>File Inclusion (Local + Remote)</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#tSAhl19gk6I</guid>
+<link>https://youtu.be/tSAhl19gk6I</link>
+<pubDate>sab, 16 mar 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I continue my web exploitation series by introducing another important vulnerability known as "File Inclusion".<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:52 Example n.1 – LFI with JSP<br>
+01:52 Example n.2 – LFI with php<br>
+29:50 Example n.3 – RFI with php<br>
+35:00 Example n.4 – DVWA challenges<br>
+44:50 Example n.5 – Leak source code with php filters<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-16-web-exploitation-file-inclusion"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-16-web-exploitation-file-inclusion </a> <br>
+- DVWA code: <a href="https://github.com/LeonardoE95/DVWA"> https://github.com/LeonardoE95/DVWA </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+         <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Directory Traversals</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#ZKARJubUFMs</guid>
 <link>https://youtu.be/ZKARJubUFMs</link>
-<pubDate>dom, 03 mar 2024 00:00:00 GMT</pubDate>
+<pubDate>sab, 09 mar 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -37,7 +81,7 @@ TIMESTAMP<br>
 <br>
 REFERENCES<br>
 <br>
-- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-03-web-exploitation-directory-traversal"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-03-web-exploitation-directory-traversal </a> <br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-09-web-exploitation-directory-traversal"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-09-web-exploitation-directory-traversal </a> <br>
 - SecureBank: <a href="https://github.com/ssrdio/SecureBank"> https://github.com/ssrdio/SecureBank </a> <br>
 - DVWA code: <a href="https://github.com/LeonardoE95/DVWA"> https://github.com/LeonardoE95/DVWA </a> <br>
 - BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>

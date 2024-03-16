@@ -12,7 +12,8 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
-| 35 | Directory Traversals | Web Exploitation | 2024-03-03 | [link](https://youtu.be/ZKARJubUFMs) | [link](./src/2024-03-03-web-exploitation-directory-traversal)
+| 36 | File Inclusion (Local + Remote) | Web Exploitation | 2024-03-16 | [link](https://youtu.be/tSAhl19gk6I) | [link](./src/2024-03-16-web-exploitation-file-inclusion)
+| 35 | Directory Traversals | Web Exploitation | 2024-03-09 | [link](https://youtu.be/ZKARJubUFMs) | [link](./src/2024-03-09-web-exploitation-directory-traversal)
 | 34 | SQL Injections | Web Exploitation | 2024-03-03 | [link](https://youtu.be/qUSf3rqN6qo) | [link](./src/2024-03-03-web-exploitation-sql-injections)
 | 33 | Enigma Machine in C – Part 2/3 – Core Implementation | From Scratch | 2024-02-25 | [link](https://youtu.be/zAt7FDPhtgg) | [link](./src/2024-02-25-from-scratch-enigma-machine-core-implementation)
 | 32 | Getting used to BurpSuite | Web Exploitation | 2024-02-18 | [link](https://youtu.be/mdYKh4PkMCo) | [link](./src/2024-02-18-web-exploitation-burpsuite)

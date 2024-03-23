@@ -7,44 +7,6 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
-<title>RSS Feed for Channel Updates</title>
-<guid>https://leonardotamiano.xyz/rss/yt-en.xml#rjmWwESVYTI</guid>
-<link>https://youtu.be/rjmWwESVYTI</link>
-<pubDate>sab, 23 mar 2024 00:00:00 GMT</pubDate>
-<description><![CDATA[
-In this video I talk about RSS, a simple technology that can be used to understand when a creator uploads new content in the web.<br>
-<br>
-In order to make my content more accessible, I started to generate a custom RSS feed, containing the metadata of all my youtube videos, including title, youtube link and description, with references and timestamps. You can access the RSS feed in the link down in the references. <br>
-<br>
--------------------------<br>
-<br>
-TIMESTAMP<br>
-<br>
-<br>
--------------------------<br>
-<br>
-REFERENCES<br>
-<br>
-- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-23-channel-rss-feed"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-03-23-channel-rss-feed </a> <br>
-- RSS feed: <a href="https://leonardotamiano.xyz/rss/yt-en.xml"> https://leonardotamiano.xyz/rss/yt-en.xml </a> <br>
-- Github repository: <a href="https://github.com/LeonardoE95/yt-en/blob/main/feed/rss.xml"> https://github.com/LeonardoE95/yt-en/blob/main/feed/rss.xml </a> <br>
-- How I generate the RSS feed: <a href="https://blog.leonardotamiano.xyz/tech/rss-feed-emacs-lisp/"> https://blog.leonardotamiano.xyz/tech/rss-feed-emacs-lisp/ </a> <br>
-- Regarding RSS: <a href="https://cyber.harvard.edu/rss/rss.html"> https://cyber.harvard.edu/rss/rss.html </a> <br>
-- Emacs RSS client: <a href="https://github.com/skeeto/elfeed"> https://github.com/skeeto/elfeed </a> <br>
-- RSS reader for iOS: <a href="https://netnewswire.com/"> https://netnewswire.com/ </a> <br>
-<br>
--------------------------<br>
-<br>
-CONTACTS<br>
-<br>
-- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
-- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
-- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
-
-]]></description>
-</item>
-
-<item>
 <title>File Inclusion (Local + Remote)</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#tSAhl19gk6I</guid>
 <link>https://youtu.be/tSAhl19gk6I</link>

@@ -12,7 +12,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
-| 37 | RSS Feed for Channel Updates | Channel | 2024-03-23 | [link](https://youtu.be/rjmWwESVYTI) | [link](./src/2024-03-23-channel-rss-feed)
+| 37 | New RSS Feed | Channel | 2024-03-23 | [link](https://youtu.be/rjmWwESVYTI) | [link](./src/2024-03-23-channel-rss-feed)
 | 36 | File Inclusion (Local + Remote) | Web Exploitation | 2024-03-16 | [link](https://youtu.be/tSAhl19gk6I) | [link](./src/2024-03-16-web-exploitation-file-inclusion)
 | 35 | Directory Traversals | Web Exploitation | 2024-03-09 | [link](https://youtu.be/ZKARJubUFMs) | [link](./src/2024-03-09-web-exploitation-directory-traversal)
 | 34 | SQL Injections | Web Exploitation | 2024-03-03 | [link](https://youtu.be/qUSf3rqN6qo) | [link](./src/2024-03-03-web-exploitation-sql-injections)

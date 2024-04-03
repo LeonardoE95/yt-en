@@ -12,6 +12,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 38 | File Upload Vulnerabilities | Web Exploitation | 2024-04-03 | [link](https://youtu.be/G3YTDcQ3FwQ) | [link](./src/2024-04-03-web-exploitation-file-upload)
 | 37 | New RSS Feed | Channel | 2024-03-23 | [link](https://youtu.be/rjmWwESVYTI) | [link](./src/2024-03-23-channel-rss-feed)
 | 36 | File Inclusion (Local + Remote) | Web Exploitation | 2024-03-16 | [link](https://youtu.be/tSAhl19gk6I) | [link](./src/2024-03-16-web-exploitation-file-inclusion)
 | 35 | Directory Traversals | Web Exploitation | 2024-03-09 | [link](https://youtu.be/ZKARJubUFMs) | [link](./src/2024-03-09-web-exploitation-directory-traversal)

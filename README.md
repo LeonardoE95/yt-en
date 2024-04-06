@@ -2,9 +2,12 @@
 
 This repository contains all the teaching material that I have created over the years for **hexdump**, my english youtube channel.
 
-In terms of content, I cover subjects related to Computer science, Penetration testing and Applied cryptography. If you are interested in the mateiral you see, feel free to subscribe and support my work.
+In terms of content, I cover subjects related to Computer science, Penetration testing and Applied cryptography.
+
+If you are interested in the mateiral you see and you want to support me, you can subscribe to my channel or donate something.
 
 - [Youtube – Hexdump](https://www.youtube.com/channel/UCzPk3Dj63B6PIEifvVvDfBg)
+- ❤️ [Paypal Donation](https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ)
 
 ## Table of Videos
 

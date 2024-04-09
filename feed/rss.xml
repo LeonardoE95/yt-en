@@ -7,6 +7,54 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Command Injections</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#F9_wc7J4iMU</guid>
+<link>https://youtu.be/F9_wc7J4iMU</link>
+<pubDate>mar, 09 apr 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I continue my web exploitation series by discussing another important class of vulnerabilities that have to do with file command injections.<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:15 Some Intuition on Command Injections<br>
+07:05 DVWA level low<br>
+22:35 DVWA level medium<br>
+29:15 DVWA level high<br>
+31:03 DVWA level impossible<br>
+35:55 Port Swigger Lab 1<br>
+39:55 Port Swigger Lab 2<br>
+43:55 Port Swigger Lab 3<br>
+49:35 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-09-web-exploitation-command-injections"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-09-web-exploitation-command-injections </a> <br>
+- PortSwigger Academy: <a href="https://portswigger.net/web-security"> https://portswigger.net/web-security </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>File Upload Vulnerabilities</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#G3YTDcQ3FwQ</guid>
 <link>https://youtu.be/G3YTDcQ3FwQ</link>

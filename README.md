@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 40 | Cross Site Scripting (Stored, Reflected and DOM) | Web Exploitation | 2024-04-16 | [link](https://youtu.be/XdlCWekzMq4) | [link](./src/2024-04-16-web-exploitation-cross-site-scripting)
 | 39 | Command Injections | Web Exploitation | 2024-04-09 | [link](https://youtu.be/F9_wc7J4iMU) | [link](./src/2024-04-09-web-exploitation-command-injections)
 | 38 | File Upload Vulnerabilities | Web Exploitation | 2024-04-03 | [link](https://youtu.be/G3YTDcQ3FwQ) | [link](./src/2024-04-03-web-exploitation-file-upload)
 | 37 | New RSS Feed | Channel | 2024-03-23 | [link](https://youtu.be/rjmWwESVYTI) | [link](./src/2024-03-23-channel-rss-feed)

@@ -7,6 +7,55 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Cross Site Scripting (Stored, Reflected and DOM)</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#XdlCWekzMq4</guid>
+<link>https://youtu.be/XdlCWekzMq4</link>
+<pubDate>mar, 16 apr 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I continue my web exploitation series by discussing another important class of vulnerabilities called Cross-Site Scripting, often abbreviated as XSS. There are three different types of XSS, which are Stored XSS, Reflected XSS and DOM XSS. In this video I will try to give some intuition with respect to all these three different types of XSS.<br>
+<br>
+Given that XSS is a type of client side attack, we will also discuss the ideas behind client side attacks, their different with respect to server side attacks, and why they can be dangerous for the security of a web application.<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:00 Client-side attacks<br>
+06:35 Stored XSS – Intuition<br>
+18:00 Stored XSS – Leaking session cookie<br>
+25:40 Reflected XSS – Intuition<br>
+30:20 Reflected XSS – Leaking session cookie<br>
+33:30 DOM XSS<br>
+41:25 Review so far<br>
+43:05 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-16-web-exploitation-cross-site-scripting"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-16-web-exploitation-cross-site-scripting </a> <br>
+- DVWA: <a href="https://github.com/digininja/DVWA"> https://github.com/digininja/DVWA </a> <br>
+- DVWA repository: <a href="https://github.com/LeonardoE95/DVWA"> https://github.com/LeonardoE95/DVWA </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Command Injections</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#F9_wc7J4iMU</guid>
 <link>https://youtu.be/F9_wc7J4iMU</link>
@@ -159,7 +208,7 @@ TIMESTAMP<br>
 <br>
 00:00 Introduction<br>
 01:52 Example n.1 – LFI with JSP<br>
-01:52 Example n.2 – LFI with php<br>
+18:10 Example n.2 – LFI with php<br>
 29:50 Example n.3 – RFI with php<br>
 35:00 Example n.4 – DVWA challenges<br>
 44:50 Example n.5 – Leak source code with php filters<br>
@@ -288,7 +337,7 @@ CONTACTS<br>
 <title>Enigma Machine in C – Part 2/3 – Core Implementation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#zAt7FDPhtgg</guid>
 <link>https://youtu.be/zAt7FDPhtgg</link>
-<pubDate>Sun, 25 Feb 2024 00:00:00 GMT</pubDate>
+<pubDate>dom, 25 feb 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this video!<br>
 <br>
@@ -615,6 +664,7 @@ REFERENCES<br>
 <br>
 - Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-24-htb-active-report"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-01-24-htb-active-report </a> <br>
 Final report: <a href="https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-24-htb-active-report/content/active-report.pdf"> https://github.com/LeonardoE95/yt-en/blob/main/src/2024-01-24-htb-active-report/content/active-report.pdf </a> <br>
+   <br>
 <br>
 -------------------------<br>
 <br>
@@ -1804,8 +1854,8 @@ REFERENCES<br>
 - PEN-200 Course: <a href="https://www.offsec.com/courses/pen-200/"> https://www.offsec.com/courses/pen-200/ </a> <br>
 - Cheatsheet link: <a href="https://git.leonardotamiano.xyz/leo/OSCP"> https://git.leonardotamiano.xyz/leo/OSCP </a> <br>
 - OSCP Guide blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
-- HTB Bashed writeup: <a href="https://blog.leonardotamiano.xyz/tech/htb-writeup-bashed/"> https://blog.leonardotamiano.xyz/tech/htb-writeup-bashed/ </a> <br>
-- Other HTB writeups: <a href="https://blog.leonardotamiano.xyz/tags/htb/"> https://blog.leonardotamiano.xyz/tags/htb/ </a> <br>
+- HTB Bashed writeup: <a href="https://blog.leonardotamiano.xyz/writeups/htb-boot2root-bashed/"> https://blog.leonardotamiano.xyz/writeups/htb-boot2root-bashed/ </a> <br>
+- Other HTB writeups: <a href="https://blog.leonardotamiano.xyz/writeups/"> https://blog.leonardotamiano.xyz/writeups/ </a> <br>
 - Tool to monitor cronjobs: <a href="https://github.com/DominicBreuker/pspy"> https://github.com/DominicBreuker/pspy </a> <br>
 <br>
 -------------------------<br>
@@ -1852,6 +1902,7 @@ REFERENCES<br>
 <br>
 - Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-20-tls-introduction-to-tls"> https://github.com/LeonardoE95/yt-en/tree/main/src/2023-09-20-tls-introduction-to-tls </a> <br>
 IETF Data Tracker on TLS: <a href="https://datatracker.ietf.org/group/tls/about/"> https://datatracker.ietf.org/group/tls/about/ </a> <br>
+     <br>
 <br>
 -------------------------<br>
 <br>

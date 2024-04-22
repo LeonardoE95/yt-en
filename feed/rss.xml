@@ -7,6 +7,51 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Web Enumeration – Files and Directories</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#kfkGhuT6Lnc</guid>
+<link>https://youtu.be/kfkGhuT6Lnc</link>
+<pubDate>mar, 23 apr 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I continue my web exploitation series by introducing the idea of web enumeration, and specifically the idea of enumerating the files and directories offered by the webserver. We're reaching the conclusion of this first web exploitation series. The last episodes will be all about enumeration!<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:00 Docker lab setup<br>
+04:40 Intuition on Web Enumeration<br>
+13:05 Using gobuster<br>
+16:55 Scenario 1 – Directory Enumeration<br>
+19:47 Scenario 2 – Files Enumeration<br>
+24:00 Review so far<br>
+26:43 Scenario 3 – Custom 404 page<br>
+32:45 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-23-web-exploitation-enumeration-of-files-and-directories"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-23-web-exploitation-enumeration-of-files-and-directories </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Cross Site Scripting (Stored, Reflected and DOM)</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#XdlCWekzMq4</guid>
 <link>https://youtu.be/XdlCWekzMq4</link>

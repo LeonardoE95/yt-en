@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 42 | Do you really need a VPN? | Cryptography | 2024-04-27 | [link](https://youtu.be/h2baBbtTwxA) | [link](./src/2024-04-27-cryptography-vpn-and-security)
 | 41 | Web Enumeration – Files and Directories | Web Exploitation | 2024-04-23 | [link](https://youtu.be/kfkGhuT6Lnc) | [link](./src/2024-04-23-web-exploitation-enumeration-of-files-and-directories)
 | 40 | Cross Site Scripting (Stored, Reflected and DOM) | Web Exploitation | 2024-04-16 | [link](https://youtu.be/XdlCWekzMq4) | [link](./src/2024-04-16-web-exploitation-cross-site-scripting)
 | 39 | Command Injections | Web Exploitation | 2024-04-09 | [link](https://youtu.be/F9_wc7J4iMU) | [link](./src/2024-04-09-web-exploitation-command-injections)

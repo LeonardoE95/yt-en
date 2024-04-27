@@ -7,6 +7,60 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Do you really need a VPN?</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#h2baBbtTwxA</guid>
+<link>https://youtu.be/h2baBbtTwxA</link>
+<pubDate>sab, 27 apr 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I want to analyze the following question: "What is the impact on network security of a VPN?". Even though most advertisements describe the internet as an inherent unsafe space, in reality this is not the case, no longer anyways. Even though originally the internet was developed without any sort of protection, as soon as the first e-commerce sites were built and developed the community started immediately to find solutions to these problems. The result of this effort is the standardization of the TLS protocol (originally it was called SSL).<br>
+<br>
+The latest version of TLS, TLSv1.3, standardized around 2018, represents one of the most secure network protocols ever standardized by humans. It is an achievement that has made the internet a much more secure place. By using TLSv1.3, you can be sure that your communication channel is as secure as it can be, making VPN useless from a point of view of security.<br>
+<br>
+This is not to say that VPN in general have no use-cases. My point is that they do not increase the security of the average person using the internet and the web.<br>
+<br>
+Let me know what you think about the video, and if you are interested in knowing more details regarding TLS, I've already made a video about it, however in the future I can make more in-depth videos discussing how security on the internet of today is achieved.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:55 Analyzing VPN Marketing Claims<br>
+07:02 Beyond the Communication Channel<br>
+10:01 On Military Grade Encryption<br>
+13:25 Privacy issues<br>
+18:15 VPN do not increase security<br>
+21:40 Scenario 1: Insecure Channel (HTTP)<br>
+27:35 Scenario 2: Secure Channel (TLS + HTTP)<br>
+34:40 Towards an honest VPN AD<br>
+36:40 How to actually be secure (TLS Certificates)<br>
+42:55 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-27-cryptography-vpn-and-security"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-27-cryptography-vpn-and-security </a> <br>
+- My video on TLS: <a href="https://youtu.be/Wx9h5CkMwdU?si=zSg9CFwN7WVuogzc"> https://youtu.be/Wx9h5CkMwdU?si=zSg9CFwN7WVuogzc </a> <br>
+- Tom Scott's Video: <a href="https://www.youtube.com/watch?v=WVDQEoe6ZWY"> https://www.youtube.com/watch?v=WVDQEoe6ZWY </a> <br>
+- Research "Investigating VPN Ads on YouTube": <a href="https://www.cs.umd.edu/~akgul/papers/vpn-ads.pdf"> https://www.cs.umd.edu/~akgul/papers/vpn-ads.pdf </a> <br>
+- RFC TLS: <a href="https://datatracker.ietf.org/doc/html/rfc8446"> https://datatracker.ietf.org/doc/html/rfc8446 </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Web Enumeration – Files and Directories</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#kfkGhuT6Lnc</guid>
 <link>https://youtu.be/kfkGhuT6Lnc</link>

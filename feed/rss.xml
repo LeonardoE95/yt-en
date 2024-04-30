@@ -7,6 +7,52 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Web Enumeration – Virtual Hosts</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#qksFm0HaBN0</guid>
+<link>https://youtu.be/qksFm0HaBN0</link>
+<pubDate>mar, 30 apr 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I continue my web exploitation series by continuing the enumeration portion of the course. This time it is all about about virtual hosts enumeration. Specifically, I will discuss the idea of virtual hosts, why they are used, and how they can be enumerated.<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+00:45 Docker lab setup<br>
+03:33 Intuition on virtual hosts<br>
+09:00 Host header in HTTP requests<br>
+13:00 Enumeration of virtual hosts<br>
+16:53 Using gobuster<br>
+19:10 How to access virtual hosts<br>
+25:30 Differences between Virtual Hosts and Domain Names<br>
+28:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-30-web-exploitation-enumeration-of-virtual-hosts"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-04-30-web-exploitation-enumeration-of-virtual-hosts </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Do you really need a VPN?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#h2baBbtTwxA</guid>
 <link>https://youtu.be/h2baBbtTwxA</link>

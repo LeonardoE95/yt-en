@@ -7,6 +7,54 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Web Enumeration – Brute Force Attacks</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#tFNRGMF_bdE</guid>
+<link>https://youtu.be/tFNRGMF_bdE</link>
+<pubDate>lun, 13 mag 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I continue my web exploitation series by discussing credentials bruteforcing and showcasing legba, a tool that will allow you to bruteforce credentials for many different protocols. In the video four different scenarios are discussed:<br>
+<br>
+- SSH bruteforcing with legba<br>
+- FTP bruteforcing with legba<br>
+- HTTP basic auth bruteforcing with legba<br>
+- HTTP custom login bruteforcing with custom python code<br>
+<br>
+If you're interested in more videos of the series or if you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:24 Scenario 1 – Brute Forcing SSH<br>
+15:16 Scenario 2 – Brute Forcing FTP<br>
+19:35 Scenario 3 – Brute Forcing HTTP Basic Auth<br>
+22:30 Scenario 4 – Brute Forcing DVWA login<br>
+29:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-13-web-exploitation-bruteforcing"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-13-web-exploitation-bruteforcing </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Web Enumeration – HTTP Parameters</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#OlOs31VzhHo</guid>
 <link>https://youtu.be/OlOs31VzhHo</link>

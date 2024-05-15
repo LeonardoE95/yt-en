@@ -10,7 +10,7 @@
 <title>Web Enumeration – Brute Force Attacks</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#tFNRGMF_bdE</guid>
 <link>https://youtu.be/tFNRGMF_bdE</link>
-<pubDate>lun, 13 mag 2024 00:00:00 GMT</pubDate>
+<pubDate>Mon, 13 May 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -58,7 +58,7 @@ CONTACTS<br>
 <title>Web Enumeration – HTTP Parameters</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#OlOs31VzhHo</guid>
 <link>https://youtu.be/OlOs31VzhHo</link>
-<pubDate>lun, 06 mag 2024 00:00:00 GMT</pubDate>
+<pubDate>Mon, 06 May 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -104,7 +104,7 @@ CONTACTS<br>
 <title>Web Enumeration – Virtual Hosts</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#qksFm0HaBN0</guid>
 <link>https://youtu.be/qksFm0HaBN0</link>
-<pubDate>mar, 30 apr 2024 00:00:00 GMT</pubDate>
+<pubDate>Tue, 30 Apr 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -150,13 +150,17 @@ CONTACTS<br>
 <title>Do you really need a VPN?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#h2baBbtTwxA</guid>
 <link>https://youtu.be/h2baBbtTwxA</link>
-<pubDate>sab, 27 apr 2024 00:00:00 GMT</pubDate>
+<pubDate>Sat, 27 Apr 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi and welcome to this new video!<br>
 <br>
-In this video I want to analyze the following question: "What is the impact on network security of a VPN?". Even though most advertisements describe the internet as an inherent unsafe space, in reality this is not the case, no longer anyways. Even though originally the internet was developed without any sort of protection, as soon as the first e-commerce sites were built and developed the community started immediately to find solutions to these problems. The result of this effort is the standardization of the TLS protocol (originally it was called SSL).<br>
+In this video I want to analyze the following question: "What is the impact on network security of a VPN for the average user?". <br>
+<br>
+Even though most advertisements describe the internet as an inherent unsafe space, in reality this is no longer the case. Even though originally the internet was developed without any sort of protection, as soon as the first e-commerce sites were built and developed the community started immediately to find solutions to the security problems caused by having an insecure communication channel. The result of this effort is the standardization of the TLS protocol (originally it was called SSL).<br>
 <br>
 The latest version of TLS, TLSv1.3, standardized around 2018, represents one of the most secure network protocols ever standardized by humans. It is an achievement that has made the internet a much more secure place. By using TLSv1.3, you can be sure that your communication channel is as secure as it can be, making VPN useless from a point of view of security.<br>
+<br>
+What VPNs marketing fail to communicate is the fact that in a normal interaction between a client and a server there are actually three areas to analyze: the client, the server and the communication channel. The only thing that a VPN would safeguard is the communication channel. However, the security of the communication channel is already handled by the TLS protocol. This means that VPNs do not add a significant improvement to the security of your internet activity. You still have to be careful and not interact with potentially malicious servers, and you also have to take care of making sure your own device is not compromised.<br>
 <br>
 This is not to say that VPN in general have no use-cases. My point is that they do not increase the security of the average person using the internet and the web.<br>
 <br>
@@ -204,7 +208,7 @@ CONTACTS<br>
 <title>Web Enumeration – Files and Directories</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#kfkGhuT6Lnc</guid>
 <link>https://youtu.be/kfkGhuT6Lnc</link>
-<pubDate>mar, 23 apr 2024 00:00:00 GMT</pubDate>
+<pubDate>Tue, 23 Apr 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -249,7 +253,7 @@ CONTACTS<br>
 <title>Cross Site Scripting (Stored, Reflected and DOM)</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#XdlCWekzMq4</guid>
 <link>https://youtu.be/XdlCWekzMq4</link>
-<pubDate>mar, 16 apr 2024 00:00:00 GMT</pubDate>
+<pubDate>Tue, 16 Apr 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -298,7 +302,7 @@ CONTACTS<br>
 <title>Command Injections</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#F9_wc7J4iMU</guid>
 <link>https://youtu.be/F9_wc7J4iMU</link>
-<pubDate>mar, 09 apr 2024 00:00:00 GMT</pubDate>
+<pubDate>Tue, 09 Apr 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -346,7 +350,7 @@ CONTACTS<br>
 <title>File Upload Vulnerabilities</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#G3YTDcQ3FwQ</guid>
 <link>https://youtu.be/G3YTDcQ3FwQ</link>
-<pubDate>mer, 03 apr 2024 00:00:00 GMT</pubDate>
+<pubDate>Wed, 03 Apr 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -395,7 +399,7 @@ CONTACTS<br>
 <title>New RSS Feed</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#rjmWwESVYTI</guid>
 <link>https://youtu.be/rjmWwESVYTI</link>
-<pubDate>sab, 23 mar 2024 00:00:00 GMT</pubDate>
+<pubDate>Sat, 23 Mar 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I talk about RSS, a simple technology that can be used to understand when a creator uploads new content in the web.<br>
 <br>
@@ -433,7 +437,7 @@ CONTACTS<br>
 <title>File Inclusion (Local + Remote)</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#tSAhl19gk6I</guid>
 <link>https://youtu.be/tSAhl19gk6I</link>
-<pubDate>sab, 16 mar 2024 00:00:00 GMT</pubDate>
+<pubDate>Sat, 16 Mar 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -477,7 +481,7 @@ CONTACTS<br>
 <title>Directory Traversals</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#ZKARJubUFMs</guid>
 <link>https://youtu.be/ZKARJubUFMs</link>
-<pubDate>sab, 09 mar 2024 00:00:00 GMT</pubDate>
+<pubDate>Sat, 09 Mar 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -526,7 +530,7 @@ CONTACTS<br>
 <title>SQL Injections</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#qUSf3rqN6qo</guid>
 <link>https://youtu.be/qUSf3rqN6qo</link>
-<pubDate>dom, 03 mar 2024 00:00:00 GMT</pubDate>
+<pubDate>Sun, 03 Mar 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -576,7 +580,7 @@ CONTACTS<br>
 <title>Enigma Machine in C – Part 2/3 – Core Implementation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#zAt7FDPhtgg</guid>
 <link>https://youtu.be/zAt7FDPhtgg</link>
-<pubDate>dom, 25 feb 2024 00:00:00 GMT</pubDate>
+<pubDate>Sun, 25 Feb 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this video!<br>
 <br>
@@ -638,7 +642,7 @@ CONTACTS<br>
 <title>Getting used to BurpSuite</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#mdYKh4PkMCo</guid>
 <link>https://youtu.be/mdYKh4PkMCo</link>
-<pubDate>dom, 18 feb 2024 00:00:00 GMT</pubDate>
+<pubDate>Sun, 18 Feb 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -690,7 +694,7 @@ CONTACTS<br>
 <title>Introduction to Web Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#fe5qBuxumRM</guid>
 <link>https://youtu.be/fe5qBuxumRM</link>
-<pubDate>mer, 14 feb 2024 00:00:00 GMT</pubDate>
+<pubDate>Wed, 14 Feb 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this new video!<br>
 <br>
@@ -740,7 +744,7 @@ CONTACTS<br>
 <title>Enigma Machine in C – Part 1/3 – Overview</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#iZt62MDtNFE</guid>
 <link>https://youtu.be/iZt62MDtNFE</link>
-<pubDate>sab, 10 feb 2024 00:00:00 GMT</pubDate>
+<pubDate>Sat, 10 Feb 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, and welcome to this video!<br>
 <br>
@@ -792,7 +796,7 @@ CONTACTS<br>
 <title>Pseudo-Randomness – Breaking LCG</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#EdRK9Ap32Vg</guid>
 <link>https://youtu.be/EdRK9Ap32Vg</link>
-<pubDate>mer, 07 feb 2024 00:00:00 GMT</pubDate>
+<pubDate>Wed, 07 Feb 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi everyone and welcome to this new video!<br>
 <br>
@@ -838,7 +842,7 @@ CONTACTS<br>
 <title>Linux Privilege Escalation – PATH Hijacking</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#IPs5xz5aEzk</guid>
 <link>https://youtu.be/IPs5xz5aEzk</link>
-<pubDate>mer, 31 gen 2024 00:00:00 GMT</pubDate>
+<pubDate>Wed, 31 Jan 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi and welcome to this new video!<br>
 <br>
@@ -881,7 +885,7 @@ CONTACTS<br>
 <title>HTB Active 2/2 – Report</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#jewCD2cAqHA</guid>
 <link>https://youtu.be/jewCD2cAqHA</link>
-<pubDate>mer, 24 gen 2024 00:00:00 GMT</pubDate>
+<pubDate>Wed, 24 Jan 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I show how to write a penetration testing report detailing the Active HTB machine. During the report we analyze the various vulnerabilities that allowed us to complete the machine. You can find the final report within the github repository linked in the description. <br>
 <br>
@@ -920,7 +924,7 @@ CONTACTS<br>
 <title>Teaching material</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#jM1l5OXpkXM</guid>
 <link>https://youtu.be/jM1l5OXpkXM</link>
-<pubDate>ven, 19 gen 2024 00:00:00 GMT</pubDate>
+<pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 The handling of material is a crucial aspect of teaching.<br>
 <br>
@@ -960,7 +964,7 @@ CONTACTS<br>
 <title>From Scratch – Caesar Cipher in Python</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#pDlmmimbgcU</guid>
 <link>https://youtu.be/pDlmmimbgcU</link>
-<pubDate>gio, 11 gen 2024 00:00:00 GMT</pubDate>
+<pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I show how to implement a simple caesar cipher utility in python. The Caesar cipher represents one of the first historical cipher used by humans in order to protect their information.<br>
 <br>
@@ -1001,7 +1005,7 @@ CONTACTS<br>
 <title>HTB Active 1/2 – Walkthrough</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#_HEAIN7J080</guid>
 <link>https://youtu.be/_HEAIN7J080</link>
-<pubDate>ven, 05 gen 2024 00:00:00 GMT</pubDate>
+<pubDate>Fri, 05 Jan 2024 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I showcase a full walkthrough of the Active machine provided by the Hack The Box platform.<br>
 <br>
@@ -1049,7 +1053,7 @@ CONTACTS<br>
 <title>OSCP Guide – Full Free Course</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#HUmtfFKKWWc</guid>
 <link>https://youtu.be/HUmtfFKKWWc</link>
-<pubDate>sab, 30 dic 2023 00:00:00 GMT</pubDate>
+<pubDate>Sat, 30 Dec 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Upload of the full OSCP Guide course.<br>
 Here below you can also find the playlist with the single videos.<br>
@@ -1192,7 +1196,7 @@ CONTACTS<br>
 <title>HTB Bashed 2/2 – Report</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#2OQTfLESniY</guid>
 <link>https://youtu.be/2OQTfLESniY</link>
-<pubDate>mar, 26 dic 2023 00:00:00 GMT</pubDate>
+<pubDate>Tue, 26 Dec 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I show how to write a penetration testing report detailing the Bashed HTB machine. During the report we analyze the various vulnerabilities that allowed us to complete the machine.<br>
 <br>
@@ -1241,7 +1245,7 @@ CONTACTS<br>
 <title>HTB Bashed 1/2 – Boot2Root Walkthrough</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#5j67dhw-D1Q</guid>
 <link>https://youtu.be/5j67dhw-D1Q</link>
-<pubDate>mer, 20 dic 2023 00:00:00 GMT</pubDate>
+<pubDate>Wed, 20 Dec 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I showcase a full walkthrough of the Bashed machine provided by the Hack The Box platform.<br>
 <br>
@@ -1290,7 +1294,7 @@ CONTACTS<br>
 <title>Conference Review – M0lecon 2023</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#ftIVhfdu9oQ</guid>
 <link>https://youtu.be/ftIVhfdu9oQ</link>
-<pubDate>dom, 17 dic 2023 00:00:00 GMT</pubDate>
+<pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I review the experience of joining the m0lecon 2023 conference in Turin, Italy.<br>
 <br>
@@ -1363,7 +1367,7 @@ CONTACTS<br>
 <title>Scientific Review – The Impact of Code Patterns on the Security Testing of Web Applications</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#N65QYGc1Zo4</guid>
 <link>https://youtu.be/N65QYGc1Zo4</link>
-<pubDate>mer, 13 dic 2023 00:00:00 GMT</pubDate>
+<pubDate>Wed, 13 Dec 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I read a scientific paper that came out last year on the topic of code auditing for web application backend code.<br>
 If you are interested in this content, where we analyze in-depth modern scientific research regarding computer security, let me know!<br>
@@ -1421,7 +1425,7 @@ CONTACTS<br>
 <title>OSCP Guide: Expectations and Methodologies for Exam</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#6jG22gXdo4I</guid>
 <link>https://youtu.be/6jG22gXdo4I</link>
-<pubDate>ven, 08 dic 2023 00:00:00 GMT</pubDate>
+<pubDate>Fri, 08 Dec 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss the final section of my OSCP technical guide, discussing expectations and methodologies useful to know for the final exam.<br>
 <br>
@@ -1464,7 +1468,7 @@ CONTACTS<br>
 <title>OSCP Guide: Report Writing</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#LaI8HXdf6sM</guid>
 <link>https://youtu.be/LaI8HXdf6sM</link>
-<pubDate>sab, 02 dic 2023 00:00:00 GMT</pubDate>
+<pubDate>Sat, 02 Dec 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss the report writing section of my OSCP technical guide.<br>
 <br>
@@ -1513,7 +1517,7 @@ CONTACTS<br>
 <title>Transistors – CS Foundations</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#7SQ3E1UWdWQ</guid>
 <link>https://youtu.be/7SQ3E1UWdWQ</link>
-<pubDate>mar, 28 nov 2023 00:00:00 GMT</pubDate>
+<pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this second episode we will explore the idea of the transistor. In particular, I will try to answer some of the following questions<br>
 <br>
@@ -1570,7 +1574,7 @@ CONTACTS<br>
 <title>OSCP Guide: Active Directory</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#26M3POQ_51A</guid>
 <link>https://youtu.be/26M3POQ_51A</link>
-<pubDate>gio, 23 nov 2023 00:00:00 GMT</pubDate>
+<pubDate>Thu, 23 Nov 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss the active directory section of my OSCP technical guide. This video belongs to my OSCP guide series, in which I share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -1610,7 +1614,7 @@ CONTACTS<br>
 <title>OSCP Guide: Client-Side Attacks</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#qBexs2GXCGw</guid>
 <link>https://youtu.be/qBexs2GXCGw</link>
-<pubDate>dom, 19 nov 2023 00:00:00 GMT</pubDate>
+<pubDate>Sun, 19 Nov 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss the client side attacks technique. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -1649,7 +1653,7 @@ CONTACTS<br>
 <title>OSCP Guide: Port Forwarding and Pivoting</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#xn2poczX1rg</guid>
 <link>https://youtu.be/xn2poczX1rg</link>
-<pubDate>lun, 13 nov 2023 00:00:00 GMT</pubDate>
+<pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss the port forwarding and pivoting technique. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -1688,7 +1692,7 @@ CONTACTS<br>
 <title>OSCP Guide: Using Existing Exploits</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#RCDpxk3ym80</guid>
 <link>https://youtu.be/RCDpxk3ym80</link>
-<pubDate>sab, 04 nov 2023 00:00:00 GMT</pubDate>
+<pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss how to use existing exploits. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -1728,7 +1732,7 @@ CONTACTS<br>
 <title>From Scratch – Hexdump in C</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#kI55YEU_LvY</guid>
 <link>https://youtu.be/kI55YEU_LvY</link>
-<pubDate>sab, 04 nov 2023 00:00:00 GMT</pubDate>
+<pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hi, everyone, and welcome to this new series called "Programming From Scratch". The objective of this series will be to showcase how to build simple and educational software using bare minimals tools, without any extra libraries or frameworks.<br>
 <br>
@@ -1769,7 +1773,7 @@ CONTACTS<br>
 <title>Foundations – What is the Meaning of a Bit?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#quvNfOmVKsE</guid>
 <link>https://youtu.be/quvNfOmVKsE</link>
-<pubDate>lun, 30 ott 2023 00:00:00 GMT</pubDate>
+<pubDate>Mon, 30 Oct 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Hello, and welcome to my new series on the Foundations of Computer Science.<br>
 <br>
@@ -1811,7 +1815,7 @@ CONTACTS<br>
 <title>Emacs – A Gentle Introduction</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#WHYCQmIlbxM</guid>
 <link>https://youtu.be/WHYCQmIlbxM</link>
-<pubDate>mar, 24 ott 2023 00:00:00 GMT</pubDate>
+<pubDate>Tue, 24 Oct 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I present a small introduction to Emacs and the world that orbits around it. <br>
 I hope you find it useful, and if you have any feedback, please write it in the comments.<br>
@@ -1854,7 +1858,7 @@ CONTACTS<br>
 <title>OSCP Guide: Password Attacks</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#qaA2BgmL8VY</guid>
 <link>https://youtu.be/qaA2BgmL8VY</link>
-<pubDate>ven, 20 ott 2023 00:00:00 GMT</pubDate>
+<pubDate>Fri, 20 Oct 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss password attacks techniques. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -1893,7 +1897,7 @@ CONTACTS<br>
 <title>OSCP Guide: Windows</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#7ggBhjHIDsY</guid>
 <link>https://youtu.be/7ggBhjHIDsY</link>
-<pubDate>mar, 17 ott 2023 00:00:00 GMT</pubDate>
+<pubDate>Tue, 17 Oct 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I discuss windows privilege escalation techniques. This video belongs to my OSCP guide series, in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -1935,7 +1939,7 @@ CONTACTS<br>
 <title>OSCP Guide: Linux</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#4EbRgxHnvu8</guid>
 <link>https://youtu.be/4EbRgxHnvu8</link>
-<pubDate>gio, 12 ott 2023 00:00:00 GMT</pubDate>
+<pubDate>Thu, 12 Oct 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification. In this video the topic will be linux, and in particular the different ways in which you can do privilege escalation within a linux server.<br>
 <br>
@@ -1973,7 +1977,7 @@ CONTACTS<br>
 <title>Breaking Pseudo-Randomness – On Linear Congruential Generators</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#i6z2Fp0iEbE</guid>
 <link>https://youtu.be/i6z2Fp0iEbE</link>
-<pubDate>mer, 11 ott 2023 00:00:00 GMT</pubDate>
+<pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 Recording of the lecture I gave at university (Tor Vergata, Rome) for the Computer Network Security (CNS) course. In the lecture I introduce the idea behind pseudo-randomness and pseudo random number generators in the context of network security and applied cryptography.<br>
 <br>
@@ -2016,7 +2020,7 @@ CONTACTS<br>
 <title>OSCP Guide: Web</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#3nPlARBbKiU</guid>
 <link>https://youtu.be/3nPlARBbKiU</link>
-<pubDate>mer, 27 set 2023 00:00:00 GMT</pubDate>
+<pubDate>Wed, 27 Sep 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -2065,7 +2069,7 @@ CONTACTS<br>
 <title>OSCP Guide: Pre-Requisites</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#BZAYVhHOnBk</guid>
 <link>https://youtu.be/BZAYVhHOnBk</link>
-<pubDate>mer, 27 set 2023 00:00:00 GMT</pubDate>
+<pubDate>Wed, 27 Sep 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 In this video I continue my OSCP guide series in which I will share the knowledge I've obtained regarding OSCP, the PEN-200 course, and in general to help you prepare for your OSCP certification.<br>
 <br>
@@ -2112,7 +2116,7 @@ CONTACTS<br>
 <title>Introduction to TLS</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#Wx9h5CkMwdU</guid>
 <link>https://youtu.be/Wx9h5CkMwdU</link>
-<pubDate>mer, 20 set 2023 00:00:00 GMT</pubDate>
+<pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 TLS, acronym for Transport Layer Security, is one of the most important network protocol when it comes to protecting the web of today. Introduced in 1995 under the different name of SSL by the Netscape company, TLS has seen a complex and intricate evolution over the years. It was in 1999 when SSL changed its name to TLS, after a re-branding done by the IETF, the institution responsible for standardizing the protocols that make up the internet.<br>
 <br>
@@ -2158,7 +2162,7 @@ CONTACTS<br>
 <title>OSCP Guide: My Exam Experience</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#9mrf-WyzkpE</guid>
 <link>https://youtu.be/9mrf-WyzkpE</link>
-<pubDate>mar, 19 set 2023 00:00:00 GMT</pubDate>
+<pubDate>Tue, 19 Sep 2023 00:00:00 GMT</pubDate>
 <description><![CDATA[
 The OSCP (Offensive Security Certified Professional) is one of the most sought out certification offered by Offensive Security. In this video I will talk about my exam experience, and in general about the experience that I had while preparing for the certification.<br>
 <br>

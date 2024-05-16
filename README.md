@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 46 | Web Enumeration – DNS Zone Transfer Attacks | Web Exploitation | 2024-05-17 | [link](https://youtu.be/IRvHfLhcGVw) | [link](./src/2024-05-17-web-exploitation-dns-zone-transfer-attacks)
 | 45 | Web Enumeration – Brute Force Attacks | Web Exploitation | 2024-05-13 | [link](https://youtu.be/tFNRGMF_bdE) | [link](./src/2024-05-13-web-exploitation-bruteforcing)
 | 44 | Web Enumeration – HTTP Parameters | Web Exploitation | 2024-05-06 | [link](https://youtu.be/OlOs31VzhHo) | [link](./src/2024-05-06-web-exploitation-enumeration-of-parameters)
 | 43 | Web Enumeration – Virtual Hosts | Web Exploitation | 2024-04-30 | [link](https://youtu.be/qksFm0HaBN0) | [link](./src/2024-04-30-web-exploitation-enumeration-of-virtual-hosts)

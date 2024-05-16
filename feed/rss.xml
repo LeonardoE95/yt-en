@@ -7,6 +7,51 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Web Enumeration – DNS Zone Transfer Attacks</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#IRvHfLhcGVw</guid>
+<link>https://youtu.be/IRvHfLhcGVw</link>
+<pubDate>ven, 17 mag 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+This is the last video of the Web Exploitation series, and in this video we will discuss specifically an attack that can be done to the DNS protocol known as DNS zone transfer attack.<br>
+<br>
+In this video I discuss the differences between virtual hosts, handled by the HTTP protocol, and domain names, handled by the DNS protocol. I then show how to perform a DNS zone transfer attack with the dig command by simulating a vulnerable environment with docker running bind9, an open-source DNS server implementation.<br>
+<br>
+If you have any feedback, please let me know!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:10 Difference between VHOST and DNS<br>
+07:55 What is a DNS zone transfer?<br>
+09:35 DNS zone transfer in practice<br>
+14:15 Final Overview<br>
+16:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-17-web-exploitation-dns-zone-transfer-attacks"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-17-web-exploitation-dns-zone-transfer-attacks </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Web Enumeration – Brute Force Attacks</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#tFNRGMF_bdE</guid>
 <link>https://youtu.be/tFNRGMF_bdE</link>

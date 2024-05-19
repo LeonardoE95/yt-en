@@ -7,6 +7,182 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Web Exploitation – Full Free Course</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#ik2p4Rz4QzM</guid>
+<link>https://youtu.be/ik2p4Rz4QzM</link>
+<pubDate>Sun, 19 May 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Upload of the full Web Exploitation course.<br>
+<br>
+All the material developed for the course is available in the OSCP repository, link down below.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+### Web 00 – Introduction<br>
+00:00:00 Web Exploitation Course<br>
+### Web 01 – Introduction to Web Exploitation<br>
+00:03:17 Introduction<br>
+00:05:37 Clients and Servers<br>
+00:07:37 The HTTP Protocol<br>
+00:11:47 HTML<br>
+00:17:00 CSS<br>
+00:18:57 JavaScript and the DOM<br>
+00:23:00 Web Applications<br>
+00:29:07 Overview so far<br>
+00:30:47 HTTP is stateless<br>
+00:32:57 On Malicious HTTP requests<br>
+00:35:39 Introduction to BurpSuite<br>
+00:40:03 Using BurpSuite<br>
+00:48:02 A first vulnerability<br>
+00:52:42 Conclusion<br>
+### Web 02 – Getting Used to BurpSuite<br>
+00:54:32 Introduction<br>
+00:55:52 Initial Setup<br>
+01:07:57 Installing PortSwigger CA certificate<br>
+01:12:12 Starting the web application<br>
+01:13:02 Configuring the scope<br>
+01:19:22 Proxy interception<br>
+01:23:27 Repeater<br>
+01:28:12 Decoder<br>
+01:30:32 Comparer<br>
+01:31:32 Analyzing cookie structure<br>
+01:36:32 Intruder<br>
+01:40:28 Sequencer<br>
+01:41:32 Dashboard<br>
+01:43:22 Extensions<br>
+01:45:32 Conclusion<br>
+### Web 03 – SQL Injection<br>
+01:47:03 Introduction<br>
+01:50:18 Databases and Structured Query Language (SQL)<br>
+02:03:43 Simple queries<br>
+02:09:33 Interpreters<br>
+02:14:18 Injections<br>
+02:17:45 Example 1 – PHP Snippet<br>
+02:25:33 Example 2 – DVWA easy<br>
+02:37:13 Example 3 – DVWA medium<br>
+02:40:47 Example 4 – SecureBank<br>
+### Web 04 – Directory Traversal<br>
+02:48:08 Introduction<br>
+02:49:53 Tomcat Setup<br>
+02:57:48 Static Web Application<br>
+03:02:08 Dynamic Web Application with JSP<br>
+03:03:48 Fuzzing with wfuzz to discover parameter<br>
+03:07:48 Analyzing the disclosed stacktrace<br>
+03:10:53 A simple Directory Traversal<br>
+03:16:03 A more complex Directory Traversal<br>
+03:20:58 Directory Traversal in SecureBank<br>
+03:26:58 Conclusion<br>
+### Web 05 – File Inclusion<br>
+03:28:03 Introduction<br>
+03:29:55 Example n.1 – LFI with JSP<br>
+03:46:13 Example n.2 – LFI with php<br>
+03:57:53 Example n.3 – RFI with php<br>
+04:03:03 Example n.4 – DVWA challenges<br>
+04:12:53 Example n.5 – Leak source code with php filters<br>
+### Web 06 – File Upload Vulnerabilities<br>
+04:17:49 Introduction<br>
+04:19:29 Explanation of lab<br>
+04:24:11 POST request to upload a file<br>
+04:29:29 Reading php code<br>
+04:37:49 Solving level 1<br>
+04:43:41 Solving level 2<br>
+04:47:14 Solving level 3<br>
+04:56:31 PortSwigger Academy lab 1<br>
+05:00:56 PortSwigger Academy lab 2<br>
+05:02:33 PortSwigger Academy lab 3<br>
+05:08:27 Conclusion<br>
+### Web 07 – Command Injections<br>
+05:09:31 Introduction<br>
+05:10:46 Some Intuition on Command Injections<br>
+05:16:36 DVWA level low<br>
+05:32:06 DVWA level medium<br>
+05:38:46 DVWA level high<br>
+05:40:34 DVWA level impossible<br>
+05:45:26 Port Swigger Lab 1<br>
+05:49:26 Port Swigger Lab 2<br>
+05:53:26 Port Swigger Lab 3<br>
+05:59:06 Conclusion<br>
+### Web 08 – Cross Site Scripting<br>
+06:00:07 Introduction<br>
+06:03:07 Client-side attacks<br>
+06:06:42 Stored XSS – Intuition<br>
+06:18:07 Stored XSS – Leaking session cookie<br>
+06:25:47 Reflected XSS – Intuition<br>
+06:30:27 Reflected XSS – Leaking session cookie<br>
+06:33:37 DOM XSS<br>
+06:41:32 Review so far<br>
+06:43:12 Conclusion<br>
+### Web 09 – Enumeration of Files and Directories<br>
+06:45:54 Introduction<br>
+06:48:54 Docker lab setup<br>
+06:50:34 Intuition on Web Enumeration<br>
+06:58:59 Using gobuster<br>
+07:02:49 Scenario 1 – Directory Enumeration<br>
+07:05:41 Scenario 2 – Files Enumeration<br>
+07:09:54 Review so far<br>
+07:12:37 Scenario 3 – Custom 404 page<br>
+07:18:39 Conclusion<br>
+### Web 10 – Enumeration of Virtual Hosts<br>
+07:21:11 Introduction<br>
+07:21:56 Docker lab setup<br>
+07:24:44 Intuition on virtual hosts<br>
+07:30:11 Host header in HTTP requests<br>
+07:34:11 Enumeration of virtual hosts<br>
+07:38:04 Using gobuster<br>
+07:40:21 How to access virtual hosts<br>
+07:46:41 Differences between Virtual Hosts and Domain Names<br>
+07:49:11 Conclusion<br>
+### Web 11 – Enumeration of Parameters<br>
+07:51:16 Introduction<br>
+07:53:06 Docker lab<br>
+07:56:51 Wfuzz scenario 1 – discovery of parameter name<br>
+08:12:26 Wfuzz scenario 2 – discovery of debug parameter<br>
+08:15:21 Wfuzz scenario 3 – discovery of parameter value<br>
+08:21:46 Insecure Direct Object Reference (IDOR)<br>
+08:24:16 Wfuzz scenario 4 – sending requests to burpsuite<br>
+08:26:31 Wfuzz scenario 4 – discovery of POST data<br>
+08:28:00 Conclusion<br>
+### Web 12 – Brute Force Attacks<br>
+08:28:26 Introduction<br>
+08:30:50 Scenario 1 – Brute Forcing SSH<br>
+08:43:42 Scenario 2 – Brute Forcing FTP<br>
+08:48:01 Scenario 3 – Brute Forcing HTTP Basic Auth<br>
+08:50:56 Scenario 4 – Brute Forcing DVWA login<br>
+08:57:26 Conclusion<br>
+### Web 11 – DNS Zone Transfer Attacks<br>
+08:58:16 Introduction<br>
+09:01:26 Difference between VHOST and DNS<br>
+09:06:11 What is a DNS zone transfer?<br>
+09:07:51 DNS zone transfer in practice<br>
+09:12:31 Final Overview<br>
+09:14:16 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-19-web-exploitation-full"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-19-web-exploitation-full </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+- BurpSuite Community Edition: <a href="https://portswigger.net/burp/communitydownload"> https://portswigger.net/burp/communitydownload </a> <br>
+- DVWA: <a href="https://github.com/digininja/DVWA"> https://github.com/digininja/DVWA </a> <br>
+- DVWA repository: <a href="https://github.com/LeonardoE95/DVWA"> https://github.com/LeonardoE95/DVWA </a> <br>
+- SecureBank: <a href="https://github.com/ssrdio/SecureBank"> https://github.com/ssrdio/SecureBank </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Web Enumeration – DNS Zone Transfer Attacks</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#IRvHfLhcGVw</guid>
 <link>https://youtu.be/IRvHfLhcGVw</link>

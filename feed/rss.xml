@@ -7,6 +7,55 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Introduction to the Linux Shell</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#YDoKDEfugI4</guid>
+<link>https://youtu.be/YDoKDEfugI4</link>
+<pubDate>Fri, 31 May 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+This video introduces a new series, which will be all about "Linux Privilege Escalation". That is, in this new series we will understand the basic concepts of how to work with the linux shell, how permissions work in linux-based systems, and how to perform various techniques that allows to elevate your privileges. The knowledge gained in this series will help you tackle certifications such as OSCP, and in general it will give you important foundational knowledge when doing penetration tests on linux-based systems.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00:00 Introduction<br>
+00:02:02 CLI vs GUI<br>
+00:07:25 Anatomy of a command<br>
+00:13:15 Differences between Terminal, TTY and Shell<br>
+00:18:25 Basic Commands<br>
+00:33:22 Relative and Absolute Paths<br>
+00:37:20 File System Commands<br>
+00:50:00 Resources Management Commands<br>
+01:00:00 Users Management Commands<br>
+01:06:45 Packages Management Commands<br>
+01:13:48 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-31-linux-privesc-introduction-shell"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-05-31-linux-privesc-introduction-shell </a> <br>
+- Article on Terminal,TTY and Shell: <a href="https://kevroletin.github.io/terminal/2021/12/11/how-terminal-works-in.html"> https://kevroletin.github.io/terminal/2021/12/11/how-terminal-works-in.html </a> <br>
+- Practice Shell Commands: <a href="https://overthewire.org/wargames/"> https://overthewire.org/wargames/ </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Web Exploitation – Full Free Course</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#ik2p4Rz4QzM</guid>
 <link>https://youtu.be/ik2p4Rz4QzM</link>

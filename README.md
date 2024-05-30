@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 48 | Introduction to the Linux Shell | Linux privilege escalation | 2024-05-31 | [link](https://youtu.be/YDoKDEfugI4) | [link](./src/2024-05-31-linux-privesc-introduction-shell)
 | 47 | Web Exploitation – Full Free Course | Web Exploitation | 2024-05-19 | [link](https://youtu.be/ik2p4Rz4QzM) | [link](./src/2024-05-19-web-exploitation-full)
 | 46 | Web Enumeration – DNS Zone Transfer Attacks | Web Exploitation | 2024-05-17 | [link](https://youtu.be/IRvHfLhcGVw) | [link](./src/2024-05-17-web-exploitation-dns-zone-transfer-attacks)
 | 45 | Web Enumeration – Brute Force Attacks | Web Exploitation | 2024-05-13 | [link](https://youtu.be/tFNRGMF_bdE) | [link](./src/2024-05-13-web-exploitation-bruteforcing)
@@ -34,7 +35,7 @@ Below you can find a table containing useful metadata for my videos.
 | 31 | Introduction to Web Exploitation | Web Exploitation | 2024-02-14 | [link](https://youtu.be/fe5qBuxumRM) | [link](./src/2024-02-14-web-exploitation-introduction)
 | 30 | Enigma Machine in C – Part 1/3 – Overview | From Scratch | 2024-02-10 | [link](https://youtu.be/iZt62MDtNFE) | [link](./src/2024-02-10-from-scratch-enigma-machine-overview)
 | 29 | Pseudo-Randomness – Breaking LCG | Pseudo-Randomness | 2024-02-07 | [link](https://youtu.be/EdRK9Ap32Vg) | [link](./src/2024-02-07-pseudo-randomness-breaking-lcg)
-| 28 | Linux Privilege Escalation – PATH Hijacking | Linux privilege escalation | 2024-01-31 | [link](https://youtu.be/IPs5xz5aEzk) | [link](./src/2024-01-31-linux-privesc-path-hijacking)
+| 28 | PATH Hijacking | Linux privilege escalation | 2024-01-31 | [link](https://youtu.be/IPs5xz5aEzk) | [link](./src/2024-01-31-linux-privesc-path-hijacking)
 | 27 | HTB Active 2/2 – Report | HTB | 2024-01-24 | [link](https://youtu.be/jewCD2cAqHA) | [link](./src/2024-01-24-htb-active-report)
 | 26 | Teaching material | Channel | 2024-01-19 | [link](https://youtu.be/jM1l5OXpkXM) | [link](./src/2024-01-19-channel-teaching-material)
 | 25 | From Scratch – Caesar Cipher in Python | From Scratch | 2024-01-11 | [link](https://youtu.be/pDlmmimbgcU) | [link](./src/2024-01-11-from-scratch-caesar-cipher-in-python)

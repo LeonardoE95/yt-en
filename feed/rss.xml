@@ -7,6 +7,52 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Linux File System Permissions</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#ebFrveeBMN0</guid>
+<link>https://youtu.be/ebFrveeBMN0</link>
+<pubDate>Thu, 06 Jun 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series. This time the focus will be on file system permissions. In the video we will discuss how file system permissions are handled within linux, we will see how to read permission and interpret their meaning, as well as how to write permissions to a given resource (file or directory), to set new permissions. Finally, we will discuss about the special bits SUID and GUID, and the sudo subsystem.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:00 MAN pages<br>
+06:22 How linux handles file permissions<br>
+21:30 Pratice on reading permissions<br>
+27:55 How to set new permissions with chmod<br>
+39:55 SUID and GUID bits<br>
+49:15 The sudo subsystem<br>
+55:35 How to change owner with chown<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-06-linux-privesc-file-system-permissions"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-06-linux-privesc-file-system-permissions </a> <br>
+- Man pages online: <a href="https://man7.org/linux/man-pages/"> https://man7.org/linux/man-pages/ </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Introduction to the Linux Shell</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#YDoKDEfugI4</guid>
 <link>https://youtu.be/YDoKDEfugI4</link>

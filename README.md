@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 49 | Linux File System Permissions | Linux privilege escalation | 2024-06-06 | [link](https://youtu.be/ebFrveeBMN0) | [link](./src/2024-06-06-linux-privesc-file-system-permissions)
 | 48 | Introduction to the Linux Shell | Linux privilege escalation | 2024-05-31 | [link](https://youtu.be/YDoKDEfugI4) | [link](./src/2024-05-31-linux-privesc-introduction-shell)
 | 47 | Web Exploitation – Full Free Course | Web Exploitation | 2024-05-19 | [link](https://youtu.be/ik2p4Rz4QzM) | [link](./src/2024-05-19-web-exploitation-full)
 | 46 | Web Enumeration – DNS Zone Transfer Attacks | Web Exploitation | 2024-05-17 | [link](https://youtu.be/IRvHfLhcGVw) | [link](./src/2024-05-17-web-exploitation-dns-zone-transfer-attacks)

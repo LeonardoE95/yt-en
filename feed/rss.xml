@@ -7,6 +7,59 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>SUID Exploitation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#sQW-Bja7pvE</guid>
+<link>https://youtu.be/sQW-Bja7pvE</link>
+<pubDate>Thu, 13 Jun 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series.<br>
+<br>
+This time the focus will be on SUID binaries exploitation. We will review how SUID permissions work, the difference between Real User ID, Effective User ID and Saved User ID, and we will then show how one can exploit different binaries with SUID permission.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:00 What is SUID?<br>
+05:50 Security Issues with SUID<br>
+08:00 Real Effective and Saved User IDs<br>
+10:40 Example of a SUID binary<br>
+13:50 GTFObins<br>
+14:50 SUID Exploitation 1 – wget<br>
+18:35 SUID Exploitation 2 – hexdump<br>
+20:55 SUID Exploitation 3 – ssh-keygen<br>
+25:35 SUID Exploitation 4 – Emacs and Vim<br>
+27:20 Searching for SUID binaries<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-13-linux-privesc-suid-exploitation"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-13-linux-privesc-suid-exploitation </a> <br>
+- GTFOBins: <a href="https://gtfobins.github.io/"> https://gtfobins.github.io/ </a> <br>
+- Passwd source code: <a href="https://github.com/shadow-maint/shadow/blob/master/src/passwd.c"> https://github.com/shadow-maint/shadow/blob/master/src/passwd.c </a> <br>
+- User IDs: <a href="https://en.wikipedia.org/wiki/User_identifier"> https://en.wikipedia.org/wiki/User_identifier </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Linux File System Permissions</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#ebFrveeBMN0</guid>
 <link>https://youtu.be/ebFrveeBMN0</link>

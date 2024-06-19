@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Introduction to the Windows Shell</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#n382EGuJP8Y</guid>
+<link>https://youtu.be/n382EGuJP8Y</link>
+<pubDate>Wed, 19 Jun 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+This video introduces a new series, which will be all about "Windows Privilege Escalation". In this new series we will understand the basic concepts of how to work with the windows shells. The knowledge gained in this series will help you tackle certifications such as OSCP, and in general it will give you important foundational knowledge when doing penetration tests on windows-based systems.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:45 Windows is not Open-Source<br>
+07:55 Some History<br>
+09:50 VM Setup with quickemu<br>
+13:10 CMD vs Powershell<br>
+18:40 CMD Basic Commands<br>
+31:47 CMD File System Commands<br>
+35:56 CMD Permission Commands<br>
+41:15 CMD Network Commands<br>
+45:00 Powershell Basic Commands<br>
+49:15 Powershell Process Commands<br>
+52:15 Powershell Service Commands<br>
+45:44 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-19-windows-privesc-introduction-shell"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-19-windows-privesc-introduction-shell </a> <br>
+- Quickemu project: <a href="https://github.com/quickemu-project/quickemu"> https://github.com/quickemu-project/quickemu </a> <br>
+- Microsoft DOS History: <a href="https://users.dimi.uniud.it/~antonio.dangelo/LabOS/2008/lessons/helper/history/msdosHistory.html"> https://users.dimi.uniud.it/~antonio.dangelo/LabOS/2008/lessons/helper/history/msdosHistory.html </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>SUID Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#sQW-Bja7pvE</guid>
 <link>https://youtu.be/sQW-Bja7pvE</link>

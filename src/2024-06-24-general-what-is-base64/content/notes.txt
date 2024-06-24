@@ -1,0 +1,160 @@
+                           _________________
+
+                            WHAT IS BASE64?
+                           _________________
+
+
+Table of Contents
+_________________
+
+1. Encoding Schemes
+2. Base64
+3. How to Compute Base64
+4. Why Base64?
+5. References
+
+
+1 Encoding Schemes
+==================
+
+  When we talk about base64 we're essentially talking about an *encoding
+  scheme*.
+
+  An *encoding scheme* is a mechanism that allows us to assign to each
+  character of a particular alphabet a specific number.
+
+  ,----
+  | A <---> 0 <---> 00000000
+  | B <---> 1 <---> 00000001
+  | C <---> 2 <---> 00000010
+  | ...
+  `----
+
+  With an encoding we can transform characters into numbers, which can
+  then be memorized in a computers memory as a sequence of bits.
+
+  An encoding is the *abstraction* needed to make our computers deal
+  with characters.
+
+  To specify an encoding one needs to specify two things:
+
+  - The alphabet used.
+
+  - The mapping between the characters in the alphabet and the
+    associated numbers.
+
+
+2 Base64
+========
+
+  Standardized in RFC4648
+  - <https://www.rfc-editor.org/rfc/rfc4648>
+
+  The base64 encoding has an alphabet made up of `64 characters' plus an
+  extra padding character. The characters used are shown below.
+
+  ,----
+  | abcdefghijklmnopqrstuvwxyz
+  | ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  | 0123456789
+  | +/
+  | = (extra padding character)
+  `----
+
+  The mapping between character and number is defined as follows
+
+  ,----
+  |                   Table 1: The Base 64 Alphabet
+  | 
+  |      Value Encoding  Value Encoding  Value Encoding  Value Encoding
+  |          0 A            17 R            34 i            51 z
+  |          1 B            18 S            35 j            52 0
+  |          2 C            19 T            36 k            53 1
+  |          3 D            20 U            37 l            54 2
+  |          4 E            21 V            38 m            55 3
+  |          5 F            22 W            39 n            56 4
+  |          6 G            23 X            40 o            57 5
+  |          7 H            24 Y            41 p            58 6
+  |          8 I            25 Z            42 q            59 7
+  |          9 J            26 a            43 r            60 8
+  |         10 K            27 b            44 s            61 9
+  |         11 L            28 c            45 t            62 +
+  |         12 M            29 d            46 u            63 /
+  |         13 N            30 e            47 v
+  |         14 O            31 f            48 w         (pad) =
+  |         15 P            32 g            49 x
+  |         16 Q            33 h            50 y
+  `----
+
+
+3 How to Compute Base64
+=======================
+
+  In linux we have the `base64' binary.
+
+  ,----
+  | $ which base64
+  | /usr/bin/base64
+  `----
+
+  To `encode' the string proceed as follows
+
+  ,----
+  | $ echo "Hello World!" | base64 
+  | SGVsbG8gV29ybGQhCg==
+  `----
+
+  To `decode' an already encoded string proceed as follows
+
+  ,----
+  | $ echo "SGVsbG8gV29ybGQhCg==" | base64 -d
+  | Hello World!
+  `----
+
+
+4 Why Base64?
+=============
+
+  Let us answer the following questions:
+
+  - why do we need base64 encoding?
+  - What does it bring to the table?
+
+  To understand the importance of base64 it is useful to remember the
+  concept of control characters, which sometimes are also called
+  non-printable characters.
+
+  When we use our keyboard we typically write out the characters that
+  make up the alphabet of our natural language.
+
+  These characters are called *printable characters*, because typically
+  they are directly printed by the programs that process them so that we
+  can see them directly on the screen.
+
+  Along side printable characters there are other characters, called
+  *control charaters*. These control characters are special in the sense
+  that they do not represent any common written symbol, but rather they
+  are used to change the behavior of the program that receives them.
+
+  The simplest example of a control character is the line feed, which in
+  most programming languages is represented with the sequence of
+  characters "\n". The actual byte value of the newline is the
+  hexadecimal byte `0x0a', which in decimal is the number `10'
+
+  ----------------------------------------------------------------------
+
+  The idea behind base64 encoding is to take an arbitrary stream of
+  bytes, which could contain control characters and normal non-control
+  characters, and convert such sequence into a sequence made up of only
+  normal non-control characters.
+
+  This encoding process has to be done without losing any information
+  about the original sequence of bytes, so that we can always go back
+  and decode to obtain the original bytes.
+
+
+5 References
+============
+
+  - RFC 4648: <https://www.rfc-editor.org/rfc/rfc4648>
+  - Blog post: <https://blog.leonardotamiano.xyz/tech/base64/>

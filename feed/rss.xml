@@ -7,6 +7,52 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>What is Base64?</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#SWO2AP55ez0</guid>
+<link>https://youtu.be/SWO2AP55ez0</link>
+<pubDate>Mon, 24 Jun 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I discuss the main idea behind Base64 encoding, one of the most popular encoding that you will find when analyzing the security of a web or mobile application. The video in particular aims to build an intuition as to why this specific encoding scheme was introduced.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:45 Encoding Schemes<br>
+05:25 Base64<br>
+09:30 How to Compute Base64<br>
+14:30 Why do we need Base64?<br>
+19:15 Pratical Example with TCP sockets<br>
+21:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-24-general-what-is-base64"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-24-general-what-is-base64 </a> <br>
+- RFC 4648: <a href="https://www.rfc-editor.org/rfc/rfc4648"> https://www.rfc-editor.org/rfc/rfc4648 </a> <br>
+- Blog post: <a href="https://blog.leonardotamiano.xyz/tech/base64/"> https://blog.leonardotamiano.xyz/tech/base64/ </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Introduction to the Windows Shells</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#n382EGuJP8Y</guid>
 <link>https://youtu.be/n382EGuJP8Y</link>

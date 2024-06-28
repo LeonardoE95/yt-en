@@ -7,6 +7,61 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>SUDO Exploitation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#GCaCK_BaGig</guid>
+<link>https://youtu.be/GCaCK_BaGig</link>
+<pubDate>Fri, 28 Jun 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series.<br>
+<br>
+This time the focus will be on SUDO exploitation. We will review what is SUDO, how we can read SUDO configuration, and how we can exploit vulnerable SUDO configurations.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introductionv<br>
+01:25 Docker Setup<br>
+04:20 What is SUDO?<br>
+08:40 Reading output of sudo -l<br>
+12:34 Reading SUDO configuration file<br>
+18:30 Update SUDO configuration with visudo<br>
+20:00 Exploiting SUDO<br>
+23:01 Example 1 – ALL NOPASSWD<br>
+25:45 Example 2 – pip install<br>
+33:00 Example 3 – tar<br>
+36:00 Example 4 – base64<br>
+40:20 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-28-linux-privesc-sudo-exploitation"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-06-28-linux-privesc-sudo-exploitation </a> <br>
+- Your new Best Friend: <a href="https://gtfobins.github.io/"> https://gtfobins.github.io/ </a> <br>
+- Sudo syntax: <a href="https://toroid.org/sudoers-syntax"> https://toroid.org/sudoers-syntax </a> <br>
+- Sudoers: <a href="https://www.sudo.ws/docs/man/1.8.15/sudoers.man/"> https://www.sudo.ws/docs/man/1.8.15/sudoers.man/ </a> <br>
+- Pip exploitation: <a href="https://github.com/0x00-0x00/FakePip/tree/master"> https://github.com/0x00-0x00/FakePip/tree/master </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>What is Base64?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#SWO2AP55ez0</guid>
 <link>https://youtu.be/SWO2AP55ez0</link>

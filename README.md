@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 53 | SUDO Exploitation | Linux privilege escalation | 2024-06-28 | [link](https://youtu.be/GCaCK_BaGig) | [link](./src/2024-06-28-linux-privesc-sudo-exploitation)
 | 52 | What is Base64? | General | 2024-06-24 | [link](https://youtu.be/SWO2AP55ez0) | [link](./src/2024-06-24-general-what-is-base64)
 | 51 | Introduction to the Windows Shells | Windows privilege escalation | 2024-06-19 | [link](https://youtu.be/n382EGuJP8Y) | [link](./src/2024-06-19-windows-privesc-introduction-shell)
 | 50 | SUID Exploitation | Linux privilege escalation | 2024-06-13 | [link](https://youtu.be/sQW-Bja7pvE) | [link](./src/2024-06-13-linux-privesc-suid-exploitation)

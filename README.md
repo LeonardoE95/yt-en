@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 54 | Differences between WAPTs and CTFs | Security Industry | 2024-07-02 | [link](https://youtu.be/6kptQtM1W74) | [link](./src/2024-07-02-security-industry-wapt-vs-ctf)
 | 53 | SUDO Exploitation | Linux privilege escalation | 2024-06-28 | [link](https://youtu.be/GCaCK_BaGig) | [link](./src/2024-06-28-linux-privesc-sudo-exploitation)
 | 52 | What is Base64? | General | 2024-06-24 | [link](https://youtu.be/SWO2AP55ez0) | [link](./src/2024-06-24-general-what-is-base64)
 | 51 | Introduction to the Windows Shells | Windows privilege escalation | 2024-06-19 | [link](https://youtu.be/n382EGuJP8Y) | [link](./src/2024-06-19-windows-privesc-introduction-shell)

@@ -1,0 +1,63 @@
+                           __________________
+
+                              CTF VS WAPT
+
+                            Leonardo Tamiano
+                           __________________
+
+
+Table of Contents
+_________________
+
+1. Capture The Flag (CTF)
+2. Web Application Penetration Test (WAPT)
+
+
+1 Capture The Flag (CTF)
+========================
+
+  Some characteristics of CTFs:
+
+  - Focus on specific challenges.
+
+  - Each challenge typically has one or two ways to be solved.
+
+  - Can concatenate multiple challenges in a linear path (boot2root).
+
+  - Writeup is mostly linear.
+
+  - Can implement situations you will not find in the real world.
+
+  - Does not assess security risk of a given application.
+
+  - Code is written by other security researchers and CTF players.
+
+  - Useful for studying, practice and having fun.
+
+
+2 Web Application Penetration Test (WAPT)
+=========================================
+
+  Some characteristics of WAPTs:
+
+  - Focus on a specific scope.
+
+  - Scope is made up of a list of hosts, each of which can implement one
+    or more web applications and/or services exposed through web
+    technology (HTTP, Websocket)
+
+  - All vulnerabilities must be reported. Non linear scenario.
+
+  - Much more structured and complex report.
+
+  - The objective of a WAPT is to assess the overall security risk of an
+    application based on a given *threat model*.
+
+  - Code is written by developers which might not be aware of security
+    concepts.
+
+  - Useful for decreasing risk of web applications, which in turn
+    produces value to companies and developers.
+
+  - Vulnerabilities are less sophisticated, but technology is typically
+    more complex (production code is never easy).

@@ -7,6 +7,49 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Differences between WAPTs and CTFs</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#6kptQtM1W74</guid>
+<link>https://youtu.be/6kptQtM1W74</link>
+<pubDate>Tue, 02 Jul 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I discuss the differences between Capture The Flags (CTFs) and Penetration Tests (PTs). It is important to understand this difference because typically everyone learns by doing CTFs, but then when you actually work in the industry you will be paid for performing PTs, and so you need to develop a different point of view regarding cybersecurity.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:00 On Capture The Flags (CTFs)<br>
+07:40 On Web Application Penetration Tests (WAPTs)<br>
+16:20 Differences between CTFs and WAPTs<br>
+19:25 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-02-security-industry-wapt-vs-ctf"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-02-security-industry-wapt-vs-ctf </a> <br>
+<br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>SUDO Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#GCaCK_BaGig</guid>
 <link>https://youtu.be/GCaCK_BaGig</link>

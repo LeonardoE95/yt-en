@@ -7,6 +7,61 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Windows Permissions</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#-3UtOvZDWdk</guid>
+<link>https://youtu.be/-3UtOvZDWdk</link>
+<pubDate>Sat, 06 Jul 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series. This time the focus will be on how permissions are handled by the Windows operating system.<br>
+<br>
+We will discuss about the ideas behind authentication, authorization and session managements. Then we discuss the concept of security principals, and how they are identified by Security Identifiers (SIDs). Continuing, we see how to check permissions on files using the icacls.exe command. Finally, we discuss the concepts of Mandatory Integrity Control (MIC) and User Account Control (UAC), which are extra mechanism that are employed by windows to increase the level of security.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:24 Authentication, Authorization and Session Management<br>
+06:45 Security Principals and Security Identifier (SID)<br>
+10:05 How to read SIDs<br>
+17:41 Enumerate user SIDs<br>
+20:40 Access Tokens<br>
+24:00 File Permissions with icacls.exe<br>
+29:55 Mandatory Integrity Control (MIC)<br>
+33:05 User Account Control (UAC)<br>
+35:40 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-06-windows-privesc-windows-permissions"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-06-windows-privesc-windows-permissions </a> <br>
+- Windows SIDs: <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-identifiers"> https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-identifiers </a> <br>
+- Well Known SIDs: <a href="https://learn.microsoft.com/en-us/windows/win32/api/winnt/ne-winnt-well_known_sid_type"> https://learn.microsoft.com/en-us/windows/win32/api/winnt/ne-winnt-well_known_sid_type </a> <br>
+- Access Token: <a href="https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens"> https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens </a> <br>
+- Mandatory Integrity Controls: <a href="https://learn.microsoft.com/en-us/windows/win32/secauthz/mandatory-integrity-control"> https://learn.microsoft.com/en-us/windows/win32/secauthz/mandatory-integrity-control </a> <br>
+- File Permissions: <a href="https://superuser.com/questions/322423/explain-the-output-of-icacls-exe-line-by-line-item-by-item"> https://superuser.com/questions/322423/explain-the-output-of-icacls-exe-line-by-line-item-by-item </a> <br>
+- Playing with Windows API: <a href="https://0x00-0x00.github.io/research/2018/10/17/Windows-API-and-Impersonation-Part1.html"> https://0x00-0x00.github.io/research/2018/10/17/Windows-API-and-Impersonation-Part1.html </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Differences between WAPTs and CTFs</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#6kptQtM1W74</guid>
 <link>https://youtu.be/6kptQtM1W74</link>

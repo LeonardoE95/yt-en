@@ -7,6 +7,54 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Reverse Shells in Windows</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#Vwv4IhUH_00</guid>
+<link>https://youtu.be/Vwv4IhUH_00</link>
+<pubDate>Wed, 10 Jul 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video I show various techniques for spawning a reverse shell within a Windows system.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:30 Reverse Shell vs Bind Shell<br>
+05:35 Reverse Shells are Better<br>
+08:20 File Transfer Commands<br>
+16:40 Payload 1 – ncat<br>
+22:40 Payload 2 – Invoke-PowerShellTcp<br>
+29:55 Payload 3 – Python script<br>
+34:35 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-10-windows-privesc-windows-reverse-shells"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-10-windows-privesc-windows-reverse-shells </a> <br>
+- Netcat in windows: <a href="https://github.com/int0x33/nc.exe/"> https://github.com/int0x33/nc.exe/ </a> <br>
+- Reverse Shell in Powershell: <a href="https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1"> https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1 </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Windows Permissions</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#-3UtOvZDWdk</guid>
 <link>https://youtu.be/-3UtOvZDWdk</link>

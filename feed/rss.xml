@@ -7,6 +7,52 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Wildcard Expansion Exploitation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#pKefnEhhGV0</guid>
+<link>https://youtu.be/pKefnEhhGV0</link>
+<pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series.<br>
+<br>
+This time the focus will be on an exploitation technique known as "wildcard expansion". This technique anytime we have a command that implements some sort of expansion functionality.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:20 Shell wildcards<br>
+08:30 Why wildcards can be dangerous?<br>
+10:50 Scenario 1 – tar<br>
+17:45 Scenario 2 – find<br>
+24:12 Scenario 3 – rsync<br>
+28:52 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-15-linux-privesc-wildcard-expansion-exploitation"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-15-linux-privesc-wildcard-expansion-exploitation </a> <br>
+<br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Reverse Shells in Windows</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#Vwv4IhUH_00</guid>
 <link>https://youtu.be/Vwv4IhUH_00</link>

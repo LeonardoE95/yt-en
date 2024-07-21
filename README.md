@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 59 | CrowdStrike's Mistake and Software Fragility | news | 2024-07-21 | [link](https://youtu.be/CzfS30moycU) | [link](./src/2024-07-21-news-crowdstrike-mistake)
 | 58 | Base64 Encoder in C From Scratch | From Scratch | 2024-07-20 | [link](https://youtu.be/u2bevjdRAFk) | [link](./src/2024-07-20-from-scratch-base64-encoder-in-C)
 | 57 | Wildcard Expansion Exploitation | Linux privilege escalation | 2024-07-15 | [link](https://youtu.be/pKefnEhhGV0) | [link](./src/2024-07-15-linux-privesc-wildcard-expansion-exploitation)
 | 56 | Reverse Shells in Windows | Windows privilege escalation | 2024-07-10 | [link](https://youtu.be/Vwv4IhUH_00) | [link](./src/2024-07-10-windows-privesc-windows-reverse-shells)

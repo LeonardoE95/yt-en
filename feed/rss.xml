@@ -7,6 +7,45 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Base64 Encoder in C From Scratch</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#u2bevjdRAFk</guid>
+<link>https://youtu.be/u2bevjdRAFk</link>
+<pubDate>Sat, 20 Jul 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video I show how to implement from scratch a base64 encoder using the C programming language. <br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:35 Manual Base64 encoding<br>
+07:57 Implementing base64_encode()<br>
+25:30 Implementing main()<br>
+34:02 Implementing base64_decode()<br>
+46:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-20-from-scratch-base64-encoder-in-C"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-20-from-scratch-base64-encoder-in-C </a> <br>
+- Base64 RFC: <a href="https://datatracker.ietf.org/doc/html/rfc4648"> https://datatracker.ietf.org/doc/html/rfc4648 </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Wildcard Expansion Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#pKefnEhhGV0</guid>
 <link>https://youtu.be/pKefnEhhGV0</link>

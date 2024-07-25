@@ -7,6 +7,55 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>SeImpersonatePrivilege Exploitation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#01ODXD-oqyc</guid>
+<link>https://youtu.be/01ODXD-oqyc</link>
+<pubDate>Thu, 25 Jul 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we analyze an exploitation technique which can be used anytime we find a user with the SeImpersonatePrivilege and which allows to obtain administrator code execution.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:05 Setup<br>
+04:01 On SeImpersonatePrivilege<br>
+06:55 Exploitation<br>
+14:30 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-25-windows-privesc-windows-impersonate-privilege"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-25-windows-privesc-windows-impersonate-privilege </a> <br>
+- MS doc: <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/seimpersonateprivilege-secreateglobalprivilege"> https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/seimpersonateprivilege-secreateglobalprivilege </a> <br>
+- Origin of Rotten Potato: <a href="https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/"> https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/ </a> <br>
+- SeImpersonatePrivilege: <a href="https://juggernaut-sec.com/seimpersonateprivilege/"> https://juggernaut-sec.com/seimpersonateprivilege/ </a> <br>
+- PrintSpoofer: <a href="https://github.com/itm4n/PrintSpoofer"> https://github.com/itm4n/PrintSpoofer </a> <br>
+- GodPotato: <a href="https://github.com/BeichenDream/GodPotato"> https://github.com/BeichenDream/GodPotato </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>CrowdStrike's Mistake and Software Fragility</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#CzfS30moycU</guid>
 <link>https://youtu.be/CzfS30moycU</link>

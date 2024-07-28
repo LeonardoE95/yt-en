@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Reverse Shells in Linux</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#8zt_jIwC7cY</guid>
+<link>https://youtu.be/8zt_jIwC7cY</link>
+<pubDate>Sun, 28 Jul 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series.<br>
+<br>
+This time the focus will be on discussing the differences between bind shells and reverse shells, and showcasing various techniques for spawning a reverse shell within a Linux based system.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, subscribe to the channel and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+00:55 Docker Setup<br>
+02:50 Reverse Shell vs Bind Shell<br>
+07:00 Reverse Shells are Better<br>
+11:00 File Transfer Commands<br>
+19:00 Spawning Reverse Shells<br>
+20:10 Payload 1 – Bash<br>
+26:10 Payload 2 – Python<br>
+30:11 Payload 3 – Perl<br>
+30:40 Payload 4 – Php<br>
+31:00 Payload 5 – Ruby<br>
+32:33 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-28-linux-privesc-linux-reverse-shells"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-07-28-linux-privesc-linux-reverse-shells </a> <br>
+- bash payload explanation: <a href="https://www.youtube.com/watch?v=OjkVep2EIlw"> https://www.youtube.com/watch?v=OjkVep2EIlw </a> <br>
+- Reverse Shell Cheatsheets: <a href="https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php"> https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>SeImpersonatePrivilege Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#01ODXD-oqyc</guid>
 <link>https://youtu.be/01ODXD-oqyc</link>

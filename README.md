@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 61 | Reverse Shells in Linux | Linux privilege escalation | 2024-07-28 | [link](https://youtu.be/8zt_jIwC7cY) | [link](./src/2024-07-28-linux-privesc-linux-reverse-shells)
 | 60 | SeImpersonatePrivilege Exploitation | Windows privilege escalation | 2024-07-25 | [link](https://youtu.be/01ODXD-oqyc) | [link](./src/2024-07-25-windows-privesc-windows-impersonate-privilege)
 | 59 | CrowdStrike's Mistake and Software Fragility | news | 2024-07-21 | [link](https://youtu.be/CzfS30moycU) | [link](./src/2024-07-21-news-crowdstrike-mistake)
 | 58 | Base64 Encoder in C From Scratch | From Scratch | 2024-07-20 | [link](https://youtu.be/u2bevjdRAFk) | [link](./src/2024-07-20-from-scratch-base64-encoder-in-C)

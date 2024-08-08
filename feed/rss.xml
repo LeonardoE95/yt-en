@@ -7,6 +7,51 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Bruteforce Login Forms and Scrape SQL Injection Data Leaks with Python!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#qDx4wCfMIVg</guid>
+<link>https://youtu.be/qDx4wCfMIVg</link>
+<pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I show some python programming. Specifically, I show how to do web scraping with python. In the first scenario I show how to perform a brute forcing attack, which involves sending a series of HTTP request. In the second scenario instead I show how to parse the HTTP response obtain from the server in order to extract and structure the data of interest.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, subscribe to the channel and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:13 Docker Setup<br>
+04:40 Scenario 1 – Bruteforce Login Form<br>
+30:35 Scenario 2 – Data Scraping SQLi output<br>
+44:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-08-programming-python-web-scraping"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-08-programming-python-web-scraping </a> <br>
+- Requests Library: <a href="https://requests.readthedocs.io/en/latest/"> https://requests.readthedocs.io/en/latest/ </a> <br>
+- BeautifulSoup4 Library: <a href="https://beautiful-soup-4.readthedocs.io/en/latest/"> https://beautiful-soup-4.readthedocs.io/en/latest/ </a> <br>
+- DVWA: <a href="https://github.com/digininja/DVWA"> https://github.com/digininja/DVWA </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Reverse Shells in Linux</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#8zt_jIwC7cY</guid>
 <link>https://youtu.be/8zt_jIwC7cY</link>

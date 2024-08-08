@@ -15,7 +15,6 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
-| 63 | Bruteforce Login Forms and Scrape SQL Injection Data Leaks with Python! | Python | 2024-08-08 | [link](https://youtu.be/qDx4wCfMIVg) | [link](./src/2024-08-08-programming-python-web-scraping)
 | 62 | Unshadow Attack | Linux privilege escalation | 2024-08-02 | [link](https://youtu.be/eVlVQHlJC6U) | [link](./src/2024-08-02-linux-privesc-linux-unshadow-attack)
 | 61 | Reverse Shells in Linux | Linux privilege escalation | 2024-07-28 | [link](https://youtu.be/8zt_jIwC7cY) | [link](./src/2024-07-28-linux-privesc-linux-reverse-shells)
 | 60 | SeImpersonatePrivilege Exploitation | Windows privilege escalation | 2024-07-25 | [link](https://youtu.be/01ODXD-oqyc) | [link](./src/2024-07-25-windows-privesc-windows-impersonate-privilege)

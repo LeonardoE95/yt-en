@@ -1,0 +1,241 @@
+                      ___________________________
+
+                       HTTP REQUESTS WITH PYTHON
+
+                            Leonardo Tamiano
+                      ___________________________
+
+
+Table of Contents
+_________________
+
+1. Installation
+2. Examples
+.. 1. GET Examples
+.. 2. POST Examples
+.. 3. DVWA Example
+
+
+1 Installation
+==============
+
+  Create python virtual environment with `venv'
+  ,----
+  | python3 -m venv venv
+  | . venv/bin/activate
+  `----
+
+  Install requests library
+  ,----
+  | pip3 install requests
+  `----
+
+  Save dependencies list
+  ,----
+  | pip3 freeze > requirements.txt
+  `----
+
+
+2 Examples
+==========
+
+  The file `./src/examples.py' contains various examples on how to use
+  the `requests' library.
+
+
+2.1 GET Examples
+~~~~~~~~~~~~~~~~
+
+  *simple GET*
+  ,----
+  | url = "http://localhost/get"
+  | requests.get(url, proxies=PROXIES)
+  `----
+
+  we obtain the following request
+  ,----
+  | GET /get HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  `----
+
+  ----------------------------------------------------------------------
+
+  *GET with custom PATH PARAMS*
+  ,----
+  | url = "http://localhost/params"
+  | custom_params = { "key1": "value1", "key2": "value2"}
+  | requests.get(url, params=custom_params, proxies=PROXI
+  `----
+
+  we obtain the following request
+  ,----
+  | GET /params?key1=value1&key2=value2 HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  | 
+  `----
+
+  ----------------------------------------------------------------------
+
+  *GET with custom HEADERS*
+  ,----
+  | url = "http://localhost/headers"
+  | custom_headers = {
+  |     "Content-Type": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+  | }
+  | requests.get(url, headers=custom_headers, proxies=PROXIES)
+  | 
+  `----
+
+  we obtain the following request
+  ,----
+  | GET /headers HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  | Content-Type: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+  `----
+
+  ----------------------------------------------------------------------
+
+  *GET with custom PATH PARAMS and custom HEADERS*
+  ,----
+  | url = "http://localhost/get"
+  | custom_params = { "key1": "value1", "key2": "value2"}
+  | custom_headers = {
+  |     "Content-Type": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+  | }
+  | requests.get(url, headers=custom_headers, params=custom_params, proxies=PROXIES)    
+  `----
+
+  we obtain the following request
+  ,----
+  | GET /get?key1=value1&key2=value2 HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  | Content-Type: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+  | 
+  `----
+
+
+2.2 POST Examples
+~~~~~~~~~~~~~~~~~
+
+  *simple POST*
+  ,----
+  | url = "http://localhost/post"
+  | requests.post(url, proxies=PROXIES)
+  `----
+
+  we obtain the following request
+
+  ,----
+  | POST /post HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  | Content-Length: 0
+  `----
+
+  ----------------------------------------------------------------------
+
+  *POST with 'x-www-form-urlencoded' BODY*
+  ,----
+  | url = "http://localhost/form"
+  | custom_body_params = { "key1": "value1", "key2": "value2"}
+  | requests.post(url, data=custom_body_params, proxies=PROXIES)
+  `----
+
+  we obtain the following request
+
+  ,----
+  | POST /form HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  | Content-Length: 23
+  | Content-Type: application/x-www-form-urlencoded
+  | 
+  | key1=value1&key2=value2
+  `----
+
+  ----------------------------------------------------------------------
+
+  *POST with custom HEADERS*
+  ,----
+  | url = "http://localhost/headers"
+  | custom_headers = { "Authorization": "Bearer XXX" }
+  | requests.post(url, headers=custom_headers, proxies=PROXIES)
+  `----
+
+  we obtain the following request
+
+  ,----
+  | POST /headers HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  | Authorization: Bearer XXX
+  | Content-Length: 0
+  | 
+
+  `----
+
+  ----------------------------------------------------------------------
+
+  *POST with JSON body*
+  ,----
+  | url = "http://localhost/json"    
+  | custom_json_body = { "key1": "value1", "key2": "value2"}
+  | requests.post(url, json=custom_json_body, proxies=PROXIES)
+  `----
+
+  we obtain the following request
+
+  ,----
+  | POST /json HTTP/1.1
+  | Host: localhost
+  | User-Agent: python-requests/2.32.3
+  | Accept-Encoding: gzip, deflate, br
+  | Accept: */*
+  | Connection: keep-alive
+  | Content-Length: 36
+  | Content-Type: application/json
+  | 
+  | {"key1": "value1", "key2": "value2"}
+  `----
+
+
+2.3 DVWA Example
+~~~~~~~~~~~~~~~~
+
+  The file `./src/login.py' contains an example on how to generate HTTP
+  traffic to test out the DVWA bruteforce module.
+
+  To run DVWA you can use the following docker command.
+  ,----
+  | docker run --name dvwa --rm -d -it -p80:80 vulnerables/web-dvwa
+  `----
+
+  Run as follows
+  ,----
+  | python3 login.py
+  `----

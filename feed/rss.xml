@@ -7,6 +7,103 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Generate HTTP Requests with Python</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#9u_AfAjzJqI</guid>
+<link>https://youtu.be/9u_AfAjzJqI</link>
+<pubDate>Wed, 14 Aug 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I show how to generate HTTP requests using the python programming language and the requests library. Being able to generate HTTP traffic is extremely useful in many situation. At the end of the video I show one such scenario in which we can discover valid credentials for a login form by performing many HTTP requests. <br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, subscribe to the channel and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:30 Why generating HTTP traffic with python?<br>
+03:40 Python virtual environment<br>
+06:30 Generate GET requests<br>
+16:50 Generate POST requests<br>
+23:11 Read response data<br>
+28:37 Solve DVWA brute force with Python<br>
+38:22 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-14-programming-python-http-requests"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-14-programming-python-http-requests </a> <br>
+- Requests Library: <a href="https://requests.readthedocs.io/en/latest/"> https://requests.readthedocs.io/en/latest/ </a> <br>
+- DVWA: <a href="https://github.com/digininja/DVWA"> https://github.com/digininja/DVWA </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
+<title>Unshadow Attack</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#eVlVQHlJC6U</guid>
+<link>https://youtu.be/eVlVQHlJC6U</link>
+<pubDate>Fri, 02 Aug 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series.<br>
+<br>
+This time the focus will be on a specific technique that uses the unshadow tool. The idea is that anytime we can get our hands on the shadow file, then we can try to crack the hashes saved within that file to obtain some user credentials. In this video I show how to go about doing something like that.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, subscribe to the channel and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:15 Docker setup<br>
+02:30 Shadow and Passwd files<br>
+10:35 Compute shadow hashes<br>
+13:20 Why use the salt?<br>
+15:25 Wordlists and rockyou.txt<br>
+17:22 Unshadow attack<br>
+23:52 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-02-linux-privesc-linux-unshadow-attack"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-02-linux-privesc-linux-unshadow-attack </a> <br>
+- John the ripper: <a href="https://www.openwall.com/john/"> https://www.openwall.com/john/ </a> <br>
+- Hashcat: <a href="https://hashcat.net/hashcat/"> https://hashcat.net/hashcat/ </a> <br>
+- Rockyou wordlist: <a href="https://github.com/danielmiessler/SecLists/tree/master/Passwords/Leaked-Databases"> https://github.com/danielmiessler/SecLists/tree/master/Passwords/Leaked-Databases </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Reverse Shells in Linux</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#8zt_jIwC7cY</guid>
 <link>https://youtu.be/8zt_jIwC7cY</link>

@@ -1,0 +1,54 @@
+                       __________________________
+
+                        WEB SCRAPING WITH PYTHON
+
+                            Leonardo Tamiano
+                       __________________________
+
+
+Table of Contents
+_________________
+
+1. Installation
+2. Examples
+.. 1. Extract links from blog
+.. 2. DVWA - Parse SQL Injection Output
+
+
+1 Installation
+==============
+
+  Create python virtual environment with `venv'
+  ,----
+  | python3 -m venv venv
+  | . venv/bin/activate
+  `----
+
+  Install libraries
+  ,----
+  | pip3 install requests       # HTTP requests
+  | pip3 install beautifulsoup4 # web scraping
+  `----
+
+  Save dependencies list
+  ,----
+  | pip3 freeze > requirements.txt
+  `----
+
+
+2 Examples
+==========
+
+2.1 Extract links from blog
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Code found at <file:src/example.py>.
+
+
+2.2 DVWA - Parse SQL Injection Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  To run DVWA you can use the following docker command.
+  ,----
+  | docker run --name dvwa --rm -d -it -p80:80 vulnerables/web-dvwa
+  `----

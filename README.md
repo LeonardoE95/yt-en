@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 66 | New release of Phrack! (Issue n. 71) | Phrack | 2024-08-24 | [link](https://youtu.be/nwzCwLfVsnA) | [link](./src/2024-08-24-reading-phrack-issue-71)
 | 65 | Linux System Enumeration | Linux privilege escalation | 2024-08-22 | [link](https://youtu.be/TddEf8qyuKI) | [link](./src/2024-08-22-linux-privesc-enumeration-system)
 | 64 | Scrape Web Data with Python | Python | 2024-08-18 | [link](https://youtu.be/Mi2XtgImmvo) | [link](./src/2024-08-18-programming-python-web-scraping)
 | 63 | Generate HTTP Requests with Python | Python | 2024-08-14 | [link](https://youtu.be/9u_AfAjzJqI) | [link](./src/2024-08-14-programming-python-http-requests)

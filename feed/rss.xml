@@ -7,6 +7,48 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>New release of Phrack! (Issue n. 71)</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#nwzCwLfVsnA</guid>
+<link>https://youtu.be/nwzCwLfVsnA</link>
+<pubDate>Sat, 24 Aug 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I read the introduction of the latest issue of Phrack. Issue n. 71 was released the 19th august of 2024.<br>
+<br>
+For those who do not know (I hope few), Phrack is an online magazine (e-zine) that contains some of the most influential writing in the hacker culture. It contains topics regarding Computer Science, Computer Security, and more general ways of thinking about the world using the hacker mentality.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 What is Phrack?<br>
+03:30 Introduction to Issue 71<br>
+18:23 Overview of contents<br>
+22:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-24-reading-phrack-issue-71"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-24-reading-phrack-issue-71 </a> <br>
+- Phrack: <a href="http://www.phrack.org/issues/71/1.html"> http://www.phrack.org/issues/71/1.html </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Linux System Enumeration</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#TddEf8qyuKI</guid>
 <link>https://youtu.be/TddEf8qyuKI</link>

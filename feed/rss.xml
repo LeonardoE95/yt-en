@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Linux Cronjob Enumeration</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#BKnGGqy07gc</guid>
+<link>https://youtu.be/BKnGGqy07gc</link>
+<pubDate>Tue, 27 Aug 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series by focusing on enumeration.<br>
+<br>
+Specifically, I will discuss what are cronjobs, how they can be configured, and how they can be enumerated. Cronjob enumeration is an important aspect of privilege escalation because many times it happens that cronjobs configurations can be exploited.<br>
+<br>
+The video ends with a practical example on a vulnerable configuration, which is found in the Bashed Hack The Box machine. If you're interested more in that I've made an entire walkthrough describing how to do the machine.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:15 What is a Cronjob?<br>
+03:55 Cronjob Configuration<br>
+12:35 Cronjob Enumeration<br>
+19:25 Cronjob Exploitation<br>
+25:33 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-27-linux-privesc-enumeration-cronjobs"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-27-linux-privesc-enumeration-cronjobs </a> <br>
+- pspy: <a href="https://github.com/DominicBreuker/pspy"> https://github.com/DominicBreuker/pspy </a> <br>
+- bashed walkthrough: <a href="https://www.youtube.com/watch?v=5j67dhw-D1Q&t=1950s"> https://www.youtube.com/watch?v=5j67dhw-D1Q&t=1950s </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>New release of Phrack! (Issue n. 71)</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#nwzCwLfVsnA</guid>
 <link>https://youtu.be/nwzCwLfVsnA</link>

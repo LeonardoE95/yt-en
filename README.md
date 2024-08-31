@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 68 | OSCP Exam is Changing! | news | 2024-08-31 | [link](https://youtu.be/MoSEttxemx0) | [link](./src/2024-08-31-news-oscp-exam-changes)
 | 67 | Linux Cronjob Enumeration | Linux privilege escalation | 2024-08-27 | [link](https://youtu.be/BKnGGqy07gc) | [link](./src/2024-08-27-linux-privesc-enumeration-cronjobs)
 | 66 | New release of Phrack! (Issue n. 71) | Phrack | 2024-08-24 | [link](https://youtu.be/nwzCwLfVsnA) | [link](./src/2024-08-24-reading-phrack-issue-71)
 | 65 | Linux System Enumeration | Linux privilege escalation | 2024-08-22 | [link](https://youtu.be/TddEf8qyuKI) | [link](./src/2024-08-22-linux-privesc-enumeration-system)

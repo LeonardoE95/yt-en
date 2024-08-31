@@ -7,6 +7,48 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>OSCP Exam is Changing!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#MoSEttxemx0</guid>
+<link>https://youtu.be/MoSEttxemx0</link>
+<pubDate>Sat, 31 Aug 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this video!<br>
+<br>
+In this video I read and comment recent OffSec announcements regarding the OSCP exam and certification.<br>
+<br>
+If you're preparing yourself for obtaining the OSCP certification, I suggest you look at the material I have created over this year in this youtube channel. Links are in the description.<br>
+<br>
+Thank you very much and I wish you a good preparation!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-31-news-oscp-exam-changes"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-08-31-news-oscp-exam-changes </a> <br>
+- OffSec Article: <a href="https://help.offsec.com/hc/en-us/articles/29865898402836-OSCP-Exam-Changes"> https://help.offsec.com/hc/en-us/articles/29865898402836-OSCP-Exam-Changes </a> <br>
+- OSCP Guide: <a href="https://www.youtube.com/watch?v=9mrf-WyzkpE&list=PLJnLaWkc9xRgOyupMhNiVFfgvxseWDH5x&pp=gAQBiAQB"> https://www.youtube.com/watch?v=9mrf-WyzkpE&list=PLJnLaWkc9xRgOyupMhNiVFfgvxseWDH5x&pp=gAQBiAQB </a> <br>
+- Web Exploitation: <a href="https://www.youtube.com/watch?v=fe5qBuxumRM&list=PLJnLaWkc9xRitBGPK5CcyoWCcPCeTYoqw&pp=gAQBiAQB"> https://www.youtube.com/watch?v=fe5qBuxumRM&list=PLJnLaWkc9xRitBGPK5CcyoWCcPCeTYoqw&pp=gAQBiAQB </a> <br>
+- Linux Privilege Escalation: <a href="https://www.youtube.com/watch?v=YDoKDEfugI4&list=PLJnLaWkc9xRiI6Uxygcxrsqlza3KhRy4v&pp=gAQBiAQB"> https://www.youtube.com/watch?v=YDoKDEfugI4&list=PLJnLaWkc9xRiI6Uxygcxrsqlza3KhRy4v&pp=gAQBiAQB </a> <br>
+- Windows Privilege Escalation: <a href="https://www.youtube.com/watch?v=n382EGuJP8Y&list=PLJnLaWkc9xRh8hmNFWyzWMFgAHo8Lgr93&pp=gAQBiAQB"> https://www.youtube.com/watch?v=n382EGuJP8Y&list=PLJnLaWkc9xRh8hmNFWyzWMFgAHo8Lgr93&pp=gAQBiAQB </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Linux Cronjob Enumeration</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#BKnGGqy07gc</guid>
 <link>https://youtu.be/BKnGGqy07gc</link>

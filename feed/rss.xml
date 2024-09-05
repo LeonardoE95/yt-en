@@ -7,6 +7,57 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Linux Capabilities Enumeration</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#vbjuVTfVFMA</guid>
+<link>https://youtu.be/vbjuVTfVFMA</link>
+<pubDate>Thu, 05 Sep 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series by focusing on enumeration.<br>
+<br>
+Specifically, I will discuss the role of capabilities in linux systems, how to enumerate the capabilities in a given linux instance and how to abuse certain missconfigurations on capabilities to perform privilege escalation.<br>
+<br>
+If you find the video useful, please support my work by subscribing to the channel, sharing the video with like-minded people, and letting me know what you think of my work down in the comments!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:05 What are capabilities in Linux?<br>
+08:34 How to configure capabilities (getcap, setcap)<br>
+10:50 How to enumerate capabilities (getcap, getpcaps, capsh)<br>
+14:05 Powerful capabilities for exploitations<br>
+16:40 Example 1 – CAP_SETUID<br>
+20:00 Example 2 – CAP_SYS_PTRACE<br>
+25:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-05-linux-privesc-enumeration-capabilities"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-05-linux-privesc-enumeration-capabilities </a> <br>
+- List of capabilities: <a href="https://man7.org/linux/man-pages/man7/capabilities.7.html"> https://man7.org/linux/man-pages/man7/capabilities.7.html </a> <br>
+- Getcap: <a href="https://man7.org/linux/man-pages/man8/getcap.8.html"> https://man7.org/linux/man-pages/man8/getcap.8.html </a> <br>
+- Hacktricks: <a href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities"> https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities </a> <br>
+- StackOverflow: <a href="https://stackoverflow.com/questions/35469038/how-to-find-out-what-linux-capabilities-a-process-requires-to-work"> https://stackoverflow.com/questions/35469038/how-to-find-out-what-linux-capabilities-a-process-requires-to-work </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>OSCP Exam is Changing!</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#MoSEttxemx0</guid>
 <link>https://youtu.be/MoSEttxemx0</link>

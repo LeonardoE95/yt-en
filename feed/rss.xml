@@ -7,6 +7,62 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Introduction to the GNU Project Debugger (GDB)</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#n2lr_r6gp4o</guid>
+<link>https://youtu.be/n2lr_r6gp4o</link>
+<pubDate>Mon, 09 Sep 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+This video is the first of a series where I will showcase and discuss various tools. Tools are really important in the context of computer science and computer secrity, because most interesting research and results come from people who have mastered the usage of foundational tools.<br>
+<br>
+In this first video I analyze the GNU Project Debugger, also known as GDB. With GDB you can debug any process running in a linux environment. While the tool itself can be limited in certain aspects, it acts as a powerful foundational debugger on top of which you can add extension which adds to feature to the debugger. Later in the video I show one such extension known as Pwndbg.<br>
+<br>
+If you like the video, please support my work by subscribing to the channel, sharing the video with like-minded people, and keep following for future videos!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 introduction<br>
+01:45 installation<br>
+02:35 basic commands<br>
+10:15 adding debug information<br>
+12:45 disassemble code<br>
+14:30 working with TUI<br>
+15:15 documentation<br>
+17:20 breakpoints and control flow<br>
+29:30 registers and memory<br>
+42:40 extensions<br>
+46:00 conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-09-tools-gdb"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-09-tools-gdb </a> <br>
+- Pwndbg: <a href="https://github.com/pwndbg/pwndbg"> https://github.com/pwndbg/pwndbg </a> <br>
+- Peda: <a href="https://github.com/longld/peda"> https://github.com/longld/peda </a> <br>
+- <a href="https://stackoverflow.com/questions/1471226/most-tricky-useful-commands-for-gdb-debugger"> https://stackoverflow.com/questions/1471226/most-tricky-useful-commands-for-gdb-debugger </a> <br>
+- <a href="https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf"> https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf </a> <br>
+- <a href="https://visualgdb.com/gdbreference/commands/frame"> https://visualgdb.com/gdbreference/commands/frame </a> <br>
+- <a href="https://interrupt.memfault.com/blog/advanced-gdb"> https://interrupt.memfault.com/blog/advanced-gdb </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Linux Capabilities Enumeration</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#vbjuVTfVFMA</guid>
 <link>https://youtu.be/vbjuVTfVFMA</link>

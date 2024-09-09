@@ -1,0 +1,264 @@
+                    ________________________________
+
+                             TOOL SHOWCASE
+                     The GNU Project Debugger (GDB)
+                    ________________________________
+
+
+Table of Contents
+_________________
+
+1. Installation
+2. Basic Commands
+3. Documentation
+4. Breakpoints and Control Flow
+5. Registers and Memory
+6. Extensions
+7. Refs
+
+
+1 Installation
+==============
+
+  To install `gdb' you can use the appropriate package manager depending
+  on your distribution.
+
+  ,----
+  | sudo pacman -S gdb   # arch, ...
+  | sudo apt install gdb # kali, ubuntu, debian, ...
+  `----
+
+
+2 Basic Commands
+================
+
+  start gdb and skip initial text
+  ,----
+  | gdb -q ./vulnerable
+  `----
+
+  list out functions in binary
+  ,----
+  | info functions
+  `----
+
+  disassemble function to read assembly code
+  ,----
+  | disassemble main
+  | disass main
+  `----
+
+  change assembly syntax
+  ,----
+  | set disassembly intel
+  | set disassembly at
+  `----
+
+  show source code and assembly code
+  ,----
+  | disassemble /s main
+  `----
+
+  work with Text User Interface (TUI)
+  ,----
+  | tui enable
+  | tui layout src
+  | tui layout asm
+  | tui layout split
+  `----
+
+  when working with TUI, to refresh screen
+  ,----
+  | C-l
+  `----
+
+
+3 Documentation
+===============
+
+  Get information about a command
+  ,----
+  | help <command>
+  `----
+
+  Search help menus of each command using regex
+  ,----
+  | apropos <regex>
+  `----
+
+
+4 Breakpoints and Control Flow
+==============================
+
+  set breakpoints
+  ,----
+  | b main
+  | b vulnerable
+  | b *0x565561b0
+  | b *vulnerable+35
+  `----
+
+  list breakpoints
+  ,----
+  | info breakpoints
+  | info break
+  | i b
+  `----
+
+  run program
+  ,----
+  | run
+  | run value
+  | run valueeeeeeeeee
+  `----
+
+  continue the execution of the program after hitting a breakpoint
+  ,----
+  | ni -> next asm instruction
+  | n -> next source instruction
+  | 
+  | si -> step asm instruction
+  | s -> step source instruction
+  | 
+  | c -> continue
+  `----
+
+  remove breakpoint
+  ,----
+  | clear
+  | del 2
+  `----
+
+
+5 Registers and Memory
+======================
+
+  show registers
+  ,----
+  | info registers
+  | i r
+  `----
+
+  you can reference a value saved in a register with the syntax
+  ,----
+  | $<register_name>
+  `----
+
+  ----------------------------------------------------------------------
+
+  show stack trace
+  ,----
+  | bt
+  `----
+
+  show local variables in stack traces
+  ,----
+  | bt full
+  `----
+
+  show strack trace with local variables of all threads
+  ,----
+  | thread apply all bt
+  `----
+
+  when something bad happens, can tell you backtrace of the stack
+  ,----
+  | where
+  `----
+
+  ----------------------------------------------------------------------
+
+  print current frame
+  ,----
+  | frame
+  `----
+
+  move one frame up
+  ,----
+  | up
+  `----
+
+  move one frame down
+  ,----
+  | down
+  `----
+
+  ----------------------------------------------------------------------
+
+  list out memory regions
+  ,----
+  | info files
+  `----
+
+  examine memory
+  ,----
+  | x/32wx $esp
+  | x/<units><size of unit><format of unit> <location>
+  `----
+
+  format types
+  ,----
+  | o -> octal
+  | x -> hexadecimale
+  | u -> unsigned base-10 decimal
+  | t -> binary
+  | i -> instruction
+  | s -> string
+  `----
+
+  format size
+  ,----
+  | b -> single byte
+  | h -> two bytes (halfword)
+  | w -> four bytes (word)
+  | g -> eight bytes (giant)
+  `----
+
+
+6 Extensions
+============
+
+  Over the years GDB has been extended with different extensions. These
+  extensions change the way in which GDB works by enriching it with more
+  features and commands.
+
+  Example of popular extensions:
+
+  - PEDA - Python Exploit Development Assistance for GDB
+    - <https://github.com/longld/peda>
+
+  - Pwndbg - Exploit Development and Reverse Engineering with GDB Made
+    Easy
+    - <https://github.com/pwndbg/pwndbg>
+    - <https://pwndbg.re/>
+
+  ----------------------------------------------------------------------
+
+  To install `pwngdb' you can execute the following
+
+  ,----
+  | git clone https://github.com/pwndbg/pwndbg
+  | cd pwndbg
+  | ./setup.sh
+  `----
+
+  This will change the GDB configuration file to start off `pwngdb'
+  everytime we call `gdb'.
+
+  ,----
+  | leo@ctf:~/bin/pwndbg$ cat ~/.gdbinit 
+  | source /home/leo/bin/pwndbg/gdbinit.py
+  `----
+
+
+7 Refs
+======
+
+  GDB is an extremely complex tool with a lot of documentation. Only by
+  using it you will understand the feature that you need.
+
+  Some useful references:
+  - <https://stackoverflow.com/questions/1471226/most-tricky-useful-commands-for-gdb-debugger>
+  - <https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf>
+  - <https://visualgdb.com/gdbreference/commands/frame>
+  - <https://interrupt.memfault.com/blog/advanced-gdb>

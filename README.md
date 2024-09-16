@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 71 | Local Service Exploitation | Linux privilege escalation | 2024-09-13 | [link](https://youtu.be/fXEatXoylqg) | [link](./src/2024-09-13-linux-privesc-local-services-exploitation)
 | 70 | Introduction to the GNU Project Debugger (GDB) | tools | 2024-09-09 | [link](https://youtu.be/n2lr_r6gp4o) | [link](./src/2024-09-09-tools-gdb)
 | 69 | Linux Capabilities Enumeration | Linux privilege escalation | 2024-09-05 | [link](https://youtu.be/vbjuVTfVFMA) | [link](./src/2024-09-05-linux-privesc-enumeration-capabilities)
 | 68 | OSCP Exam is Changing! | news | 2024-08-31 | [link](https://youtu.be/MoSEttxemx0) | [link](./src/2024-08-31-news-oscp-exam-changes)

@@ -7,6 +7,51 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Local Service Exploitation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#fXEatXoylqg</guid>
+<link>https://youtu.be/fXEatXoylqg</link>
+<pubDate>Fri, 13 Sep 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series by discussing the idea of exploiting local services, that is, services that are only exposed to local or private network interfaces.<br>
+<br>
+To build intuition on the topic, I bring two examples. In the first we use the Local Port Forwarding technique to access the local service, while in the second we use the Remote Port Forwarding to expose our local service to remote clients.<br>
+<br>
+Hope the video is interesting, leave some feedback if you want, subscribe to the channel to support my work, and to the next video!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:14 What are Local Services?<br>
+06:15 Local Port Forwarding<br>
+20:20 Remote Port Forwarding<br>
+29:20 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-13-linux-privesc-local-services-exploitation"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-13-linux-privesc-local-services-exploitation </a> <br>
+- <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Introduction to the GNU Project Debugger (GDB)</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#n2lr_r6gp4o</guid>
 <link>https://youtu.be/n2lr_r6gp4o</link>

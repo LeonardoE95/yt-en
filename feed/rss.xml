@@ -7,6 +7,57 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Linux Binary Exploitation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#C5JUPIvH3t4</guid>
+<link>https://youtu.be/C5JUPIvH3t4</link>
+<pubDate>Wed, 18 Sep 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series by discussing the core idea behind binary exploitation and how it can be used to perform privilege escalation.<br>
+<br>
+To build intuition regarding this video, I show a very simple stack-based buffer overflow that will allows us to transform an apparently meaningless program into an arbitrary shell. For the purpose of the video various memory protection mechanism were disabled. However it is important to realize that even modern protections sometimes can be bypassed by skilled enough researchers.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:00 What is a Buffer Overflow?<br>
+08:25 Example of Vulnerable Code<br>
+13:20 Assumptions on Memory Protections<br>
+19:00 Analysis with GDB<br>
+29:00 Visualize Stack-Based Buffer Overflows<br>
+30:20 Computation of offset<br>
+32:30 Exploitation Strategy<br>
+35:20 Shellcode<br>
+37:30 Payload Structure<br>
+39:00 Generation of Paylod<br>
+43:25 Final Exploit<br>
+45:00 Takeways<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-18-linux-privesc-binary-exploitation"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-18-linux-privesc-binary-exploitation </a> <br>
+- Smashing the Stack for Fun and Profit: <a href="https://phrack.org/issues/49/14.html"> https://phrack.org/issues/49/14.html </a> <br>
+     <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Local Service Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#fXEatXoylqg</guid>
 <link>https://youtu.be/fXEatXoylqg</link>

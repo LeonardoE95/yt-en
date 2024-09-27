@@ -7,6 +7,50 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Linux Kernel Exploitation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#NZ8KcSv8L9U</guid>
+<link>https://youtu.be/NZ8KcSv8L9U</link>
+<pubDate>Tue, 24 Sep 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Linux Privilege Escalation" series.<br>
+<br>
+This time the focus will be on using kernel exploits in order to achieve privilege escalation. This method is not particularly advisable, as it usually creates a lot of noise in the system, and it can even crash the system. However, it is definitely a way to become root in a linux system when the kernel version is vulnerable to known exploits and therefore it is important to consider and be aware of.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:15 What is a Kernel?<br>
+09:20 On the danger of Kernel Exploits<br>
+12:06 Enumerate Kernel Version<br>
+13:35 A Practical Example – DirtyCow<br>
+27:25 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-24-linux-privesc-kernel-exploits"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-24-linux-privesc-kernel-exploits </a> <br>
+<br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Linux Binary Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#C5JUPIvH3t4</guid>
 <link>https://youtu.be/C5JUPIvH3t4</link>

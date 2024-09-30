@@ -1,0 +1,81 @@
+                      ____________________________
+
+                       LINUX PRIVILEGE ESCALATION
+
+                            Leonardo Tamiano
+                      ____________________________
+
+
+Table of Contents
+_________________
+
+1. 01 – Introduction to the Linux Shell
+2. 02 – File System Permissions
+3. 03 – PATH Hijacking
+4. 04 – SUID Exploitation
+5. 05 – SUDO Exploitation
+6. 06 – Wildcard Expansion Exploitation
+7. 07 – Reverse Shells in Linux
+8. 08 – Unshadow Attack
+9. 09 – System Enumeration
+10. 10 – Cronjob Enumeration
+11. 11 – Capabilities Enumeration
+12. 12 – Local Service Exploitation
+13. 13 – Linux Binary Exploitation
+14. 14 – Linux Kernel Exploitation
+
+
+1 01 – Introduction to the Linux Shell
+======================================
+
+
+2 02 – File System Permissions
+==============================
+
+
+3 03 – PATH Hijacking
+=====================
+
+
+4 04 – SUID Exploitation
+========================
+
+
+5 05 – SUDO Exploitation
+========================
+
+
+6 06 – Wildcard Expansion Exploitation
+======================================
+
+
+7 07 – Reverse Shells in Linux
+==============================
+
+
+8 08 – Unshadow Attack
+======================
+
+
+9 09 – System Enumeration
+=========================
+
+
+10 10 – Cronjob Enumeration
+===========================
+
+
+11 11 – Capabilities Enumeration
+================================
+
+
+12 12 – Local Service Exploitation
+==================================
+
+
+13 13 – Linux Binary Exploitation
+=================================
+
+
+14 14 – Linux Kernel Exploitation
+=================================

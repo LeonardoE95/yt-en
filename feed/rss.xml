@@ -7,6 +7,219 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Linux Privilege Escalation – Full Free Course</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#5Un3ffzokJQ</guid>
+<link>https://youtu.be/5Un3ffzokJQ</link>
+<pubDate>Mon, 30 Sep 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Upload of the full Linux Exploitation Course.<br>
+<br>
+All the material developed for the course is available in the OSCP repository, link down below.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00:00 Linux Privilege Escalation Course<br>
+======================<br>
+00:05:58 Introduction<br>
+00:08:00 CLI vs GUI<br>
+00:13:23 Anatomy of a command<br>
+00:19:13 Differences between Terminal, TTY and Shell<br>
+00:24:23 Basic Commands<br>
+00:39:20 Relative and Absolute Paths<br>
+00:43:18 File System Commands<br>
+00:55:58 Resources Management Commands<br>
+01:05:58 Users Management Commands<br>
+01:12:43 Packages Management Commands<br>
+01:19:46 Conclusion<br>
+======================<br>
+01:24:04 Introduction<br>
+01:25:04 MAN pages<br>
+01:30:26 How linux handles file permissions<br>
+01:45:34 Pratice on reading permissions<br>
+01:51:59 How to set new permissions with chmod<br>
+02:03:59 SUID and GUID bits<br>
+02:13:19 The sudo subsystem<br>
+02:19:39 How to change owner with chown<br>
+======================<br>
+02:22:03 Introduction<br>
+02:23:13 What is the PATH?<br>
+02:29:33 How is the PATH used?<br>
+02:37:03 Example of a vulnerable program<br>
+02:44:58 PATH hijacking<br>
+02:47:43 Conclusion<br>
+======================<br>
+02:50:21 Introduction<br>
+02:51:21 What is SUID?<br>
+02:56:11 Security Issues with SUID<br>
+02:58:21 Real Effective and Saved User IDs<br>
+03:01:01 Example of a SUID binary<br>
+03:04:11 GTFObins<br>
+03:05:11 SUID Exploitation 1 – wget<br>
+03:08:56 SUID Exploitation 2 – hexdump<br>
+03:11:16 SUID Exploitation 3 – ssh-keygen<br>
+03:15:56 SUID Exploitation 4 – Emacs and Vim<br>
+03:17:41 Searching for SUID binaries<br>
+======================<br>
+03:19:46 Introductionv<br>
+03:21:11 Docker Setup<br>
+03:24:06 What is SUDO?<br>
+03:28:26 Reading output of sudo -l<br>
+03:32:20 Reading SUDO configuration file<br>
+03:38:16 Update SUDO configuration with visudo<br>
+03:39:46 Exploiting SUDO<br>
+03:42:47 Example 1 – ALL NOPASSWD<br>
+03:45:31 Example 2 – pip install<br>
+03:52:46 Example 3 – tar<br>
+03:55:46 Example 4 – base64<br>
+04:00:06 Conclusion<br>
+======================<br>
+04:01:13 Introduction<br>
+04:02:33 Shell wildcards<br>
+04:09:43 Why wildcards can be dangerous?<br>
+04:12:03 Scenario 1 – tar<br>
+04:18:58 Scenario 2 – find<br>
+04:25:25 Scenario 3 – rsync<br>
+04:30:05 Conclusion<br>
+======================<br>
+04:31:23 Introduction<br>
+04:32:18 Docker Setup<br>
+04:34:13 Reverse Shell vs Bind Shell<br>
+04:38:23 Reverse Shells are Better<br>
+04:42:23 File Transfer Commands<br>
+04:50:23 Spawning Reverse Shells<br>
+04:51:33 Payload 1 – Bash<br>
+04:57:33 Payload 2 – Python<br>
+05:01:34 Payload 3 – Perl<br>
+05:02:03 Payload 4 – Php<br>
+05:02:23 Payload 5 – Ruby<br>
+05:03:56 Conclusion<br>
+======================<br>
+05:05:20 Introduction<br>
+05:06:35 Docker setup<br>
+05:07:50 Shadow and Passwd files<br>
+05:15:55 Compute shadow hashes<br>
+05:18:40 Why use the salt?<br>
+05:20:45 Wordlists and rockyou.txt<br>
+05:22:42 Unshadow attack<br>
+05:29:12 Conclusion<br>
+======================<br>
+05:30:05 Introduction<br>
+05:32:10 Why is Enumeration Important?<br>
+05:34:50 What to Enumerate?<br>
+05:48:08 How to Enumerate?<br>
+06:03:56 Automated Scripts<br>
+06:09:05 Conclusion<br>
+======================<br>
+06:10:24 Introduction<br>
+06:11:39 What is a Cronjob?<br>
+06:14:19 Cronjob Configuration<br>
+06:22:59 Cronjob Enumeration<br>
+06:29:49 Cronjob Exploitation<br>
+06:35:57 Conclusion<br>
+======================<br>
+06:36:23 Introduction<br>
+06:37:28 What are capabilities in Linux?<br>
+06:44:57 How to configure capabilities (getcap, setcap)<br>
+06:47:13 How to enumerate capabilities (getcap, getpcaps, capsh)<br>
+06:50:28 Powerful capabilities for exploitations<br>
+06:53:03 Example 1 – CAP_SETUID<br>
+06:56:23 Example 2 – CAP_SYS_PTRACE<br>
+07:02:13 Conclusion<br>
+======================<br>
+07:05:39 Introduction<br>
+07:06:53 What are Local Services?<br>
+07:11:54 Local Port Forwarding<br>
+07:25:59 Remote Port Forwarding<br>
+07:34:59 Conclusion<br>
+======================<br>
+07:32:25 Introduction<br>
+07:34:25 What is a Buffer Overflow?<br>
+07:40:50 Example of Vulnerable Code<br>
+07:45:45 Assumptions on Memory Protections<br>
+07:51:25 Analysis with GDB<br>
+08:01:25 Visualize Stack-Based Buffer Overflows<br>
+08:02:45 Computation of offset<br>
+08:04:55 Exploitation Strategy<br>
+08:07:45 Shellcode<br>
+08:09:55 Payload Structure<br>
+08:11:25 Generation of Paylod<br>
+08:15:50 Final Exploit<br>
+08:17:25 Takeways<br>
+======================<br>
+08:02:39 Introduction<br>
+08:04:54 What is a Kernel?<br>
+08:11:59 On the danger of Kernel Exploits<br>
+08:14:45 Enumerate Kernel Version<br>
+08:16:14 A Practical Example – DirtyCow<br>
+08:30:04 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-30-linux-privesc-full"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-30-linux-privesc-full </a> <br>
+- OSCP repository: <a href="https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/OSCP </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
+<title>Reflecting on the CUPS CVEs</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#nFeLWeD__KM</guid>
+<link>https://youtu.be/nFeLWeD__KM</link>
+<pubDate>Fri, 27 Sep 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this video!<br>
+<br>
+In this video I read and comment the recent CVEs that were discovered by evilsocket on the CUPS project.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:30 Impact<br>
+08:20 Remediation<br>
+09:35 Reading UDP packet from arbitrary IPs<br>
+13:50 Registering malicious printer<br>
+16:00 Injecting data into temporary PPD file<br>
+17:55 Command Execution with cupsFilter2 and foomatic-rip<br>
+20:33 Chain Overview<br>
+21:37 The CVSS 9.9 was wrongly computed<br>
+25:00 foomatic-rip cannot be validated<br>
+27:30 The relationship between dev and sec<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-27-news-cups-cves"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-09-27-news-cups-cves </a> <br>
+- Writeup by evilsocket: <a href="https://www.evilsocket.net/2024/09/26/Attacking-UNIX-systems-via-CUPS-Part-I/"> https://www.evilsocket.net/2024/09/26/Attacking-UNIX-systems-via-CUPS-Part-I/ </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Linux Kernel Exploitation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#NZ8KcSv8L9U</guid>
 <link>https://youtu.be/NZ8KcSv8L9U</link>

@@ -1,0 +1,143 @@
+                             ______________
+
+                              ROMHACK 2024
+                             ______________
+
+
+Table of Contents
+_________________
+
+1. What is RomHack?
+2. The 2024 Edition
+.. 1. Trustworthy AI… for Systems Security
+.. 2. Unveiling the Ivanti vulnerability: from discovery to exploitation
+.. 3. Revving up: the journey to pwn2own automotive 2024
+.. 4. The dark side of github actions
+.. 5. My name is impostor. You are SSL VPN. Prepare to let me surf freely.
+.. 6. UnOAuthorized: The discovered path to privilege elevation to Global Administrator
+.. 7. PlayStation 4 Remote Kernel Exploitation
+3. and More!
+
+
+1 What is RomHack?
+==================
+
+  `RomHack' is a cybersecurity conference that takes place in rome every
+  year around september.
+
+  It is organized by the non-profit association `Cyber Sayan' since
+  2018.
+
+  It's a very cool day where people who work in the cybersecurity
+  industry, italian and international, come together to watch various
+  researchers discuss their findings.
+
+  For more information:
+  - <https://romhack.io/>
+
+
+2 The 2024 Edition
+==================
+
+  <https://romhack.io/romhack-conference-2024-agenda/>
+
+
+2.1 Trustworthy AI… for Systems Security
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  By Lorenzo Cavallaro.
+
+  Focus on understanding the challenges that `machine learning' faces in
+  the context of `adversarial ML evasion attacks' against `malware
+  classifiers'.
+
+  Overview of recent academic work.
+
+  Very interesting and intuitive description of the problem.
+
+
+2.2 Unveiling the Ivanti vulnerability: from discovery to exploitation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  By Sina Kherkhah.
+
+  Discussing the CVE-2024-29847, an Ivanti Endpoint Deserialization
+  which led to an unauthenticated RCE.
+
+  Extremely fascinating deep dive into .NET Remoting Internals.
+
+
+2.3 Revving up: the journey to pwn2own automotive 2024
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  By Alex Plaskett & McCaulay Hudson.
+
+  Focus on the journey to the Pwn2Own Automotive 2024 in Tokyo.
+
+  All about:
+  - setting up research environment
+  - finding vulnerabilities
+  - developing exploits for the competition
+
+  Devices targeted:
+  - EV charger controller Phoenix Contact CHARX SEC-3100
+  - Alpine Halo9 IFX-F509
+  - Pioneer DMH-WT7600NEX
+
+
+2.4 The dark side of github actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  By Adnan Khan.
+
+  Exploitation of github action miss-configuration in order to perform
+  large scale supply-chain attacks.
+
+
+2.5 My name is impostor. You are SSL VPN. Prepare to let me surf freely.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  By Ta-Lun Yen.
+
+  User Impersonation Attack in multiple SSL VPNs products:
+  - Cisco
+  - Palo Alto
+  - Fortinet
+  - SonicWall
+
+  All about:
+  - Reverse Engineering the SSL VPN ecnapsulation layer
+  - Tampering with source IP
+
+
+2.6 UnOAuthorized: The discovered path to privilege elevation to Global Administrator
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  By Eric Woodruff
+
+  Novel discovery that allows to perform a privilege escalation in the
+  context of Entra ID (Azure Active Directory) to become Global
+  Administrator.
+
+  Discussion about Microsoft internal authentication mechanisms which
+  are not disclosed.
+
+
+2.7 PlayStation 4 Remote Kernel Exploitation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  By Andy Nguyen.
+
+  All about the development of a remote kernel exploit targeting the
+  playstation 4 by exploiting the implementation of the IPv6 protocol in
+  order to obtain information leak and then RCE.
+
+
+3 and More!
+===========
+
+  For next years:
+
+  - Checkout 2025 RomHack conference!
+  - Checkout new trainings!!
+  - Checkout the 2026 RomHack Camp!!!

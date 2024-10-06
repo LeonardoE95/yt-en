@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 76 | RomHack 2024 | Research | 2024-10-06 | [link](https://youtu.be/lTh56ZKiXqM) | [link](./src/2024-10-06-research-conference-romhack-2024)
 | 75 | Linux Privilege Escalation – Full Free Course | Linux Privilege Escalation | 2024-09-30 | [link](https://youtu.be/5Un3ffzokJQ) | [link](./src/2024-09-30-linux-privesc-full)
 | 74 | Reflecting on the CUPS CVEs | news | 2024-09-27 | [link](https://youtu.be/nFeLWeD__KM) | [link](./src/2024-09-27-news-cups-cves)
 | 73 | Linux Kernel Exploitation | Linux privilege escalation | 2024-09-24 | [link](https://youtu.be/NZ8KcSv8L9U) | [link](./src/2024-09-24-linux-privesc-kernel-exploits)

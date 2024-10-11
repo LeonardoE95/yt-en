@@ -7,6 +7,46 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>HTB Valentine Walkthrough (Easy Linux)</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#tay79d_lN8E</guid>
+<link>https://youtu.be/tay79d_lN8E</link>
+<pubDate>Fri, 11 Oct 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+In this video I showcase a full walkthrough of the Valentine machine provided by the Hack The Box platform.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:10 Initial Enumeration<br>
+10:00 Finding hype_key<br>
+18:20 Enumerating TLS attack surface<br>
+21:15 Exploiting Heartbleed (CVE-2024-0160)<br>
+28:33 Foothold<br>
+32:30 Privilege Escalation<br>
+35:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-11-htb-valentine"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-11-htb-valentine </a> <br>
+- Heartbleed: <a href="https://www.cvedetails.com/cve/CVE-2014-0160/#references"> https://www.cvedetails.com/cve/CVE-2014-0160/#references </a> <br>
+     <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>RomHack 2024</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#lTh56ZKiXqM</guid>
 <link>https://youtu.be/lTh56ZKiXqM</link>

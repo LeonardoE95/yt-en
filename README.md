@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 78 | Cross Compilation | Windows privilege escalation | 2024-10-15 | [link](https://youtu.be/LESXa6HLOcc) | [link](./src/2024-10-15-windows-privesc-cross-compilation)
 | 77 | HTB Valentine Walkthrough (Easy Linux) | HTB | 2024-10-11 | [link](https://youtu.be/tay79d_lN8E) | [link](./src/2024-10-11-htb-valentine)
 | 76 | RomHack 2024 | Research | 2024-10-06 | [link](https://youtu.be/lTh56ZKiXqM) | [link](./src/2024-10-06-research-conference-romhack-2024)
 | 75 | Linux Privilege Escalation – Full Free Course | Linux Privilege Escalation | 2024-09-30 | [link](https://youtu.be/5Un3ffzokJQ) | [link](./src/2024-09-30-linux-privesc-full)

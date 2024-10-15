@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Cross Compilation</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#LESXa6HLOcc</guid>
+<link>https://youtu.be/LESXa6HLOcc</link>
+<pubDate>Tue, 15 Oct 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we analyze the concept of cross-compilation. We start with a simple review of the idea of compilation, and then we show how to use a cross-compiler to compile in linux binaries that can then be executed on windows. At the end of the video I show how to write a simple reverse shell in C that will run within Windows.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:15 A Review of Compilation<br>
+04:50 Compiling for Linux in Linux<br>
+07:20 On Cross-Compilation<br>
+10:00 Compiling for Windows in Linux<br>
+15:00 Cross-Compile a Reverse Shell<br>
+28:55 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-15-windows-privesc-cross-compilation"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-15-windows-privesc-cross-compilation </a> <br>
+- MinGW-w64: <a href="https://www.mingw-w64.org/downloads/"> https://www.mingw-w64.org/downloads/ </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>HTB Valentine Walkthrough (Easy Linux)</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#tay79d_lN8E</guid>
 <link>https://youtu.be/tay79d_lN8E</link>

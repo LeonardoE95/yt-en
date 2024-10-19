@@ -7,6 +7,57 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Learn The Command Line with Practical Challenges!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#vUre41XE7cU</guid>
+<link>https://youtu.be/vUre41XE7cU</link>
+<pubDate>Sat, 19 Oct 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I introduce a very useful resource for learning the basics of the command line, which is OverTheWire. It contains a series of wargames, that is, computer science challenges, that are all related to some common theme. The first challenges we will see are under the path "Bandit", one of the simplest wargame, as it introduces the basics of the command line.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 OverTheWire<br>
+02:03 Bandit level 0<br>
+08:55 Bandit level 1<br>
+14:33 Bandit level 2<br>
+17:10 Bandit level 3<br>
+19:30 Bandit level 4<br>
+27:15 Bandit level 5<br>
+30:50 Bandit level 6<br>
+33:30 Bandit level 7<br>
+35:50 Bandit level 8<br>
+38:00 Bandit level 9<br>
+39:58 Bandit level 10<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-19-over-the-wire-bandit-01"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-19-over-the-wire-bandit-01 </a> <br>
+- Over The Wire: <a href="https://overthewire.org/wargames/"> https://overthewire.org/wargames/ </a> <br>
+- Bandit: <a href="https://overthewire.org/wargames/bandit/"> https://overthewire.org/wargames/bandit/ </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Cross Compilation</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#LESXa6HLOcc</guid>
 <link>https://youtu.be/LESXa6HLOcc</link>

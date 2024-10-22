@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Explore Linux Kernel Programming with QEMU</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#4PdMZd0Bt7c</guid>
+<link>https://youtu.be/4PdMZd0Bt7c</link>
+<pubDate>Tue, 22 Oct 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I show how to run a minimal linux kernel image on a systemfs built with busybox using QEMU.<br>
+The setup is useful for all those interested in learning more about linux kernel programming.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, subscribe to the channel and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:15 Compiling Linux Kernel<br>
+10:35 Building a simple initramfs<br>
+15:55 Compiling busybox<br>
+23:55 Running QEMU<br>
+27:00 Compiling Linux Kernel Modules<br>
+31:40 Loading module<br>
+33:13 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-22-programming-linux-kernel-qemu-setup"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-22-programming-linux-kernel-qemu-setup </a> <br>
+- Blog post: <a href="https://blog.leonardotamiano.xyz/tech/linux-kernel-qemu-setup/"> https://blog.leonardotamiano.xyz/tech/linux-kernel-qemu-setup/ </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Learn The Command Line with Practical Challenges!</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#vUre41XE7cU</guid>
 <link>https://youtu.be/vUre41XE7cU</link>

@@ -1,0 +1,47 @@
+                    ________________________________
+
+                     MINIMAL LINUX KERNEL WITH QEMU
+
+                            Leonardo Tamiano
+                    ________________________________
+
+
+Table of Contents
+_________________
+
+1. Loadable Kernel Module (LKM)
+2. References
+
+
+1 Loadable Kernel Module (LKM)
+==============================
+
+  - <https://blog.leonardotamiano.xyz/tech/linux-kernel-qemu-setup/>
+
+  ,----
+  | #include <linux/module.h>	/* Needed by all modules */
+  | #include <linux/kernel.h>	/* Needed for KERN_INFO */
+  | 
+  | MODULE_LICENSE("GPL");
+  | MODULE_AUTHOR("Leonardo Tamiano");
+  | 
+  | int init_module(void) {
+  |   printk(KERN_INFO "Hello world\n");
+  |   return 0;
+  | }
+  | 
+  | void cleanup_module(void) {
+  |   printk(KERN_INFO "Goodbye world\n");
+  | }
+  `----
+
+
+2 References
+============
+
+  - <https://blog.leonardotamiano.xyz/tech/linux-kernel-qemu-setup/>
+  - <https://vccolombo.github.io/cybersecurity/linux-kernel-qemu-setup/>
+  - <https://medium.com/@kiky.tokamuro/creating-initramfs-5cca9b524b5a>
+  - <https://github.com/vzaccaria/linux-kernel-playground/blob/master/scripts/build-k.sh>
+  - <https://github.com/google/syzkaller/blob/master/tools/create-image.sh>
+  - <https://mgalgs.io/2021/03/23/how-to-build-a-custom-linux-kernel-for-qemu-using-docker.html>

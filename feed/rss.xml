@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Windows Services</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#R9pDCdBWTAk</guid>
+<link>https://youtu.be/R9pDCdBWTAk</link>
+<pubDate>Sun, 27 Oct 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we analyze the concept of windows services by showing useful commands that will allow us to manage and interact with services. At the end of the video we show how to create a new service on a custom binary.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:30 Windows Services<br>
+06:55 Managing Windows Services<br>
+23:15 Creating a Custom Service<br>
+33:10 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-27-windows-privesc-windows-services"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-27-windows-privesc-windows-services </a> <br>
+- windows local privilege escalation: <a href="https://xorond.com/posts/2021/04/windows-local-privilege-escalation/"> https://xorond.com/posts/2021/04/windows-local-privilege-escalation/ </a> <br>
+- ConvertFrom-SddlString: <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-sddlstring"> https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-sddlstring </a> <br>
+- Security Descriptor Definition Language (SDDL): <a href="https://learn.microsoft.com/en-us/windows/win32/secauthz/security-descriptor-definition-language"> https://learn.microsoft.com/en-us/windows/win32/secauthz/security-descriptor-definition-language </a> <br>
+- Create Windows service from executable: <a href="https://stackoverflow.com/questions/3582108/create-windows-service-from-executable"> https://stackoverflow.com/questions/3582108/create-windows-service-from-executable </a> <br>
+- The Non-Sucking Service Manager: <a href="https://nssm.cc/"> https://nssm.cc/ </a> <br>
+- Very basic Windows Service template in C: <a href="https://gist.github.com/mmmunk/0b0adbccb6b91e778e3a6c6b47908c9c"> https://gist.github.com/mmmunk/0b0adbccb6b91e778e3a6c6b47908c9c </a> <br>
+- Cygwin and MinGW Options: <a href="https://gcc.gnu.org/onlinedocs/gcc/Cygwin-and-MinGW-Options.html"> https://gcc.gnu.org/onlinedocs/gcc/Cygwin-and-MinGW-Options.html </a> <br>
+- Working with SDDL: <a href="https://www.advancedinstaller.com/forums/viewtopic.php?t=49990"> https://www.advancedinstaller.com/forums/viewtopic.php?t=49990 </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Explore Linux Kernel Programming with QEMU</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#4PdMZd0Bt7c</guid>
 <link>https://youtu.be/4PdMZd0Bt7c</link>

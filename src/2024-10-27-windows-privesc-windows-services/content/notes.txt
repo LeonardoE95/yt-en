@@ -1,0 +1,232 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                            Windows Services
+
+                            Leonardo Tamiano
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Windows Services
+2. Manage Services
+3. Add New Service
+4. References
+
+
+1 Windows Services
+==================
+
+  Windows Services are `special processes' that can be configured within
+  windows.
+
+  Specifically, Windows Services can execute without user interaction
+  and continue to execute even after the user has logged off. They
+  usually run in the background when the machine is booted.
+
+  They are managed with the `Services Control Manager panel'.
+
+  There exists different "types" of services:
+  - Local Services
+  - Network Services
+  - System Services
+  - Third party application services
+
+  They offer a very interesting `attack surface area', and therefore
+  they should be studied very well.
+
+
+2 Manage Services
+=================
+
+  Here follows a list of useful commands that can be used to interact
+  with services.
+
+  - Show current services
+
+    ,----
+    | PS C:\Users\Quickemu> Get-Service
+    `----
+
+  - Display specific properties for each service
+
+    ,----
+    | PS C:\Users\Quickemu> Get-Service | Select-Object Displayname,Status,ServiceName,Can*
+    `----
+
+  - Get binary path for each service that is currently running
+
+  ,----
+  | PS C:\Users\Quickemu> Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
+  `----
+
+  - Get list of all services names
+
+    ,----
+    | PS C:\Users\Quickemu> sc.exe query
+    | PS C:\Users\Quickemu> sc.exe query | select-string service_name 
+    `----
+
+  - Stop service
+
+    ,----
+    | PS C:\Users\Quickemu> sc.exe stop <SERVICE>
+    `----
+
+  - Start service
+
+    ,----
+    | PS C:\Users\Quickemu> sc.exe start <SERVICE>
+    `----
+
+  - Check the configuration of a service
+
+    ,----
+    | PS C:\Users\Quickemu> sc.exe qc <SERVICE> 
+    `----
+
+  - Change service configuration
+
+    ,----
+    | PS C:\Users\Quickemu> sc.exe config <SERVICE> binPath="C:\Users\Quickemu\Downloads\malicious.exe"
+    `----
+
+  - Check permissions of a service
+
+    ,----
+    | PS C:\Users\Quickemu> sc.exe sdshow <SERVICE> 
+    `----
+
+  - Converts a Security Descriptor Definition Language (SDDL) string to
+    a custom `PSCustomObject'
+
+    ,----
+    | ConvertFrom-SddlString -Sddl <SDDL>
+    `----
+
+  - Change permission of a service
+
+    ,----
+    | PS C:\Users\Quickemu> sc.exe sdset <SERVICE> <SDDL>
+    `----
+
+  - Get executable path for all processes
+
+    ,----
+    | PS C:\Users\Quickemu> wmic process list full | select-string 'executablepath=C:'
+    | PS C:\Users\Quickemu> wmic process list full | select-string 'executablepath=C:' | select-string -notmatch 'system32|syswow'
+    `----
+
+
+3 Add New Service
+=================
+
+  To create a new service you need a binary (.exe) that implements the
+  `Windows Service API'. You can use the `sc.exe' as follows
+
+  ,----
+  | sc.exe create <SERVICE-NAME> binPath="<PATH-TO-EXECUTABLE>"
+  `----
+
+  You can find an example of a very simple service within
+  <file:src/simpleService.c>.
+
+  We can compile the code with
+
+  ,----
+  | $ x86_64-w64-mingw32-gcc -mwindows -municode -O2 -s -o simpleService.exe simpleService.c
+  `----
+
+  Then, once we have the binary on the target machine, we can create the
+  service as follows
+
+  ,----
+  | PS C:\Users\Quickemu> sc.exe create SimpleService binPath= "C:\Users\Quickemu\Downloads\simpleService.exe"
+  `----
+
+  Get configuration of the service
+
+  ,----
+  | PS C:\Users\Quickemu\Downloads> sc.exe qc SimpleService
+  `----
+
+  ,----
+  | [SC] QueryServiceConfig SUCCESS
+  | 
+  | SERVICE_NAME: SimpleService
+  |         TYPE               : 10  WIN32_OWN_PROCESS
+  |         START_TYPE         : 3   DEMAND_START
+  |         ERROR_CONTROL      : 1   NORMAL
+  |         BINARY_PATH_NAME   : C:\Users\Quickemu\Downloads\simpleService.exe
+  |         LOAD_ORDER_GROUP   :
+  |         TAG                : 0
+  |         DISPLAY_NAME       : SimpleService
+  |         DEPENDENCIES       :
+  |         SERVICE_START_NAME : LocalSystem
+  `----
+
+  We can start the service
+
+  ,----
+  | PS C:\Users\Quickemu> sc.exe start SimpleService
+  `----
+
+  We can stop the service
+
+  ,----
+  | PS C:\Users\Quickemu> sc.exe stop SimpleService
+  `----
+
+  When we're done, we can delete the service
+
+  ,----
+  | PS C:\Users\Quickemu> sc.exe delete SimpleService
+  `----
+
+  ----------------------------------------------------------------------
+
+  Otherwise, if you want to run an arbitrary `.bat' or `.exe' as a
+  service, you can use the `NSSM' tool
+
+  ,----
+  | NSSM -> non-Sucking Service Manager
+  `----
+
+  You can use it as follows:
+
+  - Download from <https://nssm.cc/>
+
+  - Execute it with
+
+  ,----
+  | nssm.exe install <SERVICE-NAME>
+  `----
+
+
+4 References
+============
+
+  windows local privilege escalation
+  <https://xorond.com/posts/2021/04/windows-local-privilege-escalation/>
+
+  ConvertFrom-SddlString
+  <https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-sddlstring>
+
+  Security Descriptor Definition Language (SDDL)
+  <https://learn.microsoft.com/en-us/windows/win32/secauthz/security-descriptor-definition-language>
+
+  StackOverflow - Create Windows service from executable
+  <https://stackoverflow.com/questions/3582108/create-windows-service-from-executable>
+
+  NSSM - the Non-Sucking Service Manager <https://nssm.cc/>
+
+  Very basic Windows Service template in C
+  <https://gist.github.com/mmmunk/0b0adbccb6b91e778e3a6c6b47908c9c>
+
+  Cygwin and MinGW Options
+  <https://gcc.gnu.org/onlinedocs/gcc/Cygwin-and-MinGW-Options.html>
+
+  Working with SDDL
+  <https://www.advancedinstaller.com/forums/viewtopic.php?t=49990>

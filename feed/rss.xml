@@ -7,6 +7,56 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Introduction to Cryptography – Classical Cryptography</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#ykXfMp7vYz4</guid>
+<link>https://youtu.be/ykXfMp7vYz4</link>
+<pubDate>Thu, 31 Oct 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I discuss the main idea behind cryptography, the difference between cryptography and steganography, and what characterized classical ciphers. In the future video of the series I will discuss about modern cryptography and modern cryptographic primitives.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, subscribe to the channel and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:00 Why do we need cryptography?<br>
+04:40 The Trial of Mary Stuart<br>
+11:35 Cryptography vs Steganography<br>
+14:43 Caesar Cipher<br>
+19:22 Transposition and Substitution<br>
+20:50 Vigenère Cipher<br>
+26:37 Enigma Machine<br>
+31:15 The Problems of Classical Cryptography<br>
+36:37 Towards Modern Cryptography<br>
+38:05 Kerckhoff's Principle<br>
+41:00 Claude Shannon and the bit<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-31-cryptography-intro-to-crypto-part-I"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-10-31-cryptography-intro-to-crypto-part-I </a> <br>
+- An introduction to TLS: <a href="https://youtu.be/Wx9h5CkMwdU?si=zSg9CFwN7WVuogzc"> https://youtu.be/Wx9h5CkMwdU?si=zSg9CFwN7WVuogzc </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Windows Services</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#R9pDCdBWTAk</guid>
 <link>https://youtu.be/R9pDCdBWTAk</link>

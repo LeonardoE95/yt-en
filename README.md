@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 82 | Introduction to Cryptography – Classical Cryptography | Cryptography | 2024-10-31 | [link](https://youtu.be/ykXfMp7vYz4) | [link](./src/2024-10-31-cryptography-intro-to-crypto-part-I)
 | 81 | Windows Services | Windows privilege escalation | 2024-10-27 | [link](https://youtu.be/R9pDCdBWTAk) | [link](./src/2024-10-27-windows-privesc-windows-services)
 | 80 | Explore Linux Kernel Programming with QEMU | Linux Kernel | 2024-10-22 | [link](https://youtu.be/4PdMZd0Bt7c) | [link](./src/2024-10-22-programming-linux-kernel-qemu-setup)
 | 79 | Learn The Command Line with Practical Challenges! | Over The Wire | 2024-10-19 | [link](https://youtu.be/vUre41XE7cU) | [link](./src/2024-10-19-over-the-wire-bandit-01)

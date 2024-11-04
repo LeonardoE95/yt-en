@@ -7,6 +7,57 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Weak Service Permissions</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#8sLagxX4OVs</guid>
+<link>https://youtu.be/8sLagxX4OVs</link>
+<pubDate>Mon, 04 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, this video focuses on how we can attack windows services by exploiting weak service permissions. If the service configuration is weakly configured, or we can over-write the binary path of the service, then we can use the service as a means to obtain code execution within the target machine as the user account who is currently executing the service. For system services this will be the administrator account, leading to a privilege escalation.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:05 Weak Permission on Service Configuration<br>
+12:13 The dangers of Local System<br>
+12:55 Weak Permission on Service Binary<br>
+18:30 Service Enumeration with winPEAS<br>
+21:27 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-04-windows-privesc-weak-service-permissions"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-04-windows-privesc-weak-service-permissions </a> <br>
+- Windows Privilege Escalation Awesome Scripts: <a href="https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS"> https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS </a> <br>
+- Weak Service Permissions: <a href="https://www.ired.team/offensive-security/privilege-escalation/weak-service-permissions"> https://www.ired.team/offensive-security/privilege-escalation/weak-service-permissions </a> <br>
+- Windows local privilege escalation: <a href="https://xorond.com/posts/2021/04/windows-local-privilege-escalation/"> https://xorond.com/posts/2021/04/windows-local-privilege-escalation/ </a> <br>
+- Service Misconfiguration: <a href="https://www.narycyber.com/posts/privilege-escalation/windows/service-misconfigurations/"> https://www.narycyber.com/posts/privilege-escalation/windows/service-misconfigurations/ </a> <br>
+- Weak Service Permissions: <a href="https://juggernaut-sec.com/weak-service-permissions-windows-privilege-escalation/"> https://juggernaut-sec.com/weak-service-permissions-windows-privilege-escalation/ </a> <br>
+- Insecure Service Permissions: <a href="https://akimbocore.com/article/privilege-escalation-insecure-service-permissions/"> https://akimbocore.com/article/privilege-escalation-insecure-service-permissions/ </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Okta Auth Bypass: A Quick Explanation!</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#-AWP0u7i1dI</guid>
 <link>https://youtu.be/-AWP0u7i1dI</link>

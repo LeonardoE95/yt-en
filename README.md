@@ -15,9 +15,10 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 85 | Learn Reverse Engineering with Flare-On! | Reverse Engineering | 2024-11-08 | [link](https://youtu.be/xA3rCRn-eRA) | [link](./src/2024-11-08-flare-on-01-2024-c1)
 | 84 | Weak Service Permissions | Windows privilege escalation | 2024-11-04 | [link](https://youtu.be/8sLagxX4OVs) | [link](./src/2024-11-04-windows-privesc-weak-service-permissions)
 | 83 | Okta Auth Bypass: A Quick Explanation! | news | 2024-11-03 | [link](https://youtu.be/-AWP0u7i1dI) | [link](./src/2024-11-03-news-okta-auth-bypass)
-| 82 | Introduction to Cryptography – Classical Cryptography | Cryptography | 2024-10-31 | [link](https://youtu.be/ykXfMp7vYz4) | [link](./src/2024-10-31-cryptography-intro-to-crypto-part-I)
+| 82 | Crypto 101 – Classical Cryptography | Cryptography | 2024-10-31 | [link](https://youtu.be/ykXfMp7vYz4) | [link](./src/2024-10-31-cryptography-crypto-101-classical-cryptography)
 | 81 | Windows Services | Windows privilege escalation | 2024-10-27 | [link](https://youtu.be/R9pDCdBWTAk) | [link](./src/2024-10-27-windows-privesc-windows-services)
 | 80 | Explore Linux Kernel Programming with QEMU | Linux Kernel | 2024-10-22 | [link](https://youtu.be/4PdMZd0Bt7c) | [link](./src/2024-10-22-programming-linux-kernel-qemu-setup)
 | 79 | Learn The Command Line with Practical Challenges! | Over The Wire | 2024-10-19 | [link](https://youtu.be/vUre41XE7cU) | [link](./src/2024-10-19-over-the-wire-bandit-01)

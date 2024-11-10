@@ -7,6 +7,47 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Learn Reverse Engineering with Flare-On!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#xA3rCRn-eRA</guid>
+<link>https://youtu.be/xA3rCRn-eRA</link>
+<pubDate>Fri, 08 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I solve the first two challenges of the Flare-On 2014 challenge set. During the video I also discuss some high level ideas behind reverse engineering.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments and share this series with like-minded people to help me grow here on youtube.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction to Flare-On!<br>
+02:30 First Challenge (2014-C1)<br>
+24:15 Second Challenge (2014-C2)<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-08-flare-on-01-2024-c1"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-08-flare-on-01-2024-c1 </a> <br>
+- Flare on challenges: <a href="https://flare-on.com/ "> https://flare-on.com/  </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Weak Service Permissions</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#8sLagxX4OVs</guid>
 <link>https://youtu.be/8sLagxX4OVs</link>

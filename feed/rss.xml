@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Unquoted Service Path</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#Hj3Y40z2dSQ</guid>
+<link>https://youtu.be/Hj3Y40z2dSQ</link>
+<pubDate>Mon, 11 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, we will analyze an exploitation technique known as "Unquoted Service Path" which happens when a service binary path contains whitespaces and is not properly quoted. In these scenarios, if the attacker can write into specific folders, it might be possible to hijack the control flow and execute a malicious binary.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Unquoted Service Paths<br>
+02:00 A Practical Example<br>
+11:15 More Examples<br>
+15:00 Enumeration with winPEAS<br>
+16:50 How to Fix the problem<br>
+20:15 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-11-windows-privesc-unquoted-service-path"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-11-windows-privesc-unquoted-service-path </a> <br>
+- Windows Privilege Escalation: Unquoted Service Path: <a href="https://www.hackingarticles.in/windows-privilege-escalation-unquoted-service-path/"> https://www.hackingarticles.in/windows-privilege-escalation-unquoted-service-path/ </a> <br>
+- Fixing Unquoted Search Paths Using Powershell: <a href="https://www.itsecguy.com/fixing_unquoted/"> https://www.itsecguy.com/fixing_unquoted/ </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Learn Reverse Engineering with Flare-On!</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#xA3rCRn-eRA</guid>
 <link>https://youtu.be/xA3rCRn-eRA</link>

@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 86 | Unquoted Service Path | Windows privilege escalation | 2024-11-11 | [link](https://youtu.be/Hj3Y40z2dSQ) | [link](./src/2024-11-11-windows-privesc-unquoted-service-path)
 | 85 | Learn Reverse Engineering with Flare-On! | Reverse Engineering | 2024-11-08 | [link](https://youtu.be/xA3rCRn-eRA) | [link](./src/2024-11-08-flare-on-01-2024-c1)
 | 84 | Weak Service Permissions | Windows privilege escalation | 2024-11-04 | [link](https://youtu.be/8sLagxX4OVs) | [link](./src/2024-11-04-windows-privesc-weak-service-permissions)
 | 83 | Okta Auth Bypass: A Quick Explanation! | news | 2024-11-03 | [link](https://youtu.be/-AWP0u7i1dI) | [link](./src/2024-11-03-news-okta-auth-bypass)
@@ -84,13 +85,13 @@ Below you can find a table containing useful metadata for my videos.
 | 19 | Scientific Review – The Impact of Code Patterns on the Security Testing of Web Applications | Research | 2023-12-13 | [link](https://youtu.be/N65QYGc1Zo4) | [link](./src/2023-12-13-research-paper-testability-tarpits)
 | 18 | OSCP Guide: Expectations and Methodologies for Exam | OSCP Guide | 2023-12-08 | [link](https://youtu.be/6jG22gXdo4I) | [link](./src/2023-12-08-oscp-guide-expectations-and-methodologies-for-exam)
 | 17 | OSCP Guide: Report Writing | OSCP Guide | 2023-12-02 | [link](https://youtu.be/LaI8HXdf6sM) | [link](./src/2023-12-02-oscp-guide-report-writing)
-| 16 | Transistors – CS Foundations | Foundations | 2023-11-28 | [link](https://youtu.be/7SQ3E1UWdWQ) | [link](./src/2023-11-28-foundations-transistors)
+| 16 | The Pillars of the Digital World | Foundations | 2023-11-28 | [link](https://youtu.be/7SQ3E1UWdWQ) | [link](./src/2023-11-28-foundations-transistors)
 | 15 | OSCP Guide: Active Directory | OSCP Guide | 2023-11-23 | [link](https://youtu.be/26M3POQ_51A) | [link](./src/2023-11-23-oscp-guide-active-directory)
 | 14 | OSCP Guide: Client-Side Attacks | OSCP Guide | 2023-11-19 | [link](https://youtu.be/qBexs2GXCGw) | [link](./src/2023-11-19-oscp-guide-client-side-attacks)
 | 13 | OSCP Guide: Port Forwarding and Pivoting | OSCP Guide | 2023-11-13 | [link](https://youtu.be/xn2poczX1rg) | [link](./src/2023-11-13-oscp-guide-port-forwarding-and-pivoting)
 | 12 | OSCP Guide: Using Existing Exploits | OSCP Guide | 2023-11-04 | [link](https://youtu.be/RCDpxk3ym80) | [link](./src/2023-11-04-oscp-guide-using-existing-exploits)
 | 11 | From Scratch – Hexdump in C | From Scratch | 2023-11-04 | [link](https://youtu.be/kI55YEU_LvY) | [link](./src/2023-11-04-from-scratch-hexdump-in-C)
-| 10 | Foundations – What is the Meaning of a Bit? | Foundations | 2023-10-30 | [link](https://youtu.be/quvNfOmVKsE) | [link](./src/2023-10-30-foundations-the-meaning-of-bits)
+| 10 | The Perfect Containers of Meaning | Foundations | 2023-10-30 | [link](https://youtu.be/quvNfOmVKsE) | [link](./src/2023-10-30-foundations-the-meaning-of-bits)
 | 9 | Emacs – A Gentle Introduction | Emacs | 2023-10-24 | [link](https://youtu.be/WHYCQmIlbxM) | [link](./src/2023-10-24-emacs-gentle-introduction)
 | 8 | OSCP Guide: Password Attacks | OSCP Guide | 2023-10-20 | [link](https://youtu.be/qaA2BgmL8VY) | [link](./src/2023-10-20-oscp-guide-password-attacks)
 | 7 | OSCP Guide: Windows | OSCP Guide | 2023-10-17 | [link](https://youtu.be/7ggBhjHIDsY) | [link](./src/2023-10-17-oscp-guide-windows)

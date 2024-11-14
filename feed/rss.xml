@@ -7,6 +7,55 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Emulate Android Device in Linux!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#Y5MHBBRi1_g</guid>
+<link>https://youtu.be/Y5MHBBRi1_g</link>
+<pubDate>Thu, 14 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I showcase a simple setup that can be used to emulate android devices. The video is based on a post that I published on my blog. You can find the blog right here:<br>
+<br>
+- <a href="https://blog.leonardotamiano.xyz/tech/android-emulation-setup/"> https://blog.leonardotamiano.xyz/tech/android-emulation-setup/ </a> <br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments and share this series with like-minded people to help me grow here on youtube.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:15 Downloading system-tools and platform-tools<br>
+06:25 Select sdk image<br>
+09:10 Create Android Virtual Device (AVD)<br>
+12:30 Start the device<br>
+14:00 Download build tools<br>
+15:20 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-14-android-emulation-setup"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-14-android-emulation-setup </a> <br>
+- 0xbro video: <a href="https://www.youtube.com/watch?v=v-p1dTWmWDY"> https://www.youtube.com/watch?v=v-p1dTWmWDY </a> <br>
+- Command line tools: <a href="https://developer.android.com/studio"> https://developer.android.com/studio </a> <br>
+- Platform tools: <a href="https://developer.android.com/tools/releases/platform-tools"> https://developer.android.com/tools/releases/platform-tools </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Unquoted Service Path</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#Hj3Y40z2dSQ</guid>
 <link>https://youtu.be/Hj3Y40z2dSQ</link>

@@ -1,0 +1,31 @@
+                         _____________________
+
+                            ANDROID SECURITY
+                          Emulation Lab Setup
+
+                            Leonardo Tamiano
+                         _____________________
+
+
+Table of Contents
+_________________
+
+1. Emulation Setup
+
+
+1 Emulation Setup
+=================
+
+  In this video I want to show just how easy it is to configure an
+  android emulation setup from scratch by using only command line tools,
+  with no GUI applications.
+
+  If you prefer to read:
+  - <https://blog.leonardotamiano.xyz/tech/android-emulation-setup/>
+
+  At the end we will be able to execute our emulator with the following
+  command
+
+  ,----
+  | /home/leo/tool/android/emulator/emulator -avd google-33 -scale 0.6 -writable-system
+  `----

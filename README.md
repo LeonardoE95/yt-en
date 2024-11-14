@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 87 | Emulate Android Device in Linux! | Android | 2024-11-14 | [link](https://youtu.be/Y5MHBBRi1_g) | [link](./src/2024-11-14-android-emulation-setup)
 | 86 | Unquoted Service Path | Windows privilege escalation | 2024-11-11 | [link](https://youtu.be/Hj3Y40z2dSQ) | [link](./src/2024-11-11-windows-privesc-unquoted-service-path)
 | 85 | Learn Reverse Engineering with Flare-On! | Reverse Engineering | 2024-11-08 | [link](https://youtu.be/xA3rCRn-eRA) | [link](./src/2024-11-08-flare-on-01-2024-c1)
 | 84 | Weak Service Permissions | Windows privilege escalation | 2024-11-04 | [link](https://youtu.be/8sLagxX4OVs) | [link](./src/2024-11-04-windows-privesc-weak-service-permissions)

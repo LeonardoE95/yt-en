@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>DLL Hijacking</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#9BES78zKpok</guid>
+<link>https://youtu.be/9BES78zKpok</link>
+<pubDate>Mon, 18 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, we will analyze an exploitation technique known as "DLL Hijacking". The basic idea is that windows executable use code that is not found within the PE file itself, but is found in library code known Dynamic Link Library files (DLL).<br>
+<br>
+A malicious actor can then try to introduce malicious code, not by overwriting the direct binary itself, but by overwriting the DLL used by the binary. Another technique instead is to introduce a new malicious DLL and to hijack the default search order used by Windows in order to load the malicious code. <br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:14 Dynamic Link Libraries (DLL)<br>
+06:13 A First Example of DLL<br>
+14:40 First Technique - Overwriting DLL Binary<br>
+22:30 DLL in Services<br>
+26:20 Enumerating DLL of a Process<br>
+28:20 Finding and Overwriting the DLL of a Service<br>
+32:02 Hijacking the DLL Search Order<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-18-windows-privesc/09-dll-hijacking"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-18-windows-privesc/09-dll-hijacking </a> <br>
+- ListDLLs: <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/listdlls"> https://learn.microsoft.com/en-us/sysinternals/downloads/listdlls </a> <br>
+- Compiling a DLL using MingGW: <a href="https://malicious.link/posts/2020/compiling-a-dll-using-mingw/"> https://malicious.link/posts/2020/compiling-a-dll-using-mingw/ </a> <br>
+- Dynamic-link library search order: <a href="https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order"> https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Emulate Android Device in Linux!</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#Y5MHBBRi1_g</guid>
 <link>https://youtu.be/Y5MHBBRi1_g</link>

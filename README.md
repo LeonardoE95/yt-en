@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 92 | How Computers Capture Meaning | Foundations | 2024-12-01 | [link](https://youtu.be/1Uw6MaGsFRo) | [link](./src/2024-12-01-foundations-encodings)
 | 91 | Always Installed Elevated | Windows privilege escalation | 2024-11-27 | [link](https://youtu.be/tnGD83COUIQ) | [link](./src/2024-11-27-windows-privesc-always-install-elevated)
 | 90 | Are You Anxious About OSCP? | Thoughts | 2024-11-24 | [link](https://youtu.be/EYTx3w12C3U) | [link](./src/2024-11-24-thoughts-oscp-anxiety)
 | 89 | UAC Bypass | Windows privilege escalation | 2024-11-22 | [link](https://youtu.be/ZhaZJ4Uipqk) | [link](./src/2024-11-22-windows-privesc-uac-bypass)

@@ -7,6 +7,65 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>How Computers Capture Meaning</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#1Uw6MaGsFRo</guid>
+<link>https://youtu.be/1Uw6MaGsFRo</link>
+<pubDate>Sun, 01 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Computer Science Foundations" series.<br>
+This series is aimed at people who want to build a strong foundational background into computer science, so that later they can choose exactly where to specialize, whether in programming and development, or computer security, or data science, ...<br>
+<br>
+Specifically, in this video we discuss one of the most important concept you will find when interacting with digital technology, which is the idea of encodings.<br>
+<br>
+In this video we will tackle the following question.<br>
+<br>
+What is an encoding?<br>
+What does it mean to encode something?<br>
+What does it mean to decode something?<br>
+What are some basic examples of useful encodings?<br>
+What is the social nature of encodings?<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:45 Brief Review<br>
+02:40 How do computers capture meaning?<br>
+06:39 Example 1 ASCII<br>
+10:03 Control Characters<br>
+12:32 RFC 20<br>
+13:55 Encoding and Decoding<br>
+19:35 Example 2 Numbers<br>
+27:01 Hexadecimal<br>
+29:13 The Social Nature of Encodings<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-01-foundations-encodings"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-01-foundations-encodings </a> <br>
+- RFC 20: <a href="https://datatracker.ietf.org/doc/html/rfc20"> https://datatracker.ietf.org/doc/html/rfc20 </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Always Installed Elevated</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#tnGD83COUIQ</guid>
 <link>https://youtu.be/tnGD83COUIQ</link>

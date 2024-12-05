@@ -7,6 +7,54 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Files with Sensitive Data</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#5zjVDtwyreY</guid>
+<link>https://youtu.be/5zjVDtwyreY</link>
+<pubDate>Thu, 05 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we discuss special files that are used by the Windows operating system and that can contain sensitive data. Since these files contain sensitive data, in the context of privilege escalation they can potentially be used for increasing privileges.<br>
+<br>
+In the video we discuss History files, the role of SAM, and registry hives, with some extra at the end.<br>
+<br>
+I hope you find it helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:05 History Logs<br>
+07:00 Security Accounts Manager (SAM and SYSTEM)<br>
+11:55 Dumping SAM with mimikatz<br>
+15:30 Registry Hives<br>
+18:15 Extra<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-05-windows-privesc-sensitive-files"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-05-windows-privesc-sensitive-files </a> <br>
+- mimikatz: <a href="https://github.com/gentilkiwi/mimikatz"> https://github.com/gentilkiwi/mimikatz </a> <br>
+- regipy: <a href="https://github.com/mkorman90/regipy"> https://github.com/mkorman90/regipy </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>How Computers Capture Meaning</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#1Uw6MaGsFRo</guid>
 <link>https://youtu.be/1Uw6MaGsFRo</link>

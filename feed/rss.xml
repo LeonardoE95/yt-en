@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Windows Hashes</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#UrcMs4FMcpA</guid>
+<link>https://youtu.be/UrcMs4FMcpA</link>
+<pubDate>Mon, 09 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we analyze how hashes are handled in Windows. We discuss the role of hashes, how hashes are used in authentication, and the different types of hashes that are used in Windows.<br>
+<br>
+The focus will be on the LM and NTLM hashes, as well as the Net-NTLMv1 and Net-NTLMv2 hashes. For these hashes we will discuss what is their role, where they can be captured by malicious actors, and how we can crack them using john or hashcat.<br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+00:50 Why Hash functions?<br>
+03:30 Hash Functions and Authentication<br>
+06:30 LM Hash<br>
+08:55 NTLM Hash<br>
+11:00 Obtain LM and NTLM hashes with Mimikatz<br>
+13:37 Net-NTLMv1 and Net-NTLMv2<br>
+16:50 Obtain Net-NTLMv hashes with Responder<br>
+22:00 Other Hashes (Kerberos and DPAPI)<br>
+23:50 Hash Cracking<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-09-windows-privesc-windows-hashes"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-09-windows-privesc-windows-hashes </a> <br>
+- Article on LM, NTLM, Net-NTLMv2: <a href="https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4"> https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4 </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Files with Sensitive Data</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#5zjVDtwyreY</guid>
 <link>https://youtu.be/5zjVDtwyreY</link>

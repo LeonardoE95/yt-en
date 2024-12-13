@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 95 | Stored Credentials and the Windows Vault | Windows privilege escalation | 2024-12-13 | [link](https://youtu.be/uzLGG8EsUAU) | [link](./src/2024-12-13-windows-privesc-stored-credentials)
 | 94 | Windows Hashes | Windows privilege escalation | 2024-12-09 | [link](https://youtu.be/UrcMs4FMcpA) | [link](./src/2024-12-09-windows-privesc-windows-hashes)
 | 93 | Files with Sensitive Data | Windows privilege escalation | 2024-12-05 | [link](https://youtu.be/5zjVDtwyreY) | [link](./src/2024-12-05-windows-privesc-sensitive-files)
 | 92 | How Computers Capture Meaning | Foundations | 2024-12-01 | [link](https://youtu.be/1Uw6MaGsFRo) | [link](./src/2024-12-01-foundations-encodings)

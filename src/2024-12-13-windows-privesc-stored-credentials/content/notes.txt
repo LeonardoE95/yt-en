@@ -1,0 +1,132 @@
+               __________________________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                Stored Credentials and the Windows Vault
+
+                                Hexdump
+               __________________________________________
+
+
+Table of Contents
+_________________
+
+1. Credential Manager
+2. Why is it dangerous?
+3. Using Credential manager
+4. Windows Vault
+5. References
+
+
+1 Credential Manager
+====================
+
+  The `credential manager' is a Windows feature that allows the
+  centralized storage of user credentials such as:
+
+  - usernames
+  - passwords
+  - certificates
+
+  It provides a simple way to store and retrieve credentials for systems
+  and applications without requiring users to repeatedly enter their
+  authentication details.
+
+  Credentials are securely stored using the `Windows Data Protection
+  API' (DPAPI).
+
+
+2 Why is it dangerous?
+======================
+
+  Even though the data at store is encrypted using the DPAPI, If a
+  malicious actor gets hold of a session with stored credentials, while
+  it is not possible to read the plaintext passwords, it is still
+  possible to actively use those credentials for malicious purposes.
+
+  ,----
+  | session is compromised => all credentials saved in the manager can be used
+  `----
+
+  Therefore, be careful on the credentials you store on your session,
+  and protect access to your session in the first place.
+
+
+3 Using Credential manager
+==========================
+
+  To access the credential manager
+  ,----
+  | Control Panel -> User Accounts
+  |               -> Credential Manager
+  |               -> Web Credentials or Windows Credentials
+  `----
+
+  ----------------------------------------------------------------------
+
+  To list out all stored credentials
+  ,----
+  | cmdkey /list
+  `----
+
+  To add new credentials
+  ,----
+  | cmdkey /add:MyServer /user:MyUser /pass:MyPassword
+  `----
+
+  To delete credentials
+  ,----
+  | cmdkey /delete:MyServer
+  | cmdkey /delete:Domain:interactive=WORKGROUP\Administrator
+  `----
+
+  Open a shell as a new user and save credential into the manager.  The
+  first time it asks for the password.
+  ,----
+  | runas /savecred /user:quickem-h5dsq1v\quickemu powershell.exe
+  `----
+
+  ----------------------------------------------------------------------
+
+  After the credentials have been stored, it is possible to use them
+  again.  This time the password is not asked anymore.
+  ,----
+  | runas /savecred /user:quickem-h5dsq1v\quickemu "cmd.exe"
+  `----
+
+
+4 Windows Vault
+===============
+
+  The `Credential Manager' feature uses as the underlying storage
+  mechanism the `Windows Vault', which is a store capable of managing
+  encrypted data.
+
+  While the credential manager is accessed using `cmdkey', the windows
+  vault instead can be accessed using `vaultcmd'.
+
+  ----------------------------------------------------------------------
+
+  Enumerate vaults
+  ,----
+  | vaultcmd /list
+  `----
+
+  List entries saved in vault
+  ,----
+  | vaultcmd /listcreds:"Web Credentials" /all
+  `----
+
+  Dump vault with mimikatz
+  ,----
+  | mimikatz.exe vault::list
+  `----
+
+
+5 References
+============
+
+  Credential Manager Store
+  <https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh994565(v=ws.11)>
+
+  cmdkey documentation
+  <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmdkey>

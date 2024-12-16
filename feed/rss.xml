@@ -7,6 +7,56 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Scheduled Tasks</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#NbsJ3mHhoVw</guid>
+<link>https://youtu.be/NbsJ3mHhoVw</link>
+<pubDate>Mon, 16 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video we continue the "Windows Privilege Escalation" series.<br>
+<br>
+Specifically, in this video we talk about Scheduled Tasks, a feature of Windows that allows the execution of specific actions, such as PE executable or scripts, when specific conditions are met. These can be time-based conditions, or general trigger conditions such as when the user logs into the system. Given that by design Scheduled Tasks allow for the execution or potentially arbitrary code, they represent an interesting surface attack area if miss-configured.<br>
+<br>
+In the video we discuss what are Scheduled Tasks, how to enumerate, create and delete Scheduled Tasks, and at the end I show a simple exploitation example that showcases the potential threats of having miss-configured Scheduled Tasks in your system.<br>
+<br>
+Ultimately the exploitation of Scheduled Tasks is made hard due to the fact that they cannot be easily enumerated. Still, it is an interesting feature that must be taken into consideration when assessing the security of a Windows system.<br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 What are Scheduled Tasks?<br>
+02:55 Scheduled Tasks Data<br>
+08:23 Enumeration<br>
+14:00 Creation and Deletion<br>
+17:15 Exploitation<br>
+22:42 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-16-windows-privesc-scheduled-tasks"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-16-windows-privesc-scheduled-tasks </a> <br>
+<br>
+        <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Stored Credentials and the Windows Vault</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#uzLGG8EsUAU</guid>
 <link>https://youtu.be/uzLGG8EsUAU</link>

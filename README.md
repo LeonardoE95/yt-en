@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 96 | Scheduled Tasks | Windows privilege escalation | 2024-12-16 | [link](https://youtu.be/NbsJ3mHhoVw) | [link](./src/2024-12-16-windows-privesc-scheduled-tasks)
 | 95 | Stored Credentials and the Windows Vault | Windows privilege escalation | 2024-12-13 | [link](https://youtu.be/uzLGG8EsUAU) | [link](./src/2024-12-13-windows-privesc-stored-credentials)
 | 94 | Windows Hashes | Windows privilege escalation | 2024-12-09 | [link](https://youtu.be/UrcMs4FMcpA) | [link](./src/2024-12-09-windows-privesc-windows-hashes)
 | 93 | Files with Sensitive Data | Windows privilege escalation | 2024-12-05 | [link](https://youtu.be/5zjVDtwyreY) | [link](./src/2024-12-05-windows-privesc-sensitive-files)

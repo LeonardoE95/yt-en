@@ -1,0 +1,205 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                        Critical Registry Paths
+
+                                Hexdump
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Registry Hives
+2. Critical Registry Paths
+.. 1. HKLM\SYSTEM\CurrentControlSet\Services\
+.. 2. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs
+.. 3. HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+.. 4. HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+3. References
+
+
+1 Registry Hives
+================
+
+  The Windows registry is a hierarchical database structured following a
+  tree-like data structure into `registry hives'.
+
+  Each hive is made up of multiple keys and values, and these hives are
+  stored as files on the system. These data sources are very useful for
+  `threat intelligence', as they can be used as `Indicator of
+  Compromise' (IOC) for specific malware.
+
+  There are five hives, and these are:
+
+  - HKCR: HKEY_CLASSES_ROOT
+  - HKLM: HKEY_LOCAL_MACHINE
+  - HKU: HKEY_USERS
+  - HKCU: HKEY_CURRENT_USER
+  - HKCC: HKEY_CURRENT_CONFIG
+
+  For each hive, we have a respective file:
+
+  - HKCR: C:\Windows\System32\Config\Software
+  - HKLM: C:\Windows\System32\Config\SYSTEM
+  - HKU: C:\Windows\System32\Config\DEFAULT
+  - HKCU: C:\Users\<UserName>\NTUSER.DAT
+  - HKCC: C:\Windows\System32\Config\SystemProfile
+
+
+2 Critical Registry Paths
+=========================
+
+  Certain registry paths could lead to security risk if miss-configured,
+  as they can be abused to obtain privilege escalation.
+
+
+2.1 HKLM\SYSTEM\CurrentControlSet\Services\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Services are a common target for privilege escalation that was already
+  discussed in the series:
+
+  - [Windows Services]
+  - [Weak Service Permissions]
+  - [Unquoted Service Path]
+
+  Specifically, by having write access to the registry path
+
+  ,----
+  | HKLM\SYSTEM\CurrentControlSet\Services\
+  `----
+
+  It is possible to change the `imagePath' attribute of arbitrary
+  services. This attribute is used to determine the executable to start
+  when the service is started.
+
+  To modify the service `test'
+
+  ,----
+  | Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\simpleService" -Name ImagePath -Value "C:\Users\Quickemu\Downloads\test.exe"
+  | Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\simpleService"
+  `----
+
+  By modifying the binary with a malicious binary, it is possible to
+  hijack execution. Remember to restart the service.
+
+  ,----
+  | Restart-Service -Name test
+  `----
+
+
+[Windows Services] <https://www.youtube.com/watch?v=R9pDCdBWTAk>
+
+[Weak Service Permissions] <https://www.youtube.com/watch?v=8sLagxX4OVs>
+
+[Unquoted Service Path] <https://www.youtube.com/watch?v=Hj3Y40z2dSQ>
+
+
+2.2 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  The `AppInit_DLLs' registry key specifies a list of DLLs that Windows
+  will load into every user-mode application that uses the Microsoft
+  Windows graphical user interface (GUI), specifically those that use
+  the Windows subsystem for applications (Win32).
+
+  Since any DLL listed in `AppInit_DLLs' will be loaded by every
+  GUI-based process, this registry key has historically been a target
+  for malicious software. Malware may attempt to use this key to inject
+  its own malicious DLLs into system processes or applications.
+
+  As a result, modern versions of Windows have additional protections to
+  restrict or limit the use of AppInit_DLLs, such as blocking the use of
+  the key unless a specific setting is configured to allow it.
+
+  Dealing with `LoadAppInit_DLLs'
+  ,----
+  | # enable
+  | Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "LoadAppInit_DLLs" -Value 1
+  | # disable
+  | Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "LoadAppInit_DLLs" -Value 0
+  | # read
+  | Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "LoadAppInit_DLLs"
+  `----
+
+  Dealing with `AppInit_DLLs'
+  ,----
+  | # read
+  | Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "AppInit_DLLs"
+  | # set
+  | Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "AppInit_DLLs" -Value "C:\Path\To\Library1.dll;C:\Path\To\Library2.dll;C:\Path\To\Library3.dll"
+  `----
+
+
+2.3 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  These keys determine which applications start automatically.
+
+  If these are writable by non-privileged users, attackers can add
+  entries to run malicious programs at startup.
+
+  - HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+    Affects all users on the system.  Programs listed here will run at
+    startup for every user who logs in.  Requires administrator
+    privileges to modify.
+
+  - HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+    Affects only the currently logged-in user.  Programs listed here
+    will run only when the specific user logs in.  Can be modified by
+    the user without administrator privileges.
+
+  ----------------------------------------------------------------------
+
+  There are also the `RunOnce' keys, which instead specify programs that
+  should run only once at the next startup, and then the registry entry
+  is deleted.
+
+  - HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+  - HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+
+  ----------------------------------------------------------------------
+
+  To add new entries
+
+  ,----
+  | Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "TestProgram" -Value "C:\Users\Quickemu\Downloads\test.exe"
+  `----
+
+
+2.4 HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  The Winlogon registry key is used primarily to configure how Windows
+  interacts with the logon process.
+
+  Possible value names:
+
+  - Shell
+
+  ,----
+  | Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name "Shell" -Value "cmd.exe"
+  | Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name "Shell" -Value "explorer.exe"
+  `----
+
+  - Userinit
+
+    ,----
+    | Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name "Userinit" -Value "C:\Windows\system32\userinit.exe"
+    `----
+
+
+3 References
+============
+
+  Registry Hives
+  <https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives>
+
+  The Windows Registry Adventure #4: Hives and the registry layout
+  <https://googleprojectzero.blogspot.com/2024/10/the-windows-registry-adventure-4-hives.html>
+
+  Mysteries of the Registry
+  <https://scorpiosoftware.net/2022/04/15/mysteries-of-the-registry/>

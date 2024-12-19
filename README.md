@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 97 | Critical Registry Paths | Windows privilege escalation | 2024-12-19 | [link](https://youtu.be/HCOxY6U6vLQ) | [link](./src/2024-12-19-windows-privesc-critical-registry-paths)
 | 96 | Scheduled Tasks | Windows privilege escalation | 2024-12-16 | [link](https://youtu.be/NbsJ3mHhoVw) | [link](./src/2024-12-16-windows-privesc-scheduled-tasks)
 | 95 | Stored Credentials and the Windows Vault | Windows privilege escalation | 2024-12-13 | [link](https://youtu.be/uzLGG8EsUAU) | [link](./src/2024-12-13-windows-privesc-stored-credentials)
 | 94 | Windows Hashes | Windows privilege escalation | 2024-12-09 | [link](https://youtu.be/UrcMs4FMcpA) | [link](./src/2024-12-09-windows-privesc-windows-hashes)

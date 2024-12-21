@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Useful Tools</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#n4YvdB58djg</guid>
+<link>https://youtu.be/n4YvdB58djg</link>
+<pubDate>Sat, 21 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, and welcome to this new video in which we continue the "Windows Privilege Escalation" series!<br>
+<br>
+In this episode specifically we look at useful tools in the context of Windows Privilege Escalation. The list of tools has been developed by looking back at the previous episodes of the series. Therefore, it does not represent a complete list, but a good approximation of what a complete list should contain. <br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 On tools<br>
+07:10 HTTP requests (certutil, iwr)<br>
+09:30 Reverse Shells (netcat, Invoke-PowerShellTcp, msfvenom)<br>
+15:46 Cross-Compilation (mingw32)<br>
+17:05 SeImpersonatePrivilege Exploitation (PrintSpoofer, GodPotato)<br>
+18:23 Enumeration Scripts (winPEAS, PowerUp, PrivescCheck, BeRoot)<br>
+23:30 Dump NTLM hashes (Mimikatz)<br>
+23:40 Network Protocols (Impacket, Responder)<br>
+25:00 Other tools (Chisel, Hashcat, Josn, Crakmapexec)<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-21-windows-privesc-useful-tools"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-21-windows-privesc-useful-tools </a> <br>
+<br>
+        <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Critical Registry Paths</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#HCOxY6U6vLQ</guid>
 <link>https://youtu.be/HCOxY6U6vLQ</link>

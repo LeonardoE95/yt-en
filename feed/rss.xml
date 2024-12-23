@@ -7,6 +7,52 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>AMSI Bypass</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#7IF-cY3vg1c</guid>
+<link>https://youtu.be/7IF-cY3vg1c</link>
+<pubDate>Mon, 23 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, and welcome to this new video in which we continue the "Windows Privilege Escalation" series!<br>
+<br>
+In this episode we look at the Windows Antimalware Scan Interface (AMSI), which is used in the context of Windows to trigger security scans. AMSI provides a standard interface that allows solutions to scan files, memory, and other data for threats. The AMSI bypass technique can be used to disable such mechanism. This, by itself, does not make our payloads evade antivirus directly, but it makes them avoid arising suspicious in the context of well known processes such as powershell. This is just a very tiny and introductory topic within the bigger context of AV/EDR evasion and bypass techniques. <br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:20 What is an Antivirus?<br>
+13:00 and in Windows?<br>
+15:10 Windows Antimalware Scan Interface (AMSI)<br>
+21:12 AMSI Bypass<br>
+24:55 First Bypass<br>
+38:22 Second Bypass<br>
+40:30 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-23-windows-privesc-amsi-bypass"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-23-windows-privesc-amsi-bypass </a> <br>
+<br>
+        <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Useful Tools</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#n4YvdB58djg</guid>
 <link>https://youtu.be/n4YvdB58djg</link>

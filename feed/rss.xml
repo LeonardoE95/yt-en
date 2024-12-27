@@ -7,6 +7,54 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Apache Tomcat Race Condition To RCE - CVE-2024-50379</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#z6jyBX-XnaM</guid>
+<link>https://youtu.be/z6jyBX-XnaM</link>
+<pubDate>Fri, 27 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, hope holiday is going well!<br>
+<br>
+In this quick video we take a look at a recent CVE, which is CVE-2024-50379.<br>
+It is a vulnerability in Apache Tomcat, and specifically it is a TOCTOU race condition which can lead to RCE. <br>
+<br>
+It's actually a pretty dangerous vulnerability, given that it allows non authenticated users to execute arbitrary code. To be exploitable, you need to run a vulnerable version of apache tomcat on an operating system such as Windows, that has a case insensitive file system. Finally, you need to enable the readonly=false configuration in the web.xml, allowing users to upload files in the root directory of the server.<br>
+<br>
+In the video we discuss the vulnerability and I showcase a PoC that can be used to exploit it.<br>
+<br>
+Thank you for watching and let me know what you think of these videos where I analyze recently discovered CVEs.<br>
+<br>
+- NIST advisory: <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-50379"> https://nvd.nist.gov/vuln/detail/CVE-2024-50379 </a> <br>
+- PoC: <a href="https://github.com/iSee857/CVE-2024-50379-PoC.git"> https://github.com/iSee857/CVE-2024-50379-PoC.git </a> <br>
+- Blogpost: <a href="https://vulcan.io/blog/how-to-fix-cve-2024-50379/"> https://vulcan.io/blog/how-to-fix-cve-2024-50379/ </a> <br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-27-cves-CVE-2024-50379"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-27-cves-CVE-2024-50379 </a> <br>
+- NIST advisory: <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-50379"> https://nvd.nist.gov/vuln/detail/CVE-2024-50379 </a> <br>
+- PoC: <a href="https://github.com/iSee857/CVE-2024-50379-PoC.git"> https://github.com/iSee857/CVE-2024-50379-PoC.git </a> <br>
+- Blogpost: <a href="https://vulcan.io/blog/how-to-fix-cve-2024-50379/"> https://vulcan.io/blog/how-to-fix-cve-2024-50379/ </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>AMSI Bypass</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#7IF-cY3vg1c</guid>
 <link>https://youtu.be/7IF-cY3vg1c</link>

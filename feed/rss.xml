@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>A Cheatsheet and A Methodology</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#XE_V7gQ2YXg</guid>
+<link>https://youtu.be/XE_V7gQ2YXg</link>
+<pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, and welcome to this new video in which we continue the "Windows Privilege Escalation" series!<br>
+<br>
+This episode marks the end of the series, and as such I wanted to give you two last things: a cheatsheet and a methdology related to Windows Privilege Escalation. Both the cheatsheet and the methdology do not cover 100% all possible cases, but they lay a solid foundational knowledge that, if acquired, will be useful regardless of the specific windows context.<br>
+<br>
+You can find both resources in the following links:<br>
+<br>
+- Cheatsheet: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-30-windows-privesc-cheatsheet-and-methodology/content/windows-privesc-cheatsheet.txt"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-30-windows-privesc-cheatsheet-and-methodology/content/windows-privesc-cheatsheet.txt </a> <br>
+- Methodology: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-30-windows-privesc-cheatsheet-and-methodology/content/windows-privesc-methodology.txt"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-30-windows-privesc-cheatsheet-and-methodology/content/windows-privesc-methodology.txt </a> <br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:55 The Cheatsheet<br>
+12:35 The Methodology<br>
+30:30 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-30-windows-privesc-cheatsheet-and-methodology"> https://github.com/LeonardoE95/yt-en/tree/main/src/2024-12-30-windows-privesc-cheatsheet-and-methodology </a> <br>
+<br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Apache Tomcat Race Condition To RCE - CVE-2024-50379</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#z6jyBX-XnaM</guid>
 <link>https://youtu.be/z6jyBX-XnaM</link>

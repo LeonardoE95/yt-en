@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 102 | Windows Privilege Escalation - Full Course | Windows privilege escalation | 2025-01-02 | [link](https://youtu.be/OmW7351U8cI) | [link](./src/2025-01-02-windows-privesc-full)
 | 101 | A Cheatsheet and A Methodology | Windows privilege escalation | 2024-12-30 | [link](https://youtu.be/XE_V7gQ2YXg) | [link](./src/2024-12-30-windows-privesc-cheatsheet-and-methodology)
 | 100 | Apache Tomcat Race Condition To RCE - CVE-2024-50379 | CVEs | 2024-12-27 | [link](https://youtu.be/z6jyBX-XnaM) | [link](./src/2024-12-27-cves-CVE-2024-50379)
 | 99 | AMSI Bypass | Windows privilege escalation | 2024-12-23 | [link](https://youtu.be/7IF-cY3vg1c) | [link](./src/2024-12-23-windows-privesc-amsi-bypass)

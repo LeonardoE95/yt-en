@@ -7,6 +7,128 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Windows Privilege Escalation - Full Course</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#OmW7351U8cI</guid>
+<link>https://youtu.be/OmW7351U8cI</link>
+<pubDate>Thu, 02 Jan 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Upload of the full Windows Privilege Escalation Course.<br>
+<br>
+All the material developed for the course is available in the following github repository: <a href="https://github.com/LeonardoE95/yt-en. The material is also present in the OSCP github repository: https://github.com/LeonardoE95/OSCP"> https://github.com/LeonardoE95/yt-en. The material is also present in the OSCP github repository: https://github.com/LeonardoE95/OSCP </a> <br>
+<br>
+Share this video to support my efforts and help me grow. <br>
+Thanks.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00:00 Windows Privilege Escalation Course<br>
+======================<br>
+######### 01 Introduction to the Windows Shells<br>
+00:05:17 Windows is not Open-Source<br>
+00:13:22 VM Setup with quickemu<br>
+00:22:12 CMD Commands<br>
+00:48:32 Powershell Commands<br>
+======================<br>
+######### 02 Windows Permissions<br>
+01:02:49 Authentication, Authorization and Session Management<br>
+01:08:10 Security Principals and Security Identifier (SID)<br>
+01:22:05 Access Tokens<br>
+01:31:20 Mandatory Integrity Control (MIC)<br>
+01:34:30 User Account Control (UAC)<br>
+======================<br>
+######### 03 Windows Reverse Shells<br>
+01:40:59 Reverse Shell vs Bind Shell<br>
+01:47:49 File Transfer Commands<br>
+01:56:09 Reverse Shells Payloads<br>
+======================<br>
+######### 04 SeImpersonatePrivilege<br>
+02:18:45 On SeImpersonatePrivilege<br>
+======================<br>
+######### 05 Cross Compilation<br>
+02:32:43 A Review of Compilation<br>
+02:41:28 Compiling for Windows in Linux<br>
+======================<br>
+######### 06 Windows Services<br>
+03:03:01 Windows Services<br>
+03:24:46 Creating a Custom Service<br>
+======================<br>
+######### 07 Weak Service Permissions<br>
+03:37:00 Weak Permission on Service Configuration<br>
+03:48:50 Weak Permission on Service Binary<br>
+03:54:25 Service Enumeration with winPEAS<br>
+======================<br>
+######### 08 Unquoted Service Path<br>
+03:59:22 Unquoted Service Paths<br>
+======================<br>
+######### 09 DLL Hijacking<br>
+04:21:29 Dynamic Link Libraries (DLL)<br>
+04:34:55 First Technique - Overwriting DLL Binary<br>
+04:52:17 Hijacking the DLL Search Order<br>
+======================<br>
+######### 10 UAC Bypass<br>
+05:01:29 User Account Control (UAC)<br>
+05:10:24 Enumerate UAC configuration<br>
+05:21:07 UAC Bypass<br>
+======================<br>
+######### 11 Always Installed Elevated<br>
+05:37:46 Create Custom MSI<br>
+======================<br>
+######### 12 Files with Sensitive Data<br>
+05:50:07 History Logs<br>
+06:00:57 Dumping SAM with mimikatz<br>
+======================<br>
+######### 13 Windows Hashes<br>
+06:22:13 Hash Functions and Authentication<br>
+06:29:43 Obtain LM and NTLM hashes with Mimikatz<br>
+06:35:33 Obtain Net-NTLMv hashes with Responder<br>
+06:42:33 Hash Cracking<br>
+======================<br>
+######### 14 Stored Credentials<br>
+06:35:18 Credential Manager<br>
+06:47:08 Windows Vault<br>
+======================<br>
+######### 15 Scheduled Tasks<br>
+06:59:36 What are Scheduled Tasks?<br>
+07:16:51 Exploitation<br>
+======================<br>
+######### 16 Critical Registry Paths<br>
+07:30:24 Services Registry Configuration<br>
+07:38:39 DLL Hijacking with Registry<br>
+07:47:39 Window Logon process<br>
+======================<br>
+######### 17 Useful Tools<br>
+07:52:56 On tools<br>
+======================<br>
+######### 18 AMSI Bypass<br>
+08:50:47 Windows Antimalware Scan Interface (AMSI)<br>
+09:00:32 First Bypass<br>
+======================<br>
+######### 19 A Cheatsheet and A Methodology<br>
+09:10:25 The Cheatsheet<br>
+09:20:05 The Methodology<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-02-windows-privesc-full"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-02-windows-privesc-full </a> <br>
+<br>
+     <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>A Cheatsheet and A Methodology</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#XE_V7gQ2YXg</guid>
 <link>https://youtu.be/XE_V7gQ2YXg</link>

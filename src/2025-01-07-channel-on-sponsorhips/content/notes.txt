@@ -1,0 +1,112 @@
+                       __________________________
+
+                        THOUGHTS ON SPONSORSHIPS
+
+                                Hexdump
+                       __________________________
+
+
+Table of Contents
+_________________
+
+1. Sponsorships can be Useful
+2. Sponsorships can (also) be Dangerous
+3. Hexdump's Criteria for selecting Sponsorships
+4. My first Sponsorship!
+.. 1. What is Infomaniak?
+
+
+1 Sponsorships can be Useful
+============================
+
+  There are various reasons as to why sponsorships can be useful:
+
+  - They allow to make a project more susteniable from an economic point
+    of view (not only money, also resources).
+
+  - The previous point is even more critical for projects that do not
+    want to attract a mainstream audience.
+
+  - They can showcase useful products/services for people that actually
+    need them.
+
+
+2 Sponsorships can (also) be Dangerous
+======================================
+
+  There are also many reasons as to why sponsorships can also be
+  dangerous:
+
+  - If done acritically, low quality services/products can be showcased.
+
+  - Even worse, a bad sponsorship might create a fake need just to sell
+    the service/product in question.
+
+  - Doing bad sponsorship can decrease trust and reputation on who is
+    doing the sponsorship. After all, why trust someone who wants to
+    ultimately just sell something?
+
+  - A bad sponsorship can increase the economical strength of
+    products/services of dubious value.
+
+
+3 Hexdump's Criteria for selecting Sponsorships
+===============================================
+
+  In my channels Hexdump/esadecimale, a sponsorship, to be accepted,
+  must respect the following criteria:
+
+  - It is a product/service of which I can, critically, argument its
+    added value.
+
+  - It is a product/service that I currently use or that I used in the
+    past.
+
+  - It is a product/service with an economical cost that "makes sense"
+    with respect to what it offers.
+
+
+4 My first Sponsorship!
+=======================
+
+  Infomaniak contacted hexdump for a yearly sponsorship:
+  - <https://www.infomaniak.com/en>
+
+  The sponsorship is based on this give-take
+
+  - What Hexdump/Esadecimale obtains
+
+    A VPS (Virtual Private Server) free for one year.  Specs: (4CPUs,
+    12GB RAM, 250 GB HD)
+
+  - What Hexdump/Esadecimale gives
+
+    Mention Infomaniak services at least one per month in a video.
+
+
+4.1 What is Infomaniak?
+~~~~~~~~~~~~~~~~~~~~~~~
+
+  - Infomaniak is a Swiss company that from 1994 offers various IT
+    services, with a focus on cloud technology.
+
+  - Focus on privacy, development of sovereign technologies, open-source
+    contributions and susteinability.
+
+  - Of the various services offered, we find the following
+
+    - Cloud Computing
+      - VPS Cloud
+      - Kubernetes services
+      - Database services
+      - ...
+
+    - Web & Domains
+      - Web Hosting
+      - DNS
+      - ...
+
+    - ...
+
+  - They also have a bug bounty program
+    <https://www.infomaniak.com/en/secure/bug-bounty>

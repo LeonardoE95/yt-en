@@ -7,6 +7,56 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Exploiting a Blind NoSQL Injection - NiteCTF 2024</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#-_HtlNQb9QI</guid>
+<link>https://youtu.be/-_HtlNQb9QI</link>
+<pubDate>Wed, 08 Jan 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, and welcome to this new video!<br>
+<br>
+Today we will analyze a challenge taken from the NiteCTF 2024.<br>
+The challenge consists in analzing the code of a NextJS application in order to find a Blind NoSQL Injection.<br>
+The injection can be used to obtain the flag and solve the challenge.<br>
+<br>
+During the video I discuss how to define simple objectives for performing a secure code review (SCR) on a codebase and I show, step-by-step, how to construct the payload required to exploit the blind injection.<br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this series with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:03 Dynamic Analysis<br>
+03:45 Code Review<br>
+19:15 Finding the injection<br>
+20:25 How to deal with a Blind NoSQL Injection<br>
+27:45 Automation with python<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-08-ctf-nitectf-web-nosqli"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-08-ctf-nitectf-web-nosqli </a> <br>
+- Writeup: <a href="https://blog.leonardotamiano.xyz/writeups/nitectf-2024-web-tammys-tantrums/"> https://blog.leonardotamiano.xyz/writeups/nitectf-2024-web-tammys-tantrums/ </a> <br>
+- NiteCTF 2024: <a href="https://www.nitectf2024.live/"> https://www.nitectf2024.live/ </a> <br>
+- Challenge: <a href="https://github.com/Cryptonite-MIT/niteCTF-2024/tree/main/webex/tammys_tantrums"> https://github.com/Cryptonite-MIT/niteCTF-2024/tree/main/webex/tammys_tantrums </a> <br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>A Sensible Approach to Sponsorships</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#_Yjr7qJBKfI</guid>
 <link>https://youtu.be/_Yjr7qJBKfI</link>

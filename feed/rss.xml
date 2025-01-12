@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>PHP-CGI RCE via BestFit! - CVE-2024-4577</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#akfvxlkp_CU</guid>
+<link>https://youtu.be/akfvxlkp_CU</link>
+<pubDate>Sun, 12 Jan 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there,<br>
+<br>
+In this video we take a look at CVE-2024-4577, a vulnerability discovered by the joint research of Orange Tsai and splitline.<br>
+<br>
+The vulnerability affects windows OS, and particulary instaces of Apache that support PHP-CGI. It allows attackers to obtain RCE by introducing arbitrary arguments to the executable being called.<br>
+<br>
+The vulnerability makes use of "BestFit", a character conversion mechanism implemented in Windows that handles situation where UTF-16 characters need to be converted into ANSI characters.<br>
+<br>
+Specifically, the vulnerability affect windows OS configuration that run with specific ANSI code pages, such as the Japanese code page. This is because during the attack the UTF-16 payload of the user is transformed into an ANSI bytes, and this transformation depends on the ANSI code page currently running in the system<br>
+<br>
+During the video, the vulnerability is discussed and analyzed, and a vulnerable testbed with a PoC is showcased in order to understand how to exploit the vulnerability.<br>
+<br>
+Thank you for watching, subscribe, share this video with like minded people, and leave some feedback in the comments!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:00 Reading the Advisory<br>
+07:20 Vulnerable testbed and PoC<br>
+11:40 Understanding WorstFit<br>
+20:25 CVE-2024-4577<br>
+23:40 Payload analysis<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-12-cves-CVE-2024-4577"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-12-cves-CVE-2024-4577 </a> <br>
+- Advisory: <a href="https://nvd.nist.gov/vuln/detail/cve-2024-4577"> https://nvd.nist.gov/vuln/detail/cve-2024-4577 </a> <br>
+- Blog post from Orange: <a href="https://blog.orange.tw/posts/2025-01-worstfit-unveiling-hidden-transformers-in-windows-ansi/"> https://blog.orange.tw/posts/2025-01-worstfit-unveiling-hidden-transformers-in-windows-ansi/ </a> <br>
+- Slides from Orange: <a href="https://worst.fit/assets/EU-24-Tsai-WorstFit-Unveiling-Hidden-Transformers-in-Windows-ANSI.pdf"> https://worst.fit/assets/EU-24-Tsai-WorstFit-Unveiling-Hidden-Transformers-in-Windows-ANSI.pdf </a> <br>
+  <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Exploiting a Blind NoSQL Injection - NiteCTF 2024</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#-_HtlNQb9QI</guid>
 <link>https://youtu.be/-_HtlNQb9QI</link>

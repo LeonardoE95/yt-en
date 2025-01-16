@@ -1,0 +1,438 @@
+                     ______________________________
+
+                      BURPSUITE EXTENSIONS IN JAVA
+
+                                Hexdump
+                     ______________________________
+
+
+Table of Contents
+_________________
+
+1. Project Setup
+2. Exploring Montoya API
+3. Examples
+.. 1. Hello World
+.. 2. ContextMenuItemsProvider
+.. 3. Repeater Rename Tabs
+..... 1. RepeaterRenameTabs.java
+..... 2. MyContextMenuItemsProvider.java
+.. 4. Copy2Org
+..... 1. Copy2Org.java
+..... 2. MyContextMenuItemsProvider.java
+4. References
+
+
+1 Project Setup
+===============
+
+  To setup a project in order to develop a Burpsuite extension in java,
+  you can use `maven' as follows
+
+  ,----
+  | EXT_NAME="hexdump"
+  | PACKAGE_DOMAIN="burp.hexdump.yt"
+  | 
+  | mvn archetype:generate \
+  |     -DgroupId=$PACKAGE_DOMAIN \
+  |     -DartifactId=$EXT_NAME \
+  |     -DarchetypeArtifactId=maven-archetype-quickstart \
+  |     -DinteractiveMode=false
+  `----
+
+  We can then create a file named `Example.java' with the following
+  content
+
+  ,----
+  | package burp.hexdump.yt;
+  | 
+  | import burp.api.montoya.BurpExtension;
+  | import burp.api.montoya.MontoyaApi;
+  | import burp.api.montoya.logging.Logging;
+  | 
+  | // Burp will auto-detect and load any class that extends BurpExtension.
+  | public class Example implements BurpExtension
+  | {
+  |     @Override
+  |     public void initialize(MontoyaApi api)
+  |     {
+  |         // set extension name
+  |         api.extension().setName("Example Extension");
+  |     }
+  | }
+  `----
+
+  Notice that we're using the `burp.api.montoya' package. To add it to
+  our build system, edit the `pom.xml' with the following
+
+  ,----
+  | <dependencies>
+  |   <dependency>
+  |     <!-- NEW  -->
+  |     <groupId>net.portswigger.burp.extensions</groupId>
+  |     <artifactId>montoya-api</artifactId>
+  |     <version>LATEST</version>
+  |   </dependency>
+  |   <dependency>
+  |     <groupId>junit</groupId>
+  |     <artifactId>junit</artifactId>
+  |     <version>4.11</version>
+  |     <scope>test</scope>
+  |   </dependency>
+  | </dependencies>
+  `----
+
+  And download the dependency with
+
+  ,----
+  | mvn dependency:resolve
+  `----
+
+  Once we have all the dependencies, we can build the project with
+
+  ,----
+  | mvn package
+  `----
+
+  At this point we should have the jar within the directory `target/'
+
+  ,----
+  | target/example-1.0-SNAPSHOT.jar 
+  `----
+
+  We can then import it into burpsuite.
+
+  ,----
+  | Extensions -> Add -> Java Select File
+  `----
+
+
+2 Exploring Montoya API
+=======================
+
+  In order to access burpsuite functionalities through the extension, it
+  is possible to use the Montoya API.
+
+  There are two different ways in which you can explore the Montoya API:
+
+  - Read online
+    <https://portswigger.github.io/burp-extensions-montoya-api/javadoc/burp/api/montoya/MontoyaApi.html>
+
+  - Read directly in burpsuite
+    ,----
+    | Burpsuite -> Extensions -> APIs
+    `----
+
+  There are also many practical extensions built to showcase the APIs
+  themselves.
+  <https://github.com/PortSwigger/burp-extensions-montoya-api-examples>
+
+
+3 Examples
+==========
+
+3.1 Hello World
+~~~~~~~~~~~~~~~
+
+  ,----
+  | package burp.hexdump.yt;
+  | 
+  | import burp.api.montoya.BurpExtension;
+  | import burp.api.montoya.MontoyaApi;
+  | import burp.api.montoya.logging.Logging;
+  | 
+  | public class Example implements BurpExtension
+  | {
+  |     @Override
+  |     public void initialize(MontoyaApi api)
+  |     {
+  |         api.extension().setName("Example");
+  | 	api.logging().logToOutput("Hello World!");	
+  |     }
+  | }
+  `----
+
+
+3.2 ContextMenuItemsProvider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  To create a menu that is available when right clicking on the items we
+  can use a `ContextMenuItemsProvider'
+
+  ,----
+  | import burp.api.montoya.MontoyaApi;
+  | import burp.api.montoya.core.ToolType;
+  | import burp.api.montoya.http.message.HttpRequestResponse;
+  | import burp.api.montoya.ui.contextmenu.ContextMenuEvent;
+  | import burp.api.montoya.ui.contextmenu.ContextMenuItemsProvider;
+  | 
+  | import burp.api.montoya.http.message.requests.HttpRequest;
+  | import burp.api.montoya.http.message.HttpHeader;
+  | import burp.api.montoya.http.message.responses.HttpResponse;
+  | 
+  | import java.util.ArrayList;
+  | import java.util.List;
+  | 
+  | public class MyContextMenuItemsProvider implements ContextMenuItemsProvider {
+  |     private final MontoyaApi api;
+  | 
+  |     public MyContextMenuItemsProvider(MontoyaApi api) {
+  |         this.api = api;
+  |     }
+  | 
+  |     @Override
+  |     public List<Component> provideMenuItems(ContextMenuEvent event) {
+  | 	// filter on tool where the event comes from	
+  |         if (event.isFromTool(ToolType.REPEATER)) {
+  |             List<Component> menuItemList = new ArrayList<>();
+  | 
+  |             HttpRequestResponse requestResponse;
+  | 	    if (event.messageEditorRequestResponse().isPresent()) {
+  | 		requestResponse = event.messageEditorRequestResponse().get().requestResponse();
+  | 	    } else {
+  | 		requestResponse = event.selectedRequestResponses().get(0);
+  | 	    }
+  | 	    
+  |             JMenuItem retrieveRequestItem = new JMenuItem("ITEM-LABEL");
+  | 	    retrieveRequestItem.addActionListener(l -> {
+  | 		    // CODE EXECUTED WHEN CLICKING THE ITEM
+  | 		});
+  | 
+  |             menuItemList.add(retrieveRequestItem);
+  |             return menuItemList;
+  |         }
+  | 
+  |         return null;
+  |     }    
+  | }
+  `----
+
+  We can then register this menu to the user interface with
+
+  ,----
+  | api.userInterface().registerContextMenuItemsProvider(new MyContextMenuItemsProvider(api));
+  `----
+
+
+3.3 Repeater Rename Tabs
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Simple extension that changes the way repeater tabs are named.
+
+
+3.3.1 RepeaterRenameTabs.java
+-----------------------------
+
+  ,----
+  | package yt.hexdump.burp;
+  | 
+  | import burp.api.montoya.BurpExtension;
+  | import burp.api.montoya.MontoyaApi;
+  | 
+  | //Burp will auto-detect and load any class that extends BurpExtension.
+  | public class RepeaterRenameTabs implements BurpExtension
+  | {
+  |     @Override
+  |     public void initialize(MontoyaApi api)
+  |     {
+  |         // set extension name
+  |         api.extension().setName("RepeaterRenameTabs");
+  | 
+  | 	api.userInterface()
+  | 	    .registerContextMenuItemsProvider(new MyContextMenuItemsProvider(api));
+  |     }
+  | }
+  `----
+
+
+3.3.2 MyContextMenuItemsProvider.java
+-------------------------------------
+
+  ,----
+  | package yt.hexdump.burp;
+  | 
+  | import burp.api.montoya.MontoyaApi;
+  | import burp.api.montoya.core.ToolType;
+  | import burp.api.montoya.http.message.HttpRequestResponse;
+  | import burp.api.montoya.ui.contextmenu.ContextMenuEvent;
+  | import burp.api.montoya.ui.contextmenu.ContextMenuItemsProvider;
+  | 
+  | import burp.api.montoya.http.message.requests.HttpRequest;
+  | 
+  | import javax.swing.*;
+  | import java.awt.*;
+  | import java.util.ArrayList;
+  | import java.util.List;
+  | 
+  | import java.awt.datatransfer.*;
+  | import java.awt.*;
+  | 
+  | public class MyContextMenuItemsProvider implements ContextMenuItemsProvider {
+  |     private final MontoyaApi api;
+  |     private Integer id;
+  | 
+  |     public MyContextMenuItemsProvider(MontoyaApi api) {
+  |         this.api = api;
+  | 	this.id = 1;
+  |     }
+  | 
+  |     @Override
+  |     public List<Component> provideMenuItems(ContextMenuEvent event) {
+  | 	
+  |         if (event.isFromTool(ToolType.PROXY, ToolType.TARGET, ToolType.LOGGER, ToolType.REPEATER)) {
+  | 	    Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();	    
+  |             List<Component> menuItemList = new ArrayList<>();
+  | 
+  |             HttpRequestResponse requestResponse;
+  | 	    if (event.messageEditorRequestResponse().isPresent()) {
+  | 		requestResponse = event.messageEditorRequestResponse().get().requestResponse();
+  | 	    } else {
+  | 		requestResponse = event.selectedRequestResponses().get(0);
+  | 	    }
+  | 
+  |             JMenuItem retrieveRequestItem = new JMenuItem("Send to Repeater");
+  | 	    
+  | 	    retrieveRequestItem.addActionListener(l -> {
+  | 		    customSendToRepeater(requestResponse);
+  | 		});
+  | 	    
+  |             menuItemList.add(retrieveRequestItem);
+  | 
+  |             return menuItemList;
+  |         }
+  | 
+  |         return null;
+  |     }
+  | 
+  |     public void customSendToRepeater(HttpRequestResponse requestResponse) {	
+  | 	HttpRequest req = requestResponse.request();
+  | 	String method = req.method();
+  | 	String path = req.pathWithoutQuery();
+  | 	String id = this.id.toString();
+  | 	
+  | 	String tabName = id + " - " + method + " - " + path;
+  | 	this.api.repeater().sendToRepeater(req, tabName);
+  | 	
+  | 	this.id += 1;
+  |     }
+  | }
+  `----
+
+
+3.4 Copy2Org
+~~~~~~~~~~~~
+
+  Simple extension that encodes an HTTP request or response into an
+  org-mode syntax so that it can be exported in Emacs.
+
+
+3.4.1 Copy2Org.java
+-------------------
+
+  ,----
+  | package burp.hexdump.yt;
+  | 
+  | import burp.api.montoya.BurpExtension;
+  | import burp.api.montoya.MontoyaApi;
+  | 
+  | public class Copy2Org implements BurpExtension
+  | {
+  |     @Override
+  |     public void initialize(MontoyaApi api)
+  |     {
+  |         // set extension name
+  |         api.extension().setName("Copy2Org");
+  | 	api.userInterface().registerContextMenuItemsProvider(new MyContextMenuItemsProvider(api));
+  |     }
+  | }
+  | 
+  `----
+
+
+3.4.2 MyContextMenuItemsProvider.java
+-------------------------------------
+
+  ,----
+  | package burp.hexdump.yt;
+  | 
+  | import burp.api.montoya.MontoyaApi;
+  | import burp.api.montoya.core.ToolType;
+  | import burp.api.montoya.http.message.HttpRequestResponse;
+  | import burp.api.montoya.ui.contextmenu.ContextMenuEvent;
+  | import burp.api.montoya.ui.contextmenu.ContextMenuItemsProvider;
+  | 
+  | import javax.swing.*;
+  | import java.awt.*;
+  | import java.util.ArrayList;
+  | import java.util.List;
+  | 
+  | import java.awt.datatransfer.*;
+  | import java.awt.*;
+  | 
+  | public class MyContextMenuItemsProvider implements ContextMenuItemsProvider {
+  |     private final MontoyaApi api;
+  | 
+  |     public MyContextMenuItemsProvider(MontoyaApi api) {
+  |         this.api = api;
+  |     }
+  | 
+  |     @Override
+  |     public List<Component> provideMenuItems(ContextMenuEvent event) {
+  | 
+  | 	
+  |         if (event.isFromTool(ToolType.PROXY, ToolType.TARGET, ToolType.LOGGER, ToolType.REPEATER)) {
+  | 	    Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();	    
+  |             List<Component> menuItemList = new ArrayList<>();
+  | 
+  |             HttpRequestResponse requestResponse;
+  | 	    if (event.messageEditorRequestResponse().isPresent()) {
+  | 		requestResponse = event.messageEditorRequestResponse().get().requestResponse();
+  | 	    } else {
+  | 		requestResponse = event.selectedRequestResponses().get(0);
+  | 	    }
+  | 
+  |             JMenuItem retrieveRequestItem = new JMenuItem("Copy");
+  | 	    
+  | 	    retrieveRequestItem.addActionListener(l -> {
+  | 
+  | 		    String requestData = requestResponse.request().toString().replace("\r", "");
+  | 		    String responseData = requestResponse.response() != null ? 
+  | 			requestResponse.response().toString().replace("\r", "") : "";
+  | 
+  | 		    StringBuilder data = new StringBuilder();
+  | 		    data.append("Request:\n\n");
+  | 		    data.append("#+begin_example\n");
+  | 		    data.append(requestData);
+  | 		    data.append("\n#+end_example\n\n");
+  | 
+  | 		    data.append("Response:\n\n");
+  | 		    data.append("#+begin_example\n");
+  | 		    data.append(responseData);
+  | 		    data.append("\n#+end_example\n\n");		    
+  | 
+  | 		    StringSelection selection = new StringSelection(data.toString());
+  | 		    c.setContents(selection, selection);
+  | 		});
+  | 	    
+  |             menuItemList.add(retrieveRequestItem);
+  | 
+  |             return menuItemList;
+  |         }
+  | 
+  |         return null;
+  |     }
+  | }
+  | 
+  `----
+
+
+4 References
+============
+
+  - Montoya API
+    <https://portswigger.github.io/burp-extensions-montoya-api/javadoc/burp/api/montoya/MontoyaApi.html>
+
+  - Montoya API examples
+    <https://github.com/PortSwigger/burp-extensions-montoya-api-examples>
+
+  - Apache Maven Project <https://maven.apache.org/>

@@ -7,6 +7,61 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Extend Burpsuite with your own Custom Extensions!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#S-ml5bMZXbQ</guid>
+<link>https://youtu.be/S-ml5bMZXbQ</link>
+<pubDate>Thu, 16 Jan 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+Burpsuite is a powerful tool that allows penetration testers and researchers to analyze the securiy of web applications and of web API endpoints.<br>
+One of the most interesting aspect of Burpsuite is that it can be extended by using the exposed Montoya APIs.  <br>
+<br>
+In this video I showcase a simple development pipeline that can be used to build your own custom extensions for Burpsuite.<br>
+The setup uses Java as a programming language and maven as the build system.<br>
+<br>
+Then, to show how to work with the Montoya APIs, I build two simple yet pratical extensions.<br>
+In the future I might build more complex extensions.<br>
+<br>
+If you like the video, please support my work by subscribing to the channel, sharing the video with like-minded people, and keep following for future videos!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Extensions in Burpsuite<br>
+02:50 Setup the development pipeline<br>
+08:10 Loading our first extension<br>
+13:15 Exploring Montoya APIs<br>
+17:45 Sample Extension #1 - Hello World<br>
+20:40 Sample Extension #2 - ContextMenuItemsProvider<br>
+27:10 Practical Extension #1 - Repeater Rename Tabs<br>
+33:40 Practical Extension #2 - Copy2Org<br>
+40:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-16-tools-burpsuite-extension"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-16-tools-burpsuite-extension </a> <br>
+- Montoya API: <a href="https://portswigger.github.io/burp-extensions-montoya-api/javadoc/burp/api/montoya/MontoyaApi.html"> https://portswigger.github.io/burp-extensions-montoya-api/javadoc/burp/api/montoya/MontoyaApi.html </a> <br>
+- Montoya API examples: <a href="https://github.com/PortSwigger/burp-extensions-montoya-api-examples"> https://github.com/PortSwigger/burp-extensions-montoya-api-examples </a> <br>
+- Maven: <a href="https://maven.apache.org/"> https://maven.apache.org/ </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>PHP-CGI RCE via BestFit! - CVE-2024-4577</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#akfvxlkp_CU</guid>
 <link>https://youtu.be/akfvxlkp_CU</link>

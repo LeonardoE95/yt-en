@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 107 | A Lisp in a CTF! - 0xL4ugh CTF 2024 | CTFs | 2025-01-20 | [link](https://youtu.be/LezJFmaehr0) | [link](./src/2025-01-20-ctf-0xl4ughctf-web-clojure-scr)
 | 106 | Extend Burpsuite with your own Custom Extensions! | tools | 2025-01-16 | [link](https://youtu.be/S-ml5bMZXbQ) | [link](./src/2025-01-16-tools-burpsuite-extension)
 | 105 | PHP-CGI RCE via BestFit! - CVE-2024-4577 | CVEs | 2025-01-12 | [link](https://youtu.be/akfvxlkp_CU) | [link](./src/2025-01-12-cves-CVE-2024-4577)
 | 104 | Exploiting a Blind NoSQL Injection - NiteCTF 2024 | CTFs | 2025-01-08 | [link](https://youtu.be/-_HtlNQb9QI) | [link](./src/2025-01-08-ctf-nitectf-web-nosqli)

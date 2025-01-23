@@ -7,6 +7,58 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Simple and Effective Virtualization in Linux (QEMU + Quickemu)</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#TXAh4pcpnMY</guid>
+<link>https://youtu.be/TXAh4pcpnMY</link>
+<pubDate>Thu, 23 Jan 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi and welcome to this new video!<br>
+<br>
+In this video I show how to use quickemu in combination with QEMU, virt-manager and spicy to quickly setup and manage virtual machines running different operating systems.<br>
+<br>
+To explain the process I show how to setup a simple Windows 10 machine.<br>
+<br>
+The basic idea is that I use quickemu to download the official ISO of the OS, and to do the initial installation with sensible defaults. Once that has been done, I import the VM disk into virt-manager, and then I use Spicy as the viewer. Finally, I have written a small emacs-lisp interface to have a quick and easy management of the virtual machines for basic usages such as starting, stopping, opening the spicy instance. The rest of the management is done through virt-manager.<br>
+<br>
+If you like the video, please support my work by subscribing to the channel, sharing the video with like-minded people, and keep following for future videos!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:42 On QEMU, Quickemu and related wrappers <br>
+07:50 How to work with Quickemu<br>
+09:40 Example #1 - Windows 10 VM<br>
+16:50 Example #2 - Ubuntu 20.10<br>
+18:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-23-tools-quickemu"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-23-tools-quickemu </a> <br>
+- QEMU: <a href="https://www.qemu.org/"> https://www.qemu.org/ </a> <br>
+- Quickemu: <a href="https://github.com/quickemu-project/quickemu"> https://github.com/quickemu-project/quickemu </a> <br>
+- Libvirtd: <a href="https://libvirt.org/manpages/libvirtd.html"> https://libvirt.org/manpages/libvirtd.html </a> <br>
+- Virt-Manager: <a href="https://virt-manager.org/"> https://virt-manager.org/ </a> <br>
+- Virtio win guest tool: <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win-guest-tools.exe"> https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win-guest-tools.exe </a> <br>
+  <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>A Lisp in a CTF! - 0xL4ugh CTF 2024</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#LezJFmaehr0</guid>
 <link>https://youtu.be/LezJFmaehr0</link>

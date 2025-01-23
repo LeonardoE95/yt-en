@@ -1,0 +1,284 @@
+                               __________
+
+                                 TOOLS
+                                Quickemu
+
+                                Hexdump
+                               __________
+
+
+Table of Contents
+_________________
+
+1. What is Quickemu?
+2. QEMU
+3. Using Quickemu
+.. 1. Installation
+.. 2. Example #1: Windows 10 Setup
+.. 3. Example #2: Windows Server 2022
+.. 4. Example #2: Ubuntu
+.. 5. Example #3: NixOS
+.. 6. Final Considerations
+
+
+1 What is Quickemu?
+===================
+
+  Quickly create and run optimised Windows, macOS and Linux virtual
+  machines:
+  - <https://github.com/quickemu-project/quickemu>
+  - <https://github.com/quickemu-project>
+
+  Taken from Github repository
+
+        Quickemu is a wrapper for the excellent QEMU that
+        automatically "does the right thing" when creating virtual
+        machines. No requirement for exhaustive configuration
+        options. You decide what operating system you want to run
+        and Quickemu takes care of the rest
+
+        The original objective of the project was to enable quick
+        testing of Linux distributions
+
+        Today, Quickemu includes comprehensive support for macOS,
+        Windows, most of the BSDs, novel non-Linux operating
+        systems such as FreeDOS, Haiku, KolibriOS, OpenIndiana,
+        ReactOS, and more.
+
+
+2 QEMU
+======
+
+  QEMU is a generic and open source machine & userspace emulator and
+  virtualizer.
+  - <https://www.qemu.org/>
+  - <https://github.com/qemu/qemu>
+
+  Taken from Github repository
+
+        QEMU is capable of emulating a complete machine in
+        software without any need for hardware virtualization
+        support. By using dynamic translation, it achieves very
+        good performance. QEMU can also integrate with the Xen and
+        KVM hypervisors to provide emulated hardware while
+        allowing the hypervisor to manage the CPU. With hypervisor
+        support, QEMU can achieve near native performance for
+        CPUs.
+
+  ----------------------------------------------------------------------
+
+  Example of using QEMU taken from the Linux Kernel video
+  - <https://www.youtube.com/watch?v=4PdMZd0Bt7c&t=1436s>
+
+  ,----
+  | qemu-system-x86_64 \
+  |         -m 2G \
+  |         -smp 2 \
+  |         -kernel ./linux-4.19.320/arch/x86/boot/bzImage \
+  | 	-initrd ./initramfs.cpio.gz \
+  |         -enable-kvm \
+  |         -nographic \
+  |         -pidfile vm.pid \
+  | 	-append "console=ttyS0 root=/dev/sda earlyprintk=serial net.ifnames=0 nokaslr" \
+  |         2>&1 | tee ./logs/vm.log
+  `----
+
+  ----------------------------------------------------------------------
+
+  In order to simplify the management of virtual machine, in Linux
+  systems it is possible to use `libvirt'
+
+  ,----
+  | systemctl status libvirtd
+  `----
+
+  Libvirt provides various tools such as:
+
+  - virsh (CLI-based management)
+  - virt-manager (GUI-based management)
+  - virt-install
+  - virt-clone
+  - virt-viewer
+
+  ----------------------------------------------------------------------
+
+  In the context of Linux, there is also `KVM' Kernel-based Virtual
+  Machine, a kernel module that allows the kernel to act as an
+  `hypervisor'.
+
+  The final software stack for handling virtualization is as follows
+
+  ------------------------------------------------------
+   Emacs-Lisp                                           
+  ------------------------------------------------------
+   Spicy  + virt-manager                                
+  ------------------------------------------------------
+   quickemu + libvirt (virsh, virt-install, virt-clone) 
+   QEMU (Quick Emulator)                                
+   KVM (Kernel-based Virtual Machine)                   
+   Linux Kernel                                         
+  ------------------------------------------------------
+
+
+3 Using Quickemu
+================
+
+  To work with quickemu we use the following binaries
+
+  - `quickget'
+
+    downloads the upstream OS and creates the configuration
+
+  - `quickemu'
+
+    enumerates your hardware and launches the virtual machine with the
+    optimum configuration best suited to your computer
+
+  Basic usage
+  ,----
+  | # download ISO
+  | quickget windows 10
+  | 
+  | # start QEMU
+  | quickemu --vm windows-10.conf
+  | 
+  | # when ISO already exists
+  | quickget --create-config windows ~/windows-10/Win10_22H2_EnglishInternational_x64v1.iso 
+  `----
+
+
+3.1 Installation
+~~~~~~~~~~~~~~~~
+
+  - <https://github.com/quickemu-project/quickemu/wiki/01-Installation>
+
+  Dependencies (Debian)
+  ,----
+  | sudo apt-get install bash coreutils curl genisoimage grep jq mesa-utils ovmf pciutils procps python3 qemu sed socat spice-client-gtk swtpm-tools unzip usbutils util-linux uuidgen-runtime xdg-user-dirs xrandr zsync 
+  `----
+
+  Arch Linux
+  ,----
+  | yay -Sy quickemu-git
+  `----
+
+  Debian
+  ,----
+  | sudo apt-get install ./quickemu_x.y.z-1_all.deb
+  `----
+
+  Ubuntu
+  ,----
+  | sudo apt-add-repository ppa:flexiondotorg/quickemu
+  | sudo apt update
+  | sudo apt install quickemu
+  `----
+
+
+3.2 Example #1: Windows 10 Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Download ISO
+  ,----
+  | quickget windows 10
+  `----
+
+  Install OS
+  ,----
+  | quickemu --vm windows-10.conf
+  `----
+
+  <./img/win-install.png>
+
+  After installation, import the disk image within `virt-manager'
+  ,----
+  | virt-manager -> File
+  |              -> New virtual machine
+  |              -> Import existing disk image
+  |              -> Select disk.qcow2 of VM
+  |              -> ...
+  `----
+
+  Before running the machine, change Firmware from BIOS to UEFI.
+
+  Within the VM, install `virtio-win-guest-tool.exe' to have extra
+  features such as:
+
+  - resizing of screen resolution
+  - clipboard sharing
+  - sharing of directories
+
+  It can be downloaded from
+  ,----
+  | https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win-guest-tools.exe
+  `----
+
+  ----
+
+  If with that we still cannot resize screen, then download and setup
+  the `vdservice.exe' from
+  ,----
+  | https://www.spice-space.org/download.html
+  `----
+
+  And manually setup the service
+  ,----
+  | sc create vdservice binPath="C:\Users\Quickemu\Documents\vdservice.exe" start= auto
+  | sc start vdservice
+  `----
+
+
+3.3 Example #2: Windows Server 2022
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Download ISO
+  ,----
+  | quickget windows-server 2022
+  `----
+
+  Install OS
+  ,----
+  | quickemu --vm windows-server-2022.conf
+  `----
+
+
+3.4 Example #2: Ubuntu
+~~~~~~~~~~~~~~~~~~~~~~
+
+  Download ISO
+  ,----
+  | quickget ubuntu 24.10
+  `----
+
+  Install OS
+  ,----
+  | quickemu --vm ubuntu-24.10.conf
+  `----
+
+
+3.5 Example #3: NixOS
+~~~~~~~~~~~~~~~~~~~~~
+
+  Download ISO
+  ,----
+  | quickget nixos 24.11 gnome
+  `----
+
+  Install OS
+  ,----
+  | quickemu --vm nixos-24.11-gnome.conf
+  `----
+
+
+3.6 Final Considerations
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Lets say you want to create two different VMs starting from the same
+  ISO.  This means you do not need to download the ISO two times.
+
+  In these situations, you can use the `--create-config' flag of
+  `quickget' as follows
+
+  ,----
+  | quickget --create-config windows ~/windows-10/Win10_22H2_EnglishInternational_x64v1.iso 
+  `----

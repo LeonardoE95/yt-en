@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 109 | Piracy Shield: Italy's Failed Attempt at Stopping Streaming Piracy | news | 2025-01-26 | [link](https://youtu.be/6YoA-h1Qyj8) | [link](./src/2025-01-26-news-piracy-shield)
 | 108 | Simple and Effective Virtualization in Linux (QEMU + Quickemu) | tools | 2025-01-23 | [link](https://youtu.be/TXAh4pcpnMY) | [link](./src/2025-01-23-tools-quickemu)
 | 107 | A Lisp in a CTF! - 0xL4ugh CTF 2024 | CTFs | 2025-01-20 | [link](https://youtu.be/LezJFmaehr0) | [link](./src/2025-01-20-ctf-0xl4ughctf-web-clojure-scr)
 | 106 | Extend Burpsuite with your own Custom Extensions! | tools | 2025-01-16 | [link](https://youtu.be/S-ml5bMZXbQ) | [link](./src/2025-01-16-tools-burpsuite-extension)

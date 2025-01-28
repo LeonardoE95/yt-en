@@ -7,6 +7,55 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Setup a Simple Active Directory Lab!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#2UdZzuMBURI</guid>
+<link>https://youtu.be/2UdZzuMBURI</link>
+<pubDate>Tue, 28 Jan 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, and welcome to this new series!<br>
+<br>
+This serie will be about "Active Directory Exploitation". That is, it will focus on Active Directory from a point of view of security, and it will showcase the most important attacks that can be performed on an Active Directory Domain. In the course we will also showcase useful enumeration techniques.<br>
+<br>
+As always, I hope that this series, like my other series, will be useful and interesting.<br>
+<br>
+If you have any feedback, leave it in the comments, share this video and this series with like-minded people to help me grow and motivate me to create even more videos!<br>
+<br>
+Thank you very much, and enjoy the video.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+03:10 Setup Server VM<br>
+14:00 Installing Active Directory<br>
+18:25 Promote Server to Domain Controller<br>
+21:55 Create Group Policy Object (GPO)<br>
+26:30 Create new AD user<br>
+27:15 Setup Workstation VM<br>
+31:45 Joining Workstation to Domain<br>
+38:38 Why is AD Useful?<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-28-active-directory-exploitation-lab-setup"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-01-28-active-directory-exploitation-lab-setup </a> <br>
+- Video on Quickemu:<br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Piracy Shield: Italy's Failed Attempt at Stopping Streaming Piracy</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#6YoA-h1Qyj8</guid>
 <link>https://youtu.be/6YoA-h1Qyj8</link>

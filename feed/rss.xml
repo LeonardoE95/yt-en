@@ -7,6 +7,52 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>DOM Clobbering + XSS Chaining - BackdoorCTF 2024</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#BHeDjabhSjo</guid>
+<link>https://youtu.be/BHeDjabhSjo</link>
+<pubDate>Sat, 01 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, and welcome to this new video!<br>
+<br>
+Today we will analyze a web challenge named "Cascade Chaos" taken from the Backdoor CTF 2024. To solve the challenge we will need to chain two different XSS. The first one is triggered by using DOM Clobbering to bypass the check on window.isSafe.<br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this video with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:30 Initial Analysis<br>
+10:10 Brainstorming a solution<br>
+13:40 DOM Clobbering<br>
+18:40 First XSS in Remote Service<br>
+20:00 Second XSS in Local Service<br>
+23:13 Chaining the two XSS<br>
+25:20 Final Payload<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-01-ctf-backdoorctf-web-dom-clobbering-xss"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-01-ctf-backdoorctf-web-dom-clobbering-xss </a> <br>
+- BackdoorCTF: <a href="https://ctftime.org/event/2540/"> https://ctftime.org/event/2540/ </a> <br>
+- Writeup: <a href="https://vicevirus.github.io/posts/backdoor-ctf-2024-writeup/#Cascade%20Chaos"> https://vicevirus.github.io/posts/backdoor-ctf-2024-writeup/#Cascade%20Chaos </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Setup a Simple Active Directory Lab!</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#2UdZzuMBURI</guid>
 <link>https://youtu.be/2UdZzuMBURI</link>

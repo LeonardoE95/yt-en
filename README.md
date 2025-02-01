@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 111 | DOM Clobbering + XSS Chaining - BackdoorCTF 2024 | CTFs | 2025-02-01 | [link](https://youtu.be/BHeDjabhSjo) | [link](./src/2025-02-01-ctf-backdoorctf-web-dom-clobbering-xss)
 | 110 | Setup a Simple Active Directory Lab! | Active Directory Exploitation | 2025-01-28 | [link](https://youtu.be/2UdZzuMBURI) | [link](./src/2025-01-28-active-directory-exploitation-lab-setup)
 | 109 | Piracy Shield: Italy's Failed Attempt at Stopping Streaming Piracy | news | 2025-01-26 | [link](https://youtu.be/6YoA-h1Qyj8) | [link](./src/2025-01-26-news-piracy-shield)
 | 108 | Simple and Effective Virtualization in Linux (QEMU + Quickemu) | tools | 2025-01-23 | [link](https://youtu.be/TXAh4pcpnMY) | [link](./src/2025-01-23-tools-quickemu)

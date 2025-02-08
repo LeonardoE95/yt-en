@@ -7,6 +7,103 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>An Analysis of Function Call Implementation in x86 and x86-64</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#EOuV3yD3wy8</guid>
+<link>https://youtu.be/EOuV3yD3wy8</link>
+<pubDate>Sat, 08 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we analyze calling conventions, which are the different ways in which programs implement function calling. Specifically, we analyze the way it is done in x86 systems (32-bit architecture), and also the way it is done in x86-64 systems (64-bit architectures).<br>
+<br>
+If you like the video, please support my work by subscribing to the channel, sharing the video with like-minded people, and keep following for future videos!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:50 Instruction Set Architecture (ISA)<br>
+06:10 x86 ISA vs x86-64 ISA<br>
+11:32 Example #1 - Calling Conventions in x86 ISA<br>
+21:45 Example #2 - Calling Conventions in x86-64 ISA<br>
+26:45 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-08-binary-function-calls-x86-x86-64"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-08-binary-function-calls-x86-x86-64 </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
+<title>Introduction to Active Directory</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#4Oc8b3nRm2I</guid>
+<link>https://youtu.be/4Oc8b3nRm2I</link>
+<pubDate>Tue, 04 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we continue the Active Directory Exploitation series.<br>
+<br>
+Specifically, we introduce the main concepts and ideas that form the core of Active Directory (AD). Given that AD forms a complex system made up of many different sub-systems, before understanding the different types of attacks that we can perform on an AD instance, it is necessary to review the basics of AD.<br>
+<br>
+In this video we analyze the core components that make AD a unique environment, to prepare for future videos in which we will enumerate and exploit security critical components. <br>
+<br>
+As always, I hope to provide useful and interesting content, and if you have any feedback leave it in the comments.<br>
+<br>
+Thank you.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:20 What is Active Directory?<br>
+05:40 The Components of AD<br>
+06:20 Domain Controllers (DC)<br>
+09:00 Domain Admins<br>
+14:00 Group Policy Object (GPO)<br>
+20:38 Organizational Units (OU)<br>
+25:42 LDAP<br>
+27:52 Kerberos<br>
+31:00 NTDS.dit<br>
+32:00 SYSVOL<br>
+33:15 Global Catalog (CG)<br>
+34:45 Domains, Forests and Trust<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-04-active-directory-exploitation-02-introduction-to-ad"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-04-active-directory-exploitation-02-introduction-to-ad </a> <br>
+<br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>DOM Clobbering + XSS Chaining - BackdoorCTF 2024</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#BHeDjabhSjo</guid>
 <link>https://youtu.be/BHeDjabhSjo</link>

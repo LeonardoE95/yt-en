@@ -1,0 +1,203 @@
+                         _____________________
+
+                          BINARY EXPLOITATION
+                            32 bit vs 64 bit
+
+                                Hexdump
+                         _____________________
+
+
+Table of Contents
+_________________
+
+1. Instruction Set Architecture
+2. 32 bit vs 64 bit
+3. Example #1: 32-bit Calling Convention
+4. Example #2: 64-bit Calling Convention
+
+
+1 Instruction Set Architecture
+==============================
+
+  The *Instruction Set Architecture* (ISA) defines the abstraction layer
+  between hardware and software. Specifically:
+
+  - It defines the set of instructions the CPU can execute.
+  - It specifies how the processor interacts with memory and I/O.
+  - It establishes how the processor handles control flow, exceptions,
+    and interrupts.
+  - It acts as the interface between software and hardware.
+
+  ,----
+  |       Software
+  |          ^
+  |          |
+  | Instruction Set Architecture (ISA)
+  |          |
+  |          v
+  |      Hardware
+  `----
+
+  Notice that with an ISA, we can write the software once, and we can
+  run it on different hardware processors, as long as those implement
+  the same ISA.
+
+  Without an ISA, there would be no standard way for software to
+  interact with hardware. Each processor would then require specific
+  software, making it much harder to develop software that can run on
+  different hardware, therefore limiting portability and compatibility.
+
+
+2 32 bit vs 64 bit
+==================
+
+  In the context of Intel processors, there are different ISAs.
+  Nowadays the most common ones are x86 and x86-64.
+
+  The first, `x86', is defined on a 32-bit hardware architecture, while
+  the second, `x86-64', is defined on a 64-bit hardware
+  architecture. While these two ISAs share a lot of common heritage,
+  there are still significant differences between the two:
+
+  - *Handling more data*
+
+    A 32-bit processor can handle 32 bits of data at once.  A 64-bit
+    processor can handle 64 bits of data at once.
+
+  - *Memory Addressing*
+
+    In a 32-bit processor, the address bus is 32 bits, meaning that the
+    system can address up to 2^32 bytes, which is 4GB of RAM. In
+    practice the actual space is less than 4GB, as memory is also
+    reserved for system use.
+
+    In a 64-bit processor, the address bus is 64 bits, meaning that the
+    system can address up to 2^64 bytes, which is 18.4 Exabytes of
+    memory.
+
+    In real system this space is actually reduced by the fact that not
+    all bytes of the address space are actually used. Specifically, only
+    the lower 48 bits are used for addressing, out of the 64 available.
+
+  - *Registers*
+
+    Some registers are extended that handle the 64-bits data.  For
+    example, RAX is the 64-bit version of the EAX 32-bit version
+    registry.
+
+    Some registers are new, such as the `r8' to `r15' general purpose
+    registers.
+
+  - *Calling Conventions*
+
+    In 32-bit (x86) systems, arguments are passed on the stack.  The
+    first argument is pushed first onto the stack, followed by the
+    second argument, and so on.
+
+    In 64-bit (x86-64) systems, arguments are passed using registers.
+    ,----
+    | RDI, RSI, RDX, RCX, R8 and R9
+    `----
+
+
+3 Example #1: 32-bit Calling Convention
+=======================================
+
+  Consider the following program
+
+  ,----
+  | // Compilation:
+  | // gcc -g -m32 example-32.c -o example-32
+  | 
+  | #include <stdio.h>
+  | #include <stdlib.h>
+  | #include <string.h>
+  | 
+  | void vulnerable(char *input) {
+  |   char buffer[512];
+  |   strcpy(buffer, input);  
+  | }
+  | 
+  | void main(int argc, char *argv[]) {
+  |   if (argc > 1) {
+  |     vulnerable(argv[1]);
+  |   }
+  | }
+  `----
+
+  Compile with
+  ,----
+  | gcc -ggdb -m32 example-32.c -o example-32
+  `----
+
+  Start gdb
+  ,----
+  | gdb -q ./example-32
+  | (gdb) set disassembly-flavor intel
+  `----
+
+  Notice how the arguments are passed using the stack with the
+  operations `push' and `pop'
+
+  ,----
+  | 0x00001204 <+45>:    push   eax
+  | 0x00001205 <+46>:    call   0x117d <vulnerable>
+  `----
+
+  ,----
+  | 0x000011a9 <+44>:    push   DWORD PTR [ebp-0x21c]
+  | 0x000011af <+50>:    lea    edx,[ebp-0x20c]
+  | 0x000011b5 <+56>:    push   edx
+  | 0x000011b6 <+57>:    mov    ebx,eax
+  | 0x000011b8 <+59>:    call   0x1040 <strcpy@plt>
+  `----
+
+
+4 Example #2: 64-bit Calling Convention
+=======================================
+
+  Consider the following program
+  ,----
+  | // Compilation:
+  | // gcc -g  example-64.c -o example-64
+  | 
+  | #include <stdio.h>
+  | #include <stdlib.h>
+  | #include <string.h>
+  | 
+  | void vulnerable(char *input) {
+  |   char buffer[512];
+  |   strcpy(buffer, input);  
+  | }
+  | 
+  | void main(int argc, char *argv[]) {
+  |   if (argc > 1) {
+  |     vulnerable(argv[1]);
+  |   }
+  | }
+  `----
+
+  Compile with
+  ,----
+  | gcc -ggdb example-64.c -o example-64
+  `----
+
+  Start gdb
+  ,----
+  | gdb -q ./example-64
+  | (gdb) set disassembly-flavor intel
+  `----
+
+  Notice how the arguments are passed using the registers `rdi' and
+  `rsi'
+
+  ,----
+  | 0x00000000000011ba <+32>:    mov    rdi,rax
+  | 0x00000000000011bd <+35>:    call   0x1149 <vulnerable>
+  `----
+
+  ,----
+  | 0x0000000000001178 <+47>:    mov    rsi,rdx
+  | 0x000000000000117b <+50>:    mov    rdi,rax
+  | 0x000000000000117e <+53>:    call   0x1030 <strcpy@plt>
+  `----

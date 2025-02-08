@@ -15,6 +15,8 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 113 | An Analysis of Function Call Implementation in x86 and x86-64 | Binary Exploitation | 2025-02-08 | [link](https://youtu.be/EOuV3yD3wy8) | [link](./src/2025-02-08-binary-function-calls-x86-x86-64)
+| 112 | Introduction to Active Directory | Active Directory Exploitation | 2025-02-04 | [link](https://youtu.be/4Oc8b3nRm2I) | [link](./src/2025-02-04-active-directory-exploitation-02-introduction-to-ad)
 | 111 | DOM Clobbering + XSS Chaining - BackdoorCTF 2024 | CTFs | 2025-02-01 | [link](https://youtu.be/BHeDjabhSjo) | [link](./src/2025-02-01-ctf-backdoorctf-web-dom-clobbering-xss)
 | 110 | Setup a Simple Active Directory Lab! | Active Directory Exploitation | 2025-01-28 | [link](https://youtu.be/2UdZzuMBURI) | [link](./src/2025-01-28-active-directory-exploitation-lab-setup)
 | 109 | Piracy Shield: Italy's Failed Attempt at Stopping Streaming Piracy | news | 2025-01-26 | [link](https://youtu.be/6YoA-h1Qyj8) | [link](./src/2025-01-26-news-piracy-shield)

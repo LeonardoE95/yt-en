@@ -7,6 +7,62 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Active Directory Exposed Attack Surface</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#pXd8DsdcBlw</guid>
+<link>https://youtu.be/pXd8DsdcBlw</link>
+<pubDate>Tue, 11 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we continue the Active Directory Exploitation series.<br>
+<br>
+Specifically, the objective of this video is build intution over the typical attack surface that is exposed by an Active Directory (AD) instance. Since many protocols are exposed by AD, it is a useful exercise to analyze the role of each one. <br>
+<br>
+In this video we run a simple nmap command over the Domain Controller (DC) and we analyze the result. In the next videos of the series we will showcase specific attacks to specific protocols.<br>
+<br>
+As always, I hope to provide useful and interesting content, and if you have any feedback leave it in the comments.<br>
+<br>
+Thank you.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:10 Running nmap<br>
+07:50 Port 53 - DNS<br>
+11:44 Port 80 - HTTP<br>
+15:02 Port 88 - Kerberos<br>
+17:07 Port 135 - RPC<br>
+19:10 Port 139 - NetBIOS<br>
+20:10 Port 389 - LDAP<br>
+23:31 Port 443 - HTTPS<br>
+25:40 Port 445 - SMB<br>
+29:13 Port 464 - kpasswd5<br>
+30:50 Other AD services<br>
+35:25 Other services<br>
+38:40 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-11-active-directory-exploitation-03-exposed-attack-surface"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-11-active-directory-exploitation-03-exposed-attack-surface </a> <br>
+<br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>An Analysis of Function Call Implementation in x86 and x86-64</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#EOuV3yD3wy8</guid>
 <link>https://youtu.be/EOuV3yD3wy8</link>

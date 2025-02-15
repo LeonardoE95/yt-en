@@ -7,6 +7,51 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Out of Band Interactions</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#AnNo6-ndMYQ</guid>
+<link>https://youtu.be/AnNo6-ndMYQ</link>
+<pubDate>Sat, 15 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we analyze a very useful technique when it comes to exploiting blind vulnerabilities. This technique works by using a callback server in order to implement Out of Band Interactions (OOBs).<br>
+<br>
+In the video I discuss generally what we mean with "out of band", and I bring two pratical examples showing how it works in practice. This is very useful when it comes to PoC writing for pentesting reports or for bug bounty activities.<br>
+<br>
+In the real world it is often useful to have a VPS on the internet for these kinds of interactions. This year Infomaniak gave me a VPS in exchange for a monthly mention. If you're interested in such services, I suggest using their VPS services.<br>
+<br>
+If you like the video, please support my work by subscribing to the channel, sharing the video with like-minded people, and keep following for future videos!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Out of Band Interactions<br>
+06:20 Example #1 - Blind RCE (CVE-2024-4577)<br>
+12:52 Example #2 - XXE (SecureBank)<br>
+18:30 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-15-websec-01-out-of-band-interactions"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-15-websec-01-out-of-band-interactions </a> <br>
+Infomaniak: <a href="https://www.infomaniak.com/en"> https://www.infomaniak.com/en </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Active Directory Exposed Attack Surface</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#pXd8DsdcBlw</guid>
 <link>https://youtu.be/pXd8DsdcBlw</link>

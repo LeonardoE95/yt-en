@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 116 | Attacks on SMB | Active Directory Exploitation | 2025-02-19 | [link](https://youtu.be/Ab0zGI7k1QY) | [link](./src/2025-02-19-active-directory-04-attacks-on-smb)
 | 115 | Out of Band Interactions | Web Security | 2025-02-15 | [link](https://youtu.be/AnNo6-ndMYQ) | [link](./src/2025-02-15-websec-01-out-of-band-interactions)
 | 114 | Active Directory Exposed Attack Surface | Active Directory Exploitation | 2025-02-11 | [link](https://youtu.be/pXd8DsdcBlw) | [link](./src/2025-02-11-active-directory-exploitation-03-exposed-attack-surface)
 | 113 | An Analysis of Function Call Implementation in x86 and x86-64 | Binary Exploitation | 2025-02-08 | [link](https://youtu.be/EOuV3yD3wy8) | [link](./src/2025-02-08-binary-function-calls-x86-x86-64)

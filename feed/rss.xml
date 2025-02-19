@@ -7,6 +7,60 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Attacks on SMB</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#Ab0zGI7k1QY</guid>
+<link>https://youtu.be/Ab0zGI7k1QY</link>
+<pubDate>Wed, 19 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there,<br>
+<br>
+In this video we continue the Active Directory Exploitation series.<br>
+<br>
+This episode in particular focuses on the different attacks that can be done on the SMB protocol. Specifically, eight different threats will be analyzed, and for each threat I showcase practical commands that can be used to test a given system for that specific problem.<br>
+<br>
+As always, I hope to provide useful and interesting content, and if you have any feedback leave it in the comments.<br>
+<br>
+To support my work, subscribe to the channel and share the work with people!<br>
+<br>
+Thank you, and enjoy the video.   <br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+02:30 Threat #1 - Guest or Anonymous access to Shares<br>
+04:20 SMB Tools - smbmap, smbclient, netexec<br>
+16:15 Configure Guest or Anonymous access to Shares<br>
+18:40 Threat #2 - RCE with access to Administrative Shares<br>
+21:55 Threat #3 - Brute Forcing<br>
+25:50 Threat #4 - Password Spraying<br>
+30:50 Threat #5 - Known Vulnerabilities (EternalBlue CVE-2017-0144)<br>
+38:30 Threat #6 - Net-NTLM Capture Attack<br>
+43:43 Threat #7 - Pass the Hash Attack<br>
+47:15 Threat #8 - Net-NTLM Relay Attack<br>
+54:50 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-19-active-directory-04-attacks-on-smb"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-19-active-directory-04-attacks-on-smb </a> <br>
+<br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Out of Band Interactions</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#AnNo6-ndMYQ</guid>
 <link>https://youtu.be/AnNo6-ndMYQ</link>

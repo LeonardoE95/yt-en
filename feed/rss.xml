@@ -7,6 +7,54 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Infinite Money with Business Logic Vulnerabilities</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#WBQgxam1nwU</guid>
+<link>https://youtu.be/WBQgxam1nwU</link>
+<pubDate>Sun, 23 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we analyze the solution of a web security challenge taken from the PortSwigger web academy.<br>
+<br>
+Specifically, the challenge is called "Infinite money logic flaw", and it consists in finding a flow of action that allows a user to generate money. This kind of vulnerability in the context of appsec is known as "Business Logic vulnerability", because it arises in the intersection between computer science and business processes. When the business logic is not properly implemented, we find a Business Logic Vulnerability. The impact of such vulnerability highly depends on the nature of the business. In certain cases, these vulnerability can be extremely impactful.<br>
+<br>
+After discussing the vulnerability, I then show how to automate the attack using the Macro system offered by BurpSuite and also using a simple python script.<br>
+<br>
+If you like the video, please support my work by subscribing to the channel, sharing the video with like-minded people, and keep following for future videos!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:41 Business Logic Vulnerabilities<br>
+05:45 The Challenge<br>
+10:40 The Vulnerability<br>
+18:30 Automate with BurpSuite Macros<br>
+27:30 Automate with Python<br>
+31:30 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-23-websec-02-infinite-money-with-business-logic-vulnerabilities"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-23-websec-02-infinite-money-with-business-logic-vulnerabilities </a> <br>
+PortSwigger Lab: <a href="https://portswigger.net/web-security/logic-flaws/examples/lab-logic-flaws-infinite-money"> https://portswigger.net/web-security/logic-flaws/examples/lab-logic-flaws-infinite-money </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Attacks on SMB</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#Ab0zGI7k1QY</guid>
 <link>https://youtu.be/Ab0zGI7k1QY</link>

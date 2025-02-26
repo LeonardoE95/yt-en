@@ -1,0 +1,638 @@
+                    _______________________________
+
+                     ACTIVE DIRECTORY EXPLOITATION
+                                Kerberos
+
+                                Hexdump
+                    _______________________________
+
+
+Table of Contents
+_________________
+
+1. Kerberos
+2. Kerberos's Components
+.. 1. Key Distribution Center (KDC)
+.. 2. Realm
+.. 3. Principal
+.. 4. Ticket Granting Ticket (TGT)
+.. 5. Service Ticket (ST)
+3. Kerberos's Messages
+.. 1. 1. AS-REQ + AS-REP
+..... 1. AS-REQ
+..... 2. AS-REP
+.. 2. 2. TGS-REQ + TGS-REP
+..... 1. TGS-REQ
+..... 2. TGS-REP
+.. 3. 3. AP-REQ + AP-REP
+..... 1. AP-REQ
+..... 2. AP-REP
+4. Mutual Authentication
+5. References
+
+
+1 Kerberos
+==========
+
+  Kerberos is an `authentication key agreement' protocol.
+
+  This means that Kerberos allows two entities to establish a `shared
+    secret key' securely, starting from an insecure communication
+    channel.
+
+  Notice that this is also what happens in the web. In the web however,
+  when using HTTPs, we have the TLS protocol, which works by using
+  `X.509 digital certificates' to authenticate entities (and a lot of
+  other things), which is implemented using `public-key cryptography'.
+
+  In kerberos entities are not authenticated by digital
+  certificates. Instead, entities can rely on a centralized server,
+  which is the `KDC' (Key Distribution Center), that knows a long-term
+  secret key for each entity involved in the communication. By using
+  such knowledge, it is possible to establish `ephemeral session keys'
+  that allow clients to authenticate to services.
+
+  Kerberos is built on top of the `Needham-Schroeder Symmetric Key
+  Protocol'.
+
+
+2 Kerberos's Components
+=======================
+
+  Given that Kerberos is a complex protocol made up of multiple
+  components, it is important to start off by defining key entities in
+  the context of kerberos authentication.
+
+
+2.1 Key Distribution Center (KDC)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  It is the core component of Kerberos that deals with initial
+  authentication and with the issuing of tickets.
+
+  It is made up of two specific services:
+
+  - *Authentication Server* (AS)
+
+    Component that deals with initial authentication.
+
+    After verifying the user identity, it generates a *Ticket Granting
+    Ticket* (TGT). These tickets can then be exchanged for *Service
+    Tickets*.
+
+  - *Ticket Granting Server* (TGS)
+
+    Component responsible for issuing *Service Tickets* by using the
+    *Ticket Granting Ticket* (TGT).
+
+    The *Service Tickets* allow users to access server resources.
+
+
+2.2 Realm
+~~~~~~~~~
+
+  A `Kerberos Realm' defines a logical security boundary that contains
+  group of principals (users, services and computers) that trust a
+  specific `Key Distribution Center (KDC)' for authentication purposes.
+
+  In Active Directory, a realm is automatically created when a domain is
+  initialized. The Kerberos Realm is the uppercase version of the AD
+  domain name.
+
+  ----------------------------------------------------------------------
+
+  To discover the realm your user is currently is, execute the following
+  command, which print the `User Principal Name' (UPN)
+  ,----
+  | whoami /upn
+  `----
+
+  You can also use this other command
+  ,----
+  | klist
+  `----
+
+  ----------------------------------------------------------------------
+
+  For example, for the domain `hexdump.lab', the kerberos realm will be
+  `HEXDUMP.LAB'.
+
+
+2.3 Principal
+~~~~~~~~~~~~~
+
+  A `Kerberos Principal' is a unique identity to which Kerberos can
+  assign tickets.
+
+  There are different types of principals:
+
+  - *User Principal*
+
+    Represents an individual user in the Kerberos realm.  This is also
+    known as *User Principal Name (UPN)*.
+
+  - *Service Principal*
+
+    Represents a service that requires authentication and authorization
+    to be accessed by its clients.
+
+    Example of services:
+    - SMB Service
+    - SQL Server
+    - HTTP Server
+    - LDAP Server
+
+    Services need to register proper Service Principal Names (SPNs)
+    within Active Directory. Once this registration has taken place,
+    Kerberos can issue tickets for service access.
+
+  - *Host Principal*
+
+    Represents a computer in a Kerberos realm.
+
+  ----------------------------------------------------------------------
+
+  Each principal has an associated *secret key*, which is used during
+  the key agreement protocol to provide authentication.
+
+  ------------------------------
+   User Principal    Secret Key 
+  ------------------------------
+   leo@HEXDUMP.lab   secret1    
+   test@HEXDUMP.lab  secret2    
+  ------------------------------
+
+  ----------------------------------------------------------------------
+
+  Principals follow a common name structure
+
+  ,----
+  | primary/instance@REALM
+  `----
+
+  - *Primary*
+
+    Identifies the entity.
+
+  - *Instance*
+
+    Further qualifies the primary.
+
+  - *REALM*
+
+    The Kerberos domain in which the authentication has to take place.
+
+  ----------------------------------------------------------------------
+
+  To discover the realm your user is currently is, execute the following
+  command, which print the `User Principal Name' (UPN)
+  ,----
+  | whoami /upn
+  `----
+
+  You can also use this other command
+  ,----
+  | klist
+  `----
+
+  List out all SPNs registed for `DC01'
+  ,----
+  | setspn -L DC01
+  `----
+
+  Set a new SPN for the username `leo'
+  ,----
+  | setspn -A HTTP/webserver.hexdump.lab leo
+  | setspn -L leo
+  `----
+
+
+2.4 Ticket Granting Ticket (TGT)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  A `Ticket Granting Ticket (TGT)' is a Kerberos ticket that is used to
+  issue `Service Tickets' through a `Key Distribution Center' (KDC).
+
+  In secure deployments of Kerberos, the TGT is issued after proper
+  authenticaton with the `Authentication Server (AS)'. If the
+  authentication is successful, the KDC will issue a TGT.
+
+  If the TGT is issued prior to proper authentication, an attack known
+  as `AS-REP Roasting' can be performed on the Kerberos realm.
+
+  The TGT contains various information, such as:
+  - User ID
+  - TGS ID
+  - Expiration Time
+  - TGS Session Key
+  - Ticket Flags
+  - ...
+
+  Notice that the TGT is not sent in clear, but it is encrypted with the
+  KDC secret key. This is used for authentication purposes.
+
+  ----------------------------------------------------------------------
+
+  Example of a TGT obtained with `klist'
+  ,----
+  | #0>     Client: leo @ HEXDUMP.LAB
+  |         Server: krbtgt/HEXDUMP.LAB @ HEXDUMP.LAB
+  |         KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
+  |         Ticket Flags 0x40e10000 -> forwardable renewable initial pre_authent name_canonicalize
+  |         Start Time: 2/13/2025 4:07:44 (local)
+  |         End Time:   2/13/2025 14:07:44 (local)
+  |         Renew Time: 2/20/2025 4:07:44 (local)
+  |         Session Key Type: AES-256-CTS-HMAC-SHA1-96
+  |         Cache Flags: 0x1 -> PRIMARY
+  |         Kdc Called: DC01
+  `----
+
+  Notice the information:
+
+  - `leo @ HEXDUMP.LAB' the name of the principal (UPN).
+
+  - `krbtgt/HEXDUMP.LAB @ HEXDUMP.LAB' the server that generated the
+    ticket, since this is kerberos, it means that this ticket is a TGT.
+
+  - `initial' flag that specifies this is the first ticket.
+
+  - `pre_authent' flag that specifies authentication occured to obtain
+    the ticket.
+
+  - `AES-256-CTS-HMAC-SHA1-96' encryption methods to protect the ticket.
+
+
+2.5 Service Ticket (ST)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+  A `Service Ticket', also known as `Ticket Granting Service (TGS)' is a
+  Kerberos ticket that allows an authenticated user to access a specific
+  service or resource by using a previously obtained TGT.
+
+  It is issued by the KDC, and specifically by the Ticket Granting
+  Server. Once you obtain a ST, you can present it to the target
+  service. The ticket is created in such a way so that only the service
+  can decrypt it with its own secret key and it is used to validate the
+  identity of the user.
+
+  If the ST is valid, the user will be allowed to access the resource
+  without entering the passwords.
+
+  ----------------------------------------------------------------------
+
+  Example of an ST obtained with `klist'
+  ,----
+  | #3>     Client: leo @ HEXDUMP.LAB
+  |         Server: LDAP/DC01.hexdump.lab/hexdump.lab @ HEXDUMP.LAB
+  |         KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
+  |         Ticket Flags 0x40a50000 -> forwardable renewable pre_authent ok_as_delegate name_canonicalize
+  |         Start Time: 2/13/2025 4:40:02 (local)
+  |         End Time:   2/13/2025 14:40:02 (local)
+  |         Renew Time: 2/20/2025 4:40:02 (local)
+  |         Session Key Type: AES-256-CTS-HMAC-SHA1-96
+  |         Cache Flags: 0
+  |         Kdc Called: DC01.hexdump.lab
+  `----
+
+  Notice the information:
+
+  - `leo @ HEXDUMP.LAB' is the name of the principal (UPN)
+
+  - `LDAP/DC01.hexdump.lab/hexdump.lab @ HEXDUMP.LAB' name of the
+    server, since this is `LDAP' it means that this is a TGS.
+
+
+3 Kerberos's Messages
+=====================
+
+  Let us now analyze in detail the messages in a typical kerberos
+  authentication flow. The flow itself is described in the following
+  sequence diagram
+
+  <file:kerberos.png>
+
+
+3.1 1. AS-REQ + AS-REP
+~~~~~~~~~~~~~~~~~~~~~~
+
+  This is the first request/response that is sent.
+
+  The purpose of this exchange is to obtain a `Ticket Granting Ticket'
+  (TGT).
+
+  Entities involved:
+  - Client
+  - AS/KDC
+
+  Messages:
+  - AS-REQ (Authentication Service Request), Client -> AS
+  - AS-REP (Authentication Service Reply), AS -> Client
+
+
+3.1.1 AS-REQ
+------------
+
+  The AS-REQ can contain `pre-authentication data', such as:
+
+  - `PA-PAC-REQUEST'
+
+    Specifies if the user wants to obtain a TGT that includes `PAC' data
+    (Privileged Attribute Certificate), containg authorization
+    information like group memberships and user privileges.
+
+  - `PA-ENC-TIMESTAMP'
+
+    It contains a timestamp encrypted with the user's key. It is used to
+    prove that the request comes from the legitimate user, and it is
+    also used to prevent replay attacks.
+
+    When the KDC/AS receives the timestamp, it uses the user's secret
+    key to decrypt the timestamp. If the timestamp is within an
+    *acceptable window of time*, authentication proceeds. Otherwise, it
+    fails.
+
+
+  During this authentication different errors can happen, such as:
+
+  - `KRB5KDC_ERR_PREAUTH_REQUIRED'
+
+    The client must include proper authentication data.
+
+  - `KRB5KRB_AP_ERR_SKEW'
+
+    Since Kerberos relies on syncrhonized clocks for security,
+    significant time different between entities can result in a `time
+    skew error'.
+
+  - `eRR-PREAUTH-FAILED'
+
+    When the timestamp is not properly encrypted with the user private
+    key. This means that the user typed in the wrong password.
+
+  Example of an AS-REQ package
+  ,----
+  | Kerberos
+  |     Record Mark: 314 bytes
+  |     as-req
+  |         pvno: 5
+  |         msg-type: krb-as-req (10)
+  |         padata: 2 items
+  |             PA-DATA pA-ENC-TIMESTAMP
+  |                 padata-type: pA-ENC-TIMESTAMP (2)
+  |                     padata-value: 3041a003020112a23a0438739cbf03ee305b1f57e7300c81585ce5bf25c8897d12735870…
+  |                         etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+  |                         cipher: 739cbf03ee305b1f57e7300c81585ce5bf25c8897d1273587034a71546327b16c37294c3…
+  |             PA-DATA pA-PAC-REQUEST
+  |                 padata-type: pA-PAC-REQUEST (128)
+  |                     padata-value: 3005a0030101ff
+  |                         include-pac: True
+  |         req-body
+  `----
+
+
+3.1.2 AS-REP
+------------
+
+  The AS-RESP contains instead:
+
+  - The `TGT' (Ticket Granting Ticket) issued by the KDC/AS. The ticket
+    is encrypted using the `Kerberos Ticket Granting Service' (krbtgt)
+    account key also known as `TGS secret key'.
+
+  - The `Encrypted Part', which contains the TGS session key and other
+    authentication details such as the TGS Name, the timestamp, and the
+    lifetime of the TGS. It is encrypted using the client's long-term
+    key derived from the machine. The client will decrypt the message to
+    obtain the session key.
+
+  Example of an AS-RESP package
+  ,----
+  | Kerberos
+  |     Record Mark: 1711 bytes
+  |     as-rep
+  |         pvno: 5
+  |         msg-type: krb-as-rep (11)
+  |         padata: 1 item
+  |             PA-DATA pA-ETYPE-INFO2
+  |                 padata-type: pA-ETYPE-INFO2 (19)
+  |                     padata-value: 30353033a003020112a12c1b2a48455844554d502e4c4142686f7374717569636b656d2d…
+  |                         ETYPE-INFO2-ENTRY
+  |                             etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+  |                             salt: HEXDUMP.LABhostquickem-kfg06sg.hexdump.lab
+  |         crealm: HEXDUMP.LAB
+  |         cname
+  |         ticket
+  |         enc-part
+  `----
+
+
+3.2 2. TGS-REQ + TGS-REP
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+  This is the second request/response that is sent.
+
+  The purpose of this exchange is for a client to obtain a `Service
+     Ticket' (ST) using the previously obtained `Ticket Granting Ticket'
+     (TGT) and `TGS Session Key'. This interaction happens with the
+     `Ticket Granting Service' (TGS).
+
+  Entities involved:
+  - Client
+  - TGS/KDC
+
+  Messages:
+  - TGS-REQ (Ticket Granting Service Request), Client -> TGS
+  - TGS-REP (Ticket Granting Service Reply), TGS -> Client
+
+
+3.2.1 TGS-REQ
+-------------
+
+  The TGS-REQ contains:
+
+  - The `TGT' that was generated by the `AS' in the first exchange
+
+  - The `service principal name' of the requested service and the
+    desired `lifetime' for the ST.
+
+  - The `authenticator data', which includes the userID and the
+    timestamp, encrypted with the `TGS Session Key'.
+
+  Example of an TGS-REQ package
+  ,----
+  | tgs-req
+  |     pvno: 5
+  |     msg-type: krb-tgs-req (12)
+  |     padata: 2 items
+  |         PA-DATA pA-TGS-REQ
+  |             padata-type: pA-TGS-REQ (1)
+  |                 padata-value: 6e82058430820580a003020105a10302010ea20703050000000000a38204c8618204c430…
+  |                     ap-req
+  |                         pvno: 5
+  |                         msg-type: krb-ap-req (14)
+  |                         Padding: 0
+  |                         ap-options: 00000000
+  |                         ticket
+  |                         authenticator
+  |         PA-DATA pA-PAC-OPTIONS
+  |     req-body
+  |         Padding: 0
+  |         kdc-options: 40800000
+  |         realm: HEXDUMP.LAB
+  |         sname
+  |             name-type: kRB5-NT-SRV-INST (2)
+  |             sname-string: 3 items
+  |                 SNameString: ldap
+  |                 SNameString: dc01.hexdump.lab
+  |                 SNameString: hexdump.lab
+  |         till: Sep 13, 2037 04:48:05.000000000 CEST
+  |         nonce: 1960024827
+  |         etype: 5 items
+  |         enc-authorization-data
+  `----
+
+
+3.2.2 TGS-REP
+-------------
+
+  Once the TGS receives the message, it performs the following
+  operations:
+
+  - Decrypts TGT with TGS secret.
+  - Reads TGS Session key from TGT
+  - Decrypts authenticator data with TGS Session Key
+  - Validates authenticator data with TGT data
+  - Prepares `ST(Service Ticket)' encrypted with `service secret key'.
+  - Encrypts (ServiceID + Service Session Key) with `TGS Session key'.
+
+  Example of an TGS-REP packet
+  ,----
+  | tgs-rep
+  |     pvno: 5
+  |     msg-type: krb-tgs-rep (13)
+  |     crealm: HEXDUMP.LAB
+  |     cname
+  |         name-type: kRB5-NT-PRINCIPAL (1)
+  |         cname-string: 1 item
+  |     ticket
+  |         tkt-vno: 5
+  |         realm: HEXDUMP.LAB
+  |         sname
+  |             name-type: kRB5-NT-SRV-INST (2)
+  |             sname-string: 3 items
+  |                 SNameString: ldap
+  |                 SNameString: dc01.hexdump.lab
+  |                 SNameString: hexdump.lab
+  |         enc-part
+  |     enc-part
+  | 
+  `----
+
+
+3.3 3. AP-REQ + AP-REP
+~~~~~~~~~~~~~~~~~~~~~~
+
+  This is the third request/response that is sent.
+
+  The purpose of this exchange is for a client to establish an
+  authenticated session using the previously obtained `Ticket Granting
+  Service' (TGS) with a specific service.
+
+  Entities involved:
+  - Client
+  - Service
+
+  Messages:
+  - AP-REQ (Authentication Request), Client -> Service
+  - AP-REP (Authentication Reply), Service -> Client
+
+
+3.3.1 AP-REQ
+------------
+
+  The `AP-REQ' contains:
+  - The service ticket (encrypted with the service key)
+  - An authenticator (encrypted with the service session key)
+
+  Example of an AP-REQ package
+  ,----
+  | ap-req
+  |     pvno: 5
+  |     msg-type: krb-ap-req (14)
+  |     Padding: 0
+  |     ap-options: 20000000
+  |         0... .... = reserved: False
+  |         .0.. .... = use-session-key: False
+  |         ..1. .... = mutual-required: True
+  |     ticket
+  |         tkt-vno: 5
+  |         realm: HEXDUMP.LAB
+  |         sname
+  |             name-type: kRB5-NT-SRV-INST (2)
+  |             sname-string: 3 items
+  |                 SNameString: ldap
+  |                 SNameString: DC01.hexdump.lab
+  |                 SNameString: hexdump.lab
+  |         enc-part
+  |     authenticator
+  `----
+
+
+3.3.2 AP-REP
+------------
+
+  When the service receives the AP-REQ, it performs the following
+  actions:
+  - Decrypts the service ticket in order to obtain the service session
+    key
+  - Uses the service session key to decrypt the authenticator
+  - Validates the authenticator data
+
+  The `AP-REP' contains:
+  - Encrypted timestamp from the client AP-REQ
+
+  It is used to implement `mutual authentication', that is, it allows
+  clients to authenticate the service.
+
+  Example of an AP-REP package
+  ,----
+  | ap-rep
+  |     pvno: 5
+  |     msg-type: krb-ap-rep (15)
+  |     enc-part
+  | 
+  `----
+
+
+4 Mutual Authentication
+=======================
+
+  When we talk about `mutual authentication' we're refering to the two
+  sides of authentication:
+
+  1. The service authenticates the client
+  2. The client authenticates the service
+
+  The first side of authentication happens with the `AP-REQ' request.
+
+  The second side of authentication happens with the `AP-REP', if the
+  flag `mutual-required' was set in the `AP-REQ' message sent by the
+  client.
+
+
+5 References
+============
+
+  Kerberos v5 RFC 1510 <https://datatracker.ietf.org/doc/html/rfc1510>
+
+  Needham–Schroeder protocol
+  <https://en.wikipedia.org/wiki/Needham%E2%80%93Schroeder_protocol>
+
+  Kerberos V5 UNIX User's Guide
+  <https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-user/index.html#Top>
+
+  Kerberos Authentication Explained | A deep dive
+  <https://www.youtube.com/watch?v=5N242XcKAsM>
+
+  Kerberos Explained in a Little Too Much Detail
+  <https://syfuhs.net/a-bit-about-kerberos>

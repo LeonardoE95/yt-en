@@ -1,0 +1,25 @@
+1) AS-REQ (Client -> KDC/AS)
+   - Timestamp 🔑 Client key
+
+2) AS-REP (KDC/AS -> Client)
+   - TGT 🔑 KDC key
+   - TGS Session Key 🔑 Client key
+
+------
+
+3) TGS-REQ (Client -> KDC/TGS)
+   - TGT 🔑 KDC key
+   - Authenticator data 🔑 TGS Session Key
+
+4) TGS-REP (KDC/TGS -> Client)
+   - ST 🔑 Service key
+   - Service Session key 🔑 TGS Session Key
+
+------
+
+5) AP-REQ (Client -> Service)
+   - ST 🔑 Service key
+   - Authenticator data 🔑 Service Session key 
+
+6) AP-REP (Service -> Client)
+   - Timestamp 🔑 Service Session key

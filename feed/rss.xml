@@ -7,6 +7,69 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Kerberos Authentication</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#dQz3CMlVYNY</guid>
+<link>https://youtu.be/dQz3CMlVYNY</link>
+<pubDate>Wed, 26 Feb 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we continue the Active Directory Exploitation series.<br>
+<br>
+This episode focuses on Kerberos, the core authentication protocol that is used within Active Directory. Since Kerberos is a complex protocol, in this video we break down the most important concepts and message flows that happen during a typical Kerberos authentication.<br>
+<br>
+As always, I hope to provide useful and interesting content, and if you have any feedback leave it in the comments.<br>
+<br>
+To support my work, subscribe to the channel and share my work with people you know!<br>
+<br>
+Thank you, and enjoy the video.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+00:50 What is Kerberos?<br>
+08:55 Key Distribution Center (KDC)<br>
+13:35 Kerberos Realms<br>
+17:02 Kerberos Principals<br>
+22:25 Ticket Granting Ticket (TGT)<br>
+25:05 Service Ticket (ST)<br>
+27:50 Kerberos Messages<br>
+32:35 AS-REQ<br>
+38:39 AS-REP<br>
+41:00 TGS-REQ<br>
+44:00 TGS-REP<br>
+46:55 AP-REQ<br>
+47:55 AP-REP<br>
+50:00 Mutual Authentication<br>
+51:00 Overview of the Kerberos exchange<br>
+55:00 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-26-active-directory-05-kerberos"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-02-26-active-directory-05-kerberos </a> <br>
+- Kerberos v5 RFC 1510: <a href="https://datatracker.ietf.org/doc/html/rfc1510"> https://datatracker.ietf.org/doc/html/rfc1510 </a> <br>
+- Kerberos V5 UNIX User's Guide: <a href="https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-user/index.html"> https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-user/index.html </a> <br>
+- Needham–Schroeder protocol: <a href="https://en.wikipedia.org/wiki/Needham%E2%80%93Schroeder_protocol"> https://en.wikipedia.org/wiki/Needham%E2%80%93Schroeder_protocol </a> <br>
+- Kerberos Authentication Explained: <a href="https://www.youtube.com/watch?v=5N242XcKAsM"> https://www.youtube.com/watch?v=5N242XcKAsM </a> <br>
+- Kerberos Explained in a Little Too Much Detail: <a href="https://syfuhs.net/a-bit-about-kerberos"> https://syfuhs.net/a-bit-about-kerberos </a> <br>
+    <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Infinite Money with Business Logic Vulnerabilities</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#WBQgxam1nwU</guid>
 <link>https://youtu.be/WBQgxam1nwU</link>

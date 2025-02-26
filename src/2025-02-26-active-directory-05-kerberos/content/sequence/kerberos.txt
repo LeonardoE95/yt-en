@@ -1,0 +1,23 @@
+@startuml
+scale 20
+
+title Kerberos Authentication
+
+participant Client as c
+participant "Authentication Server" as k1
+participant "Ticket Granting Server" as k2
+participant Service as s
+
+c->k1: AS-REQ
+k1->c: AS-REP
+
+c->k2: TGS-REQ
+k2->c: TGS-REP
+
+c->s: AP-REQ
+
+opt Mutual Authentication
+s->c: AP-REP
+end
+
+@enduml

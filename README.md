@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 118 | Kerberos Authentication | Active Directory Exploitation | 2025-02-26 | [link](https://youtu.be/dQz3CMlVYNY) | [link](./src/2025-02-26-active-directory-05-kerberos)
 | 117 | Infinite Money with Business Logic Vulnerabilities | websec | 2025-02-23 | [link](https://youtu.be/WBQgxam1nwU) | [link](./src/2025-02-23-websec-02-infinite-money-with-business-logic-vulnerabilities)
 | 116 | Attacks on SMB | Active Directory Exploitation | 2025-02-19 | [link](https://youtu.be/Ab0zGI7k1QY) | [link](./src/2025-02-19-active-directory-04-attacks-on-smb)
 | 115 | Out of Band Interactions | Web Security | 2025-02-15 | [link](https://youtu.be/AnNo6-ndMYQ) | [link](./src/2025-02-15-websec-01-out-of-band-interactions)

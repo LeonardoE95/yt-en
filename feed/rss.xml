@@ -7,6 +7,49 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Stack Frames, RSP and RBP</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#S94CHJWBSfw</guid>
+<link>https://youtu.be/S94CHJWBSfw</link>
+<pubDate>Sun, 02 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we analyze the role of the RSP and RBP registers for the management of the stack frames within the call stack. We also talk the role of the function prologue and function epilogue. These concepts and ideas are foundationals if you are interested in the topics of binary exploitation and reverse engineering.<br>
+<br>
+If you like the video, please support my work by subscribing to the channel, sharing the video with like-minded people, and keep following for future videos!<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+06:05 Stack Frames<br>
+12:00 The Role of RSP (Stack Pointer)<br>
+15:42 The Role of RBP (Base Pointer)<br>
+23:05 Function Prologue<br>
+24:45 Function Epilogue<br>
+28:33 The Call Stack in GDB<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-02-binary-02-stack-frames"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-02-binary-02-stack-frames </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Kerberos Authentication</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#dQz3CMlVYNY</guid>
 <link>https://youtu.be/dQz3CMlVYNY</link>

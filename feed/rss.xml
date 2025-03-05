@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Roasting Attacks on Kerberos</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#fVTZEIZIEqg</guid>
+<link>https://youtu.be/fVTZEIZIEqg</link>
+<pubDate>Wed, 05 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we continue the Active Directory Exploitation series.<br>
+<br>
+This episode focuses on two specific attacks that you can do on the Kerberos protocol known as "AS-REP roasting" and "Kerberoasting". Both of these attacks are based on the ability of an attacker to capture tickets encrypted with users or services passwords. In the video we will discuss the theory behind them, and how to perform them in practice.<br>
+<br>
+As always, I hope to provide useful and interesting content, and if you have any feedback leave it in the comments.<br>
+<br>
+To support my work, subscribe to the channel and share my work with people you know!<br>
+<br>
+Thank you, and enjoy the video.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:00 Roasting Attacks<br>
+04:20 AS-REP Roasting<br>
+13:40 Kerberoasting<br>
+25:15 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-05-active-directory-06-roasting-attacks-on-kerberos"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-05-active-directory-06-roasting-attacks-on-kerberos </a> <br>
+- Understanding the Kerberos Protocol: <a href="https://youtu.be/dQz3CMlVYNY"> https://youtu.be/dQz3CMlVYNY </a> <br>
+- The Kerberos Network Authentication Service: <a href="https://datatracker.ietf.org/doc/html/rfc4120  "> https://datatracker.ietf.org/doc/html/rfc4120   </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Stack Frames, RSP and RBP</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#S94CHJWBSfw</guid>
 <link>https://youtu.be/S94CHJWBSfw</link>

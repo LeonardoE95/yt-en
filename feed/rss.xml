@@ -7,6 +7,51 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Let's Write a Simple Shell in C!</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#YMEHrXSsdo0</guid>
+<link>https://youtu.be/YMEHrXSsdo0</link>
+<pubDate>Sun, 09 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi, and welcome to this new video!<br>
+<br>
+In this video we show how to implement from scratch a simple shell using the C programming language.<br>
+<br>
+In the video we will see how to implement the different features that, combined together, make up a shell, such as handling user input, tokenizing user input, executing commands, and having builtins. <br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:10 Hello World<br>
+03:15 Reading user input<br>
+08:05 Tokenizing user input<br>
+18:00 Executing system commands<br>
+27:30 The fork() and exec() pattern<br>
+33:45 Adding builtins<br>
+42:42 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-09-from-scratch-05-simple-shell"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-09-from-scratch-05-simple-shell </a> <br>
+- linenoise: <a href="https://github.com/antirez/linenoise"> https://github.com/antirez/linenoise </a> <br>
+- fork: <a href="https://man7.org/linux/man-pages/man2/fork.2.html"> https://man7.org/linux/man-pages/man2/fork.2.html </a> <br>
+- exec: <a href="https://man7.org/linux/man-pages/man3/exec.3.html"> https://man7.org/linux/man-pages/man3/exec.3.html </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Roasting Attacks on Kerberos</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#fVTZEIZIEqg</guid>
 <link>https://youtu.be/fVTZEIZIEqg</link>

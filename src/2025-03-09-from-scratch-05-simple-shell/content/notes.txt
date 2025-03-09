@@ -1,0 +1,317 @@
+                          ___________________
+
+                              FROM SCRATCH
+                           Simple Shell in C
+                          ___________________
+
+
+Table of Contents
+_________________
+
+1. 0. Hello World!
+2. 1. Read User Input
+3. 2. Tokenize User Input
+4. 3. Execute commands
+5. 4. Support for Builtins
+
+
+1 0. Hello World!
+=================
+
+  Start with a simple hello world.
+  ,----
+  | mkdir src
+  | cd src
+  | touch shell.c
+  `----
+
+  ,----
+  | #include <stdio.h>
+  | 
+  | int main(void) {
+  |   printf("Hello World!\n");
+  |   return 0;
+  | }
+  `----
+
+
+2 1. Read User Input
+====================
+
+  To read user input, we can use the `linenoise' library from `antirez'.
+  - <https://github.com/antirez/linenoise>
+
+  ,----
+  | mkdir lib
+  | cd lib
+  | wget https://raw.githubusercontent.com/antirez/linenoise/refs/heads/master/linenoise.c
+  | wget https://raw.githubusercontent.com/antirez/linenoise/refs/heads/master/linenoise.h
+  | cd ..
+  `----
+
+  Modify main to add the skeleton of a simple `REPL'
+  ,----
+  | #include <stdio.h>
+  | #include <stdlib.h>
+  | #include "./lib/linenoise.h"
+  | 
+  | #define PROMPT "$ "
+  | #define HISTORY_LENGTH 1024
+  | 
+  | int main(void) {
+  |   if (!linenoiseHistorySetMaxLen(HISTORY_LENGTH)) {
+  |     fprintf(stderr, "Could not set linenoise history!");
+  |     exit(1);    
+  |   }
+  | 
+  |   char *line;  
+  |   while((line = linenoise(PROMPT)) != NULL) {
+  |     fprintf(stdout, line);
+  |     linenoiseHistoryAdd(line);
+  |     linenoiseFree(line);    
+  |   }
+  | 
+  |   return 0;
+  | }
+  `----
+
+  `Makefile' to build
+  ,----
+  | CFLAGS=
+  | 
+  | all: shell.c
+  | 	$(CC) -ggdb shell.c ./lib/linenoise.c $(CFLAGS) -o shell
+  `----
+
+
+3 2. Tokenize User Input
+========================
+
+  To read user input and break them into `tokens' we can use the
+  `strtok' function from glibc.
+  ,----
+  | int s_read(char *input, char **args, int max_args) {
+  |     int i = 0;
+  |     char *token = strtok(input, " \t");
+  |     while (token != NULL && i < (max_args - 1)) {
+  |         args[i++] = token;
+  |         token = strtok(NULL, " \t");
+  |     }
+  |     args[i] = NULL;
+  |     return i;
+  | }
+  `----
+
+  Modify main to `read' and `print' arguments.
+  ,----
+  | while((line = linenoise(PROMPT)) != NULL) {
+  | 
+  |   int args_read = s_read(line, args, MAX_ARGS);
+  |   fprintf(stdout, "Read %d args\n", args_read);
+  |   for (int i = 0; i < args_read; i++) {
+  |     fprintf(stdout, "arg[%d] = %s\n", i, args[i]);
+  |   }
+  | 
+  |   // skip empty lines
+  |   if (args_read == 0) {
+  |     linenoiseFree(line);
+  |     continue;
+  |   }
+  | 
+  |   // ...
+  |  }
+  `----
+
+
+4 3. Execute commands
+=====================
+
+  To execute commands we can use a simple `fork()' and `execv()'
+  pattern.
+  ,----
+  | int s_execute(char *cmd, char **cmd_args) {
+  |   fprintf(stdout, "Executing `%s`!\n", cmd);
+  | 
+  |   int status;
+  |   pid_t pid;
+  | 
+  |   pid = fork();
+  |   if (pid < 0) {
+  |     fprintf(stderr, "Could not execute!\n");
+  |     return -1;
+  |   }
+  | 
+  |   if (pid == 0) {
+  |     execv(cmd, cmd_args);
+  |   } else {
+  |     // father: wait for kiddo
+  |     if (waitpid (pid, &status, 0) != pid) {
+  |       fprintf(stderr, "Could not wait for kiddo!\n");
+  |       return -1;
+  |     }
+  |   }
+  | 
+  |   return status;  
+  | }
+  `----
+
+  Change main to execute command with arguments after reading them.
+  ,----
+  | while((line = linenoise(PROMPT)) != NULL) {
+  |   fprintf(stdout, "Input: %s\n", line);
+  |     
+  |   int args_read = s_read(line, args, MAX_ARGS);
+  |   fprintf(stdout, "Read %d args\n", args_read);
+  |   for (int i = 0; i < args_read; i++) {
+  |     fprintf(stdout, "arg[%d] = %s\n", i, args[i]);
+  |   }
+  | 
+  |   // skip empty lines
+  |   if (args_read == 0) {
+  |     linenoiseFree(line);
+  |     continue;
+  |   }
+  |     
+  |   char *cmd = args[0];
+  |   char **cmd_args = args;
+  |   s_execute(cmd, cmd_args);
+  | 
+  |   linenoiseHistoryAdd(line);
+  |   linenoiseFree(line);
+  |  }
+  `----
+
+
+5 4. Support for Builtins
+=========================
+
+  Builtins are commands that are directly implemented within the shell
+  process.
+
+  Fist we define an enum type.
+  ,----
+  | typedef enum Builtin {
+  |   CD,
+  |   PWD,
+  |   PUSHD,
+  |   POPD,
+  |   DEBUG,  
+  |   INVALID
+  | } Builtin;
+  `----
+
+  Signature for the implementation logic.
+  ,----
+  | void builtin_impl_cd(char **args, size_t n_args);
+  | void builtin_impl_pwd(char **args, size_t n_args);
+  | void builtin_impl_pushd(char **args, size_t n_args);
+  | void builtin_impl_popd(char **args, size_t n_args);
+  | void builtin_impl_debug(char **args, size_t n_args);
+  `----
+
+  Lookup table that matches enum to function pointer.
+  ,----
+  | void (*BUILTIN_TABLE[]) (char **args, size_t n_args) = {
+  |   [CD] = builtin_impl_cd,
+  |   [PWD] = builtin_impl_pwd,
+  |   [PUSHD] = builtin_impl_pushd,
+  |   [POPD] = builtin_impl_popd,
+  |   [DEBUG] = builtin_impl_debug,  
+  | };
+  `----
+
+  To execute a builtin we use the lookup table.
+  ,----
+  | void s_execute_builtin(char *cmd, char **args, size_t n_args) {
+  |   BUILTIN_TABLE[builtin_code(cmd)](args, n_args);
+  | }
+  `----
+
+  Simple utils.
+  ,----
+  | Builtin builtin_code(char *cmd) {
+  |   if (!strncmp(cmd, "cd", 2)) {
+  |     return CD;
+  |   } else if (!strncmp(cmd, "pwd", 3)) {
+  |     return PWD;
+  |   } else if (!strncmp(cmd, "popd", 4)) {
+  |     return POPD;
+  |   } else if (!strncmp(cmd, "pushd", 5)) {
+  |     return PUSHD;
+  |   } else if (!strncmp(cmd, "debug", 5)) {
+  |     return DEBUG;
+  |   } else {
+  |     return INVALID;
+  |   }
+  | }
+  | 
+  | int is_builtin(char *cmd) {
+  |   return builtin_code(cmd) != INVALID;
+  | }
+  `----
+
+  Change main accordingly
+  ,----
+  | while((line = linenoise(PROMPT)) != NULL) {
+  |   fprintf(stdout, "Input: %s\n", line);
+  |     
+  |   int args_read = s_read(line, args, MAX_ARGS);
+  |   fprintf(stdout, "Read %d args\n", args_read);
+  |   for (int i = 0; i < args_read; i++) {
+  |     fprintf(stdout, "arg[%d] = %s\n", i, args[i]);
+  |   }
+  | 
+  |   // skip empty lines
+  |   if (args_read == 0) {
+  |     linenoiseFree(line);
+  |     continue;
+  |   }
+  |     
+  |   char *cmd = args[0];
+  |   char **cmd_args = args;
+  | 
+  |   if (is_builtin(cmd)) {
+  |     // make sure builtin functions see as the first argument the
+  |     // real first argument, and not the name of the builtin being
+  |     // called
+  |     s_execute_builtin(cmd, (cmd_args+1), args_read-1);
+  |   } else {
+  |     s_execute(cmd, cmd_args);
+  |     free(cmd);
+  |   }
+  | 
+  |   linenoiseHistoryAdd(line);
+  |   linenoiseFree(line);
+  |  }
+  `----
+
+  ----------------------------------------------------------------------
+
+  Implementation of `cd' and `cwd' builtins.
+  ,----
+  | /* Contains the current working directory associated with the process. */
+  | char CWD[PATH_MAX];
+  | 
+  | void refresh_cwd(void) {
+  |   if (getcwd(CWD, sizeof(CWD)) == NULL) {
+  |     s_log_err("Error: Could not read working dir");
+  |     exit(1);
+  |   }
+  | }
+  `----
+
+  ,----
+  | void builtin_impl_cd(char **args, size_t n_args) {
+  |   char *new_dir = *args;
+  |   if (chdir(new_dir) != 0) {
+  |     s_log_err("Error: Could not change directory");
+  |     return;
+  |   }
+  | 
+  |   refresh_cwd();
+  | }
+  | 
+  | void builtin_impl_pwd(char **args, size_t n_args) {
+  |   fprintf(stdout, "%s\n", CWD);
+  | }
+  `----

@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 121 | Let's Write a Simple Shell in C! | From Scratch | 2025-03-09 | [link](https://youtu.be/YMEHrXSsdo0) | [link](./src/2025-03-09-from-scratch-05-simple-shell)
 | 120 | Roasting Attacks on Kerberos | Active Directory Exploitation | 2025-03-05 | [link](https://youtu.be/fVTZEIZIEqg) | [link](./src/2025-03-05-active-directory-06-roasting-attacks-on-kerberos)
 | 119 | Stack Frames, RSP and RBP | Binary Exploitation | 2025-03-02 | [link](https://youtu.be/S94CHJWBSfw) | [link](./src/2025-03-02-binary-02-stack-frames)
 | 118 | Kerberos Authentication | Active Directory Exploitation | 2025-02-26 | [link](https://youtu.be/dQz3CMlVYNY) | [link](./src/2025-02-26-active-directory-05-kerberos)

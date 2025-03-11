@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 122 | BSCP Guide: My Exam Experience | BSCP Guide | 2025-03-11 | [link](https://youtu.be/3txDdgk2UIQ) | [link](./src/2025-03-11-bscp-guide-01-my-exam-experience)
 | 121 | Let's Write a Simple Shell in C! | From Scratch | 2025-03-09 | [link](https://youtu.be/YMEHrXSsdo0) | [link](./src/2025-03-09-from-scratch-05-simple-shell)
 | 120 | Roasting Attacks on Kerberos | Active Directory Exploitation | 2025-03-05 | [link](https://youtu.be/fVTZEIZIEqg) | [link](./src/2025-03-05-active-directory-06-roasting-attacks-on-kerberos)
 | 119 | Stack Frames, RSP and RBP | Binary Exploitation | 2025-03-02 | [link](https://youtu.be/S94CHJWBSfw) | [link](./src/2025-03-02-binary-02-stack-frames)

@@ -7,6 +7,57 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>User Enumeration in Kerberos</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#NylQKulUe9M</guid>
+<link>https://youtu.be/NylQKulUe9M</link>
+<pubDate>Sat, 15 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+In this video we continue the Active Directory Exploitation series.<br>
+<br>
+This episode focuses on a simple yet useful technique known as User Enumeration that can be done on the Kerberos protocol and it allows to discover valid usernames existing within the AD instance. This kind of enumeration is done as a first information gathering step, before performing other attacks such as AS-REP roasting.<br>
+<br>
+In the video we discuss the idea behind user enumeration, we show why it works in the context of Kerberos authentication, and we bring a practical example on how to perform it by using kerbrute. One of the topic touched in the video is on thinking if User Enumeration can be considered a vulnerability or not. <br>
+<br>
+As always, I hope to provide useful and interesting content, and if you have any feedback leave it in the comments.<br>
+<br>
+To support my work, subscribe to the channel and share my work with people you know!<br>
+<br>
+Thank you, and enjoy the video.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 User Enumeration<br>
+04:48 Is this a vulnerability?<br>
+09:07 User Enumeration in Kerberos<br>
+12:13 Practical Example with kerbrute<br>
+18:40 Possible Remediations<br>
+22:20 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-15-active-directory-07-kerberos-user-enumeration"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-15-active-directory-07-kerberos-user-enumeration </a> <br>
+- Kerbrute: <a href="https://github.com/ropnop/kerbrute"> https://github.com/ropnop/kerbrute </a> <br>
+- Rebeus: <a href="https://github.com/GhostPack/Rubeus"> https://github.com/GhostPack/Rubeus </a> <br>
+- Impacket: <a href="https://github.com/fortra/impacket"> https://github.com/fortra/impacket </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>BSCP Guide: My Exam Experience</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#3txDdgk2UIQ</guid>
 <link>https://youtu.be/3txDdgk2UIQ</link>

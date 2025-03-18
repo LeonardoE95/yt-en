@@ -7,6 +7,57 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>Race Conditions - Srdnlen 2025 CTF</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#psw_8oEDpVI</guid>
+<link>https://youtu.be/psw_8oEDpVI</link>
+<pubDate>Tue, 18 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there, and welcome to this new video!<br>
+<br>
+Today we will analyze a web challenge named "Speed" taken from the Srdnlen CTF 2025. To solve the challenge there are two different solutions.<br>
+<br>
+The first, intended solution, involves two steps. First an SQLi to force the usage of a coupon code, and then a race condition to use multiple coupon codes.<br>
+<br>
+The second, unintended solution, involves another race condition.<br>
+<br>
+As always, I hope you find the video helpful, and I would appreciate if you leave your feedback down in the comments, and share this video with like-minded people.<br>
+<br>
+Thank you very much!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+01:20 Let's analyze the challenge<br>
+09:55 A first dynamic analysis<br>
+15:25 Code analysis on interesting controllers<br>
+20:05 Analyzing the first race condition<br>
+24:50 The NoSQL Operator Injection<br>
+28:00 Exploiting the first race condition<br>
+34:00 The second race condition<br>
+39:55 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-18-ctf-04-srdnlnctf-2025-web-race-condition"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-18-ctf-04-srdnlnctf-2025-web-race-condition </a> <br>
+- CTFtime event: <a href="https://ctftime.org/event/2576"> https://ctftime.org/event/2576 </a> <br>
+- Repo with chal: <a href="https://github.com/srdnlen/srdnlenctf-2025_public"> https://github.com/srdnlen/srdnlenctf-2025_public </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>User Enumeration in Kerberos</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#NylQKulUe9M</guid>
 <link>https://youtu.be/NylQKulUe9M</link>

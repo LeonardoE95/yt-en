@@ -1,0 +1,420 @@
+                           __________________
+
+                            SRDNLEN CTF 2025
+                              Web - Speed
+
+                                Hexdump
+                           __________________
+
+
+Table of Contents
+_________________
+
+1. Challenge
+.. 1. Files
+.. 2. server/app.js
+.. 3. server/routes.js
+2. Solution
+.. 1. Solution #1 - NoSQLi + Race Condition
+.. 2. Solution #2 - Race Condition
+3. References
+
+
+1 Challenge
+===========
+
+  Challenge `Speed', taken from `Srdnlen CTF 2025'.  Author: `Federico
+  Loi' <@Octaviusss>.
+  - <https://ctftime.org/event/2576>
+  - <https://github.com/srdnlen/srdnlenctf-2025_public>
+
+
+1.1 Files
+~~~~~~~~~
+
+  ,----
+  | tree .
+  `----
+
+  ,----
+  | .
+  | ├── docker-compose.yml
+  | ├── Dockerfile
+  | ├── init.js
+  | ├── models
+  | │   ├── discountCodes.js
+  | │   ├── product.js
+  | │   ├── user.js
+  | │   └── userproduct.js
+  | ├── mongo.js
+  | ├── package.json
+  | ├── server
+  | │   ├── app.js
+  | │   └── routes.js
+  | └── webviews
+  |     ├── error.hbs
+  |     ├── home.hbs
+  |     ├── layouts
+  |     │   └── base.hbs
+  |     ├── notfound.hbs
+  |     ├── redeemVoucher.hbs
+  |     ├── register-user.hbs
+  |     ├── store.hbs
+  |     ├── success.hbs
+  |     └── user-login.hbs
+  | 
+  | 5 directories, 20 files
+  `----
+
+
+1.2 server/app.js
+~~~~~~~~~~~~~~~~~
+
+  During initialization, the application inserts the `FLAG' as one of
+  the `products'. Specifiaclly the one that costs `50 Points'
+
+  ,----
+  | const products = [
+  |     { productId: 1, Name: "Lightning McQueen Toy", Description: "Ka-chow! This toy goes as fast as Lightning himself.", Cost: "Free" },
+  |     { productId: 2, Name: "Mater's Tow Hook", Description: "Need a tow? Mater's here to save the day (with a little dirt on the side).", Cost: "1 Point" },
+  |     { productId: 3, Name: "Doc Hudson's Racing Tires", Description: "They're not just any tires, they're Doc Hudson's tires. Vintage!", Cost: "2 Points" },
+  |     { 
+  |         productId: 4, 
+  |         Name: "Lightning McQueen's Secret Text", 
+  |         Description: "Unlock Lightning's secret racing message! Only the fastest get to know the hidden code.", 
+  |         Cost: "50 Points", 
+  |         FLAG: process.env.FLAG || 'SRDNLEN{fake_flag}' 
+  |     }
+  | ];
+  | 
+  | 
+  | for (const productData of products) {
+  |     const existingProduct = await Product.findOne({ productId: productData.productId });
+  |     if (!existingProduct) {
+  |         await Product.create(productData);
+  |         console.log(`Inserted productId: ${productData.productId}`);
+  |     } else {
+  |         console.log(`Product with productId: ${productData.productId} already exists.`);
+  |     }
+  | }
+  `----
+
+  Then a randomly generated discount code is created
+  ,----
+  | const createDiscountCodes = async () => {
+  |     const discountCodes = [
+  |         { discountCode: generateDiscountCode(), value: 20 }
+  |     ];
+  | 
+  |     for (const code of discountCodes) {
+  |         const existingCode = await DiscountCodes.findOne({ discountCode: code.discountCode });
+  |         if (!existingCode) {
+  |             await DiscountCodes.create(code);
+  |             console.log(`Inserted discount code: ${code.discountCode}`);
+  |         } else {
+  |             console.log(`Discount code ${code.discountCode} already exists.`);
+  |         }
+  |     }
+  | };
+  | 
+  | // Call function to insert discount codes
+  | await createDiscountCodes();
+  `----
+
+
+1.3 server/routes.js
+~~~~~~~~~~~~~~~~~~~~
+
+  Contains different controlles for different paths
+
+  - GET /
+
+  - GET /register-user
+  - POST /register-user
+  - GET /user-login
+  - POST /user-login
+  - GET /user-logout
+
+  - GET /store
+  - POST /store
+
+  - GET /redeemVoucher
+  - GET /reedem
+
+  Since we are interested in buying the item of 50 paths we want to pay
+  particular attention to the following places:
+
+  - Logic used to reedem the discount code
+
+    ,----
+    | router.get('/redeem', isAuth, async (req, res) => {
+    |     try {
+    |         const user = await User.findById(req.user.userId);
+    |         // ...
+    `----
+
+  - Logic used to perform purchase
+
+    ,----
+    | router.post('/store', isAuth, async (req, res, next) => {
+    |     const productId = req.body.productId;
+    |     // ...
+    `----
+
+
+2 Solution
+==========
+
+  There are two solutions for this challenge.  Both of these involve the
+  exploitation of `race conditions'.
+
+
+2.1 Solution #1 - NoSQLi + Race Condition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Consider the code that deals with the `discount code'.
+
+  ,----
+  | router.get('/redeem', isAuth, async (req, res) => {
+  |     try {
+  |         const user = await User.findById(req.user.userId);
+  | 
+  |         // ...
+  |         
+  |         // Now handle the DiscountCode (Gift Card)
+  |         let { discountCode } = req.query;
+  | 
+  |         // ...
+  | 
+  |         
+  |         const discount = await DiscountCodes.findOne({discountCode})
+  | 
+  |         if (!discount) {
+  |             return res.render('error', { Authenticated: true, message: 'Invalid discount code!' });
+  |         }
+  | 
+  |         // Check if the voucher has already been redeemed today
+  |         const today = new Date();
+  |         const lastRedemption = user.lastVoucherRedemption;
+  | 
+  |         if (lastRedemption) {
+  |             const isSameDay = lastRedemption.getFullYear() === today.getFullYear() &&
+  |                   lastRedemption.getMonth() === today.getMonth() &&
+  |                               lastRedemption.getDate() === today.getDate();
+  |             if (isSameDay) {
+  |                 return res.json({success: false, message: 'You have already redeemed your gift card today!' });
+  |             }
+  |         }
+  | 
+  |         // Apply the gift card value to the user's balance
+  |         const { Balance } = await User.findById(req.user.userId).select('Balance');
+  |         user.Balance = Balance + discount.value;
+  |         // Introduce a slight delay to ensure proper logging of the transaction 
+  |         // and prevent potential database write collisions in high-load scenarios.
+  |         new Promise(resolve => setTimeout(resolve, delay * 1000));
+  |         user.lastVoucherRedemption = today;
+  |         await user.save();
+  | 
+  |         return res.json({
+  |             success: true,
+  |             message: 'Gift card redeemed successfully! New Balance: ' + user.Balance // Send success message
+  |         });
+  | 
+  |         // ...
+  | });
+  | 
+  `----
+
+  Notice how the user input `discountCode' is used within
+  `DiscountCodes.findOne'. This is vulnerable to `NoSQLi'. Specifically,
+  it is possible to use the following payload to use the `discountCode'
+  even if we don't know its value
+
+  ,----
+  | /redeem?discountCode[$regex]=.*
+  `----
+
+  ----------------------------------------------------------------------
+
+  The problem now becomes: a single discount code only gives us `20
+     points'. However, we need `50 points' to buy the desired item.
+
+  How can we overcome that?
+
+  For this second step look at what happens
+
+  - After the balance is updated
+  - Before the user data is marked as having used the discount code
+
+  ,----
+  | // Apply the gift card value to the user's balance
+  | const { Balance } = await User.findById(req.user.userId).select('Balance');
+  | user.Balance = Balance + discount.value;
+  | // Introduce a slight delay to ensure proper logging of the transaction 
+  | // and prevent potential database write collisions in high-load scenarios.
+  | new Promise(resolve => setTimeout(resolve, delay * 1000));
+  | user.lastVoucherRedemption = today;
+  | await user.save();
+  `----
+
+  The idea is that this logic exposes the application to a `Race
+     Condition' vulnerability, since an attacker can send in parallel
+     the request for using the discount code, and it might be possible
+     for more than a single request to update the user balance.
+
+  We can exploit this in burp as follows
+
+  ,----
+  | 1. Capture request to change discount code and send to Repeater
+  | 2. Add NoSQLi bypass /redeem?discountCode[$regex]=.*
+  | 3. Create multiple requests in Repeater
+  | 4. Group them together
+  | 5. Use "send group in parallel"
+  | 6. Send requests
+  `----
+
+
+2.2 Solution #2 - Race Condition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  The code is actually vulnerable to another `race condition', which
+  does not require to exploit the NoSQLi, as it is not linked with the
+  discount code.
+
+  The other race condition is found in the `POST /store' controller,
+  which is called when the user purchases an item.
+
+  ,----
+  | router.post('/store', isAuth, async (req, res, next) => {
+  |     const productId = req.body.productId;
+  | 
+  |     // ...
+  | 
+  |     try {
+  |         // Find the product by Name
+  |         const all = await Product.find()
+  |         product = null
+  |         for(let p of all) {
+  |             if(p.productId === productId){
+  |                 product = p
+  |             }
+  |         }
+  | 
+  |         // ...
+  | 
+  |         // Parse the product cost into a numeric value
+  |         let productCost = parseCost(product.Cost);  
+  | 
+  |         if (isNaN(productCost)) {
+  |             return next({ message: 'Invalid product cost format.' });
+  |         }
+  | 
+  |         // Fetch the authenticated user
+  |         const user = await User.findById(req.user.userId);
+  | 
+  |         // ...
+  |         
+  |         // Check if the user can afford the product
+  |         if (user.Balance >= productCost) {
+  |             // Generate a UUID v4 as a transaction ID
+  |             const transactionId = uuidv4();
+  |             
+  |             // Deduct the product cost and save the user
+  |             user.Balance -= productCost;
+  |             await user.save();
+  | 
+  |             // Create a new UserProduct entry
+  |             const userProduct = new UserProducts({
+  |                 transactionId: transactionId,
+  |                 user: user._id,
+  |                 productId: product._id, // Reference the product purchased
+  |             });
+  | 
+  |             await userProduct.save(); // Save the UserProduct entry
+  | 
+  |             // Add the UserProduct reference to the user's ownedproducts array
+  |             if (!user.ownedproducts.includes(userProduct._id)) {
+  |                 user.ownedproducts.push(userProduct._id);
+  |                 await user.save(); // Save the updated user
+  |             }
+  | 
+  |             // Prepare the response data
+  |             const responseData = {
+  |                 success: true,
+  |                 message: `Product correctly bought! Remaining balance: ${user.Balance}`,
+  |                 product: {
+  |                     Name: product.Name,
+  |                     Description: product.Description,
+  |                 },
+  |             };
+  |             if (product.productId === 4) {
+  |                 responseData.product.FLAG = product.FLAG || 'No flag available';
+  |             }
+  | 
+  |             return res.json(responseData);
+  |         }
+  |         
+  |         // ...
+  | });
+  `----
+
+  Notice that line `product = null'. Product is a variable that belongs
+  to the global scope, and not to the local scope of the function.
+
+  This opens up the following scenario:
+
+  1. An attacker makes a purchase to the item with `0 cost'
+
+  2. Right after, an attacker makes a purchase to the item with `50
+     cost'
+
+  3. The code starts by processing the product with `0 cost'. This
+     allows the code to pass the check on the balance
+
+     ,----
+     | if (user.Balance >= productCost) {
+     `----
+
+  4. Then, in the window of time after the balance check and before the
+     `responseData.product.FLAG = product.FLAG', the code starts to
+     process the other request, and thus the `product' object is
+     modified and the `FLAG' is returned.
+
+     ,----
+     | if (product.productId === 4) {
+     |     responseData.product.FLAG = product.FLAG || 'No flag available';
+     | }
+     `----
+
+  We can exploit this in burp as follows
+
+  ,----
+  | 1. Capture request to purchase item of cost 0
+  | 2. Capture request to purchase item of cost 50. 
+  | 3. Group them together
+  | 4. Use "send group in parallel"
+  | 5. Send requests
+  `----
+
+  And with this it is possible to obtain the FLAG in the json response
+
+  ,----
+  | {
+  |   "success": true,
+  |   "message": "Product correctly bought! Remaining balance: 0",
+  |   "product": {
+  |     "Name": "Lightning McQueen's Secret Text",
+  |     "Description": "Unlock Lightning's secret racing message! Only the fastest get to know the hidden code.",
+  |     "FLAG": "srdnlen{fake_flag}"
+  |   }
+  | }
+  `----
+
+
+3 References
+============
+
+  Event in ctftime <https://ctftime.org/event/2576>
+
+  Github with chal code and writeups
+  <https://github.com/srdnlen/srdnlenctf-2025_public>

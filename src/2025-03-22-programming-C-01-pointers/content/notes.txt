@@ -1,0 +1,354 @@
+                            _______________
+
+                             POINTERS IN C
+
+                                Hexdump
+                            _______________
+
+
+Table of Contents
+_________________
+
+1. On Memory
+.. 1. What is Memory?
+.. 2. How is Memory Structured?
+.. 3. Disclaimer: Stuff is way more complex than this!
+.. 4. Sometimes it takes more than 1 byte!
+.. 5. On the Differences between Values and Addresses
+2. Pointers in C
+3. Why is C not Memory Safe?
+
+
+1 On Memory
+===========
+
+  To properly understand `pointers in C' it is foundamental to
+  understand the basics of memory in modern operating system.
+
+  Specifically, let us consider the following questions:
+
+  1. What is memory?
+  2. How is memory structured?
+  3. What's the difference between a value and an address?
+
+
+1.1 What is Memory?
+~~~~~~~~~~~~~~~~~~~
+
+  You can think of memory as a place in your computer where you can
+  store `bytes'. That is, memory is made up of `slots', and in each
+  `slot' you can write an arbitrary `byte'.
+
+  Remember that a `byte' is made up of `8 bits'.  Thus, in a byte we can
+  represent `256 values', from 0 to 255.
+
+  ,----
+  | 00000000  -> 0
+  | 00000001  -> 1
+  | 00000010  -> 2
+  | 00000011  -> 3
+  | ...
+  | 01000011  -> 67
+  | 01000100  -> 68
+  | 01000101  -> 69
+  | 01000110  -> 70
+  | 01000111  -> 71
+  | 01001000  -> 72
+  | ...
+  | 11111111  -> 255
+  `----
+
+  So, memory is a container of bytes.  These can be called in different
+  ways:
+
+  - cell
+  - slot
+  - location
+
+
+1.2 How is Memory Structured?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Now, whats the cool thing about memory?
+
+  The cool thing about memory is that we can specify `where' to store
+  our values. That is, values don't just exist in random positions of
+  the memory. They exist in specific positions of the memory. I can have
+  a specific byte as the first cell, then another byte in the 250th cell
+  and so on.
+
+  Imagine the following table.
+
+  ---------------------
+   *Address*   *Value* 
+  ---------------------
+           0  01000100 
+           1  00000011 
+           2  00000000 
+           3  00000000 
+           4  11111111 
+           5  01000110 
+           6  01001000 
+         ...       ... 
+                     
+  ---------------------
+
+  As you can see, in every row of the table we have two kinds of
+  information:
+
+  - The `address', which represents the specific location in memory
+    we're referencing.
+
+  - The `value', which represents the content of the memory in that
+    specific `address'.
+
+  Memory is simple like this: it is a very big table of bytes, and we
+  can reference each byte by specifying the address itself.
+
+  ----------------------------------------------------------------------
+
+  When you deal with addresses, you often see values like the following
+
+  ,----
+  | 0x7fff82e11160 
+  `----
+
+  Now, why do we use hexadecimal notation when describing memory
+  addresses and not simply decimal?
+
+  ,----
+  | 0x7fff82e11160 -> 140735389176160
+  `----
+
+  Two reasons:
+
+  - The size of the memory in modern computer is quite big, and
+    hexadecimal allows us to describe big numbers with few digits.
+
+  - Hexadecimal notation allows us to quickly understand if a given
+    memory address is aligned with respect to a certain number of bit,
+    because 16 is a multiple of 2.
+
+
+1.3 Disclaimer: Stuff is way more complex than this!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  While the idea of imagining memory as a big table of bytes is a good
+  first intuition for understanding `pointers in C', the way memory is
+  actually implemented in modern operating system is complex and
+  requires more concepts to be understood.
+
+  Some key points to consider:
+
+  - `Virtual Memory'
+
+    When a C program interacts with memory addresses, it does not
+    actually see the `physical addresses' that are being used by the CPU
+    to access the RAM, but rather `virtual addresses'.
+
+    Using virtual addresses allows different program to share the same
+    address values, even though in the underlying physical memory they
+    actually use different addresses.
+
+    This is a very good abstraction offered by the hardware architecture
+    and supported by the operating system.
+
+  - `Page Tables'
+
+    The process to translate a virtual address into a physical address
+    goes through specific data structures known as `page tables'.
+
+  - `Translation Lookaside Buffer (TLB)'
+
+    To speed up the translation process (virtual -> physical), modern
+    processors hold special memory regions called `TLBs' that act as
+    memory caches to store recent address translations.
+
+  This is to say:
+
+  ,----
+  | Thinking of memory as a big table made up of addresses and values is
+  | an abstraction that is implemented by the operating system and
+  | supported by the hardware architecture.
+  | 
+  | For the C program, memory is a big table. Which means that to actually
+  | understand pointers in C, you can just use the big table
+  | idea. However, as you dig deeper into systems, you will need to
+  | understand other concepts as well.
+  `----
+
+
+1.4 Sometimes it takes more than 1 byte!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Most of the data types are bigger than 1 byte. Consider for example an
+  `int', which represents a normal signed integer. In most architecture
+  this data type is made up of `4 bytes'.
+
+  When we have a data type longer than 1 byte, we can still store its
+  value. We just have to be careful and use 4 adjacent cells of memory.
+
+  For example, we can store the integer `0xdeadbeef' with the following
+  four different cells, where each cell is responsible for storing a
+  single byte.
+
+        A big-endian system stores the most significant byte of a
+        word at the smallest memory address and the least
+        significant byte at the largest.
+
+        A little-endian system, in contrast, stores the
+        least-significant byte at the smallest address.
+
+  --------------------
+   *Address*  *Value* 
+  --------------------
+           1     0xde 
+           2     0xad 
+           3     0xbe 
+           4     0xef 
+  --------------------
+
+  Thus, it does not matter how big are data types.
+
+  *We can store any data type by using adjacent sequence of single byte
+   cells!*
+
+
+1.5 On the Differences between Values and Addresses
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  At this point you might think that `values' and `addresses' are two
+  completely different things. And in part, that is true: they do mean
+  different things!
+
+  However, the cool thing about Computer Science is that underneath it
+  all we just have sequences of bits. That is, both `values' and
+  `addresses' can be represented using the same methods:
+
+  - binary notation
+  - decimal notation
+  - hexadecimal notation
+
+  This, in turn, means that an `address' can be stored as a normal
+  `value' in memory. After all, the memory just contains bits!  And
+  those bits can also refer to other addresses in the same memory!
+
+  This point is critical to understand:
+
+  - Memory is made up of cells.
+  - Each cell has an address and a value.
+  - The address is a number, while the value is a sequence of bits.
+  - Since numbers can be represented as sequence of bits, addresses too
+    can be sequences of bits.
+  - Thus, memory addresses can be values stored in memory.
+
+  And this is exactly what a `pointer' is!
+
+  ,----
+  | A pointer is a place in the memory of a computer program that stores a memory address
+  `----
+
+
+2 Pointers in C
+===============
+
+  Let's start with a simple example
+  ,----
+  | #include <stdio.h>
+  | 
+  | int main(void) {
+  |   int a = 1337;
+  |   printf("%d\n", a);
+  | 
+  |   return 0;
+  | }
+  `----
+
+  ,----
+  | gcc -ggdb simple.c -o simple
+  `----
+
+  And we can start asking the following questions:
+
+  1. Where is the variable `a' stored?
+  2. How big is the variable `a'?
+  3. Let's analyze with GDB the memory used to store `a'!
+
+  ----------------------------------------------------------------------
+
+  Let's see basic operations with pointers:
+
+  - Define a pointer type
+    ,----
+    | int* pa;
+    | float* pf;
+    | char* pc;
+    `----
+
+  - Extract the address of a variable and assign it to the pointer
+    ,----
+    | pa = &a;
+    | pf = &f;
+    | pc = &c;
+    | 
+    | printf("0x%x\n", pa);
+    | printf("0x%x\n", pf);
+    | printf("0x%x\n", pc);
+    `----
+
+  - De-reference the pointer and access the pointed value
+    ,----
+    | int a2 = *pa;
+    | float f2 = *pf;
+    | char c2 = *pc;
+    `----
+
+
+3 Why is C not Memory Safe?
+===========================
+
+  By using the pointer syntax, C allows you to access in read and write
+  mode every portion of the program's memory.
+
+  This is an extremely powerful abiltiy. However, with power, also comes
+  dangerous effects. Specifically, in the context of C, we're talking
+  about `memory corruption vulnerabilities', which happens when the
+  program C does not properly handle the management of memory, ending up
+  corrupting internal states.
+
+  A simple vulnerable program
+
+  ,----
+  | #include <stdio.h>
+  | #include <stdlib.h>
+  | #include <string.h>
+  | 
+  | void vulnerable(char *input) {
+  |   char buffer[512];
+  |   strcpy(buffer,input);  
+  | }
+  | 
+  | void main(int argc, char *argv[]) {
+  |   if (argc > 1) {
+  |     vulnerable(argv[1]);
+  |   }  
+  | }
+  `----
+
+  ,----
+  | gcc -g -fno-stack-protector -z execstack -m32 vulnerable.c -o vulnerable
+  `----
+
+  ,----
+  | $ ./vulnerable AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  | Segmentation fault
+  `----
+
+  If you want to see how to exploit this `stack-based buffer overflow'
+  you can check out the video taken from the `Linux Privilege
+  Escalation' series
+  - [Linux Binary Exploitation]
+
+
+[Linux Binary Exploitation]
+<https://www.youtube.com/watch?v=C5JUPIvH3t4>

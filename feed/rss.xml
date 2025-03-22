@@ -7,6 +7,57 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>How do Pointers work in C?</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#LPU91qtuJqg</guid>
+<link>https://youtu.be/LPU91qtuJqg</link>
+<pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+This video aims to build intuition over the concept of pointers in C. Pointers are a very important part of the C language to understand deeply. Sometimes however it is hard to make sense of pointers because they are not explained well. To understand pointers, you need to understand how a C program views memory. For this reason, in the video we talk about memory, and about the differences and the similarities between addresses and values. <br>
+<br>
+To support my work, you can subscribe to the channel and share my work with people you know.<br>
+<br>
+Thank you, and enjoy the video.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+00:50 On Memory<br>
+09:50 Virtual Memory and Page Tables<br>
+14:20 Dealing with more than one byte<br>
+18:20 Values and Addresses<br>
+22:15 Practical Example<br>
+27:00 Analyzing memory with GDB<br>
+31:30 Pointers are just variables<br>
+36:00 Seeing pointers in memory<br>
+38:30 Pointers add a level of redirection<br>
+40:00 Operations on Pointers<br>
+42:50 Pointer Arithmetic<br>
+48:05 Why is C not memory safe?<br>
+52:15 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-22-programming-C-01-pointers"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-22-programming-C-01-pointers </a> <br>
+<br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>Race Conditions - Srdnlen 2025 CTF</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#psw_8oEDpVI</guid>
 <link>https://youtu.be/psw_8oEDpVI</link>

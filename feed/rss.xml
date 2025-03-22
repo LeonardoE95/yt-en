@@ -7,6 +7,65 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>CRITICAL Vulnerability in Next.js - Middleware Bypass - CVE-2025-29927</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#GcAAUEPXnKE</guid>
+<link>https://youtu.be/GcAAUEPXnKE</link>
+<pubDate>Sun, 23 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+Quick video to discuss a critical vulnerability that was recently published affecting the Next.js environment. By using the x-middleware-subrequest header, an external actor is able to bypass the execution of middleware. This becomes a critical security issue for all the applications that use middleware to implement security checks for authentication and authorization purposes.<br>
+<br>
+While in the video I do not show the full payload, as the vulnerability is too recent and I feel like that would increase the risk of it. I can say however that it is a string that contains a bunch of colons, and that it's not too hard to figure it out (look at the patched version).<br>
+<br>
+If you cannot fix your version of Next.js, you can block any request that has such header set as a temporary remediation.<br>
+<br>
+Hope the information provided was useful.  Subscribe to the hexdump channel to support my work. <br>
+<br>
+Thank you very much.<br>
+<br>
+GitHub advisory: <a href="https://github.com/advisories/GHSA-f82v-jwr5-mffw"> https://github.com/advisories/GHSA-f82v-jwr5-mffw </a> <br>
+NIST advisory: <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-29927"> https://nvd.nist.gov/vuln/detail/CVE-2025-29927 </a> <br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Introduction<br>
+00:50 On Memory<br>
+09:50 Virtual Memory and Page Tables<br>
+14:20 Dealing with more than one byte<br>
+18:20 Values and Addresses<br>
+22:15 Practical Example<br>
+27:00 Analyzing memory with GDB<br>
+31:30 Pointers are just variables<br>
+36:00 Seeing pointers in memory<br>
+38:30 Pointers add a level of redirection<br>
+40:00 Operations on Pointers<br>
+42:50 Pointer Arithmetic<br>
+48:05 Why is C not memory safe?<br>
+52:15 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-23-cves-03-CVE-2025-29927"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-23-cves-03-CVE-2025-29927 </a> <br>
+<br>
+   <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>How do Pointers work in C?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#LPU91qtuJqg</guid>
 <link>https://youtu.be/LPU91qtuJqg</link>

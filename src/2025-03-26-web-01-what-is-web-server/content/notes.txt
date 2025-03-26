@@ -1,0 +1,153 @@
+                           __________________
+
+                            NOTES ON THE WEB
+                             On Web Servers
+
+                                Hexdump
+                           __________________
+
+
+Table of Contents
+_________________
+
+1. The Web is Not The Internet
+2. What is a Web Server?
+3. Practical Example
+4. General Purpose Web Servers
+
+
+1 The Web is Not The Internet
+=============================
+
+  We can distinguish the `internet' and the `web' based on the `network
+  protocol stack' used.
+
+  Specifically,
+
+  - We talk about the *internet* for any protocol that is built on top
+    of the `IP' protocol.
+
+  - We talk about the *web* for any protocol that is built on top of the
+    `HTTP' protocol.
+
+  Consider the classical network stack that was used to implement the
+  first Web tecnologies:
+
+  - HTTP
+  - SSL/TLS
+  - TCP
+  - IP
+  - Ethernet (IEEE 802.3)
+
+  As we can see, since `HTTP' is built on top of `IP', it is possible to
+  say that the web is built on top of the internet.
+
+
+2 What is a Web Server?
+=======================
+
+  A `Web Server' is a software that implements the server-side
+  processing of the HTTP protocol.
+
+  To understand how the HTTP protocol work you can play around with the
+  `curl' command.
+
+  ,----
+  | curl -v https://leonardotamiano.xyz
+  `----
+
+  Simple HTTP request
+  ,----
+  | GET / HTTP/1.1
+  | Host: leonardotamiano.xyz
+  | User-Agent: curl/8.12.1
+  | Accept: */*
+  `----
+
+  Simple HTTP Response
+  ,----
+  | HTTP/1.1 200 OK
+  | Server: nginx
+  | Date: Sat, 15 Mar 2025 22:16:03 GMT
+  | Content-Type: text/html; charset=utf-8
+  | Content-Length: 1482
+  | Last-Modified: Sun, 23 Jun 2024 10:04:34 GMT
+  | Connection: keep-alive
+  | ETag: "6677f332-5ca"
+  | Accept-Ranges: bytes
+  | 
+  | <html lang="en">
+  |   <head>
+  |     <meta charset="UTF-8" />
+  |     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  |     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  |     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  |     <meta name="description" content="LT digital place" />
+  |     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+  |     <link rel="stylesheet" href="css/main.css" />
+  |     
+  |     <title>LT</title>
+  |     
+  |   </head>
+  | ...
+  `----
+
+  As you can see, the objective of the HTTP protocol is to transfer
+  resources that are processed by HTTP clients such as `browsers'. These
+  resources are:
+
+  - HTML files
+  - CSS files
+  - JS files
+  - text files
+  - images
+  - XML files
+
+
+3 Practical Example
+===================
+
+  When you expose a web server to the internet you are allowing anyone
+  with a proper IP address to request the resources present with a given
+  directory.
+
+  For most server the default directory is
+  ,----
+  | /var/www/html/
+  `----
+
+  You can simulate a simple web server with python.
+
+  ,----
+  | mkdir www-data
+  | cd www-data
+  | echo '<html><head><title>Simple Page</title></head><body><p>Hello World!</p></body></html>' > index.html
+  | python3 -m http.server 1337
+  `----
+
+  And then you can access the resource either with a browser, which will
+  also process the JavaScript, or with a simple client, which will just
+  download the static resources.
+
+  ,----
+  | curl http://127.0.0.1:1337
+  `----
+
+
+4 General Purpose Web Servers
+=============================
+
+  Some of the most used choice for open-source web servers:
+
+  - Apache HTTP Server
+  - NGINX
+  - Caddy
+
+  Each web server has its own configurations for managing different
+  things, such as:
+
+  - HTTPs
+  - Virtual Hosts
+  - Load Balancing
+  - Reverse Proxy
+  - Error Handling

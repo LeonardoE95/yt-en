@@ -7,6 +7,53 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>What is a Web Server?</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#DR9xpwcd1hM</guid>
+<link>https://youtu.be/DR9xpwcd1hM</link>
+<pubDate>Wed, 26 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hi there!<br>
+<br>
+Have you ever wondered what is exactly a Web Server?<br>
+<br>
+This question might seem trivial at first, but it is always good to review basics understanding of terms frequently used.<br>
+<br>
+In the video I mention Infomaniak, a Swiss company that deals with web and cloud related technologies. This year Infomaniak gave me a free VPS in exchange for a monthly mention. I've been using their service since the start of the year, and so far I can say that it is a good service if you want to host your own servers in the internet. If you're interested in their services, you can use the following for a VPS lite service.<br>
+<br>
+- <a href="https://www.infomaniak.com/en/hosting/vps-lite?utm_term=67b0ad237606d"> https://www.infomaniak.com/en/hosting/vps-lite?utm_term=67b0ad237606d </a> <br>
+<br>
+To support my work, you can subscribe to the channel and share my work with people you know.<br>
+<br>
+Thank you, and enjoy the video.<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 The Web is not the Internet<br>
+09:00 What is a Web Server?<br>
+17:53 A Practical Example<br>
+25:55 General Purpose Web Servers<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-26-web-01-what-is-web-server"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-26-web-01-what-is-web-server </a> <br>
+- Infomaniak: <a href="https://www.infomaniak.com/en"> https://www.infomaniak.com/en </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>CRITICAL Vulnerability in Next.js - Middleware Bypass - CVE-2025-29927</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#GcAAUEPXnKE</guid>
 <link>https://youtu.be/GcAAUEPXnKE</link>

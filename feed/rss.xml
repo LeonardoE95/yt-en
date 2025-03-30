@@ -7,6 +7,56 @@
 <atom:link href="https://leonardotamiano.xyz/rss/yt-en.xml" rel="self" type="application/rss+xml" />
 
 <item>
+<title>BSCP Guide: PortSwigger Web Security Academy</title>
+<guid>https://leonardotamiano.xyz/rss/yt-en.xml#GS8mpL9nrmo</guid>
+<link>https://youtu.be/GS8mpL9nrmo</link>
+<pubDate>Sun, 30 Mar 2025 00:00:00 GMT</pubDate>
+<description><![CDATA[
+Hey there,<br>
+<br>
+On the 1st of March 2025, I tried my way with the BSCP exam, and after a first failure I managed to complete the second attempt, obtaining the BSCP certification. In this technical series we will analyze various aspects of the preparation path that you should follow if you want to prepare for BSCP exam.<br>
+<br>
+This is the second episode of the series, in which I discuss the academy offered by PortSwigger to prepare for the exam. <br>
+<br>
+You can find the blog post that I'm reading in the video in the link below:<br>
+- <a href="https://blog.leonardotamiano.xyz/tech/bscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/bscp-technical-guide/ </a> <br>
+<br>
+As always, I hope my content is interesting and useful.<br>
+If you have any feedback, leave them in the comments, and share this video and series with like-minded people.<br>
+<br>
+Thank You!<br>
+<br>
+-------------------------<br>
+<br>
+TIMESTAMP<br>
+<br>
+00:00 Pre-Requisites<br>
+05:20 PortSwigger Web Security Academy<br>
+14:30 Phase 1 - Normal Labs<br>
+23:20 Phase 2 - Mystery Labs<br>
+28:30 Phase 3 - Practice Exams<br>
+36:30 Conclusion<br>
+<br>
+-------------------------<br>
+<br>
+REFERENCES<br>
+<br>
+- Material: <a href="https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-30-bscp-guide-02-portswigger-web-security-academy"> https://github.com/LeonardoE95/yt-en/tree/main/src/2025-03-30-bscp-guide-02-portswigger-web-security-academy </a> <br>
+- PortSwigger Web Academy: <a href="https://portswigger.net/web-security"> https://portswigger.net/web-security </a> <br>
+- Blog post: <a href="https://blog.leonardotamiano.xyz/tech/bscp-technical-guide/"> https://blog.leonardotamiano.xyz/tech/bscp-technical-guide/ </a> <br>
+<br>
+-------------------------<br>
+<br>
+CONTACTS<br>
+<br>
+- Blog: <a href="https://blog.leonardotamiano.xyz/"> https://blog.leonardotamiano.xyz/ </a> <br>
+- Github: <a href="https://github.com/LeonardoE95?tab=repositories"> https://github.com/LeonardoE95?tab=repositories </a> <br>
+- Support: <a href="https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ"> https://www.paypal.com/donate/?hosted_button_id=T49GUPRXALYTQ </a> <br>
+
+]]></description>
+</item>
+
+<item>
 <title>What is a Web Server?</title>
 <guid>https://leonardotamiano.xyz/rss/yt-en.xml#DR9xpwcd1hM</guid>
 <link>https://youtu.be/DR9xpwcd1hM</link>

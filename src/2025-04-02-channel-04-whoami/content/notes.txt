@@ -1,0 +1,160 @@
+                      ____________________________
+
+                                $ WHOAMI
+
+                       Leonardo Tamiano (Hexdump)
+                      ____________________________
+
+
+Table of Contents
+_________________
+
+1. Whoami
+2. My Journey (So Far)
+3. Work
+4. Teaching
+
+
+1 Whoami
+========
+
+  I'm Leonardo, a *Computer Scientist* with a deep fascination for
+  *computational processes*.
+
+  <./img/lisp-logo.png>
+
+  I belong to the following categories of `living beings'
+
+  ,----
+  | Human
+  | Teacher
+  | Computer Scientist
+  | Cybersecurity Consultant and Trainer
+  `----
+
+
+2 My Journey (So Far)
+=====================
+
+  Before university, I never really studied.  I played a lot of games.
+  Mostly stayed on my own.
+
+  ----------------------------------------------------------------------
+
+  I discovered *theoretical computer science* and *mathematics* while
+  studying for university between the years 2016-2022.
+
+  The subject just captured me.
+
+  Somehow, it managed to evoke a really deep fascination.
+
+  My academic journey
+
+  - Bachelor's Degree (Rome, Tor Vergata)
+  - Master's Degree (Rome, Tor Vergata)
+  - PhD attempt (only 1 year then quit) (Rome, Tor Vergata)
+
+  ----------------------------------------------------------------------
+
+  In the last year of my bachelor (2018), I also discovered
+  *Cybersecurity* by following a course named VDSI
+
+  ,----
+  | VDSI -> Vulnerabilità e Difesa dei Sistemi Internet
+  `----
+
+  I fell in love with the subject because
+
+  *Cybersecurity forces you to understand how technology truly works
+   under the hood*
+
+  I believe that to protect something we must learn how it can be
+  attacked. And this applies to everything in life, not only digital
+  systems.
+  - <https://blog.leonardotamiano.xyz/tech/my-cli-story/>
+
+  During this period I've also discovered *Emacs*, the general-purpose
+  text processor that I use for most of my tasks.
+
+  It is a tool of fascination, that has challenged my undestanding of
+  technology many times.
+
+  ----------------------------------------------------------------------
+
+  After I finished my master's I started a PhD with the idea of studying
+  Applied Cryptography. I quit after 1 year, realizing that italian
+  academia is not the best place for me.
+
+  Still, the experience was meaningful on its own. I was allowed to
+  teach some classes at university and I learned how to read scientific
+  research.
+
+
+3 Work
+======
+
+  Currently I'm working as a *software security consultant and trainer*.
+
+  My daily work involves the following activities
+
+  - *Web Application Penetration Test* (WAPT)
+
+  - *Mobile Application Penetration Test* (WAPT)
+
+  - *Secure Code Review* (SCR)
+
+  - *Training Activities*
+
+  - *Threat Modeling*
+
+  - *Development of Security-oriented tooling*
+
+
+4 Teaching
+==========
+
+  After work, I work hard to create educational content focusing on
+
+  - Cybersecurity
+  - Programming
+  - Computer Science
+
+  My plan is to *master the art of teaching*.
+
+  My approach to teaching is pragmatic, and in all my lecture I always
+  focus on finding a good trade-off between:
+
+  - big-picture ideas
+  - in-depth technical details
+
+  My ultimate belief is that topics, by themselves, are not
+  confusing. Explanations are confusing. I work to explore and construct
+  the best explanation possible for understanding each topic.
+
+  Example of series that I've finished:
+  - [OSCP Guide]
+  - [Practical Web Exploitation]
+  - [Linux Privilege Escalation]
+  - [Windows Privilege Escalation]
+
+  ----------------------------------------------------------------------
+
+  The focus in my video is never the `entertainment' in and of itself.
+
+  I make videos to `teach' about the ideas that I find interesting and
+  powerful.
+
+  In my videos I hope to convey what it means to become an `expert' in
+  these interesting yet complex fields.
+
+
+[OSCP Guide] <https://www.youtube.com/watch?v=HUmtfFKKWWc>
+
+[Practical Web Exploitation]
+<https://www.youtube.com/watch?v=ik2p4Rz4QzM>
+
+[Linux Privilege Escalation]
+<https://www.youtube.com/watch?v=5Un3ffzokJQ>
+
+[Windows Privilege Escalation]
+<https://www.youtube.com/watch?v=OmW7351U8cI>

@@ -15,6 +15,7 @@ Below you can find a table containing useful metadata for my videos.
 
 | ID | Title | Playlist | Pubblication Date | Video | Material | 
 | ---|-------|----------|-------------------|-------|----------| 
+| 129 | whoami | channel | 2025-04-02 | [link](https://youtu.be/m1_pqc40aQs) | [link](./src/2025-04-02-channel-04-whoami)
 | 128 | BSCP Guide: PortSwigger Web Security Academy | BSCP Guide | 2025-03-30 | [link](https://youtu.be/GS8mpL9nrmo) | [link](./src/2025-03-30-bscp-guide-02-portswigger-web-security-academy)
 | 127 | What is a Web Server? | Web | 2025-03-26 | [link](https://youtu.be/DR9xpwcd1hM) | [link](./src/2025-03-26-web-01-what-is-web-server)
 | 126 | CRITICAL Vulnerability in Next.js - Middleware Bypass - CVE-2025-29927 | cves | 2025-03-23 | [link](https://youtu.be/GcAAUEPXnKE) | [link](./src/2025-03-23-cves-03-CVE-2025-29927)
